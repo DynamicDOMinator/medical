@@ -141,8 +141,7 @@ export default function Navbar() {
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
 
   const staticLinks = [
-    { name: "About", href: "/about" },
-    { name: "Blogs", href: "/blogs" },
+    { name: "Provider", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 

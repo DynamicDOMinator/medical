@@ -37,7 +37,13 @@ const doctorSpecialties = [
     title: "Advanced Cardiac Care & Structural Heart Interventions",
     description:
       "Expert medical diagnosis, interventional consultation, and management for coronary artery disease, valvular heart disease (TAVR, MitraClip), and electrical heart disorders.",
-    symptoms: ["Chest pain", "Shortness of breath", "Palpitations", "Dizziness", "Fatigue"],
+    symptoms: [
+      "Chest pain",
+      "Shortness of breath",
+      "Palpitations",
+      "Dizziness",
+      "Fatigue",
+    ],
     symptomText:
       "can be caused by several different cardiovascular conditions. Our role is to identify the underlying cause through a careful clinical assessment and targeted diagnostic testing, then recommend the treatment that's most appropriate for your specific condition.",
     conditions: [
@@ -45,25 +51,29 @@ const doctorSpecialties = [
         name: "Coronary Artery Disease (CAD)",
         link: "/heart/cad",
         desc: "Complex coronary artery interventions and plaque management.",
-        image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Arrhythmias & Rhythm Disorders",
         link: "/heart/arrhythmias",
         desc: "Atrial fibrillation, electrical disturbances, and Holter monitoring.",
-        image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Valvular & Structural Disease",
         link: "/heart/valvular-heart-disease",
         desc: "Aortic stenosis (TAVR), MitraClip, ASD & PFO closure.",
-        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Congestive Heart Failure (CHF)",
         link: "/heart/chf",
         desc: "Advanced heart failure care & mechanical circulatory support.",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
       },
     ],
     hubLink: "/heart",
@@ -77,7 +87,13 @@ const doctorSpecialties = [
     title: "Peripheral Vascular & Endovascular Center",
     description:
       "Specialized interventional diagnosis for peripheral artery disease (PAD), deep vein thrombosis (DVT), pulmonary embolism, and hyperlipidemia.",
-    symptoms: ["Leg Pain", "Lower Limb Swelling", "Cold Feet / Numbness", "Cramping while Walking", "Skin Discoloration"],
+    symptoms: [
+      "Leg Pain",
+      "Lower Limb Swelling",
+      "Cold Feet / Numbness",
+      "Cramping while Walking",
+      "Skin Discoloration",
+    ],
     symptomText:
       "can signal underlying arterial blockages or venous reflux disease. Early vascular evaluation and ultrasound screening can prevent major complications.",
     conditions: [
@@ -85,25 +101,29 @@ const doctorSpecialties = [
         name: "Venous Insufficiency & Varicose",
         link: "/blood-vessels/venous-disease",
         desc: "Lower limb venous valve management and duplex ultrasound.",
-        image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Peripheral Artery Disease (PAD)",
         link: "/blood-vessels/peripheral-artery-disease",
         desc: "Endovascular intervention for leg arterial blockages.",
-        image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Thromboembolic & DVT Care",
         link: "/blood-vessels/thromboembolic-disease",
         desc: "Minimally invasive catheter procedures for DVT & Pulmonary Embolism.",
-        image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Hypertension & Lipidology",
         link: "/blood-vessels/hypertension",
         desc: "Atherosclerosis prevention, cholesterol & blood pressure control.",
-        image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
       },
     ],
     hubLink: "/blood-vessels",
@@ -117,7 +137,13 @@ const doctorSpecialties = [
     title: "Comprehensive Hypertension & Blood Pressure Management",
     description:
       "Expert evaluation, continuous monitoring, and tailored treatments for essential, secondary, and resistant hypertension to protect target organs and arterial health.",
-    symptoms: ["Headaches", "Chest Tightness", "Shortness of Breath", "Visual Changes", "Dizziness"],
+    symptoms: [
+      "Headaches",
+      "Chest Tightness",
+      "Shortness of Breath",
+      "Visual Changes",
+      "Dizziness",
+    ],
     symptomText:
       "are common warning indicators of uncontrolled high blood pressure. Precise diagnosis and multi-agent GDMT medication protocols protect long-term cardiovascular health.",
     conditions: [
@@ -125,25 +151,29 @@ const doctorSpecialties = [
         name: "Essential & High Blood Pressure",
         link: "/blood-vessels/hypertension",
         desc: "Individualized lifestyle and medical therapies to achieve optimal target blood pressure.",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Resistant & Complex Hypertension",
         link: "/blood-vessels/hypertension",
         desc: "Advanced diagnostic workup and multi-drug regimen optimization for hard-to-control blood pressure.",
-        image: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Hyperlipidemia & Lipid Control",
         link: "/blood-vessels/hypertension",
         desc: "Targeted cholesterol management, PCSK9 inhibitors, and cardiovascular risk reduction.",
-        image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Secondary Hypertension Screening",
         link: "/blood-vessels/hypertension",
         desc: "Specialized screening for renovascular, endocrine, and metabolic causes of high blood pressure.",
-        image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+        image:
+          "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
       },
     ],
     hubLink: "/blood-vessels/hypertension",
@@ -155,47 +185,56 @@ const diagnosticTests = [
   {
     name: "ECG",
     desc: "12-lead electrical rhythm tracing & arrhythmia detection.",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Echocardiography",
     desc: "3D valve motion, ejection fraction & wall ultrasound.",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Stress Testing",
     desc: "Treadmill & nuclear myocardial perfusion evaluation.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Holter Monitoring",
     desc: "Continuous 24–48 hr wearable ECG pulse recording.",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Ambulatory Blood Pressure Monitoring",
     desc: "24-hour continuous BP trend & nocturnal profiling.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "CT Coronary Angiography",
     desc: "High-resolution non-invasive coronary calcium & plaque CT.",
-    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Cardiac MRI",
     desc: "Detailed tissue characterization for cardiomyopathy & scar.",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Vascular Ultrasound",
     desc: "Arterial & venous duplex color Doppler flow imaging.",
-    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Blood Tests",
     desc: "Cardio-metabolic biomarkers, lipids, troponin & renal profile.",
-    image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -387,19 +426,22 @@ const faqData = [
     category: "Diagnostic Testing",
   },
   {
-    question: "How long does recovery take after a minimally invasive procedure like stenting?",
+    question:
+      "How long does recovery take after a minimally invasive procedure like stenting?",
     answer:
       "Most minimally invasive procedures (such as coronary angiography or stenting) are performed via radial artery access (wrist). Patients typically return home the same day or following overnight observation, returning to normal light activities within 48 to 72 hours.",
     category: "Procedures & Interventions",
   },
   {
-    question: "Can I get a second opinion on a recommended heart procedure or surgery?",
+    question:
+      "Can I get a second opinion on a recommended heart procedure or surgery?",
     answer:
       "Yes. Dr. Almahmoud frequently provides expert second opinions for complex coronary artery disease, structural valve decisions (such as TAVR vs surgical replacement), and vascular conditions to ensure patients have total clarity on all conservative and interventional options.",
     category: "Second Opinions",
   },
   {
-    question: "What should I do if I experience sudden severe chest pain or shortness of breath?",
+    question:
+      "What should I do if I experience sudden severe chest pain or shortness of breath?",
     answer:
       "If you experience sudden, severe crushing chest pain, pain radiating to your jaw or left arm, severe fainting, or acute shortness of breath, please call 911 or seek immediate emergency hospital emergency care.",
     category: "Emergency Guidance",
@@ -423,7 +465,6 @@ export default function HomeClient() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-            
             {/* Hero Main Headline */}
             <div className="space-y-6 text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -434,25 +475,36 @@ export default function HomeClient() {
               </h1>
 
               <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
-                From prevention and diagnosis to advanced cardiac interventions, we provide personalized care for every stage of your cardiovascular health.
+                From prevention and diagnosis to advanced cardiac interventions,
+                we provide personalized care for every stage of your
+                cardiovascular health.
               </p>
 
               {/* Action Buttons & Underline Link */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-blue-950 bg-gradient-to-r from-sky-300 via-sky-200 to-blue-200 hover:from-sky-200 hover:to-white transition-all duration-300 shadow-lg shadow-sky-400/20 hover-lift text-sm sm:text-base"
-                >
-                  <Calendar className="mr-2 h-5 w-5 text-blue-950" />
-                  Request Appointment
-                </Link>
+              <div className="flex flex-col items-center justify-center space-y-4 pt-2">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-blue-950 bg-gradient-to-r from-sky-300 via-sky-200 to-blue-200 hover:from-sky-200 hover:to-white transition-all duration-300 shadow-lg shadow-sky-400/20 hover-lift text-sm sm:text-base"
+                  >
+                    <Calendar className="mr-2 h-5 w-5 text-blue-950" />
+                    Request Appointment
+                  </Link>
 
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center text-sm sm:text-base text-sky-300 hover:text-white font-semibold underline underline-offset-4 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover-lift text-sm sm:text-base"
+                  >
+                    Book online
+                  </Link>
+                </div>
+
+                <a
+                  href="#doctor-specialties"
+                  className="inline-flex items-center text-sm sm:text-base text-sky-300 hover:text-white font-semibold underline underline-offset-4 transition-colors pt-1"
                 >
-                  Book online
-                </Link>
+                  Learn about your Symptoms
+                </a>
               </div>
             </div>
           </div>
@@ -534,7 +586,9 @@ export default function HomeClient() {
                   Personal Philosophy
                 </p>
                 <p className="italic text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-                  &ldquo;I believe every patient deserves a clear diagnosis, an understandable treatment plan, and enough time to ask questions.&rdquo;
+                  &ldquo;I believe every patient deserves a clear diagnosis, an
+                  understandable treatment plan, and enough time to ask
+                  questions.&rdquo;
                 </p>
               </div>
 
@@ -668,32 +722,29 @@ export default function HomeClient() {
         {/* Tab Content */}
         {currentCategory && (
           <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xl shadow-blue-900/5 transition-all duration-300 animate-fade-in-up">
-            
             {/* Symptoms Intro Section */}
             <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-slate-50 border border-blue-100 rounded-2xl p-6 mb-8 space-y-4">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-                    {currentCategory.id === "heart"
-                      ? "Many heart conditions share similar symptoms."
-                      : currentCategory.id === "vascular"
+              <div className="space-y-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
+                  {currentCategory.id === "heart"
+                    ? "Many heart conditions share similar symptoms."
+                    : currentCategory.id === "vascular"
                       ? "Many vascular conditions share similar symptoms."
                       : "Many blood pressure disorders share similar symptoms."}
-                  </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">
-                    Common warning indicators include:
-                  </p>
-                </div>
-                
-                {/* Symptom Tags */}
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-sm font-medium">
+                  Common warning indicators include:
+                </p>
+
+                {/* Symptom Tags (Stacked under text) */}
                 {currentCategory.symptoms && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 pt-1">
                     {currentCategory.symptoms.map((sym, i) => (
                       <span
                         key={i}
-                        className="inline-flex items-center px-3 py-1 bg-white border border-blue-200 text-blue-800 text-xs font-bold rounded-full shadow-2xs"
+                        className="inline-flex items-center px-3 py-1.5 bg-white border border-blue-200 text-blue-800 text-xs font-bold rounded-full shadow-2xs"
                       >
-                        <Heart className="mr-1.5 h-3 w-3 text-blue-600" />
+                        <Heart className="mr-1.5 h-3.5 w-3.5 text-blue-600 shrink-0" />
                         {sym}
                       </span>
                     ))}
@@ -757,25 +808,33 @@ export default function HomeClient() {
       </section>
 
       {/* 4. DIAGNOSIS TO PERSONALIZED TREATMENT PLAN SECTION */}
-      <section className="bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white py-20 overflow-hidden relative border-t border-blue-900/60">
+      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white py-20 overflow-hidden relative border-t border-blue-900/60">
         {/* Background glow effects */}
         <div className="absolute top-1/4 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
-          
           {/* Main Title & Overview */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center space-x-2 text-sky-300 text-xs font-extrabold uppercase tracking-wider bg-blue-500/20 px-3.5 py-1.5 rounded-full border border-blue-400/30">
-              <Microscope className="h-4 w-4 text-sky-400" />
-              <span>Evidence-Based Diagnostic Workflow</span>
-            </div>
+           
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Finding the Right Treatment Starts with the Right Diagnosis
+              Finding the{" "}
+              <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
+                Right Treatment
+              </span>{" "}
+              Starts with the{" "}
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-300 bg-clip-text text-transparent font-black">
+                Right Diagnosis
+              </span>
             </h2>
             <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-normal pt-2">
-              Many cardiovascular conditions can cause similar symptoms. Rather than using a one-size-fits-all approach, we perform a thorough evaluation and recommend only the tests that are appropriate for your symptoms and medical history. This allows us to identify the underlying cause and create a treatment plan tailored to your individual needs.
+              Many cardiovascular conditions can cause similar symptoms. Rather
+              than using a one-size-fits-all approach, we perform a thorough
+              evaluation and recommend only the tests that are appropriate for
+              your symptoms and medical history. This allows us to identify the
+              underlying cause and create a treatment plan tailored to your
+              individual needs.
             </p>
           </div>
 
@@ -797,10 +856,22 @@ export default function HomeClient() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { title: "Medical history", desc: "Detailed review of personal and family cardiac conditions." },
-                { title: "Physical examination", desc: "Targeted cardiovascular & vascular clinical exam." },
-                { title: "Review of previous investigations", desc: "In-depth review of past ECGs, labs, and imaging." },
-                { title: "Assessment of risk factors", desc: "Cardiovascular risk profiling and preventative analysis." },
+                {
+                  title: "Medical history",
+                  desc: "Detailed review of personal and family cardiac conditions.",
+                },
+                {
+                  title: "Physical examination",
+                  desc: "Targeted cardiovascular & vascular clinical exam.",
+                },
+                {
+                  title: "Review of previous investigations",
+                  desc: "In-depth review of past ECGs, labs, and imaging.",
+                },
+                {
+                  title: "Assessment of risk factors",
+                  desc: "Cardiovascular risk profiling and preventative analysis.",
+                },
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -834,9 +905,7 @@ export default function HomeClient() {
                   </p>
                 </div>
               </div>
-              <span className="text-xs text-blue-300 bg-blue-900/60 border border-blue-800 px-3 py-1 rounded-full self-start sm:self-auto">
-                9 Precision Diagnostics Available
-              </span>
+              
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -883,9 +952,6 @@ export default function HomeClient() {
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   Personalized Treatment Plan
                 </h3>
-                <p className="text-xs text-sky-300">
-                  Stepped horizontal progression from conservative care to advanced therapy
-                </p>
               </div>
             </div>
 
@@ -899,57 +965,56 @@ export default function HomeClient() {
                       className={`h-full bg-white/5 border border-white/10 hover:border-sky-400/50 p-6 rounded-3xl backdrop-blur-md transition-all duration-300 space-y-4 hover-lift flex flex-col justify-between ${stage.color}`}
                     >
                       <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <div className="p-2.5 rounded-xl bg-white/10 border border-white/15">
-                            <StageIcon className={`h-6 w-6 ${stage.iconColor}`} />
-                          </div>
-                          <span className={`text-xs font-black px-2.5 py-1 rounded-lg ${stage.badgeColor}`}>
-                            Stage {stage.step}
-                          </span>
+                        <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 w-fit">
+                          <StageIcon
+                            className={`h-6 w-6 ${stage.iconColor}`}
+                          />
                         </div>
                         <h4 className="font-extrabold text-lg text-white">
                           {stage.title}
                         </h4>
 
-                      <ul className="space-y-2 pt-2 border-t border-white/10 text-xs text-blue-100">
-                        {stage.items.map((item, i) => (
-                          <li key={i} className="flex items-center space-x-2">
-                            <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Step indicator arrow for desktop */}
-                    {idx < 3 && (
-                      <div className="hidden lg:flex items-center justify-center pt-2 text-sky-400 font-bold text-xs">
-                        <span>Next Step</span>
-                        <ArrowRight className="h-4 w-4 ml-1" />
+                        <ul className="space-y-2 pt-2 border-t border-white/10 text-xs text-blue-100">
+                          {stage.items.map((item, i) => (
+                            <li key={i} className="flex items-center space-x-2">
+                              <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
             </div>
 
             {/* Closing Philosophical Callout */}
-            <div className="bg-gradient-to-r from-blue-900/60 via-sky-900/40 to-slate-900 border border-sky-400/30 p-6 sm:p-8 rounded-3xl mt-8 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 backdrop-blur-md shadow-xl">
-              <div className="bg-sky-400/20 p-3.5 rounded-2xl shrink-0 border border-sky-400/30 text-sky-300">
-                <ShieldCheck className="h-8 w-8" />
+            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/40 p-6 sm:p-8 rounded-3xl mt-8 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 backdrop-blur-xl shadow-2xl">
+              <div className="bg-gradient-to-br from-sky-400/20 to-blue-600/20 p-3.5 rounded-2xl shrink-0 border border-sky-400/40 text-sky-300 shadow-md">
+                <ShieldCheck className="h-8 w-8 text-sky-400" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-base font-bold text-white">
+                <h4 className="text-base font-extrabold text-white tracking-wide">
                   Patient-Centered Treatment Philosophy
                 </h4>
-                <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
-                  &ldquo;Not every patient needs advanced procedures. Our goal is to recommend the least invasive treatment that will provide the best possible outcome for your specific condition. When more advanced interventions are appropriate, we&apos;ll discuss all available options and help you make an informed decision.&rdquo;
+                <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-normal">
+                  &ldquo;Not every patient needs advanced procedures. Our goal
+                  is to recommend the{" "}
+                  <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold">
+                    least invasive treatment
+                  </span>{" "}
+                  that will provide the{" "}
+                  <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold">
+                    best possible outcome
+                  </span>{" "}
+                  for your specific condition. When more advanced interventions are appropriate, we&apos;ll
+                  discuss all available options and help you make an informed
+                  decision.&rdquo;
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -957,7 +1022,6 @@ export default function HomeClient() {
       <section className="bg-slate-100/90 py-20 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-6 sm:p-12 shadow-xl border border-slate-200/80 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center overflow-hidden">
-            
             {/* Left Summary Box */}
             <div className="lg:col-span-5 space-y-6">
               <span className="text-xs font-black text-blue-600 uppercase tracking-widest">
@@ -972,11 +1036,17 @@ export default function HomeClient() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-full text-xs font-bold text-slate-800 hover:bg-blue-50 hover:text-blue-600 transition-colors shadow-2xs group"
                 >
-                  <svg className="w-4 h-4 text-red-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="w-4 h-4 text-red-500 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   <span>View on Google Maps</span>
-                  <span className="text-slate-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                  <span className="text-slate-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                    ↗
+                  </span>
                 </a>
               </div>
 
@@ -1006,16 +1076,17 @@ export default function HomeClient() {
 
             {/* Right Side: Animated Dual-Column Auto-Scrolling Vertical Marquee */}
             <div className="lg:col-span-7 relative h-[480px] overflow-hidden pause-on-hover rounded-2xl bg-slate-50/60 p-4 border border-slate-100">
-              
               {/* Fade Gradients top & bottom for smooth infinite scroll effect */}
               <div className="absolute top-0 inset-x-0 h-12 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none" />
               <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none" />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
-                
                 {/* Column 1 Scrolling UP */}
                 <div className="flex flex-col space-y-4 animate-marquee-vertical">
-                  {[...googleReviewsList.slice(0, 6), ...googleReviewsList.slice(0, 6)].map((review, idx) => (
+                  {[
+                    ...googleReviewsList.slice(0, 6),
+                    ...googleReviewsList.slice(0, 6),
+                  ].map((review, idx) => (
                     <div
                       key={idx}
                       className="bg-white border border-slate-200/80 p-5 rounded-2xl shadow-xs space-y-3 shrink-0"
@@ -1045,7 +1116,10 @@ export default function HomeClient() {
 
                 {/* Column 2 Scrolling DOWN */}
                 <div className="hidden sm:flex flex-col space-y-4 animate-marquee-vertical-reverse">
-                  {[...googleReviewsList.slice(6, 12), ...googleReviewsList.slice(6, 12)].map((review, idx) => (
+                  {[
+                    ...googleReviewsList.slice(6, 12),
+                    ...googleReviewsList.slice(6, 12),
+                  ].map((review, idx) => (
                     <div
                       key={idx}
                       className="bg-white border border-slate-200/80 p-5 rounded-2xl shadow-xs space-y-3 shrink-0"
@@ -1072,10 +1146,8 @@ export default function HomeClient() {
                     </div>
                   ))}
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -1083,15 +1155,12 @@ export default function HomeClient() {
       {/* 6. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200">
-            <HelpCircle className="h-4 w-4" />
-            <span>Frequently Asked Questions</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Got Questions? We Have Clear Answers.
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Everything you need to know about clinic visits, diagnostic testing, treatment options, and patient care with Dr. Almahmoud.
+            Everything you need to know about clinic visits, diagnostic testing,
+            treatment options, and patient care with Dr. Almahmoud.
           </p>
         </div>
 
@@ -1121,7 +1190,9 @@ export default function HomeClient() {
                   </div>
                   <div
                     className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? "bg-blue-600 text-white rotate-180" : "bg-slate-100 text-slate-600"
+                      isOpen
+                        ? "bg-blue-600 text-white rotate-180"
+                        : "bg-slate-100 text-slate-600"
                     }`}
                   >
                     <ChevronDown className="h-5 w-5" />
@@ -1133,9 +1204,6 @@ export default function HomeClient() {
                     <p className="pt-4 text-slate-700 font-normal">
                       {faq.answer}
                     </p>
-                    <div className="mt-4 flex items-center space-x-2 text-xs font-semibold text-blue-600 bg-blue-50/60 w-fit px-3 py-1 rounded-full border border-blue-100">
-                      <span>Category: {faq.category}</span>
-                    </div>
                   </div>
                 )}
               </div>
@@ -1150,7 +1218,8 @@ export default function HomeClient() {
               Still have questions about your care?
             </h4>
             <p className="text-xs text-slate-500">
-              Our clinical desk is ready to answer your specific medical questions.
+              Our clinical desk is ready to answer your specific medical
+              questions.
             </p>
           </div>
           <Link
@@ -1170,9 +1239,6 @@ export default function HomeClient() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
-              <span className="bg-blue-400/20 text-sky-300 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-blue-400/30">
-                Direct Specialist Consultation
-              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
                 Schedule Consultation with Dr. Almahmoud
               </h2>
