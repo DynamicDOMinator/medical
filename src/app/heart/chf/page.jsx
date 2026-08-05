@@ -200,7 +200,6 @@ export default function CHFPage() {
               <nav className="flex flex-col space-y-2 text-sm">
                 {[
                   ['#overview', 'What is Heart Failure?'],
-                  ['#types', 'HFrEF vs HFpEF'],
                   ['#symptoms', 'Symptoms & Signs'],
                   ['#diagnosis', 'Echo & Biomarkers'],
                   ['#gdmt', '4-Pillar GDMT Therapy'],
@@ -272,25 +271,6 @@ export default function CHFPage() {
                   <p className="text-xs uppercase tracking-wider font-bold text-sky-300">Clinical Insight</p>
                   <p className="text-sm font-bold mt-1 max-w-xs">Early GDMT initiation can reverse cardiac remodeling and improve LVEF by 10–15%.</p>
                 </div>
-              </div>
-            </section>
-
-            {/* TYPES */}
-            <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications of Heart Failure</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { type: 'HFrEF', label: 'Reduced Ejection Fraction', desc: 'The left ventricle contracts weakly, ejecting less than 40% of its blood volume per beat. Also called "systolic heart failure." Best evidence for GDMT benefit.', color: 'text-blue-600', bg: 'bg-blue-50' },
-                  { type: 'HFpEF', label: 'Preserved Ejection Fraction', desc: 'The ventricle contracts normally (EF ≥50%) but the heart muscle is stiff, preventing it from filling properly. Also called "diastolic heart failure." More common in elderly women.', color: 'text-amber-600', bg: 'bg-amber-50' },
-                  { type: 'HFmrEF', label: 'Mildly Reduced EF', desc: 'An intermediate category with EF between 41–49%, often representing a transitional state. Emerging evidence supports GDMT benefit.', color: 'text-yellow-700', bg: 'bg-yellow-50' },
-                  { type: 'Right HF', label: 'Right-Sided Heart Failure', desc: 'The right ventricle fails to pump blood to the lungs, causing systemic venous congestion, leg swelling, liver engorgement, and ascites.', color: 'text-red-600', bg: 'bg-red-50' },
-                ].map(item => (
-                  <div key={item.type} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${item.bg} ${item.color} uppercase`}>{item.type}</span>
-                    <h3 className="font-bold text-slate-800 text-base">{item.label}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
               </div>
             </section>
 

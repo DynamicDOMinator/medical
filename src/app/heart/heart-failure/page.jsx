@@ -49,10 +49,10 @@ export default function HeartFailurePage() {
             <div className="sticky top-24 bg-white border border-slate-200/80 rounded-2xl p-5 space-y-3 shadow-sm">
               <h3 className="font-bold text-slate-800 text-sm uppercase border-b pb-2">Guide Outline</h3>
               <nav className="flex flex-col space-y-1.5 text-sm text-slate-600">
-                {['#overview','#types','#symptoms','#diagnosis','#treatments','#living-with','#emergency','#faqs'].map((id, i) => (
+                {['#overview','#symptoms','#diagnosis','#treatments','#living-with','#emergency','#faqs'].map((id, i) => (
                   <a key={id} href={id} className="hover:text-orange-600 flex items-center py-0.5">
                     <ChevronRight className="h-4 w-4 mr-1 text-slate-400 shrink-0" />
-                    {['What is Heart Failure?','HF Classifications','Symptoms','Diagnosis','Treatment','Living With HF','Emergency Signs','FAQs'][i]}
+                    {['What is Heart Failure?','Symptoms','Diagnosis','Treatment','Living With HF','Emergency Signs','FAQs'][i]}
                   </a>
                 ))}
               </nav>
@@ -72,24 +72,6 @@ export default function HeartFailurePage() {
                   <Activity className="h-5 w-5 text-orange-500 shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-slate-500"><span className="font-semibold text-slate-700">Prevalence:</span> Over 6 million Americans live with heart failure. It is the leading cause of hospitalization in adults over 65 years of age.</p>
                 </div>
-              </div>
-            </section>
-
-            <section id="types" className="scroll-mt-20">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Classifications of Heart Failure</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { type: 'HFrEF', label: 'Reduced Ejection Fraction', desc: 'The left ventricle contracts weakly, ejecting less than 40% of its blood volume per beat. Also called "systolic heart failure."', color: 'text-orange-600', bg: 'bg-orange-50' },
-                  { type: 'HFpEF', label: 'Preserved Ejection Fraction', desc: 'The ventricle contracts normally (EF ≥50%) but the heart muscle is stiff, preventing it from filling properly. Also called "diastolic heart failure."', color: 'text-amber-600', bg: 'bg-amber-50' },
-                  { type: 'HFmrEF', label: 'Mildly Reduced EF', desc: 'An intermediate category with EF between 41–49%, often representing a transitional state between HFrEF and HFpEF.', color: 'text-yellow-700', bg: 'bg-yellow-50' },
-                  { type: 'Right HF', label: 'Right-Sided Heart Failure', desc: 'The right ventricle fails to pump blood to the lungs, causing systemic venous congestion, leg swelling, and liver enlargement.', color: 'text-red-600', bg: 'bg-red-50' },
-                ].map(item => (
-                  <div key={item.type} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${item.bg} ${item.color} uppercase`}>{item.type}</span>
-                    <h3 className="font-bold text-slate-800 text-base">{item.label}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
               </div>
             </section>
 
