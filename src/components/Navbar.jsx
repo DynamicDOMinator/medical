@@ -35,11 +35,6 @@ const heartDiseases = [
     href: "/heart/chf",
     desc: "Weakened or stiff heart muscle unable to pump effectively",
   },
-  {
-    name: "Hypertension (HTN)",
-    href: "/blood-vessels/hypertension",
-    desc: "High blood pressure & arterial stress",
-  },
 ];
 
 const bloodVesselDiseases = [
