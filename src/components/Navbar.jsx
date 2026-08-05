@@ -10,6 +10,7 @@ import {
   PhoneCall,
   ChevronDown,
   AlertCircle,
+  TrendingUp,
 } from "lucide-react";
 import { useState, useRef } from "react";
 
@@ -145,7 +146,7 @@ export default function Navbar() {
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
 
   const staticLinks = [
-    { name: "Hypertension", href: "/blood-vessels/hypertension" },
+    { name: "Hypertension", href: "/blood-vessels/hypertension", icon: TrendingUp },
     { name: "About", href: "/about" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "/contact" },
@@ -192,19 +193,23 @@ export default function Navbar() {
             {/* Divider */}
             <div className="h-5 w-px bg-slate-200 mx-1" />
 
-            {staticLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-semibold px-2.5 py-2 rounded-xl transition-all ${
-                  pathname === link.href
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {staticLinks.map((link) => {
+              const LinkIcon = link.icon;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`flex items-center space-x-1.5 text-sm font-semibold px-2.5 py-2 rounded-xl transition-all ${
+                    pathname === link.href
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
+                  }`}
+                >
+                  {LinkIcon && <LinkIcon className="h-4 w-4" />}
+                  <span>{link.name}</span>
+                </Link>
+              );
+            })}
 
             {/* CTA */}
             <a
@@ -344,20 +349,24 @@ export default function Navbar() {
             {/* Divider */}
             <div className="h-px bg-slate-100 my-2" />
 
-            {staticLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={`block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                  pathname === link.href
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-700 hover:bg-slate-50"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {staticLinks.map((link) => {
+              const LinkIcon = link.icon;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                    pathname === link.href
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  {LinkIcon && <LinkIcon className="h-4 w-4" />}
+                  <span>{link.name}</span>
+                </Link>
+              );
+            })}
 
             <a
               href="tel:+18005557857"
