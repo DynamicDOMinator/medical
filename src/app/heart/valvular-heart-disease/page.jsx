@@ -160,13 +160,6 @@ export default function ValvularHeartDiseasePage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-blue-100 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-extrabold text-slate-900">Structural Heart Center</p>
-                    <p className="text-[11px] text-blue-600 font-semibold">TAVR & MitraClip Procedures</p>
-                  </div>
-                  <span className="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">Advanced Care</span>
-                </div>
               </div>
             </div>
           </div>
