@@ -9,7 +9,6 @@ import {
   X,
   PhoneCall,
   ChevronDown,
-  Shield,
   Stethoscope,
   AlertCircle,
 } from "lucide-react";
@@ -35,6 +34,11 @@ const heartDiseases = [
     name: "Congestive Heart Failure (CHF)",
     href: "/heart/chf",
     desc: "Weakened or stiff heart muscle unable to pump effectively",
+  },
+  {
+    name: "Hypertension (HTN)",
+    href: "/blood-vessels/hypertension",
+    desc: "High blood pressure & vascular arterial stress",
   },
 ];
 
@@ -142,7 +146,6 @@ export default function Navbar() {
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
 
   const staticLinks = [
-    { name: "Hypertension", href: "/blood-vessels/hypertension" },
     { name: "About", href: "/about" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "/contact" },

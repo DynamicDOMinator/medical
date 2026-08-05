@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Droplets, ArrowRight, TrendingUp, Zap, GitBranch } from 'lucide-react';
+import { Droplets, ArrowRight, Zap, GitBranch } from 'lucide-react';
 
 export const metadata = {
   title: 'Blood Vessel Conditions | PulseCare Cardiology',
-  description: 'Explore patient guides for Venous Disease, Peripheral Artery Disease (PAD), Thromboembolic Disease, and Hypertension (HTN).',
+  description: 'Explore patient guides for Venous Disease, Peripheral Artery Disease (PAD), and Thromboembolic Disease.',
 };
 
 const bloodVesselDiseases = [
@@ -31,14 +31,6 @@ const bloodVesselDiseases = [
     description: 'Thrombus formation in deep veins (DVT) with risk of embolization to the pulmonary arteries (pulmonary embolism).',
     image: '/images/thromboembolic.png',
     icon: Zap,
-  },
-  {
-    slug: 'hypertension',
-    name: 'Hypertension (HTN)',
-    tagline: 'High blood pressure & vascular stress',
-    description: 'Chronically elevated arterial pressure exerting damaging force against vessel walls, leading to systemic organ complications.',
-    image: '/images/hypertension.png',
-    icon: TrendingUp,
   },
 ];
 
@@ -72,14 +64,14 @@ export default function BloodVesselsPage() {
             </div>
           </div>
           <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Explore our specialized patient guides for the primary vascular conditions — Venous Disease, Peripheral Artery Disease (PAD), Thromboembolic Disease, and Hypertension (HTN).
+            Explore our specialized patient guides for primary vascular conditions — Venous Disease, Peripheral Artery Disease (PAD), and Thromboembolic Disease.
           </p>
         </div>
       </div>
 
       {/* Disease Cards Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {bloodVesselDiseases.map((disease) => {
             return (
               <Link
