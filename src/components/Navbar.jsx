@@ -9,7 +9,6 @@ import {
   X,
   PhoneCall,
   ChevronDown,
-  Stethoscope,
   AlertCircle,
 } from "lucide-react";
 import { useState, useRef } from "react";
@@ -38,7 +37,7 @@ const heartDiseases = [
   {
     name: "Hypertension (HTN)",
     href: "/blood-vessels/hypertension",
-    desc: "High blood pressure & vascular arterial stress",
+    desc: "High blood pressure & arterial stress",
   },
 ];
 
@@ -87,7 +86,7 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
       onMouseLeave={handleMouseLeave}
     >
       <button
-        className={`flex items-center space-x-1.5 text-sm font-bold px-3.5 py-2 rounded-xl transition-all ${
+        className={`flex items-center space-x-1.5 text-sm font-bold px-3 py-2 rounded-xl transition-all ${
           open
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : "text-slate-700 hover:text-blue-600 hover:bg-blue-50"
@@ -146,6 +145,7 @@ export default function Navbar() {
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
 
   const staticLinks = [
+    { name: "Hypertension", href: "/blood-vessels/hypertension" },
     { name: "About", href: "/about" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "/contact" },
@@ -158,12 +158,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center space-x-2.5 group shrink-0"
+            className="flex items-center space-x-2 text-blue-950 group shrink-0"
           >
             <div className="bg-blue-600 p-2 rounded-xl text-white group-hover:bg-blue-700 transition-colors shadow-sm shadow-blue-500/30">
               <Heart className="h-5 w-5" fill="currentColor" />
             </div>
-            <span className="font-extrabold text-xl text-slate-900 tracking-tight">
+            <span className="font-extrabold text-xl tracking-tight">
               Pulse<span className="text-blue-600">Care</span>
             </span>
           </Link>
@@ -190,13 +190,13 @@ export default function Navbar() {
             />
 
             {/* Divider */}
-            <div className="h-5 w-px bg-slate-200 mx-1.5" />
+            <div className="h-5 w-px bg-slate-200 mx-1" />
 
             {staticLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold px-3 py-2 rounded-xl transition-all ${
+                className={`text-sm font-semibold px-2.5 py-2 rounded-xl transition-all ${
                   pathname === link.href
                     ? "bg-blue-50 text-blue-700"
                     : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
@@ -209,7 +209,7 @@ export default function Navbar() {
             {/* CTA */}
             <a
               href="tel:+18005557857"
-              className="ml-2 inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all shadow-md shadow-blue-600/20 shrink-0"
+              className="ml-1.5 inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all shadow-md shadow-blue-600/20 shrink-0"
             >
               <PhoneCall className="h-3.5 w-3.5" />
               <span>Call Clinic</span>
