@@ -202,7 +202,6 @@ export default function CHFPage() {
                   ['#overview', 'What is Heart Failure?'],
                   ['#symptoms', 'Symptoms & Signs'],
                   ['#diagnosis', 'Echo & Biomarkers'],
-                  ['#gdmt', '4-Pillar GDMT Therapy'],
                   ['#devices', 'Device Therapy'],
                   ['#lifestyle', 'Living With CHF'],
                   ['#faqs', 'Patient FAQs'],
@@ -341,36 +340,6 @@ export default function CHFPage() {
                     className="object-cover"
                   />
                 </div>
-              </div>
-            </section>
-
-            {/* GDMT 4 PILLARS */}
-            <section id="gdmt" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <ShieldCheck className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Evidence-Based Therapy</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">4 Pillars of GDMT Heart Failure Therapy</h2>
-                </div>
-              </div>
-
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Guideline-Directed Medical Therapy (GDMT) for HFrEF consists of four drug classes proven to reduce mortality, hospitalizations, and improve cardiac function. All four should be initiated and optimized simultaneously when tolerated.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {gdmtPillars.map((p, i) => (
-                  <div key={p.drug} className={`p-5 rounded-2xl border ${p.bg} border-slate-200/80 space-y-2`}>
-                    <div className="flex items-center space-x-2">
-                      <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full bg-white border ${p.color}`}>Pillar {i + 1}</span>
-                    </div>
-                    <h4 className={`font-extrabold text-sm ${p.color}`}>{p.drug}</h4>
-                    <p className="text-slate-500 text-[11px] italic">{p.example}</p>
-                    <p className="text-slate-700 text-xs leading-relaxed">{p.action}</p>
-                  </div>
-                ))}
               </div>
             </section>
 
