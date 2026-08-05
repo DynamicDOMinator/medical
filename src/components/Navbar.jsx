@@ -146,7 +146,6 @@ export default function Navbar() {
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
 
   const staticLinks = [
-    { name: "Hypertension", href: "/blood-vessels/hypertension", icon: TrendingUp },
     { name: "About", href: "/about" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "/contact" },
@@ -189,27 +188,34 @@ export default function Navbar() {
               icon={AlertCircle}
               categoryHref="/symptom/palpitations"
             />
+            <Link
+              href="/blood-vessels/hypertension"
+              className={`flex items-center space-x-1.5 text-sm font-bold px-3 py-2 rounded-xl transition-all ${
+                pathname === "/blood-vessels/hypertension"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                  : "text-slate-700 hover:text-blue-600 hover:bg-blue-50"
+              }`}
+            >
+              <TrendingUp className="h-4 w-4" />
+              <span>Hypertension</span>
+            </Link>
 
             {/* Divider */}
-            <div className="h-5 w-px bg-slate-200 mx-1" />
+            <div className="h-5 w-px bg-slate-200 mx-1.5" />
 
-            {staticLinks.map((link) => {
-              const LinkIcon = link.icon;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`flex items-center space-x-1.5 text-sm font-semibold px-2.5 py-2 rounded-xl transition-all ${
-                    pathname === link.href
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
-                  }`}
-                >
-                  {LinkIcon && <LinkIcon className="h-4 w-4" />}
-                  <span>{link.name}</span>
-                </Link>
-              );
-            })}
+            {staticLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-semibold px-3 py-2 rounded-xl transition-all ${
+                  pathname === link.href
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-slate-600 hover:text-blue-600 hover:bg-slate-50"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
 
             {/* CTA */}
             <a
@@ -346,27 +352,33 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Hypertension Mobile Link */}
+            <Link
+              href="/blood-vessels/hypertension"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+            >
+              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <span>Hypertension</span>
+            </Link>
+
             {/* Divider */}
             <div className="h-px bg-slate-100 my-2" />
 
-            {staticLinks.map((link) => {
-              const LinkIcon = link.icon;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                    pathname === link.href
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-700 hover:bg-slate-50"
-                  }`}
-                >
-                  {LinkIcon && <LinkIcon className="h-4 w-4" />}
-                  <span>{link.name}</span>
-                </Link>
-              );
-            })}
+            {staticLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                  pathname === link.href
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
 
             <a
               href="tel:+18005557857"
