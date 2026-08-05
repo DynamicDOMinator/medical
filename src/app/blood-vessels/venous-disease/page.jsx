@@ -266,32 +266,13 @@ export default function VenousDiseasePage() {
               </div>
 
               {/* Overview Medical Image Banner */}
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                    alt="Doctor Examining Venous Circulation"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Key Progression Stages:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>Stage C1-C2:</strong> Telangiectasias (spider veins) & varicose veins.</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>Stage C3:</strong> Ankle & calf edema worsening by evening.</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>Stage C4-C6:</strong> Skin browning, stasis dermatitis & active stasis ulcers.</span>
-                    </li>
-                  </ul>
-                </div>
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
+                  alt="Doctor Examining Venous Circulation"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,6 +15,7 @@ import {
   HeartPulse,
   FileText,
   Droplets,
+  Apple,
 } from "lucide-react";
 import FAQAccordion from "@/components/FAQAccordion";
 
@@ -32,102 +32,105 @@ export default function CHFPage() {
         "LVEF measures the percentage of blood pumped out of the left ventricle with each contraction. Normal LVEF is 50–70%. An LVEF below 40% indicates heart failure with reduced ejection fraction (HFrEF), which responds well to guideline-directed medications.",
     },
     {
-      question:
-        "What are GDMT guideline-directed medical therapies for heart failure?",
+      question: "What are guideline-directed medical therapies for heart failure?",
       answer:
-        "GDMT comprises 4 foundational pillars of medical therapy that dramatically improve survival: ARNI/ACEi/ARB (reduce cardiac workload), Beta-Blockers (protect from arrhythmias), Mineralocorticoid Receptor Antagonists (MRA) (prevent fibrosis), and SGLT2 Inhibitors (reduce hospitalizations).",
+        "GDMT comprises 4 foundational pillars of medical therapy that dramatically improve survival: ARNI/ACEi/ARB, Beta-Blockers, MRAs, and SGLT2 Inhibitors.",
     },
     {
       question: "Can heart failure be cured?",
       answer:
-        "Heart failure is generally a chronic, progressive condition rather than a curable disease. However, with the right combination of GDMT medications, device therapy (ICD/CRT), lifestyle modifications, and sometimes LVAD or transplant, many patients achieve significant symptom improvement and near-normal quality of life.",
+        "Heart failure is generally a chronic condition, but with modern medications, device therapy (ICD/CRT), and lifestyle modifications, many patients achieve near-normal quality of life.",
+    },
+  ];
+
+  const typesList = [
+    {
+      name: "Heart Failure with Reduced EF (HFrEF)",
+      tag: "Systolic HF",
+      desc: "Left ventricular ejection fraction is ≤40%. The heart muscle is weakened and cannot contract with normal force.",
+      color: "text-blue-700",
+      bg: "bg-blue-50",
+    },
+    {
+      name: "Heart Failure with Preserved EF (HFpEF)",
+      tag: "Diastolic HF",
+      desc: "Ejection fraction remains ≥50%, but heart muscle is stiff and unable to relax and fill properly during diastole.",
+      color: "text-indigo-700",
+      bg: "bg-indigo-50",
+    },
+    {
+      name: "Mildly Reduced EF (HFmrEF)",
+      tag: "Intermediate State",
+      desc: "Ejection fraction ranges between 41–49%, representing a transitional state that benefits from tailored medical therapy.",
+      color: "text-purple-700",
+      bg: "bg-purple-50",
+    },
+    {
+      name: "Right-Sided Heart Failure",
+      tag: "Systemic Congestion",
+      desc: "Right ventricle fails to effectively pump blood to the lungs, causing fluid backlog, peripheral leg edema, and liver engorgement.",
+      color: "text-amber-700",
+      bg: "bg-amber-50",
     },
   ];
 
   const symptomList = [
     {
       title: "Shortness of Breath (Dyspnea)",
-      desc: "Breathlessness during routine exertion, lying flat (orthopnea), or waking up gasping at night (paroxysmal nocturnal dyspnea).",
+      desc: "Breathlessness during routine exertion, lying flat (orthopnea), or waking up gasping at night.",
       icon: Clock,
     },
     {
       title: "Fluid Retention & Edema",
-      desc: "Rapid weight gain, leg/ankle swelling, and abdominal bloating (ascites) due to venous blood backlog and elevated venous pressure.",
+      desc: "Rapid weight gain, leg/ankle swelling, and abdominal bloating due to fluid accumulation.",
       icon: Droplets,
     },
     {
       title: "Persistent Coughing & Wheezing",
-      desc: "Cough producing white or pink blood-tinged phlegm caused by pulmonary fluid congestion in the alveoli.",
+      desc: "Cough producing white or pink blood-tinged phlegm caused by pulmonary congestion.",
       icon: AlertTriangle,
     },
     {
-      title: "Profound Fatigue & Exercise Intolerance",
-      desc: "Feeling constantly exhausted due to reduced oxygen delivery to working skeletal muscles and tissues.",
+      title: "Profound Fatigue & Weakness",
+      desc: "Constant tiredness caused by reduced cardiac output and tissue oxygen delivery.",
       icon: Info,
     },
     {
       title: "Rapid Heart Rate (Tachycardia)",
-      desc: "The heart compensates for reduced output by beating faster, causing awareness of rapid or irregular palpitations.",
+      desc: "The heart compensates for reduced output by beating faster to maintain perfusion.",
       icon: HeartPulse,
     },
     {
-      title: "Reduced Urination (Oliguria)",
-      desc: "Decreased kidney perfusion due to reduced cardiac output leads to water and sodium retention.",
+      title: "Reduced Urination & Fluid Weight",
+      desc: "Decreased kidney perfusion leads to sodium retention and rapid fluid buildup.",
       icon: Activity,
     },
   ];
 
-  const gdmtPillars = [
+  const treatments = [
     {
-      drug: "ARNI / ACEi / ARB",
-      example: "Sacubitril-Valsartan, Lisinopril, Losartan",
-      action:
-        "Reduces cardiac preload and afterload by blocking the renin-angiotensin system, preventing ventricular remodeling.",
-      color: "text-blue-700",
-      bg: "bg-blue-50",
+      title: "Guideline-Directed Medical Therapy (GDMT)",
+      desc: "Combination of ARNI/ACEi, Beta-Blockers, MRA, and SGLT2 inhibitors to improve heart function and survival.",
+      duration: "Daily Medication",
+      recovery: "Long-term Management",
     },
     {
-      drug: "Beta-Blockers",
-      example: "Carvedilol, Metoprolol Succinate, Bisoprolol",
-      action:
-        "Blocks excessive adrenergic stimulation, reduces resting heart rate, prevents sudden cardiac death from arrhythmias.",
-      color: "text-indigo-700",
-      bg: "bg-indigo-50",
+      title: "ICD (Implantable Cardioverter Defibrillator)",
+      desc: "Device that detects life-threatening ventricular arrhythmias and delivers shocks to restore normal rhythm.",
+      duration: "Minor Surgery",
+      recovery: "1–2 Weeks",
     },
     {
-      drug: "Mineralocorticoid Receptor Antagonists (MRA)",
-      example: "Spironolactone, Eplerenone",
-      action:
-        "Blocks aldosterone to prevent cardiac fibrosis, reduces fluid retention, and lowers mortality in HFrEF.",
-      color: "text-purple-700",
-      bg: "bg-purple-50",
+      title: "CRT (Cardiac Resynchronization Therapy)",
+      desc: "Biventricular pacemaker that resynchronizes left and right ventricular contractions.",
+      duration: "1–2 Hours",
+      recovery: "1 Week",
     },
     {
-      drug: "SGLT2 Inhibitors",
-      example: "Dapagliflozin, Empagliflozin",
-      action:
-        "Reduces hospitalizations and cardiovascular death through diuretic, cardioprotective, and renal-protective mechanisms.",
-      color: "text-emerald-700",
-      bg: "bg-emerald-50",
-    },
-  ];
-
-  const procedures = [
-    {
-      title: "ICD (Defibrillator)",
-      desc: "An implanted device that detects life-threatening arrhythmias and delivers a corrective shock to restore normal rhythm. Indicated for LVEF ≤35%.",
-    },
-    {
-      title: "CRT (Biventricular Pacemaker)",
-      desc: "Resynchronizes the timing of the left and right ventricles, improving pumping efficiency in patients with wide QRS bundle branch block.",
-    },
-    {
-      title: "LVAD (Ventricular Assist Device)",
-      desc: "A mechanical pump implanted to take over the work of the failing left ventricle as a bridge to transplant or permanent destination therapy.",
-    },
-    {
-      title: "Heart Transplantation",
-      desc: "For end-stage refractory heart failure, cardiac transplantation remains the definitive curative option with excellent long-term outcomes.",
+      title: "Advanced Mechanical Support (LVAD / Transplant)",
+      desc: "Surgical pump or organ transplantation for end-stage refractory heart failure.",
+      duration: "Surgical",
+      recovery: "In-patient Rehab",
     },
   ];
 
@@ -162,9 +165,8 @@ export default function CHFPage() {
                 <span className="animated-gradient-text">Failure (CHF)</span>
               </h1>
               <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Clinical management guide to Ejection Fraction (LVEF), HFrEF vs
-                HFpEF, the 4-pillar GDMT medications, device therapy, and remote
-                cardiac monitoring by Dr. Mohamed Faher Almahmoud.
+                Comprehensive clinical guide to Ejection Fraction (LVEF), HFrEF vs
+                HFpEF, GDMT medications, ICD/CRT device therapy, and self-management by Dr. Mohamed Faher Almahmoud.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
@@ -176,11 +178,11 @@ export default function CHFPage() {
                   Schedule Heart Failure Evaluation
                 </Link>
                 <a
-                  href="#gdmt"
+                  href="#treatment"
                   className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
                 >
                   <Activity className="mr-2 h-4 w-4 text-sky-300" />
-                  4-Pillar GDMT Therapy
+                  Treatments & Devices
                 </a>
               </div>
             </div>
@@ -208,16 +210,17 @@ export default function CHFPage() {
             <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
               <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
                 <FileText className="h-4 w-4 text-blue-600" />
-                <span>CHF Guide Sections</span>
+                <span>CHF Guide Outline</span>
               </h3>
               <nav className="flex flex-col space-y-2 text-sm">
                 {[
-                  ["#overview", "What is Heart Failure?"],
-                  ["#symptoms", "Symptoms & Signs"],
-                  ["#diagnosis", "Echo & Biomarkers"],
-                  ["#devices", "Device Therapy"],
-                  ["#lifestyle", "Living With CHF"],
-                  ["#faqs", "Patient FAQs"],
+                  ["#overview", "Overview"],
+                  ["#types", "Classifications & Types"],
+                  ["#symptoms", "Symptoms"],
+                  ["#diagnosis", "Diagnostic Testing"],
+                  ["#treatment", "Treatment & Procedures"],
+                  ["#living-with", "Living with CHF"],
+                  ["#faqs", "FAQs"],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -229,6 +232,7 @@ export default function CHFPage() {
                   </a>
                 ))}
               </nav>
+
               <div className="pt-4 border-t border-slate-100">
                 <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
                   <p className="text-xs font-bold text-blue-900">
@@ -248,8 +252,9 @@ export default function CHFPage() {
             </div>
           </div>
 
+          {/* Main Sections */}
           <div className="lg:col-span-9 space-y-12">
-            {/* OVERVIEW */}
+            {/* 1. OVERVIEW (USE IMAGE) */}
             <section
               id="overview"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
@@ -260,63 +265,53 @@ export default function CHFPage() {
                 </div>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Myocardial Performance
+                    Heart Function Overview
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    What is Heart Failure?
+                    What is Congestive Heart Failure?
                   </h2>
                 </div>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Heart Failure (HF) does not mean the heart has stopped
-                  working; rather, it means the heart muscle is unable to pump
-                  sufficient blood volume to supply oxygen to tissues and
-                  organs. As a result, vital organs receive less oxygen and
-                  nutrients than they need.
+                  Congestive Heart Failure (CHF) occurs when the heart muscle becomes incapable of pumping sufficient blood to meet the body's metabolic requirements, or requires abnormally elevated filling pressures to do so.
                 </p>
                 <p>
-                  Heart failure develops when another cardiac condition damages
-                  or overworks the heart muscle. The most common causes include
-                  coronary artery disease, high blood pressure (hypertension),
-                  past heart attacks, diabetes, and valvular heart disease.
+                  When cardiac output drops, blood backing up into the pulmonary veins and peripheral circulation causes fluid leakage into the lungs, legs, and liver—resulting in congestion, shortness of breath, and fatigue.
                 </p>
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-start space-x-3">
-                  <Activity className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-slate-500">
-                    <span className="font-semibold text-slate-700">
-                      Prevalence:
-                    </span>{" "}
-                    Over 6 million Americans live with heart failure. It is the
-                    leading cause of hospitalization in adults over 65 years of
-                    age, costing the healthcare system over $30 billion
-                    annually.
-                  </p>
-                </div>
               </div>
 
-              <div className="mt-8 relative h-60 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+              {/* Banner Medical Image */}
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80"
-                  alt="Heart Failure Clinical Overview"
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiac Ultrasound Echocardiogram"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 to-transparent" />
-                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-white">
-                  <p className="text-xs uppercase tracking-wider font-bold text-sky-300">
-                    Clinical Insight
-                  </p>
-                  <p className="text-sm font-bold mt-1 max-w-xs">
-                    Early GDMT initiation can reverse cardiac remodeling and
-                    improve LVEF by 10–15%.
-                  </p>
-                </div>
               </div>
             </section>
 
-            {/* SYMPTOMS */}
+            {/* 2. TYPES */}
+            <section id="types" className="scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
+                Classifications & Types of Heart Failure
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {typesList.map((t) => (
+                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 3. SYMPTOMS (USE ICONS) */}
             <section
               id="symptoms"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
@@ -327,7 +322,7 @@ export default function CHFPage() {
                 </div>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Warning Signs
+                    Clinical Signs
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                     Symptoms of Heart Failure
@@ -360,166 +355,164 @@ export default function CHFPage() {
               </div>
             </section>
 
-            {/* DIAGNOSIS */}
-            <section id="diagnosis" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
-                Diagnostic Investigations
-              </h2>
-              <div className="space-y-3">
-                {[
-                  {
-                    abbr: "ECHO",
-                    name: "Echocardiogram",
-                    desc: "The cornerstone of HF diagnosis — directly measures ejection fraction, wall motion, valve function, and filling pressures via Doppler ultrasound.",
-                  },
-                  {
-                    abbr: "BNP",
-                    name: "BNP / NT-proBNP Blood Test",
-                    desc: "A biomarker hormone released by stressed heart muscle. Elevated levels strongly indicate heart failure and help assess severity and treatment response.",
-                  },
-                  {
-                    abbr: "CXR",
-                    name: "Chest X-Ray",
-                    desc: "Identifies cardiomegaly (enlarged heart shadow) and pulmonary congestion (butterfly wing pattern of fluid in the lungs).",
-                  },
-                  {
-                    abbr: "CATH",
-                    name: "Right Heart Catheterization",
-                    desc: "Measures intracardiac filling pressures directly (PCWP, PAP) — essential for guiding therapy in advanced heart failure and transplant evaluation.",
-                  },
-                ].map((d) => (
-                  <div
-                    key={d.abbr}
-                    className="bg-white border border-slate-200/80 rounded-2xl p-5 flex space-x-4"
-                  >
-                    <div className="bg-blue-50 text-blue-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0">
-                      {d.abbr}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-sm">
-                        {d.name}
-                      </h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
-                        {d.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            <section
+              id="diagnosis"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Stethoscope className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Diagnostic Workup
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Diagnosis & Testing
+                  </h2>
+                </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                  <Image
-                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80"
-                    alt="Echocardiogram Heart Failure Diagnosis"
-                    fill
-                    className="object-cover"
-                  />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Comprehensive evaluation determines the underlying etiology and guides precise medical and device interventions:
+                  </p>
+                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Tools:</h4>
+                    <ul className="space-y-1.5 text-xs text-slate-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Echocardiogram:</strong> Calculates LVEF, measures chamber sizes and valve gradients.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>NT-proBNP Biomarker:</strong> Measures wall stress to diagnose fluid overload.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Cardiac MRI / PET:</strong> Evaluates myocardial tissue viability and scar burden.</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                  <Image
-                    src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80"
-                    alt="Cardiac Biomarker Blood Testing"
-                    fill
-                    className="object-cover"
-                  />
+
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                      alt="Cardiac Imaging Evaluation"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
 
-            {/* DEVICE THERAPY */}
-            <section id="devices" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
-                Device & Surgical Therapies
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {procedures.map((t) => (
+            {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
+            <section
+              id="treatment"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Activity className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Clinical Interventions
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Treatment & Procedures
+                  </h2>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                {treatments.map((t) => (
                   <div
                     key={t.title}
-                    className="border border-slate-100 p-5 rounded-2xl bg-white shadow-xs"
+                    className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all"
                   >
-                    <h4 className="font-bold text-slate-800 text-sm mb-1.5">
-                      {t.title}
-                    </h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">
+                        {t.title}
+                      </h3>
+                      <div className="flex items-center space-x-2">
+                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
+                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                      </div>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       {t.desc}
                     </p>
                   </div>
                 ))}
               </div>
+
+              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=2000&q=80"
+                  alt="Cath Lab Procedure Room"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Advanced Cardiac Suite</p>
+                  <p className="text-sm font-bold">Implantable cardioverter-defibrillators & CRT pacing therapies.</p>
+                </div>
+              </div>
             </section>
 
-            {/* LIVING WITH CHF */}
+            {/* 6. LIVING WITH CHF */}
             <section
-              id="lifestyle"
+              id="living-with"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Heart className="h-6 w-6 text-blue-600" />
+                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
                     Self-Management
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Living With Heart Failure
+                    Living with CHF & Self-Care
                   </h2>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-slate-50 p-5 rounded-2xl space-y-3">
-                  <h3 className="font-bold text-slate-800 text-base">
-                    Daily Monitoring
-                  </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Droplets className="h-5 w-5 text-blue-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Fluid & Sodium Restriction</h4>
+                  </div>
                   <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>Weigh yourself every morning before eating</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>
-                        Call doctor if weight increases &gt;2 lbs overnight or 5
-                        lbs in a week
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>
-                        Monitor blood pressure and heart rate twice daily
-                      </span>
-                    </li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Daily morning weight monitoring before eating</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Limit sodium intake to &lt;2,000 mg daily</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Report 2–3 lb weight gain in 24 hours to clinic</span></li>
                   </ul>
                 </div>
-                <div className="bg-slate-50 p-5 rounded-2xl space-y-3">
-                  <h3 className="font-bold text-slate-800 text-base">
-                    Diet & Fluid Restrictions
-                  </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Apple className="h-5 w-5 text-emerald-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Exercise & Medication Compliance</h4>
+                  </div>
                   <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>Limit sodium to under 2,000 mg per day</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>
-                        Restrict fluid to 1.5–2 liters daily if prescribed
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
-                      <span>
-                        Avoid alcohol — it directly weakens heart muscle
-                      </span>
-                    </li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Take GDMT medications strictly as prescribed</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Tailored cardiac rehabilitation exercise protocol</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Avoid NSAID painkillers which trigger fluid retention</span></li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            {/* FAQS */}
+            {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
                 <span className="text-xs font-bold uppercase tracking-wider text-blue-600">

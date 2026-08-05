@@ -1,62 +1,94 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Activity, ShieldAlert, HeartPulse, Stethoscope, CheckCircle2, ChevronRight, BookOpen, UserCheck, Flame, Compass } from 'lucide-react';
+import Link from 'next/link';
+import {
+  Heart,
+  CheckCircle,
+  AlertTriangle,
+  ChevronRight,
+  Info,
+  Stethoscope,
+  Activity,
+  ShieldCheck,
+  HeartPulse,
+  FileText,
+  Clock,
+  Zap,
+  Apple,
+} from 'lucide-react';
 import FAQAccordion from '@/components/FAQAccordion';
 
 export default function PalpitationsPage() {
-  const [activeTreatmentTab, setActiveTreatmentTab] = useState('lifestyle');
-
   const faqs = [
     {
       question: 'Can anxiety alone cause severe palpitations?',
-      answer: 'Absolutely. When you experience anxiety or panic, your sympathetic nervous system releases a surge of adrenaline. This "fight-or-flight" hormone directly triggers your sinoatrial node, increasing heart rate and contractility. This causes your heart to beat faster and harder, which you perceive as palpitations. Managing stress, performing breathing exercises, and cognitive behavioral therapy can dramatically reduce their frequency.',
+      answer:
+        'Yes. When you experience anxiety or panic, your sympathetic nervous system releases a surge of adrenaline. This directly triggers your sinoatrial node, causing your heart to beat faster and harder.',
     },
     {
       question: 'Are palpitations always a sign of a dangerous heart condition?',
-      answer: 'No. In fact, the vast majority of palpitations are benign and not caused by structural heart disease. They are frequently linked to lifestyle factors like high caffeine consumption, stress, dehydration, lack of sleep, or hormonal changes. However, because they can occasionally indicate underlying electrical issues (arrhythmias), they should always be evaluated by a healthcare professional to rule out cardiac problems.',
+      answer:
+        'No. Most palpitations are benign and linked to caffeine, stress, dehydration, or poor sleep. However, an ECG or Holter monitor is recommended to rule out underlying arrhythmias.',
     },
     {
       question: 'What is a vagal maneuver, and how does it help?',
-      answer: 'Vagal maneuvers are physical actions that stimulate the vagus nerve, which in turn signals the heart to slow down. Examples include coughing, bearing down (as if having a bowel movement), or splashing ice-cold water on your face. These are sometimes used to stop episodes of rapid heartbeats (like SVT), but you should only perform them under the guidance of a physician.',
+      answer:
+        'Vagal maneuvers (such as bearing down or coughing) stimulate the vagus nerve to slow down an abnormally rapid heart rate during SVT episodes.',
     },
   ];
 
-  const relatedConditions = [
+  const typesList = [
     {
-      title: 'Arrhythmias',
-      description: 'Irregular heartbeats including rapid, slow, or chaotic patterns.',
-      subTypes: ['Atrial Fibrillation (AFib)', 'Supraventricular Tachycardia (SVT)', 'Premature Ventricular Contractions (PVCs)'],
-      href: '#',
+      name: 'Premature Contractions (PVCs / PACs)',
+      tag: 'Most Common',
+      desc: 'Early heartbeats originating in the atria (PACs) or ventricles (PVCs) followed by a brief pause and a compensatory strong beat.',
+      color: 'text-blue-700',
+      bg: 'bg-blue-50',
     },
     {
-      title: 'Valvular Heart Disease',
-      description: 'Damage or defect in one of the four heart valves restricting flow.',
-      subTypes: [],
-      href: '#',
+      name: 'Supraventricular Tachycardia (SVT)',
+      tag: 'Rapid Rhythm',
+      desc: 'Sudden episodes of very rapid heartbeats (150–220 bpm) originating above the ventricles, often due to an extra electrical pathway.',
+      color: 'text-purple-700',
+      bg: 'bg-purple-50',
     },
     {
-      title: 'Heart Failure',
-      description: 'Chronic weakness of the heart muscle limiting pumping efficiency.',
-      subTypes: [],
-      href: '#',
+      name: 'Atrial Fibrillation (AFib)',
+      tag: 'Irregular Rhythm',
+      desc: 'Chaotic, rapid electrical signals in the upper chambers leading to an irregularly irregular heart rate and elevated stroke risk.',
+      color: 'text-amber-700',
+      bg: 'bg-amber-50',
     },
     {
-      title: 'Hypertension',
-      description: 'Chronic high blood pressure straining arterial walls and heart muscle.',
-      subTypes: [],
-      href: '#',
+      name: 'Ventricular Tachycardia (VT)',
+      tag: 'Medical Emergency',
+      desc: 'Fast rhythm originating in the ventricles, often associated with structural heart disease or scar tissue. Requires immediate medical care.',
+      color: 'text-red-700',
+      bg: 'bg-red-50',
     },
+  ];
+
+  const symptoms = [
+    { title: 'Skipped Beats & Pauses', desc: 'Sensation that your heart hesitated or skipped a beat, followed by a heavy thump.', icon: HeartPulse },
+    { title: 'Fluttering in Chest', desc: 'Feeling like a butterfly or flip-flopping motion inside the central chest wall.', icon: Activity },
+    { title: 'Rapid Pounding Pulse', desc: 'Forceful thumping felt in the chest, neck, or throat even while resting.', icon: Zap },
+    { title: 'Lightheadedness & Dizziness', desc: 'Transient cerebral hypoperfusion during rapid paroxysmal arrhythmia spikes.', icon: AlertTriangle },
+    { title: 'Shortness of Breath', desc: 'Breathlessness accompanying sudden palpitations as cardiac filling efficiency drops.', icon: Clock },
+    { title: 'Chest Tightness', desc: 'Discomfort during prolonged tachycardia or when associated with underlying CAD.', icon: Heart },
+  ];
+
+  const treatments = [
+    { name: 'Ambulatory Holter & Patch Monitoring', desc: 'Continuous 24-hr to 14-day wearable ECG recording to capture irregular rhythm episodes.', duration: '24 hr – 14 Days', recovery: 'Non-invasive' },
+    { name: 'Catheter Ablation', desc: 'Minimally invasive radiofrequency or cryo energy ablation of abnormal electrical pathways causing SVT or AFib.', duration: '1–3 Hours', recovery: '1–2 Days' },
+    { name: 'Anti-Arrhythmic & Beta-Blocker Drugs', desc: 'Metoprolol, Bisoprolol, or Flecainide to stabilize sinus rhythm and control heart rate spikes.', duration: 'Daily Protocol', recovery: 'Long-term Control' },
+    { name: 'Lifestyle & Stimulant Removal', desc: 'Caffeine reduction, stress management, hydration, and electrolyte optimization.', duration: 'Ongoing', recovery: 'Immediate Relief' },
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
-      
-      {/* Page Header / Hero */}
-      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-20 relative overflow-hidden">
-        {/* Background Image & Overlay */}
+    <div className="bg-slate-50 min-h-screen pb-24">
+      {/* HERO */}
+      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=2000&q=80"
@@ -65,380 +97,325 @@ export default function PalpitationsPage() {
             className="object-cover object-center opacity-65"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-blue-950/60 to-slate-900/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/70 to-slate-900/50" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <span className="bg-cyan-500/20 border border-cyan-500/35 text-cyan-300 text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider">
-              Symptom Guide
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Heart Palpitations
-            </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Understand the sensation of skipped beats, racing pulses, and fluttering chest feelings. Learn about common triggers, diagnostic paths, and when to seek medical evaluation.
-            </p>
+          <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+            <Link href="/symptom" className="hover:underline">Symptoms</Link>
+            <ChevronRight className="h-3 w-3" />
+            <span>Palpitations</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Heart Palpitations & <br />
+                <span className="animated-gradient-text">Rhythm Assessment</span>
+              </h1>
+              <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+                Comprehensive guide to skipped beats, chest fluttering, Holter monitor diagnostics, electrophysiology evaluation, and catheter ablation by Dr. Mohamed Faher Almahmoud.
+              </p>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all text-sm"
+                >
+                  <Stethoscope className="mr-2 h-4 w-4" />
+                  Schedule Rhythm Consultation
+                </Link>
+                <a
+                  href="#treatment"
+                  className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
+                >
+                  <Activity className="mr-2 h-4 w-4 text-sky-300" />
+                  Holter & Ablation Therapy
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="relative h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-slate-950 group">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
+                  alt="Heart Rhythm Monitoring"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Main Layout Container */}
+      {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
-          
-          {/* Left Column: Side Navigation for Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+          {/* Sidebar */}
           <div className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-24 bg-white border border-slate-200/80 rounded-2xl p-5 space-y-4 shadow-sm">
-              <h3 className="font-bold text-slate-800 text-sm tracking-wider uppercase border-b pb-2 font-mono">Symptom Menu</h3>
-              <nav className="flex flex-col space-y-2 text-sm text-slate-600">
-                <a href="#what-are-they" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> What do they feel like?
-                </a>
-                <a href="#causes" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> Common Causes
-                </a>
-                <a href="#urgent-attention" className="hover:text-brand-600 transition-colors flex items-center py-1 text-amber-600 font-semibold">
-                  <ChevronRight className="h-4 w-4 mr-1 text-amber-500 animate-pulse" /> Urgent Medical Care
-                </a>
-                <a href="#investigations" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> Clinical Investigation
-                </a>
-                <a href="#treatments" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> Treatment & Care
-                </a>
-                <a href="#faqs" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> Symptom FAQs
-                </a>
-                <a href="#related" className="hover:text-brand-600 transition-colors flex items-center py-1">
-                  <ChevronRight className="h-4 w-4 mr-1 text-slate-400" /> Related Conditions
-                </a>
+            <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
+              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
+                <FileText className="h-4 w-4 text-blue-600" />
+                <span>Palpitations Outline</span>
+              </h3>
+              <nav className="flex flex-col space-y-2 text-sm">
+                {[
+                  ['#overview', 'Overview'],
+                  ['#types', 'Classifications & Types'],
+                  ['#symptoms', 'Symptoms'],
+                  ['#diagnosis', 'Diagnostic Testing'],
+                  ['#treatment', 'Treatment & Procedures'],
+                  ['#living-with', 'Living with Palpitations'],
+                  ['#faqs', 'FAQs'],
+                ].map(([id, label]) => (
+                  <a
+                    key={id}
+                    href={id}
+                    className="hover:text-blue-600 text-slate-600 font-medium transition-colors flex items-center py-1 group"
+                  >
+                    <ChevronRight className="h-4 w-4 mr-1.5 text-blue-400 group-hover:translate-x-1 transition-transform shrink-0" />
+                    <span>{label}</span>
+                  </a>
+                ))}
               </nav>
+
+              <div className="pt-4 border-t border-slate-100">
+                <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
+                  <p className="text-xs font-bold text-blue-900">Skipped Beats or Fluttering?</p>
+                  <p className="text-[11px] text-slate-600 mt-1">Book an ambulatory ECG Holter monitor test.</p>
+                  <Link
+                    href="/contact"
+                    className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
+                  >
+                    Book Evaluation
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Detailed Sections */}
-          <div className="lg:col-span-9 space-y-16">
-            
-            {/* Section 1: What do they feel like? */}
-            <section id="what-are-they" className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 scroll-mt-20">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="bg-cyan-50 p-2 rounded-lg">
-                  <Activity className="h-6 w-6 text-cyan-600" />
-                </div>
-                <h2 className="text-2xl font-bold text-slate-800">What are Palpitations & What do they feel like?</h2>
-              </div>
-              <div className="space-y-4 text-slate-650 leading-relaxed text-sm sm:text-base">
-                <p>
-                  Heart palpitations are the sensation that your heart is beating abnormally or in an irregular pattern. While our bodies usually operate without us noticing our heartbeat, palpitations make you acutely aware of cardiac muscle activity.
-                </p>
-                <p>
-                  Patients describe heart palpitations in several distinct ways, depending on their trigger:
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                  <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                    <h4 className="font-bold text-slate-800 text-sm mb-1">Fluttering / Flip-Flopping</h4>
-                    <p className="text-slate-500 text-xs sm:text-sm">Often described as a "butterfly in the chest" or a somatic sensation that the heart rolled over or skipped a beat.</p>
-                  </div>
-                  <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                    <h4 className="font-bold text-slate-800 text-sm mb-1">Pounding / Thumping</h4>
-                    <p className="text-slate-500 text-xs sm:text-sm">A heavy thud felt in the chest, throat, or neck, making it feel like the heart is pumping with excessive force.</p>
-                  </div>
-                  <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                    <h4 className="font-bold text-slate-800 text-sm mb-1">Racing / Galloping</h4>
-                    <p className="text-slate-500 text-xs sm:text-sm">A highly accelerated, rapid heartbeat that feels like running a sprint even while sitting completely still.</p>
-                  </div>
-                  <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                    <h4 className="font-bold text-slate-800 text-sm mb-1">Skipped Beats / Pauses</h4>
-                    <p className="text-slate-500 text-xs sm:text-sm">The sensation of a brief hesitation or pause in the heart's rhythm, immediately followed by a powerful corrective thump.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <div className="lg:col-span-9 space-y-12">
 
-            {/* Section 2: Causes (Cardiac vs Non-cardiac) */}
-            <section id="causes" className="scroll-mt-20">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Common Causes of Palpitations</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                {/* Non-Cardiac Column */}
-                <div className="bg-white border border-slate-200/80 rounded-2xl p-6 space-y-4">
-                  <div className="flex items-center space-x-2 border-b pb-3 text-emerald-700">
-                    <CheckCircle2 className="h-5 w-5" />
-                    <h3 className="font-bold text-lg text-slate-850">Non-Cardiac Causes (Common & Benign)</h3>
-                  </div>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    Most palpitations are triggered by external factors or temporary physiological stress. These do not indicate structural heart disease:
-                  </p>
-                  <ul className="text-slate-600 text-xs sm:text-sm space-y-2.5 pl-4 list-disc">
-                    <li><span className="font-semibold text-slate-850">Emotional triggers:</span> Anxiety, stress, panic attacks, or fear.</li>
-                    <li><span className="font-semibold text-slate-850">Stimulants:</span> Caffeine, nicotine, alcohol, energy drinks, and decongestants.</li>
-                    <li><span className="font-semibold text-slate-850">Physiological states:</span> Dehydration, fever, pregnancy, anemia, or hyperthyroidism (overactive thyroid).</li>
-                    <li><span className="font-semibold text-slate-850">Electrolytes:</span> Low potassium or magnesium levels.</li>
-                  </ul>
-                </div>
-
-                {/* Cardiac Column */}
-                <div className="bg-white border border-slate-200/80 rounded-2xl p-6 space-y-4">
-                  <div className="flex items-center space-x-2 border-b pb-3 text-red-700">
-                    <HeartPulse className="h-5 w-5" />
-                    <h3 className="font-bold text-lg text-slate-900">Cardiac Causes (Need Investigation)</h3>
-                  </div>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    Underlying heart structures or electrical pathways can disrupt standard rhythms. These require expert electrophysiology review:
-                  </p>
-                  <ul className="text-slate-600 text-xs sm:text-sm space-y-2.5 pl-4 list-disc">
-                    <li><span className="font-semibold text-slate-905">Arrhythmias:</span> Fast (SVT, AFib) or extra heartbeats (PVCs, PACs).</li>
-                    <li><span className="font-semibold text-slate-905">Ischemic disease:</span> Coronary Artery Disease (CAD) or past cardiac injury.</li>
-                    <li><span className="font-semibold text-slate-905">Valvular defects:</span> Mitral valve prolapse, stenosis, or regurgitation.</li>
-                    <li><span className="font-semibold text-slate-905">Structural defects:</span> Cardiomyopathy (enlarged heart) or heart failure.</li>
-                  </ul>
-                </div>
-
-              </div>
-            </section>
-
-            {/* Section 3: Urgent Attention (Visually Outstanding) */}
-            <section id="urgent-attention" className="scroll-mt-20">
-              <div className="relative overflow-hidden rounded-2xl border border-amber-300 bg-amber-50/70 p-6 sm:p-8 animate-glow-amber">
-                
-                {/* Glowing beacon */}
-                <div className="absolute top-4 right-4 flex h-3.5 w-3.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-amber-500"></span>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-amber-600/10 p-3 rounded-2xl shrink-0">
-                    <ShieldAlert className="h-8 w-8 text-amber-650" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-amber-950 uppercase tracking-wider">
-                      When to Seek Urgent Medical Attention
-                    </h3>
-                    <p className="text-amber-900 text-sm sm:text-base leading-relaxed">
-                      While most palpitations are harmless, they can signal a critical cardiac crisis if paired with other symptoms. <span className="font-bold text-amber-950">Seek immediate urgent or emergency hospital care</span> if your palpitations occur alongside:
-                    </p>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-amber-950 text-xs sm:text-sm font-semibold pt-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-700 shrink-0" />
-                        <span>Chest pain, pressure, or tightness</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-700 shrink-0" />
-                        <span>Sudden, severe shortness of breath</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-700 shrink-0" />
-                        <span>Fainting (syncope) or loss of consciousness</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-700 shrink-0" />
-                        <span>Severe dizziness, confusion, or weakness</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </section>
-
-            {/* Section 4: Investigations */}
-            <section id="investigations" className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 scroll-mt-20">
+            {/* 1. OVERVIEW (USE IMAGE) */}
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-cyan-50 p-2 rounded-lg">
-                  <Stethoscope className="h-6 w-6 text-cyan-600" />
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Info className="h-6 w-6 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800">How are Palpitations Investigated?</h2>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Heart Rhythm Sensation</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What are Heart Palpitations?</h2>
+                </div>
               </div>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-                Because palpitations come and go, cardiodiagnostic procedures aim to record the heart's rhythm exactly when the symptoms occur to diagnose any underlying arrhythmias.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="border border-slate-100 p-5 rounded-2xl bg-slate-50/50 space-y-2">
-                  <span className="text-xs font-bold text-cyan-700 bg-cyan-150/40 px-2 py-0.5 rounded uppercase">Baseline Rhythm</span>
-                  <h4 className="font-bold text-slate-800">12-Lead Electrocardiogram (ECG)</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    Provides a brief 10-second capture of the heart's electrical currents. Used to check for baseline abnormalities, conduction delays, or signs of past injury.
-                  </p>
-                </div>
 
-                <div className="border border-slate-100 p-5 rounded-2xl bg-slate-50/50 space-y-2">
-                  <span className="text-xs font-bold text-cyan-700 bg-cyan-150/40 px-2 py-0.5 rounded uppercase">24-48 Hour Tracking</span>
-                  <h4 className="font-bold text-slate-800">Holter Monitoring</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    A compact, wearable device that records every single heartbeat over 1 to 2 days. Perfect for symptoms that occur daily.
-                  </p>
-                </div>
+              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  Heart palpitations are conscious sensations of an abnormal heartbeat — described as fluttering, pounding, racing, or skipping beats.
+                </p>
+                <p>
+                  While many palpitations stem from benign causes like caffeine, anxiety, or fatigue, others are driven by underlying electrical arrhythmias requiring electrophysiology diagnostic workup.
+                </p>
+              </div>
 
-                <div className="border border-slate-100 p-5 rounded-2xl bg-slate-50/50 space-y-2">
-                  <span className="text-xs font-bold text-cyan-700 bg-cyan-150/40 px-2 py-0.5 rounded uppercase">Extended Tracking</span>
-                  <h4 className="font-bold text-slate-800">Event & Patch Monitors</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    Wearable cardiac monitors kept on for 1 to 4 weeks. Activated by the patient or automatic threshold triggers to record less frequent heart flutters.
-                  </p>
-                </div>
-
-                <div className="border border-slate-100 p-5 rounded-2xl bg-slate-50/50 space-y-2">
-                  <span className="text-xs font-bold text-cyan-700 bg-cyan-150/40 px-2 py-0.5 rounded uppercase">Structural Analysis</span>
-                  <h4 className="font-bold text-slate-800">Transthoracic Echocardiogram</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm leading-relaxed">
-                    An ultrasound check of the heart's chambers and valves to ensure palpitations are not originating from structural defects or muscle weakening.
-                  </p>
-                </div>
+              {/* Banner Image */}
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiac Rhythm Assessment"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 
-            {/* Section 5: Treatments & Commitments */}
-            <section id="treatments" className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 scroll-mt-20">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b pb-4 mb-6 space-y-3 sm:space-y-0">
-                <div className="flex items-center space-x-3">
-                  <div className="bg-cyan-55 p-2 rounded-lg">
-                    <HeartPulse className="h-6 w-6 text-cyan-600" />
+            {/* 2. TYPES */}
+            <section id="types" className="scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications & Rhythm Types</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {typesList.map((t) => (
+                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-800">Treatment Strategies</h2>
-                </div>
-                
-                {/* Custom sub-tabs */}
-                <div className="flex bg-slate-100 p-1 rounded-xl w-fit">
-                  <button
-                    onClick={() => setActiveTreatmentTab('lifestyle')}
-                    className={`px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all ${
-                      activeTreatmentTab === 'lifestyle'
-                        ? 'bg-white text-cyan-700 shadow-sm'
-                        : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    Lifestyle Adjust
-                  </button>
-                  <button
-                    onClick={() => setActiveTreatmentTab('medical')}
-                    className={`px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all ${
-                      activeTreatmentTab === 'medical'
-                        ? 'bg-white text-cyan-700 shadow-sm'
-                        : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    Clinical Interventions
-                  </button>
-                </div>
+                ))}
               </div>
-
-              {activeTreatmentTab === 'lifestyle' ? (
-                <div className="space-y-6">
-                  <div className="bg-emerald-50/40 border border-emerald-100 p-4 sm:p-5 rounded-xl">
-                    <h4 className="font-bold text-emerald-950 text-sm sm:text-base">If No Serious Heart Problem is Found</h4>
-                    <p className="text-emerald-900 text-xs sm:text-sm leading-relaxed mt-1">
-                      For the majority of patients, reassurance and basic lifestyle modifications result in complete symptom resolution. Many people improve by incorporating these practices:
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                      <h4 className="font-bold text-slate-800 text-sm mb-1">Trigger Avoidance</h4>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                        Significantly lowering or stopping intake of stimulant beverages (energy drinks, double espressos), tobacco products, and alcohol.
-                      </p>
-                    </div>
-                    <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                      <h4 className="font-bold text-slate-800 text-sm mb-1">Anxiety Management</h4>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                        Utilizing deep relaxation, meditation, yoga, or biofeedback methods to quiet overstimulated sympathetic nervous systems.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                      <h4 className="font-bold text-slate-800 text-sm mb-1">Medications</h4>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                        If an arrhythmia is confirmed, medications such as beta-blockers or calcium channel blockers are used to stabilize the heart rate, while anti-arrhythmics help control irregular beats.
-                      </p>
-                    </div>
-                    <div className="border border-slate-100 p-4 rounded-xl bg-slate-50/50">
-                      <h4 className="font-bold text-slate-800 text-sm mb-1">Cardiac Procedures</h4>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                        For persistent conditions (like SVT or AFib), procedures such as <span className="font-semibold">Catheter Ablation</span> are performed to safely cauterize the pathways causing abnormal rhythms.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Custom Clinic Note block */}
-              <div className="bg-brand-900 text-white rounded-2xl p-6 sm:p-8 mt-8 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl" />
-                <div className="bg-white/10 p-3.5 rounded-2xl shrink-0">
-                  <UserCheck className="h-8 w-8 text-brand-300" />
-                </div>
-                <div className="space-y-2 text-center md:text-left">
-                  <h4 className="text-lg font-bold text-brand-300">The PulseCare Diagnostic Commitment</h4>
-                  <p className="text-slate-350 text-xs sm:text-sm leading-relaxed">
-                    At PulseCare Cardiology Clinic, we ensure that every patient presenting with palpitations undergoes a thorough, patient-first diagnostic pathway. We coordinate advanced Holter monitoring, metabolic evaluations, and structural cardiac analysis in a single center. Our board-certified electrophysiologists deliver clear answers and detailed, customized therapeutic plans.
-                  </p>
-                </div>
-              </div>
-
             </section>
 
-            {/* Section 6: FAQs */}
-            <section id="faqs" className="scroll-mt-20 space-y-6">
-              <div className="text-center max-w-2xl mx-auto mb-8">
-                <h2 className="text-2xl font-bold text-slate-800">Frequently Asked Questions</h2>
-                <p className="text-slate-500 text-sm mt-1">Answers to common questions regarding cardiac palpitations</p>
-              </div>
-              <FAQAccordion items={faqs} />
-            </section>
-
-            {/* Section 7: Related Conditions (At the bottom) */}
-            <section id="related" className="scroll-mt-20 border-t border-slate-200 pt-12 space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-800">Related Conditions</h2>
-                <p className="text-slate-500 text-sm mt-1">Palpitations can be symptomatic of various underlying cardiovascular conditions:</p>
+            {/* 3. SYMPTOMS (USE ICONS) */}
+            <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <HeartPulse className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Clinical Presentation</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms & Sensations</h2>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {relatedConditions.map((condition) => (
-                  <div key={condition.title} className="bg-white border border-slate-200/80 rounded-2xl p-5 hover:border-brand-500 transition-colors flex flex-col justify-between">
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-base mb-1">{condition.title}</h4>
-                      <p className="text-slate-500 text-xs leading-relaxed mb-3">{condition.description}</p>
-                      {condition.subTypes.length > 0 && (
-                        <div className="space-y-1 pl-3 border-l-2 border-slate-100 text-xs text-slate-650">
-                          {condition.subTypes.map((subType) => (
-                            <div key={subType} className="flex items-center">
-                              <span className="w-1 h-1 bg-brand-500 rounded-full mr-1.5 shrink-0" />
-                              {subType}
-                            </div>
-                          ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {symptoms.map((s) => {
+                  const IconComp = s.icon;
+                  return (
+                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2">
+                      <div className="flex items-center space-x-3">
+                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600 shadow-2xs">
+                          <IconComp className="h-5 w-5" />
                         </div>
-                      )}
+                        <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
+                      </div>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-1">{s.desc}</p>
                     </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Stethoscope className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Electrophysiology Workup</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnosis & Rhythm Testing</h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Capturing rhythm during symptomatic episodes is key to definitive diagnosis:
+                  </p>
+                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
+                    <ul className="space-y-1.5 text-xs text-slate-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>24–48 Hr Holter Monitor:</strong> Continuous ECG rhythm logging.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>14-Day Cardiac Patch Monitor:</strong> Captures infrequent symptoms.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Echocardiography:</strong> Evaluates structural valve and muscle integrity.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                      alt="Holter Monitor ECG Analysis"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
+            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Activity className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Electrophysiology Interventions</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                {treatments.map((t) => (
+                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
+                      <div className="flex items-center space-x-2">
+                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
+                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                      </div>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Navigation link back to CAD */}
-              <div className="bg-cyan-50/50 border border-cyan-200/60 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0 mt-8">
-                <div className="space-y-1 text-center sm:text-left">
-                  <h4 className="font-bold text-slate-850 text-base sm:text-lg">Are you checking for Coronary Artery Disease?</h4>
-                  <p className="text-slate-550 text-xs sm:text-sm">Palpitations can sometimes coexist with coronary narrowing or chest pain.</p>
+              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
+                  alt="Electrophysiology EP Lab Suite"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">EP Catheterization Suite</p>
+                  <p className="text-sm font-bold">3D electroanatomical mapping & ablation for SVT and AFib.</p>
                 </div>
-                <Link
-                  href="/disease/cad"
-                  className="inline-flex items-center justify-center px-5 py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-xl text-sm transition-all shadow shadow-cyan-600/10"
-                >
-                  Explore the CAD Center
-                  <ChevronRight className="ml-1.5 h-4 w-4" />
-                </Link>
               </div>
             </section>
 
-          </div>
+            {/* 6. LIVING WITH PALPITATIONS */}
+            <section id="living-with" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Self-Management</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with Palpitations</h2>
+                </div>
+              </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Apple className="h-5 w-5 text-emerald-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Dietary & Stimulant Management</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Eliminate energy drinks, high-caffeine sodas, and excess coffee</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Maintain optimal hydration with water and electrolyte balance</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Avoid OTC decongestants containing pseudoephedrine</span></li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Activity className="h-5 w-5 text-blue-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Vagal Maneuvers & Stress Control</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Learn bearing-down vagal maneuvers for sudden fast rhythm episodes</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Practice diaphragmatic breathing and mindfulness meditation</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Seek emergency care if palpitations cause syncope or chest pain</span></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* 7. FAQS */}
+            <section id="faqs" className="scroll-mt-24 space-y-6">
+              <div className="text-center mb-8">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Patient Queries</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+              </div>
+              <FAQAccordion items={faqs} />
+            </section>
+
+          </div>
         </div>
       </div>
     </div>

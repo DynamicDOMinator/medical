@@ -241,24 +241,13 @@ export default function ArrhythmiasPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                    alt="Cardiologist Analyzing ECG Tracing"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Key Rhythm Terminology:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-indigo-600 shrink-0" /><span><strong>Tachycardia:</strong> Heart rate above 100 beats per minute.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-indigo-600 shrink-0" /><span><strong>Bradycardia:</strong> Heart rate below 60 beats per minute.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-indigo-600 shrink-0" /><span><strong>AFib:</strong> Chaotic irregular atrial signals.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-indigo-600 shrink-0" /><span><strong>Heart Block:</strong> Delayed AV node impulse conduction.</span></li>
-                  </ul>
-                </div>
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiologist Analyzing ECG Tracing"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

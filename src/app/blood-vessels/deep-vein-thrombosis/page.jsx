@@ -14,6 +14,7 @@ import {
   HeartPulse,
   FileText,
   Clock,
+  Apple,
 } from 'lucide-react';
 import FAQAccordion from '@/components/FAQAccordion';
 
@@ -27,57 +28,66 @@ export default function DVTPage() {
     {
       question: 'What are the main symptoms of DVT in the leg?',
       answer:
-        'Key DVT symptoms include sudden swelling in one leg, deep calf pain or cramping (especially when bending the foot upward — Homans\' sign), skin redness or discoloration, and a feeling of warmth along the affected vein path.',
+        'Key DVT symptoms include sudden swelling in one leg, deep calf pain or cramping, skin redness or discoloration, and a feeling of warmth along the affected vein path.',
     },
     {
       question: 'How long must I take blood thinners for DVT?',
       answer:
-        'For a provoked DVT (caused by surgery, immobility, or travel), anticoagulation is typically prescribed for 3 months. For unprovoked DVT or recurrent clots, indefinite anticoagulation may be recommended. Your cardiologist will individualize treatment duration based on your clot risk.',
-    },
-    {
-      question: 'Can DVT recur after treatment?',
-      answer:
-        'Yes. DVT recurrence risk is highest in the first 6–12 months after stopping anticoagulation, particularly in patients with thrombophilia (inherited clotting disorders), active cancer, or those with unprovoked first episodes. Compression stockings and regular follow-up reduce recurrence risk.',
+        'For a provoked DVT (caused by surgery or immobility), anticoagulation is typically prescribed for 3 months. For unprovoked DVT or recurrent clots, indefinite anticoagulation may be recommended.',
     },
   ];
 
-  const riskFactors = [
-    { name: 'Prolonged Immobility', detail: 'Long-haul flights over 4 hours, bed rest after surgery, or immobilization in a cast all lead to venous stasis — the most common DVT trigger.' },
-    { name: 'Recent Surgery or Trauma', detail: 'Orthopedic (hip/knee replacement), pelvic, and abdominal surgeries dramatically increase DVT risk due to vessel injury and reduced ambulation.' },
-    { name: 'Active Cancer', detail: 'Malignancy is a hypercoagulable state. Tumor cells release pro-coagulant factors, and chemotherapy further increases clot risk.' },
-    { name: 'Hormonal Therapy & Pregnancy', detail: 'Oral contraceptives, hormone replacement therapy, and pregnancy increase clotting factor levels and pelvic vessel compression.' },
-    { name: 'Inherited Thrombophilia', detail: 'Factor V Leiden, Prothrombin gene mutation, Protein C/S deficiency, and antiphospholipid syndrome increase DVT risk by 3–8 fold.' },
-    { name: 'Obesity & Older Age', detail: 'Increased abdominal pressure on pelvic veins and reduced ambulatory capacity both contribute to venous insufficiency and stasis.' },
+  const typesList = [
+    {
+      name: 'Distal DVT (Calf Veins)',
+      tag: 'Lower Leg',
+      desc: 'Clots localized in posterior tibial or peroneal veins below the knee. Lower immediate risk of PE but requires monitoring.',
+      color: 'text-blue-700',
+      bg: 'bg-blue-50',
+    },
+    {
+      name: 'Proximal DVT (Popliteal/Femoral)',
+      tag: 'High Risk for PE',
+      desc: 'Clots in veins above the knee joint. High rate of pulmonary embolization requiring urgent anticoagulation.',
+      color: 'text-red-700',
+      bg: 'bg-red-50',
+    },
+    {
+      name: 'Iliofemoral DVT',
+      tag: 'Extensive Clot',
+      desc: 'Extensive thrombosis extending into iliac veins and inferior vena cava. Causes severe leg swelling and phlegmasia.',
+      color: 'text-purple-700',
+      bg: 'bg-purple-50',
+    },
+    {
+      name: 'Phlegmasia Cerulea Dolens',
+      tag: 'Surgical Emergency',
+      desc: 'Near-total occlusion of leg venous outflow causing severe pain, cyanosis, edema, and risk of venous gangrene.',
+      color: 'text-amber-700',
+      bg: 'bg-amber-50',
+    },
   ];
 
   const symptoms = [
-    { title: 'Unilateral Leg Swelling', desc: 'Sudden, unexplained swelling in one entire leg or calf that develops over hours to days.', icon: Activity },
-    { title: 'Deep Calf Pain & Tenderness', desc: 'Aching, throbbing, or cramping pain in the calf or thigh that is worsened by walking.', icon: Zap },
-    { title: 'Skin Redness & Warmth', desc: 'The skin over the clot becomes red, warm, or discolored (erythematous) due to inflammation.', icon: AlertTriangle },
-    { title: 'Engorged Superficial Veins', desc: 'Visible dilation of surface veins as blood bypasses the blocked deep vein pathway.', icon: HeartPulse },
-    { title: 'Homans\' Sign', desc: 'Calf pain elicited by dorsiflexing the foot — a bedside clinical test (low sensitivity but commonly tested).', icon: Clock },
-    { title: 'Pulmonary Embolism Symptoms', desc: 'If clot travels to lungs: sudden breathlessness, chest pain worsened by breathing, coughing blood, rapid pulse.', icon: Info },
-  ];
-
-  const diagnostics = [
-    { abbr: 'DUPLEX', name: 'Compression Duplex Ultrasound', desc: 'First-line, non-invasive gold standard for DVT diagnosis. Directly visualizes the clot and assesses venous compressibility and flow.' },
-    { abbr: 'D-DIMER', name: 'D-Dimer Blood Test', desc: 'A fibrin degradation marker. Highly sensitive — a negative D-dimer effectively rules out DVT/PE in low-probability patients without imaging.' },
-    { abbr: 'CT-PA', name: 'CT Pulmonary Angiography (CT-PA)', desc: 'Gold standard for diagnosing pulmonary embolism — directly visualizes clots in the pulmonary arteries with high sensitivity and specificity.' },
-    { abbr: 'WELLS', name: 'Wells DVT Pre-Test Score', desc: 'A clinical scoring tool combining risk factors and symptoms to stratify DVT probability into low, moderate, or high, guiding the testing pathway.' },
+    { title: 'Unilateral Leg Swelling', desc: 'Sudden, unexplained swelling in one entire leg or calf that develops over hours.', icon: Activity },
+    { title: 'Deep Calf Pain & Tenderness', desc: 'Aching, throbbing, or severe cramping pain in the calf or thigh worsened by walking.', icon: Zap },
+    { title: 'Skin Redness & Warmth', desc: 'Skin over the clot path becomes warm, erythematous, or discolored.', icon: AlertTriangle },
+    { title: 'Engorged Superficial Veins', desc: 'Visible expansion of collateral surface veins as blood bypasses blocked deep veins.', icon: HeartPulse },
+    { title: 'Homans\' Sign', desc: 'Calf pain elicited by dorsiflexing the foot upward.', icon: Clock },
+    { title: 'Pulmonary Embolism Signs', desc: 'Sudden shortness of breath, pleuritic chest pain, coughing blood if clot dislodges to lungs.', icon: Info },
   ];
 
   const treatments = [
-    { title: 'Direct Oral Anticoagulants (DOACs)', desc: 'Rivaroxaban (Xarelto), Apixaban (Eliquis), or Dabigatran. Preferred first-line therapy — no routine monitoring needed, predictable effect, low bleeding risk.' },
-    { title: 'Low Molecular Weight Heparin (LMWH)', desc: 'Enoxaparin (Lovenox) subcutaneous injections — preferred for cancer-associated DVT and during pregnancy as DOACs are not safe for fetal development.' },
-    { title: 'Catheter-Directed Thrombolysis (CDT)', desc: 'For massive, limb-threatening DVT: a catheter delivers clot-dissolving tPA directly into the clot to rapidly restore venous drainage and prevent post-thrombotic syndrome.' },
-    { title: 'Inferior Vena Cava (IVC) Filter', desc: 'A retrievable filter placed in the vena cava to catch clots before reaching the lungs — used when anticoagulation is contraindicated (e.g., active bleeding).' },
-    { title: 'Compression Stockings & Ambulation', desc: '30–40 mmHg graduated compression stockings worn for 2 years significantly reduce post-thrombotic syndrome (chronic leg swelling and pain after DVT).' },
+    { name: 'Direct Oral Anticoagulants (DOACs)', desc: 'Eliquis (Apixaban), Xarelto (Rivaroxaban). First-line blood thinners that stop clot growth and prevent recurrence.', duration: '3–6 Months', recovery: 'Immediate Protection' },
+    { name: 'Low Molecular Weight Heparin (LMWH)', desc: 'Subcutaneous injections (Enoxaparin) preferred in active cancer or pregnancy where DOACs are contraindicated.', duration: 'Clinical Protocol', recovery: 'Outpatient Care' },
+    { name: 'Catheter-Directed Thrombolysis (CDT)', desc: 'Minimally invasive catheter delivers tPA directly into massive iliofemoral clots to dissolve blockage.', duration: 'Procedural', recovery: 'In-hospital Stay' },
+    { name: 'IVC Filter Placement', desc: 'Filter inserted in inferior vena cava to trap emboli before reaching lungs when blood thinners are unsafe.', duration: '30 Mins', recovery: 'Same Day' },
   ];
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
       {/* HERO */}
-      <div className="bg-gradient-to-br from-rose-950 via-slate-900 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=2000&q=80"
@@ -86,11 +96,11 @@ export default function DVTPage() {
             className="object-cover object-center opacity-65"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-rose-950/70 to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/70 to-slate-900/50" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-xs text-rose-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+          <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
             <Link href="/blood-vessels" className="hover:underline">Vascular Conditions</Link>
             <ChevronRight className="h-3 w-3" />
             <span>Deep Vein Thrombosis</span>
@@ -102,24 +112,24 @@ export default function DVTPage() {
                 Deep Vein <br />
                 <span className="animated-gradient-text">Thrombosis (DVT)</span>
               </h1>
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Urgent medical guide to deep leg vein clots, Wells scoring, D-dimer testing, compression ultrasound scans, DOAC anticoagulants, and catheter-directed thrombolysis.
+              <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+                Urgent clinical guide to deep leg vein clots, Wells pre-test scoring, duplex ultrasound imaging, DOAC anticoagulation, and pulmonary embolism prevention by Dr. Mohamed Faher Almahmoud.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-400 hover:to-red-500 text-white font-bold rounded-xl shadow-lg transition-all text-sm"
+                  className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all text-sm"
                 >
                   <Stethoscope className="mr-2 h-4 w-4" />
                   Schedule DVT Ultrasound
                 </Link>
                 <a
-                  href="#symptoms"
+                  href="#treatment"
                   className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
                 >
-                  <Activity className="mr-2 h-4 w-4 text-rose-300" />
-                  DVT Warning Signs
+                  <Activity className="mr-2 h-4 w-4 text-sky-300" />
+                  Anticoagulation & Therapy
                 </a>
               </div>
             </div>
@@ -128,18 +138,11 @@ export default function DVTPage() {
               <div className="relative h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-slate-950 group">
                 <Image
                   src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                  alt="DVT Diagnostic Exam"
+                  alt="DVT Diagnostic Ultrasound"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-rose-100 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-extrabold text-slate-900">Vascular Duplex Ultrasound</p>
-                    <p className="text-[11px] text-rose-600 font-semibold">Real-Time Clot Detection & Mapping</p>
-                  </div>
-                  <span className="bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">Same Day</span>
-                </div>
               </div>
             </div>
           </div>
@@ -152,38 +155,39 @@ export default function DVTPage() {
 
           {/* Sidebar */}
           <div className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-28 bg-white border border-rose-100 rounded-3xl p-6 space-y-4 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-rose-50 pb-3 flex items-center space-x-2">
-                <FileText className="h-4 w-4 text-rose-600" />
-                <span>DVT Guide Sections</span>
+            <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
+              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
+                <FileText className="h-4 w-4 text-blue-600" />
+                <span>DVT Outline</span>
               </h3>
               <nav className="flex flex-col space-y-2 text-sm">
                 {[
-                  ['#overview', 'What is DVT?'],
-                  ['#risk', 'Risk Factors'],
-                  ['#symptoms', 'Symptoms & Signs'],
-                  ['#diagnosis', 'Ultrasound & D-Dimer'],
-                  ['#treatment', 'Anticoagulation Therapy'],
-                  ['#pe', 'Pulmonary Embolism Warning'],
-                  ['#faqs', 'Patient FAQs'],
+                  ['#overview', 'Overview'],
+                  ['#types', 'Classifications & Types'],
+                  ['#symptoms', 'Symptoms'],
+                  ['#diagnosis', 'Diagnostic Testing'],
+                  ['#treatment', 'Treatment & Procedures'],
+                  ['#living-with', 'Living with DVT'],
+                  ['#faqs', 'FAQs'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
                     href={id}
-                    className="hover:text-rose-600 text-slate-600 font-medium transition-colors flex items-center py-1 group"
+                    className="hover:text-blue-600 text-slate-600 font-medium transition-colors flex items-center py-1 group"
                   >
-                    <ChevronRight className="h-4 w-4 mr-1.5 text-rose-400 group-hover:translate-x-1 transition-transform shrink-0" />
+                    <ChevronRight className="h-4 w-4 mr-1.5 text-blue-400 group-hover:translate-x-1 transition-transform shrink-0" />
                     <span>{label}</span>
                   </a>
                 ))}
               </nav>
+
               <div className="pt-4 border-t border-slate-100">
-                <div className="bg-rose-50/80 p-4 rounded-2xl border border-rose-100">
-                  <p className="text-xs font-bold text-rose-900">Sudden Leg Swelling?</p>
-                  <p className="text-[11px] text-slate-600 mt-1">Get an urgent DVT duplex ultrasound today.</p>
+                <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
+                  <p className="text-xs font-bold text-blue-900">Sudden Unilateral Leg Swelling?</p>
+                  <p className="text-[11px] text-slate-600 mt-1">Get an urgent vascular duplex ultrasound.</p>
                   <Link
                     href="/contact"
-                    className="mt-3 block text-center bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-rose-600/20"
+                    className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
                   >
                     Urgent Evaluation
                   </Link>
@@ -194,72 +198,63 @@ export default function DVTPage() {
 
           <div className="lg:col-span-9 space-y-12">
 
-            {/* OVERVIEW */}
-            <section id="overview" className="bg-white border border-rose-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            {/* 1. OVERVIEW (USE IMAGE) */}
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-rose-50 p-3 rounded-2xl border border-rose-100">
-                  <Info className="h-6 w-6 text-rose-600" />
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Info className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-rose-600">Venous Clotting</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Venous Clotting</span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What is Deep Vein Thrombosis?</h2>
                 </div>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Deep Vein Thrombosis (DVT) occurs when a thrombus forms inside the deep veins of the legs or pelvis, most commonly in the iliac, femoral, or popliteal veins. DVT affects approximately 900,000 Americans annually and is responsible for 60,000–100,000 deaths per year from pulmonary embolism.
+                  Deep Vein Thrombosis (DVT) occurs when a blood clot (thrombus) forms inside the deep veins of the lower extremities or pelvis (popliteal, femoral, or iliac veins).
                 </p>
                 <p>
-                  The condition is explained by Virchow's Triad: venous stasis (slow blood flow), hypercoagulability (increased clotting tendency), and endothelial injury (vessel wall damage). When two or more of these conditions coexist, DVT risk increases dramatically.
+                  If a portion of the clot breaks free, it travels through the vena cava into the pulmonary arteries—causing a life-threatening <strong>Pulmonary Embolism (PE)</strong>.
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-                    alt="DVT Duplex Ultrasound"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Virchow's Triad:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-rose-600 shrink-0" /><span><strong>Venous Stasis:</strong> Immobility, bed rest, long flights.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-rose-600 shrink-0" /><span><strong>Hypercoagulability:</strong> Cancer, thrombophilia, hormones.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-rose-600 shrink-0" /><span><strong>Endothelial Injury:</strong> Surgery, trauma, catheter placement.</span></li>
-                  </ul>
-                </div>
+              {/* Banner Image */}
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
+                  alt="Venous Duplex Scan"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 
-            {/* RISK FACTORS */}
-            <section id="risk" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">DVT Risk Factors</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {riskFactors.map((r, i) => (
-                  <div key={r.name} className="flex items-start space-x-4 p-4 rounded-2xl bg-white border border-slate-200/80">
-                    <div className="bg-rose-500 text-white font-extrabold text-xs h-6 w-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5">{i + 1}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-sm">{r.name}</h4>
-                      <p className="text-slate-600 text-xs mt-0.5">{r.detail}</p>
+            {/* 2. TYPES */}
+            <section id="types" className="scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications & Types of DVT</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {typesList.map((t) => (
+                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
                     </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* SYMPTOMS */}
-            <section id="symptoms" className="bg-white border border-rose-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            {/* 3. SYMPTOMS (USE ICONS) */}
+            <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-rose-50 p-3 rounded-2xl border border-rose-100">
-                  <HeartPulse className="h-6 w-6 text-rose-600" />
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <HeartPulse className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-rose-600">Warning Signs</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of DVT</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Clinical Warning Signs</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of Deep Vein Clots</h2>
                 </div>
               </div>
 
@@ -267,9 +262,9 @@ export default function DVTPage() {
                 {symptoms.map((s) => {
                   const IconComp = s.icon;
                   return (
-                    <div key={s.title} className="p-5 rounded-2xl bg-rose-50/40 border border-rose-100/80 space-y-2">
+                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2">
                       <div className="flex items-center space-x-3">
-                        <div className="bg-white p-2 rounded-xl border border-rose-100 text-rose-600">
+                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600 shadow-2xs">
                           <IconComp className="h-5 w-5" />
                         </div>
                         <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
@@ -281,64 +276,139 @@ export default function DVTPage() {
               </div>
             </section>
 
-            {/* DIAGNOSIS */}
-            <section id="diagnosis" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">DVT Diagnosis & Testing</h2>
-              <div className="space-y-3">
-                {diagnostics.map(d => (
-                  <div key={d.abbr} className="bg-white border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
-                    <div className="bg-rose-50 text-rose-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0 text-center">{d.abbr}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-sm">{d.name}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">{d.desc}</p>
-                    </div>
-                  </div>
-                ))}
+            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Stethoscope className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Vascular Diagnostics</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnosis & Duplex Testing</h2>
+                </div>
               </div>
 
-              <div className="mt-6 relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1400&q=80"
-                  alt="DVT Ultrasound Vascular Lab"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-950/80 to-transparent" />
-                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-white max-w-xs">
-                  <p className="text-xs uppercase tracking-wider font-bold text-rose-300">Vascular Lab</p>
-                  <p className="text-sm font-bold mt-1">Duplex ultrasound confirms DVT in under 20 minutes — same day results.</p>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Non-invasive venous ultrasound directly visualizes clot location and vessel compressibility:
+                  </p>
+                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Steps:</h4>
+                    <ul className="space-y-1.5 text-xs text-slate-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Compression Duplex Ultrasound:</strong> Gold-standard bedside diagnostic scan.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>High-Sensitivity D-Dimer Assay:</strong> Rules out DVT in low-risk patients.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Wells DVT Score:</strong> Stratifies pre-test probability.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                      alt="Venous Duplex Ultrasound Examination"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
 
-            {/* TREATMENT */}
-            <section id="treatment" className="bg-white border border-rose-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
+            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-rose-50 p-3 rounded-2xl border border-rose-100">
-                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Activity className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Anticoagulation & Thrombolysis</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">DVT Treatment Options</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Anticoagulation & Procedures</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                {treatments.map(t => (
-                  <div key={t.title} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <h4 className="font-bold text-slate-900 text-sm sm:text-base mb-1">{t.title}</h4>
+              <div className="space-y-5">
+                {treatments.map((t) => (
+                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
+                      <div className="flex items-center space-x-2">
+                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
+                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                      </div>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
               </div>
+
+              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
+                  alt="Catheter-Directed Thrombolysis Room"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Vascular Intervention Suite</p>
+                  <p className="text-sm font-bold">Catheter-directed thrombolysis and mechanical thrombectomy for limb-threatening DVT.</p>
+                </div>
+              </div>
             </section>
 
+            {/* 6. LIVING WITH DVT */}
+            <section id="living-with" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Recovery & Prevention</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with DVT & Post-Thrombotic Care</h2>
+                </div>
+              </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Activity className="h-5 w-5 text-blue-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Graduated Compression Stockings</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Wear 30–40 mmHg knee-high compression stockings daily</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Reduces post-thrombotic syndrome (chronic pain & swelling)</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Elevate legs above heart level when resting</span></li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Apple className="h-5 w-5 text-emerald-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Travel & Mobility Guidelines</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Stand up and walk every 1–2 hours during flights & car rides</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Stay well hydrated and perform ankle pump exercises</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Strict adherence to oral blood thinner schedule</span></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-            {/* FAQS */}
+            {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-rose-600">Patient Queries</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Patient Queries</span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
               </div>
               <FAQAccordion items={faqs} />

@@ -237,32 +237,13 @@ export default function PADPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
-                    alt="Endovascular Catheter Suite"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Key Risk Factors:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>Cigarette Smoking:</strong> Increases PAD risk by 400%.</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>Diabetes Mellitus:</strong> Accelerates small artery calcification.</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                      <span><strong>High Blood Pressure & Cholesterol:</strong> Drives plaque formation.</span>
-                    </li>
-                  </ul>
-                </div>
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
+                  alt="Endovascular Catheter Suite"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

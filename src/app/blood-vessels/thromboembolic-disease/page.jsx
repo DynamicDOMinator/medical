@@ -234,23 +234,13 @@ export default function ThromboembolicDiseasePage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                    alt="Patient Clinical Evaluation"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Virchow's Triad Clot Triggers:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Venous Stasis:</strong> Long flights, bed rest, or immobilization.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Endothelial Injury:</strong> Trauma, surgery, or catheter placement.</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Hypercoagulability:</strong> Inherited thrombophilia, cancer, or estrogen.</span></li>
-                  </ul>
-                </div>
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
+                  alt="Patient Clinical Evaluation"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

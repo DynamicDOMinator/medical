@@ -13,6 +13,10 @@ import {
   ShieldCheck,
   HeartPulse,
   FileText,
+  Clock,
+  Zap,
+  Apple,
+  Heart,
 } from 'lucide-react';
 import FAQAccordion from '@/components/FAQAccordion';
 
@@ -21,53 +25,65 @@ export default function AtherosclerosisPage() {
     {
       question: 'What is Atherosclerosis?',
       answer:
-        'Atherosclerosis is a chronic inflammatory condition where cholesterol, calcium, and cellular debris form fatty deposits (plaques) inside vessel walls, narrowing arteries and restricting oxygenated blood flow to vital organs.',
+        'Atherosclerosis is a chronic inflammatory condition where cholesterol, calcium, and cellular debris form fatty deposits (plaques) inside vessel walls, narrowing arteries and restricting oxygenated blood flow.',
     },
     {
       question: 'Can atherosclerotic plaque be reversed or stabilized?',
       answer:
-        'While advanced calcified plaque cannot be completely erased, high-intensity statin therapy, PCSK9 inhibitors, and strict LDL-C cholesterol reduction can halt plaque progression, stabilize soft vulnerable plaques, and reduce heart attack and stroke risks.',
+        'While calcified plaque cannot be completely erased, high-intensity statin therapy, PCSK9 inhibitors, and strict LDL-C reduction halt plaque progression and stabilize vulnerable plaques.',
     },
     {
       question: 'What is the difference between stable and vulnerable plaque?',
       answer:
-        'Stable (calcified) plaques have a thick fibrous cap and rarely rupture. Vulnerable (soft, lipid-rich) plaques have a thin cap and are prone to sudden rupture, triggering a blood clot that can completely block the artery and cause a heart attack or stroke.',
+        'Stable plaques have a thick fibrous cap. Vulnerable plaques have a thin cap covering a lipid core and are prone to sudden rupture, triggering blood clots.',
+    },
+  ];
+
+  const typesList = [
+    {
+      name: 'Coronary Atherosclerosis',
+      tag: 'Heart Attack Risk',
+      desc: 'Plaque accumulation in epicardial coronary arteries supplying oxygen to heart muscle. Causes angina and acute MI.',
+      color: 'text-blue-700',
+      bg: 'bg-blue-50',
     },
     {
-      question: 'How is atherosclerosis different from arteriosclerosis?',
-      answer:
-        'Arteriosclerosis is a general term for hardening of the arteries due to aging. Atherosclerosis is a specific type where lipid-laden plaques accumulate in arterial walls. Atherosclerosis is the principal cause of coronary artery disease, strokes, and peripheral artery disease.',
+      name: 'Carotid Atherosclerosis',
+      tag: 'Stroke Risk',
+      desc: 'Plaque buildup in carotid arteries feeding the brain. Causes transient ischemic attacks (TIA) and ischemic stroke.',
+      color: 'text-purple-700',
+      bg: 'bg-purple-50',
+    },
+    {
+      name: 'Peripheral Arterial Atherosclerosis',
+      tag: 'Leg Ischemia',
+      desc: 'Plaque narrowing lower extremity femoral and popliteal arteries, causing claudication pain and non-healing ulcers.',
+      color: 'text-amber-700',
+      bg: 'bg-amber-50',
+    },
+    {
+      name: 'Renal & Aortic Atherosclerosis',
+      tag: 'Aortic & Kidney Risk',
+      desc: 'Plaque in the abdominal aorta and renal arteries causing renovascular hypertension and aortic aneurysm formation.',
+      color: 'text-red-700',
+      bg: 'bg-red-50',
     },
   ];
 
-  const stages = [
-    { stage: 'Stage 1: Fatty Streak', desc: 'LDL particles infiltrate the arterial intima, oxidize, and attract monocytes that engulf lipids to become foam cells — the earliest lesion.' },
-    { stage: 'Stage 2: Fibrous Plaque', desc: 'Smooth muscle cells migrate and form a fibrous cap over the lipid core. Plaque begins to project into the arterial lumen, restricting flow.' },
-    { stage: 'Stage 3: Vulnerable Plaque', desc: 'A thin, inflamed fibrous cap covers a large lipid pool. High risk of sudden rupture triggering thrombosis.' },
-    { stage: 'Stage 4: Acute Rupture / Thrombosis', desc: 'Plaque rupture exposes the lipid core to blood, activating platelets and the coagulation cascade, resulting in acute arterial occlusion.' },
-  ];
-
-  const riskFactors = [
-    { name: 'High LDL Cholesterol', detail: 'Elevated LDL-C is the primary driver of plaque initiation. Target LDL <70 mg/dL in high-risk patients; <55 mg/dL in very high-risk.' },
-    { name: 'Hypertension', detail: 'High blood pressure creates turbulent flow and endothelial shear stress that promotes LDL entry and inflammatory cell recruitment.' },
-    { name: 'Diabetes & Insulin Resistance', detail: 'Hyperglycemia glycates LDL particles, making them more atherogenic, and promotes widespread arterial inflammation.' },
-    { name: 'Smoking', detail: 'Nicotine and carbon monoxide damage the endothelial barrier, reduce HDL, and dramatically accelerate plaque accumulation.' },
-    { name: 'Chronic Inflammation & Obesity', detail: 'Adipose tissue secretes pro-inflammatory cytokines (IL-6, TNF-α) that destabilize plaques and promote atherosclerosis progression.' },
-  ];
-
-  const diagnostics = [
-    { abbr: 'CCTA', name: 'Coronary CT Angiography (CCTA)', desc: 'High-resolution 3D X-ray imaging of coronary arteries that detects and characterizes plaque composition — distinguishing soft from calcified plaques.' },
-    { abbr: 'CAC', name: 'Coronary Artery Calcium (CAC) Score', desc: 'CT scan measuring calcium deposits in coronary arteries. A CAC score >100 significantly increases 10-year cardiovascular event risk.' },
-    { abbr: 'IMT', name: 'Carotid Intima-Media Thickness (CIMT)', desc: 'Ultrasound measurement of carotid artery wall thickness — a surrogate marker of subclinical atherosclerosis burden and cardiovascular risk.' },
-    { abbr: 'ABI', name: 'Ankle-Brachial Index (ABI)', desc: 'Simple pressure ratio comparing ankle to arm blood pressure. ABI <0.9 indicates peripheral atherosclerosis in leg arteries.' },
+  const symptoms = [
+    { title: 'Chest Pressure & Exertional Angina', desc: 'Squeezing chest pain caused by coronary artery plaque narrowing blood flow.', icon: Heart },
+    { title: 'Leg Pain During Walking (Claudication)', desc: 'Calf muscle cramping during exercise relieved by rest, caused by peripheral arterial plaque.', icon: Activity },
+    { title: 'Sudden Numbness or Weakness', desc: 'Transient ischemic attacks caused by carotid plaque embolization to brain arteries.', icon: Zap },
+    { title: 'Shortness of Breath', desc: 'Dyspnea during physical activity due to impaired cardiac oxygen delivery.', icon: Clock },
+    { title: 'Coldness & Pale Skin in Legs', desc: 'Decreased peripheral arterial circulation in feet and toes.', icon: AlertTriangle },
+    { title: 'High Blood Pressure Spikes', desc: 'Renovascular stenosis driven by renal artery plaque accumulation.', icon: HeartPulse },
   ];
 
   const treatments = [
-    { title: 'High-Intensity Statin Therapy', desc: 'Atorvastatin 40–80 mg or Rosuvastatin 20–40 mg daily. Reduces LDL-C by 50–60%, stabilizes plaque, and decreases cardiovascular events by 25–35%.' },
-    { title: 'PCSK9 Inhibitors', desc: 'Evolocumab or Alirocumab injections reduce LDL-C by an additional 50–60% on top of statins. For very high-risk patients who cannot reach target LDL.' },
-    { title: 'Antiplatelet Therapy', desc: 'Low-dose aspirin and/or P2Y12 inhibitors (clopidogrel) prevent platelet aggregation on plaque surfaces, reducing clot formation risk.' },
-    { title: 'Blood Pressure Control', desc: 'ACE inhibitors, ARBs, and calcium channel blockers reduce arterial wall stress, slowing plaque progression and preventing vessel remodeling.' },
-    { title: 'Lifestyle Therapeutic Changes', desc: 'Mediterranean diet, aerobic exercise (≥150 min/week), smoking cessation, and weight management are independently proven to reduce plaque burden.' },
+    { name: 'High-Intensity Statin Therapy', desc: 'Atorvastatin 80 mg or Rosuvastatin 40 mg. Lowers LDL-C by >50%, halts plaque growth, and stabilizes fibrous caps.', duration: 'Daily Medication', recovery: 'Long-term Protection' },
+    { name: 'PCSK9 Inhibitors (Evolocumab / Alirocumab)', desc: 'Injectable monoclonal antibodies providing additional 50–60% LDL-C reduction for high-risk patients.', duration: 'Bi-weekly Injection', recovery: 'Plaque Regression' },
+    { name: 'Antiplatelet Therapy (Aspirin / Clopidogrel)', desc: 'Inhibits platelet aggregation on vulnerable plaque surfaces to prevent acute arterial thrombosis.', duration: 'Daily Protocol', recovery: 'Ongoing Prevention' },
+    { name: 'Angioplasty & Stenting / Endarterectomy', desc: 'Interventional reopening of severely occluded coronary, carotid, or peripheral vessels using drug-eluting stents.', duration: 'Procedural', recovery: 'Rapid Revascularization' },
   ];
 
   return (
@@ -108,14 +124,14 @@ export default function AtherosclerosisPage() {
                   className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all text-sm"
                 >
                   <Stethoscope className="mr-2 h-4 w-4" />
-                  Schedule Lipid & Plaque Exam
+                  Schedule Plaque Exam
                 </Link>
                 <a
-                  href="#diagnostics"
+                  href="#treatment"
                   className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
                 >
                   <Activity className="mr-2 h-4 w-4 text-sky-300" />
-                  CAC & Lipid Screening
+                  Statin & Lipid Therapies
                 </a>
               </div>
             </div>
@@ -129,13 +145,6 @@ export default function AtherosclerosisPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-blue-100 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-extrabold text-slate-900">Lipidology & Prevention Clinic</p>
-                    <p className="text-[11px] text-blue-600 font-semibold">Plaque Imaging & Statin Optimization</p>
-                  </div>
-                  <span className="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg">Preventive</span>
-                </div>
               </div>
             </div>
           </div>
@@ -151,16 +160,17 @@ export default function AtherosclerosisPage() {
             <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
               <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
                 <FileText className="h-4 w-4 text-blue-600" />
-                <span>Atherosclerosis Guide</span>
+                <span>Atherosclerosis Outline</span>
               </h3>
               <nav className="flex flex-col space-y-2 text-sm">
                 {[
-                  ['#overview', 'What is Atherosclerosis?'],
-                  ['#stages', 'Plaque Formation Stages'],
-                  ['#risk', 'Risk Factors'],
-                  ['#diagnostics', 'CAC & Lipid Screening'],
-                  ['#treatment', 'Statin & Lifestyle Therapy'],
-                  ['#faqs', 'Patient FAQs'],
+                  ['#overview', 'Overview'],
+                  ['#types', 'Classifications & Types'],
+                  ['#symptoms', 'Symptoms'],
+                  ['#diagnosis', 'Diagnostic Testing'],
+                  ['#treatment', 'Treatment & Procedures'],
+                  ['#living-with', 'Living with Atherosclerosis'],
+                  ['#faqs', 'FAQs'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -172,6 +182,7 @@ export default function AtherosclerosisPage() {
                   </a>
                 ))}
               </nav>
+
               <div className="pt-4 border-t border-slate-100">
                 <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
                   <p className="text-xs font-bold text-blue-900">High LDL Cholesterol?</p>
@@ -189,7 +200,7 @@ export default function AtherosclerosisPage() {
 
           <div className="lg:col-span-9 space-y-12">
 
-            {/* OVERVIEW */}
+            {/* 1. OVERVIEW (USE IMAGE) */}
             <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
@@ -203,135 +214,200 @@ export default function AtherosclerosisPage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Atherosclerosis is the underlying driver behind coronary artery disease, carotid artery stenosis, and peripheral artery disease. It begins when low-density lipoprotein (LDL) particles penetrate the inner lining of arteries, triggering inflammatory foam cell accumulation and plaque formation.
+                  Atherosclerosis is the underlying driver behind coronary artery disease, carotid stenosis, and peripheral artery disease. It begins when LDL particles penetrate arterial walls, triggering inflammatory foam cell accumulation and plaque formation.
                 </p>
                 <p>
-                  The process is not simply "cholesterol clogging pipes" — it is a complex, chronic inflammatory disease involving endothelial dysfunction, oxidative stress, macrophage infiltration, smooth muscle cell migration, and fibrous cap formation over a lipid-rich necrotic core.
+                  Over time, smooth muscle migration forms a fibrous cap over a lipid core. If the cap ruptures, thrombosis causes acute ischemia.
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
-                <div className="relative h-56 rounded-xl overflow-hidden shadow-md border border-slate-200">
-                  <Image
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-                    alt="Cardiologist Analyzing Vascular Scan"
-                    fill
-                    className="object-cover"
-                  />
+              {/* Banner Image */}
+              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiologist Analyzing Vascular Scan"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </section>
+
+            {/* 2. TYPES */}
+            <section id="types" className="scroll-mt-24">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications & Vascular Locations</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {typesList.map((t) => (
+                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 3. SYMPTOMS (USE ICONS) */}
+            <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <HeartPulse className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="font-extrabold text-slate-900 text-base">Arteries Affected:</h4>
-                  <ul className="space-y-2 text-xs text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Coronary Arteries:</strong> → Coronary Artery Disease & Heart Attack</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Carotid Arteries:</strong> → Transient Ischemic Attack & Stroke</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Peripheral Arteries:</strong> → Claudication & Critical Limb Ischemia</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0" /><span><strong>Aorta:</strong> → Aortic Aneurysm Formation</span></li>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Clinical Warning Signs</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of Atherosclerosis</h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {symptoms.map((s) => {
+                  const IconComp = s.icon;
+                  return (
+                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2">
+                      <div className="flex items-center space-x-3">
+                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600 shadow-2xs">
+                          <IconComp className="h-5 w-5" />
+                        </div>
+                        <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
+                      </div>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-1">{s.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Stethoscope className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Diagnostic Lipidology</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnosis & Plaque Screening</h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Advanced risk stratification detects subclinical atherosclerosis before cardiac events occur:
+                  </p>
+                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
+                    <ul className="space-y-1.5 text-xs text-slate-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Coronary CT Angiography (CCTA):</strong> Visualizes soft and calcified plaque burden.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Coronary Calcium Score (CAC):</strong> Quantifies coronary calcification.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Advanced Lipid Panel:</strong> Measures ApoB and Lp(a) particles.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
+                    <Image
+                      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                      alt="Plaque Diagnostic Scan"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
+            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <Activity className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Therapeutic Interventions</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                {treatments.map((t) => (
+                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
+                      <div className="flex items-center space-x-2">
+                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
+                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                      </div>
+                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
+                  alt="Vascular Cath Lab"
+                  fill
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Plaque Stabilization Center</p>
+                  <p className="text-sm font-bold">Goal LDL-C &lt;55 mg/dL for high-risk secondary prevention.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* 6. LIVING WITH ATHEROSCLEROSIS */}
+            <section id="living-with" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Self-Management</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with Atherosclerosis</h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Apple className="h-5 w-5 text-emerald-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Dietary Modifications</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Strict Mediterranean diet with soluble fiber and plant sterols</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Eliminate trans-fats and restrict saturated fat to &lt;6% of calories</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Increase omega-3 fatty acids from fish and flaxseed</span></li>
+                  </ul>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <Activity className="h-5 w-5 text-blue-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Exercise & Smoking Cessation</h4>
+                  </div>
+                  <ul className="space-y-2 text-sm text-slate-600">
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>150 minutes of moderate aerobic exercise weekly</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Complete smoking cessation (eliminates endothelial toxicity)</span></li>
+                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Maintain BP &lt;130/80 and HbA1c &lt;7.0%</span></li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            {/* PLAQUE STAGES */}
-            <section id="stages" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Stages of Plaque Formation</h2>
-              <div className="space-y-4">
-                {stages.map((s, i) => (
-                  <div key={s.stage} className="flex items-start space-x-4 bg-white border border-slate-200/80 rounded-2xl p-5">
-                    <div className="bg-blue-600 text-white font-extrabold text-sm h-8 w-8 rounded-xl flex items-center justify-center shrink-0">{i + 1}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">{s.stage}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-0.5">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1400&q=80"
-                  alt="Plaque Rupture and Thrombosis"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 to-transparent" />
-                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-white max-w-xs">
-                  <p className="text-xs uppercase tracking-wider font-bold text-sky-300">Plaque Vulnerability</p>
-                  <p className="text-sm font-bold mt-1">Most heart attacks are caused by thin-cap vulnerable plaques, not severe stenosis.</p>
-                </div>
-              </div>
-            </section>
-
-            {/* RISK FACTORS */}
-            <section id="risk" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <AlertTriangle className="h-6 w-6 text-amber-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-600">Risk Assessment</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Atherosclerosis Risk Factors</h2>
-                </div>
-              </div>
-              <div className="space-y-4">
-                {riskFactors.map((r, i) => (
-                  <div key={r.name} className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <div className="bg-amber-500 text-white font-extrabold text-xs h-6 w-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5">{i + 1}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">{r.name}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-0.5">{r.detail}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* DIAGNOSTICS */}
-            <section id="diagnostics" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Atherosclerosis Screening & Diagnostics</h2>
-              <div className="space-y-3">
-                {diagnostics.map(d => (
-                  <div key={d.abbr} className="bg-white border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
-                    <div className="bg-blue-50 text-blue-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0">{d.abbr}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-sm">{d.name}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">{d.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <Image src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="CT Coronary Angiography Scan" fill className="object-cover" />
-                </div>
-                <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <Image src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80" alt="Carotid Ultrasound Vascular Imaging" fill className="object-cover" />
-                </div>
-              </div>
-            </section>
-
-            {/* TREATMENT */}
-            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Medical & Lifestyle Therapy</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Stabilizing & Treating Atherosclerosis</h2>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {treatments.map(t => (
-                  <div key={t.title} className="border border-slate-100 p-5 rounded-2xl bg-slate-50/50">
-                    <h4 className="font-bold text-slate-800 text-sm mb-1.5">{t.title}</h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">{t.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* FAQS */}
+            {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
                 <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Patient Queries</span>
