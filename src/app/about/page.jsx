@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, Award, Users, Clock, ArrowRight, GraduationCap, Building2, CheckCircle2 } from 'lucide-react';
+import { Heart, Award, Users, Clock, ArrowRight, GraduationCap, Building2, CheckCircle2, MapPin, Phone, Navigation } from 'lucide-react';
 
 export const metadata = {
   title: 'About Dr. Mohamed Faher Almahmoud | PulseCare Cardiology',
@@ -143,6 +143,111 @@ export default function AboutPage() {
 
             </div>
 
+          </div>
+        </div>
+
+        {/* Clinic Location & Interactive Google Map Section */}
+        <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl space-y-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+            <div>
+              <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-2">
+                <MapPin className="h-3.5 w-3.5" />
+                <span>Clinic Location & Practice Details</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Visit Dr. Almahmoud&apos;s Practice
+              </h2>
+              <p className="text-slate-600 text-sm mt-1">
+                Conveniently located for comprehensive cardiac evaluations, testing, and consultations.
+              </p>
+            </div>
+            
+            <a
+              href="https://maps.google.com/?q=120+Heart+Health+Way+Suite+400+Chicago+IL+60601"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md shrink-0"
+            >
+              <Navigation className="h-4 w-4" />
+              <span>Get Driving Directions</span>
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Info Cards */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
+                <div className="flex items-start space-x-3.5">
+                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-sm">Facility Address</h3>
+                    <p className="text-slate-600 text-xs mt-1 leading-relaxed">
+                      120 Heart Health Way, Suite 400<br />
+                      Chicago, IL 60601
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
+                <div className="flex items-start space-x-3.5">
+                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-sm">Contact Lines</h3>
+                    <p className="text-slate-600 text-xs mt-1 leading-relaxed">
+                      Main Clinic: <span className="font-semibold text-slate-800">+1 (800) 555-7857</span><br />
+                      24/7 Emergency: <span className="font-semibold text-slate-800">+1 (800) 555-STAT</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
+                <div className="flex items-start space-x-3.5">
+                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
+                    <Clock className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-sm">Hours of Operation</h3>
+                    <div className="text-slate-600 text-xs mt-1 space-y-1">
+                      <div className="flex justify-between gap-4">
+                        <span>Mon – Fri:</span>
+                        <span className="font-semibold text-slate-800">8:00 AM – 6:00 PM</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span>Saturday:</span>
+                        <span className="font-semibold text-slate-800">9:00 AM – 2:00 PM</span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span>Sunday:</span>
+                        <span className="font-semibold text-slate-800">Closed (Emergency 24/7)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Embedded Google Map iframe */}
+            <div className="lg:col-span-7">
+              <div className="relative h-80 sm:h-[380px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
+                <iframe
+                  title="Dr. Almahmoud Clinic Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.3662991048896!2d-87.6278!3d41.8819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca8b34fee61%3A0x1d5828236173a1d9!2sChicago%2C%20IL!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full rounded-2xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
