@@ -913,9 +913,6 @@ export default function HomeClient() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                      <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-sky-500/90 text-blue-950 text-[11px] font-bold rounded-lg shadow-md">
-                        0{idx + 1}
-                      </span>
                     </div>
 
                     <div className="p-5 space-y-2">
@@ -997,8 +994,11 @@ export default function HomeClient() {
                     best possible outcome
                   </span>{" "}
                   for your specific condition. When more advanced interventions
-                  are appropriate, we&apos;ll discuss all available options and
-                  help you make an informed decision.&rdquo;
+                  are appropriate,{" "}
+                  <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-200 bg-clip-text text-transparent font-bold">
+                    we&apos;ll discuss all available options and help you make an informed decision.
+                  </span>
+                  &rdquo;
                 </p>
               </div>
             </div>
