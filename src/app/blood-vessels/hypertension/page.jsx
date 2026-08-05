@@ -94,11 +94,7 @@ export default function HypertensionPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
-            <Link href="/blood-vessels" className="hover:underline">Vascular Conditions</Link>
-            <ChevronRight className="h-3 w-3" />
-            <span>Hypertension Guide</span>
-          </div>
+
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5">
