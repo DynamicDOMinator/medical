@@ -177,12 +177,6 @@ export default function Navbar() {
               icon={Activity}
               categoryHref="/blood-vessels"
             />
-            <MegaDropdown
-              items={symptoms}
-              label="Symptoms"
-              icon={AlertCircle}
-              categoryHref="/symptom/palpitations"
-            />
             <Link
               href="/blood-vessels/hypertension"
               className={`flex items-center space-x-1.5 text-sm font-bold px-3 py-2 rounded-xl transition-all ${
@@ -194,6 +188,12 @@ export default function Navbar() {
               <TrendingUp className="h-4 w-4" />
               <span>Hypertension</span>
             </Link>
+            <MegaDropdown
+              items={symptoms}
+              label="Symptoms"
+              icon={AlertCircle}
+              categoryHref="/symptom/palpitations"
+            />
 
             {/* Divider */}
             <div className="h-5 w-px bg-slate-200 mx-1.5" />
@@ -317,6 +317,16 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Hypertension Mobile Link */}
+            <Link
+              href="/blood-vessels/hypertension"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+            >
+              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <span>Hypertension</span>
+            </Link>
+
             {/* Symptoms accordion */}
             <div>
               <button
@@ -346,16 +356,6 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-
-            {/* Hypertension Mobile Link */}
-            <Link
-              href="/blood-vessels/hypertension"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
-            >
-              <TrendingUp className="h-4 w-4 text-blue-600" />
-              <span>Hypertension</span>
-            </Link>
 
             {/* Divider */}
             <div className="h-px bg-slate-100 my-2" />
