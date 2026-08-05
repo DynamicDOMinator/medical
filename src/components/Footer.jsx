@@ -1,0 +1,132 @@
+import Link from "next/link";
+import { Heart, Mail, Phone, MapPin, ShieldAlert } from "lucide-react";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-slate-900 text-slate-400 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand block */}
+          <div className="space-y-4 col-span-1 md:col-span-2">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 text-white font-bold text-xl tracking-tight"
+            >
+              <Heart className="h-6 w-6 text-brand-400" />
+              <span>
+                Pulse<span className="text-brand-400">Care</span> Cardiology
+              </span>
+            </Link>
+            <p className="text-sm text-slate-400 leading-relaxed max-w-md">
+              PulseCare Cardiology Clinic is dedicated to providing
+              high-quality, patient-centered cardiovascular services. Our
+              state-of-the-art diagnostic facilities and expert medical team
+              guarantee world-class heart care.
+            </p>
+            <div className="flex flex-col space-y-2.5 text-sm pt-2">
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-brand-400 shrink-0" />
+                <span>120 Heart Health Way, Suite 400, Chicago, IL 60601</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="h-4 w-4 text-brand-400 shrink-0" />
+                <a
+                  href="tel:+18005557857"
+                  className="hover:text-white transition-colors"
+                >
+                  +1 (800) 555-7857
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="h-4 w-4 text-brand-400 shrink-0" />
+                <a
+                  href="mailto:info@pulsecarecardiology.com"
+                  className="hover:text-white transition-colors"
+                >
+                  info@pulsecarecardiology.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              Medical Resources
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Dashboard Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/disease/cad"
+                  className="hover:text-white transition-colors"
+                >
+                  Coronary Artery Disease (CAD)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/symptom/palpitations"
+                  className="hover:text-white transition-colors"
+                >
+                  Palpitations Investigation
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Clinic Hours */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              Clinic Hours
+            </h3>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li className="flex justify-between">
+                <span>Monday - Friday:</span>
+                <span className="text-white font-medium">
+                  8:00 AM - 6:00 PM
+                </span>
+              </li>
+              <li className="flex justify-between">
+                <span>Saturday:</span>
+                <span className="text-white font-medium">
+                  9:00 AM - 2:00 PM
+                </span>
+              </li>
+              <li className="flex justify-between text-brand-400">
+                <span>Emergency Support:</span>
+                <span className="font-semibold">24 / 7 Available</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Medical disclaimer */}
+        <div className="mt-12 pt-8 border-t border-slate-800 space-y-4">
+          
+
+          <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 pt-2">
+            <p>
+              &copy; {currentYear} PulseCare Cardiology Clinic. All rights
+              reserved.
+            </p>
+            <div className="flex space-x-4 mt-2 sm:mt-0">
+              <a href="#" className="hover:text-slate-300">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-slate-300">
+                Terms of Use
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
