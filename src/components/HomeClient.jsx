@@ -682,10 +682,7 @@ export default function HomeClient() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
       >
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3">
-            <Zap className="h-4 w-4" />
-            <span>Clinical Specializations Hub</span>
-          </div>
+        
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Dr. Almahmoud's Clinical Specializations
           </h2>
@@ -817,7 +814,6 @@ export default function HomeClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
           {/* Main Title & Overview */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-           
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Finding the{" "}
               <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
@@ -905,7 +901,6 @@ export default function HomeClient() {
                   </p>
                 </div>
               </div>
-              
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -966,9 +961,7 @@ export default function HomeClient() {
                     >
                       <div className="space-y-3">
                         <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 w-fit">
-                          <StageIcon
-                            className={`h-6 w-6 ${stage.iconColor}`}
-                          />
+                          <StageIcon className={`h-6 w-6 ${stage.iconColor}`} />
                         </div>
                         <h4 className="font-extrabold text-lg text-white">
                           {stage.title}
@@ -1008,9 +1001,9 @@ export default function HomeClient() {
                   <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold">
                     best possible outcome
                   </span>{" "}
-                  for your specific condition. When more advanced interventions are appropriate, we&apos;ll
-                  discuss all available options and help you make an informed
-                  decision.&rdquo;
+                  for your specific condition. When more advanced interventions
+                  are appropriate, we&apos;ll discuss all available options and
+                  help you make an informed decision.&rdquo;
                 </p>
               </div>
             </div>
