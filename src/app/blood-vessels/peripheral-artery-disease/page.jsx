@@ -293,44 +293,59 @@ export default function PADPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    The primary screening test for PAD is the <strong>Ankle-Brachial Index (ABI)</strong>. It is a quick, pain-free test comparing blood pressure in your ankles to blood pressure in your arms using Doppler ultrasound cuffs.
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Ankle-Brachial Index (ABI):</strong> Gold-standard non-invasive Doppler pressure ratio test (&lt;0.90 confirms PAD).</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Arterial Duplex Ultrasound:</strong> Visualizes leg artery plaque occlusion and blood flow velocities.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Toe-Brachial Index (TBI):</strong> Evaluates microvascular flow in non-compressible calcified vessels.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>CT / MR Angiography (CTA/MRA):</strong> 3D vascular arterial roadmapping prior to stenting or surgery.</span>
-                      </li>
-                    </ul>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                The primary screening test for PAD is the <strong>Ankle-Brachial Index (ABI)</strong>. It is a quick, pain-free test comparing blood pressure in your ankles to blood pressure in your arms using Doppler ultrasound cuffs.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Ankle-Brachial Index (ABI)</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Gold-standard non-invasive Doppler pressure ratio test (&lt;0.90 confirms PAD).</p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                      alt="ABI Testing Consultation"
-                      fill
-                      className="object-cover"
-                    />
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Arterial Duplex Ultrasound</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Visualizes leg artery plaque occlusion and blood flow velocities.</p>
                   </div>
                 </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Toe-Brachial Index (TBI)</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates microvascular flow in non-compressible calcified vessels.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">CT / MR Angiography (CTA/MRA)</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">3D vascular arterial roadmapping prior to stenting or surgery.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                  alt="ABI Testing Consultation"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

@@ -290,44 +290,59 @@ export default function AtherosclerosisPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    Advanced risk stratification detects subclinical atherosclerosis before cardiac events occur:
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Coronary CT Angiography (CCTA):</strong> Visualizes soft and calcified plaque burden.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Coronary Calcium Score (CAC):</strong> Quantifies subclinical coronary calcification.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Advanced Lipid Panel:</strong> Measures ApoB, Lp(a), and atherogenic particles.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Carotid Duplex Ultrasound:</strong> Screens for carotid artery intima-media thickness & bifurcation plaque.</span>
-                      </li>
-                    </ul>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Advanced risk stratification detects subclinical atherosclerosis before cardiac events occur:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Coronary CT Angiography (CCTA)</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Visualizes soft and calcified plaque burden.</p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                      alt="Plaque Diagnostic Scan"
-                      fill
-                      className="object-cover"
-                    />
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Coronary Calcium Score (CAC)</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Quantifies subclinical coronary calcification.</p>
                   </div>
                 </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Advanced Lipid Panel</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Measures ApoB, Lp(a), and atherogenic particles.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Carotid Duplex Ultrasound</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Screens for carotid artery intima-media thickness & bifurcation plaque.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                  alt="Plaque Diagnostic Scan"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

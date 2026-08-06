@@ -363,44 +363,59 @@ export default function CHFPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    Comprehensive evaluation determines the underlying etiology and guides precise medical and device interventions:
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Echocardiogram:</strong> Calculates LVEF, measures chamber sizes and valve gradients.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>NT-proBNP Biomarker:</strong> Measures wall stress to diagnose fluid overload.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Cardiac MRI / PET:</strong> Evaluates myocardial tissue viability and scar burden.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>12-Lead ECG & Chest X-Ray:</strong> Assesses QRS width, LBBB, and pulmonary congestion.</span>
-                      </li>
-                    </ul>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Comprehensive evaluation determines the underlying etiology and guides precise medical and device interventions:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Echocardiogram</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Calculates LVEF, measures chamber sizes and valve gradients.</p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
-                      alt="Cardiac Imaging Evaluation"
-                      fill
-                      className="object-cover"
-                    />
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">NT-proBNP Biomarker</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Measures wall stress to diagnose fluid overload.</p>
                   </div>
                 </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Cardiac MRI / PET</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates myocardial tissue viability and scar burden.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">12-Lead ECG & Chest X-Ray</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses QRS width, LBBB, and pulmonary congestion.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiac Imaging Evaluation"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

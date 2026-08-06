@@ -274,44 +274,59 @@ export default function PalpitationsPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    Capturing rhythm during symptomatic episodes is key to definitive diagnosis:
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>24–48 Hr Holter Monitor:</strong> Continuous ECG rhythm logging during daily activity.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>14-Day Extended Patch Monitor:</strong> Captures paroxysmal infrequent arrhythmias.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Echocardiography:</strong> Evaluates structural valve and myocardial muscle integrity.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Treadmill Exercise Stress Test:</strong> Assesses catecholamine/exertion-triggered arrhythmia spikes.</span>
-                      </li>
-                    </ul>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Capturing rhythm during symptomatic episodes is key to definitive diagnosis:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">24–48 Hr Holter Monitor</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Continuous ECG rhythm logging during daily activity.</p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
-                      alt="Holter Monitor ECG Analysis"
-                      fill
-                      className="object-cover"
-                    />
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">14-Day Extended Patch Monitor</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Captures paroxysmal infrequent arrhythmias.</p>
                   </div>
                 </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Echocardiography</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates structural valve and myocardial muscle integrity.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Treadmill Exercise Stress Test</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses catecholamine/exertion-triggered arrhythmia spikes.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                  alt="Holter Monitor ECG Analysis"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 

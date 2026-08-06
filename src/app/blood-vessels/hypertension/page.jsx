@@ -344,44 +344,59 @@ export default function HypertensionPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    Accurate blood pressure determination requires standardized measurement techniques and evaluation of target organ health:
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>24-Hour Ambulatory BP Monitoring (ABPM):</strong> Eliminates white-coat HTN and reveals nocturnal dipping patterns.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Echocardiography:</strong> Assesses Left Ventricular Hypertrophy (LVH) and diastolic filling.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Renal Duplex Ultrasound:</strong> Evaluates renal artery stenosis in secondary hypertension.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Renal & Endocrine Biomarkers:</strong> Serum Creatinine, eGFR, Urine Albumin, and Aldosterone-to-Renin ratio.</span>
-                      </li>
-                    </ul>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Accurate blood pressure determination requires standardized measurement techniques and evaluation of target organ health:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">24-Hour Ambulatory BP Monitoring</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Eliminates white-coat HTN and reveals nocturnal dipping patterns.</p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
-                      alt="Ambulatory Blood Pressure Measurement"
-                      fill
-                      className="object-cover"
-                    />
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Echocardiography</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses Left Ventricular Hypertrophy (LVH) and diastolic filling.</p>
                   </div>
                 </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Renal Duplex Ultrasound</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates renal artery stenosis in secondary hypertension.</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
+                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base mb-1">Renal & Endocrine Biomarkers</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Serum Creatinine, eGFR, Urine Albumin, and Aldosterone-to-Renin ratio.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                  alt="Ambulatory Blood Pressure Measurement"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 
