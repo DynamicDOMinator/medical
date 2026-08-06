@@ -1,10 +1,23 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Heart, Award, Users, Clock, ArrowRight, GraduationCap, Building2, CheckCircle2, MapPin, Phone, Navigation } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Heart,
+  Award,
+  Users,
+  Clock,
+  ArrowRight,
+  GraduationCap,
+  Building2,
+  CheckCircle2,
+  MapPin,
+  Phone,
+  Navigation,
+} from "lucide-react";
 
 export const metadata = {
-  title: 'About Dr. Mohamed Faher Almahmoud | PulseCare Cardiology',
-  description: 'Learn about Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C. — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.',
+  title: "About Dr. Mohamed Faher Almahmoud | PulseCare Cardiology",
+  description:
+    "Learn about Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C. — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.",
 };
 
 export default function AboutPage() {
@@ -34,18 +47,18 @@ export default function AboutPage() {
             About Dr. Mohamed Faher Almahmoud
           </h1>
           <p className="mt-4 text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            M.D., F.A.C.C. — Board-Certified Specialist in General & Interventional Cardiology, Peripheral Vascular Disease, and Structural Heart Care.
+            M.D., F.A.C.C. — Board-Certified Specialist in General &
+            Interventional Cardiology, Peripheral Vascular Disease, and
+            Structural Heart Care.
           </p>
         </div>
       </div>
 
       {/* Main Profile Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
-        
         {/* Profile Card */}
         <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            
             {/* Left: Doctor Photo */}
             <div className="lg:col-span-5 space-y-6">
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-blue-100 via-sky-50 to-slate-100 p-2 border border-blue-200/80 shadow-lg">
@@ -68,14 +81,17 @@ export default function AboutPage() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   {[
-                    'Internal Medicine',
-                    'Cardiovascular Disease',
-                    'Nuclear Cardiology',
-                    'Echocardiography',
-                    'Cardiac CT',
-                    'RPVI (Vascular)'
+                    "Internal Medicine",
+                    "Cardiovascular Disease",
+                    "Nuclear Cardiology",
+                    "Echocardiography",
+                    "Cardiac CT",
+                    "RPVI (Vascular)",
                   ].map((cert, idx) => (
-                    <div key={idx} className="flex items-center space-x-2 bg-white px-3 py-2 rounded-xl border border-blue-100 font-semibold text-slate-700">
+                    <div
+                      key={idx}
+                      className="flex items-center space-x-2 bg-white px-3 py-2 rounded-xl border border-blue-100 font-semibold text-slate-700"
+                    >
                       <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
                       <span>{cert}</span>
                     </div>
@@ -88,7 +104,8 @@ export default function AboutPage() {
             <div className="lg:col-span-7 space-y-6">
               <div>
                 <h2 className="text-3xl font-extrabold text-slate-900">
-                  Dr. Mohamed Faher Almahmoud, <span className="text-blue-600">M.D., F.A.C.C.</span>
+                  Dr. Mohamed Faher Almahmoud,{" "}
+                  <span className="text-blue-600">M.D., F.A.C.C.</span>
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
                   Cardiologist & Interventional Vascular Specialist
@@ -97,20 +114,38 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
                 <p>
-                  Dr. Almahmoud is a board-certified cardiologist specialized in general and interventional cardiology with interest in coronary artery disease, peripheral vascular disease and valvular/structural heart disease.
+                  Dr. Almahmoud is a board-certified cardiologist specialized in
+                  general and interventional cardiology with interest in
+                  coronary artery disease, peripheral vascular disease and
+                  valvular/structural heart disease.
                 </p>
                 <p>
-                  Dr. Almahmoud has expertise in clinical research with interests in weight loss, atrial fibrillation, heart failure, valvular heart disease, atherosclerosis and hyperlipidemia (high cholesterol). He completed two years of NIH sponsored clinical research fellowship and participated in several landmark clinical trials targeting atherosclerosis and ischemic heart disease.
+                  Dr. Almahmoud has expertise in clinical research with
+                  interests in weight loss, atrial fibrillation, heart failure,
+                  valvular heart disease, atherosclerosis and hyperlipidemia
+                  (high cholesterol). He completed two years of NIH sponsored
+                  clinical research fellowship and participated in several
+                  landmark clinical trials targeting atherosclerosis and
+                  ischemic heart disease.
                 </p>
                 <p>
-                  His expertise includes advanced coronary interventions, peripheral vascular disease and structural/valvular heart disease. Including a variety of minimally invasive trans-catheter procedures for patients with deep venous thrombosis, pulmonary embolism, aortic stenosis (TAVR and aortic valvuloplasty), mitral regurgitation (MitraClip), atrial septal defect (ASD), patent foramen ovale (PFO), and hypertrophic cardiomyopathy (HOCM).
+                  His expertise includes advanced coronary interventions,
+                  peripheral vascular disease and structural/valvular heart
+                  disease. Including a variety of minimally invasive
+                  trans-catheter procedures for patients with deep venous
+                  thrombosis, pulmonary embolism, aortic stenosis (TAVR and
+                  aortic valvuloplasty), mitral regurgitation (MitraClip),
+                  atrial septal defect (ASD), patent foramen ovale (PFO), and
+                  hypertrophic cardiomyopathy (HOCM).
                 </p>
                 <p>
-                  He is also trained on advanced mechanical support devices for patients with acute heart failure and cardiogenic shock.
+                  He is also trained on advanced mechanical support devices for
+                  patients with acute heart failure and cardiogenic shock.
                 </p>
                 <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
                   <p className="text-xs font-semibold text-blue-900">
-                    Dr. Almahmoud loves to spend his free time playing sports and spending time with his family.
+                    Dr. Almahmoud loves to spend his free time playing sports
+                    and spending time with his family.
                   </p>
                 </div>
               </div>
@@ -140,9 +175,7 @@ export default function AboutPage() {
                   </ul>
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
 
@@ -158,10 +191,11 @@ export default function AboutPage() {
                 Visit Dr. Almahmoud&apos;s Practice
               </h2>
               <p className="text-slate-600 text-sm mt-1">
-                Conveniently located for comprehensive cardiac evaluations, testing, and consultations.
+                Conveniently located for comprehensive cardiac evaluations,
+                testing, and consultations.
               </p>
             </div>
-            
+
             <a
               href="https://maps.google.com/?q=120+Heart+Health+Way+Suite+400+Chicago+IL+60601"
               target="_blank"
@@ -182,9 +216,12 @@ export default function AboutPage() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-sm">Facility Address</h3>
+                    <h3 className="font-bold text-slate-900 text-sm">
+                      Facility Address
+                    </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      120 Heart Health Way, Suite 400<br />
+                      120 Heart Health Way, Suite 400
+                      <br />
                       Chicago, IL 60601
                     </p>
                   </div>
@@ -197,10 +234,19 @@ export default function AboutPage() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-sm">Contact Lines</h3>
+                    <h3 className="font-bold text-slate-900 text-sm">
+                      Contact Lines
+                    </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      Main Clinic: <span className="font-semibold text-slate-800">+1 (800) 555-7857</span><br />
-                      24/7 Emergency: <span className="font-semibold text-slate-800">+1 (800) 555-STAT</span>
+                      Main Clinic:{" "}
+                      <span className="font-semibold text-slate-800">
+                        +1 (800) 555-7857
+                      </span>
+                      <br />
+                      24/7 Emergency:{" "}
+                      <span className="font-semibold text-slate-800">
+                        +1 (800) 555-STAT
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -212,19 +258,27 @@ export default function AboutPage() {
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 text-sm">Hours of Operation</h3>
+                    <h3 className="font-bold text-slate-900 text-sm">
+                      Hours of Operation
+                    </h3>
                     <div className="text-slate-600 text-xs mt-1 space-y-1">
                       <div className="flex justify-between gap-4">
                         <span>Mon – Fri:</span>
-                        <span className="font-semibold text-slate-800">8:00 AM – 6:00 PM</span>
+                        <span className="font-semibold text-slate-800">
+                          8:00 AM – 6:00 PM
+                        </span>
                       </div>
                       <div className="flex justify-between gap-4">
                         <span>Saturday:</span>
-                        <span className="font-semibold text-slate-800">9:00 AM – 2:00 PM</span>
+                        <span className="font-semibold text-slate-800">
+                          9:00 AM – 2:00 PM
+                        </span>
                       </div>
                       <div className="flex justify-between gap-4">
                         <span>Sunday:</span>
-                        <span className="font-semibold text-slate-800">Closed (Emergency 24/7)</span>
+                        <span className="font-semibold text-slate-800">
+                          Closed (Emergency 24/7)
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -253,16 +307,21 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl font-extrabold">Ready to Request an Appointment?</h3>
+          <h3 className="text-2xl font-extrabold">
+            Ready to Request an Appointment?
+          </h3>
           <p className="text-blue-100 text-base max-w-xl mx-auto">
-            Request an appointment with Dr. Mohamed Faher Almahmoud for general cardiology, interventional evaluation, or second opinions.
+            Request an appointment with Dr. Mohamed Faher Almahmoud for general
+            cardiology, interventional evaluation, or second opinions.
           </p>
-          <Link href="/contact" className="inline-flex items-center px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-bold rounded-xl transition-all shadow-md">
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-bold rounded-xl transition-all shadow-md"
+          >
             Request an Appointment with Dr. Almahmoud
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
-
       </div>
     </div>
   );

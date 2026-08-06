@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import {
   Heart,
   CheckCircle,
@@ -16,113 +16,117 @@ import {
   HeartPulse,
   FileText,
   Apple,
-} from 'lucide-react';
-import FAQAccordion from '@/components/FAQAccordion';
+} from "lucide-react";
+import FAQAccordion from "@/components/FAQAccordion";
 
 export default function HeartCADPage() {
   const faqs = [
     {
-      question: 'What is Coronary Artery Disease (CAD)?',
+      question: "What is Coronary Artery Disease (CAD)?",
       answer:
-        'Coronary Artery Disease occurs when cholesterol plaque accumulates in the arteries supplying oxygen-rich blood to your heart muscle. Over time, plaque narrows the coronary arteries, restricting blood flow and causing angina or heart attacks.',
+        "Coronary Artery Disease occurs when cholesterol plaque accumulates in the arteries supplying oxygen-rich blood to your heart muscle. Over time, plaque narrows the coronary arteries, restricting blood flow and causing angina or heart attacks.",
     },
     {
-      question: 'What is the difference between Angina and a Heart Attack?',
+      question: "What is the difference between Angina and a Heart Attack?",
       answer:
-        'Angina is temporary chest pressure occurring during exertion when heart muscle demand exceeds blood supply. A heart attack (Myocardial Infarction) occurs when a plaque ruptures and completely blocks a coronary artery, causing permanent heart muscle damage.',
+        "Angina is temporary chest pressure occurring during exertion when heart muscle demand exceeds blood supply. A heart attack (Myocardial Infarction) occurs when a plaque ruptures and completely blocks a coronary artery, causing permanent heart muscle damage.",
     },
     {
-      question: 'How does Coronary Angioplasty & Stenting work?',
+      question: "How does Coronary Angioplasty & Stenting work?",
       answer:
-        'Percutaneous Coronary Intervention (PCI) involves threading a fine catheter through a wrist or groin artery into the blocked heart artery. A balloon inflates the blockage and a drug-eluting stent is placed to keep the artery permanently open.',
+        "Percutaneous Coronary Intervention (PCI) involves threading a fine catheter through a wrist or groin artery into the blocked heart artery. A balloon inflates the blockage and a drug-eluting stent is placed to keep the artery permanently open.",
     },
     {
-      question: 'Can coronary plaque be reversed?',
+      question: "Can coronary plaque be reversed?",
       answer:
-        'While advanced calcified plaque cannot be fully reversed, high-intensity statin therapy, PCSK9 inhibitors, and lifestyle modifications can stabilize vulnerable plaques and significantly reduce the risk of future heart attacks.',
+        "While advanced calcified plaque cannot be fully reversed, high-intensity statin therapy, PCSK9 inhibitors, and lifestyle modifications can stabilize vulnerable plaques and significantly reduce the risk of future heart attacks.",
     },
   ];
 
   const typesList = [
     {
-      name: 'Stable Angina',
-      desc: 'Predictable chest pressure occurring during physical activity or emotional stress that resolves within minutes of rest or sublingual nitroglycerin.',
+      name: "Stable Angina",
+      desc: "Predictable chest pressure occurring during physical activity or emotional stress that resolves within minutes of rest or sublingual nitroglycerin.",
     },
     {
-      name: 'Unstable Angina',
-      desc: 'Unpredictable chest discomfort occurring at rest or with minimal exertion. Indicates plaque disruption and high immediate risk of heart attack.',
+      name: "Unstable Angina",
+      desc: "Unpredictable chest discomfort occurring at rest or with minimal exertion. Indicates plaque disruption and high immediate risk of heart attack.",
     },
     {
-      name: 'Acute Myocardial Infarction (NSTEMI / STEMI)',
-      desc: 'Complete or subtotal occlusion of a coronary artery causing cardiac cell death. Requires urgent catheterization and stent revascularization.',
+      name: "Acute Myocardial Infarction (NSTEMI / STEMI)",
+      desc: "Complete or subtotal occlusion of a coronary artery causing cardiac cell death. Requires urgent catheterization and stent revascularization.",
     },
     {
-      name: 'Coronary Microvascular Disease (MVD)',
-      desc: 'Damage to the walls of tiny coronary blood vessels that branch off from major arteries, causing angina despite open main arteries.',
+      name: "Coronary Microvascular Disease (MVD)",
+      desc: "Damage to the walls of tiny coronary blood vessels that branch off from major arteries, causing angina despite open main arteries.",
     },
   ];
 
   const symptomList = [
     {
-      title: 'Chest Pain or Discomfort (Angina)',
-      desc: 'Pressure, squeezing, fullness, or burning sensation in the center of chest during exertion or emotional stress.',
+      title: "Chest Pain or Discomfort (Angina)",
+      desc: "Pressure, squeezing, fullness, or burning sensation in the center of chest during exertion or emotional stress.",
       icon: Heart,
     },
     {
-      title: 'Shortness of Breath (Dyspnea)',
-      desc: 'Inability to catch your breath during mild physical activity when heart muscle is starved of oxygen.',
+      title: "Shortness of Breath (Dyspnea)",
+      desc: "Inability to catch your breath during mild physical activity when heart muscle is starved of oxygen.",
       icon: Clock,
     },
     {
-      title: 'Radiation to Arm, Neck or Jaw',
-      desc: 'Radiating discomfort extending into the left shoulder, left arm, neck, jaw, or upper back.',
+      title: "Radiation to Arm, Neck or Jaw",
+      desc: "Radiating discomfort extending into the left shoulder, left arm, neck, jaw, or upper back.",
       icon: AlertTriangle,
     },
     {
-      title: 'Extreme Fatigue & Weakness',
-      desc: 'Unusual, overwhelming tiredness during routine tasks caused by decreased cardiac output.',
+      title: "Extreme Fatigue & Weakness",
+      desc: "Unusual, overwhelming tiredness during routine tasks caused by decreased cardiac output.",
       icon: Info,
     },
     {
-      title: 'Cold Sweats & Lightheadedness',
-      desc: 'Sudden diaphoresis (cold sweating), nausea, or dizziness accompanying chest pressure.',
+      title: "Cold Sweats & Lightheadedness",
+      desc: "Sudden diaphoresis (cold sweating), nausea, or dizziness accompanying chest pressure.",
       icon: Zap,
     },
     {
-      title: 'Heart Palpitations',
-      desc: 'Sensation of rapid, thumping, or irregular heartbeats triggered by myocardial ischemia.',
+      title: "Heart Palpitations",
+      desc: "Sensation of rapid, thumping, or irregular heartbeats triggered by myocardial ischemia.",
       icon: HeartPulse,
     },
   ];
 
   const treatments = [
     {
-      name: 'Percutaneous Coronary Intervention (PCI / Stenting)',
-      desc: 'Minimally invasive catheterization where a tiny balloon dilates blocked heart arteries and a Drug-Eluting Stent (DES) scaffolds it open permanently.',
-      duration: '45–60 Mins',
-      recovery: '1–2 Days',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+      name: "Percutaneous Coronary Intervention (PCI / Stenting)",
+      desc: "Minimally invasive catheterization where a tiny balloon dilates blocked heart arteries and a Drug-Eluting Stent (DES) scaffolds it open permanently.",
+      duration: "45–60 Mins",
+      recovery: "1–2 Days",
+      image:
+        "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: 'Coronary Artery Bypass Grafting (CABG)',
-      desc: 'Surgical revascularization utilizing arterial or venous grafts to bypass complex multi-vessel or left main coronary artery disease.',
-      duration: 'Surgical Procedure',
-      recovery: 'Hospital Rehabilitation',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+      name: "Coronary Artery Bypass Grafting (CABG)",
+      desc: "Surgical revascularization utilizing arterial or venous grafts to bypass complex multi-vessel or left main coronary artery disease.",
+      duration: "Surgical Procedure",
+      recovery: "Hospital Rehabilitation",
+      image:
+        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: 'Optimal Medical Therapy (OMT)',
-      desc: 'Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.',
-      duration: 'Daily Protocol',
-      recovery: 'Long-term Protection',
-      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
+      name: "Optimal Medical Therapy (OMT)",
+      desc: "Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.",
+      duration: "Daily Protocol",
+      recovery: "Long-term Protection",
+      image:
+        "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: 'Coronary Angiography',
-      desc: 'An invasive diagnostic procedure using a contrast dye and X-rays to locate and measure the exact size of blockages in the heart arteries.',
-      duration: '30–45 Mins',
-      recovery: 'Same Day',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
+      name: "Coronary Angiography",
+      desc: "An invasive diagnostic procedure using a contrast dye and X-rays to locate and measure the exact size of blockages in the heart arteries.",
+      duration: "30–45 Mins",
+      recovery: "Same Day",
+      image:
+        "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -143,7 +147,9 @@ export default function HeartCADPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
-            <Link href="/heart" className="hover:underline">Heart Conditions</Link>
+            <Link href="/heart" className="hover:underline">
+              Heart Conditions
+            </Link>
             <ChevronRight className="h-3 w-3" />
             <span>Coronary Artery Disease</span>
           </div>
@@ -155,7 +161,10 @@ export default function HeartCADPage() {
                 <span className="animated-gradient-text">Disease (CAD)</span>
               </h1>
               <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Detailed clinical guide to coronary plaque accumulation, angina pectoris, stress testing, cardiac catheterization, FFR/IVUS imaging, and drug-eluting stenting by Dr. Mohamed Faher Almahmoud.
+                Detailed clinical guide to coronary plaque accumulation, angina
+                pectoris, stress testing, cardiac catheterization, FFR/IVUS
+                imaging, and drug-eluting stenting by Dr. Mohamed Faher
+                Almahmoud.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
@@ -194,7 +203,6 @@ export default function HeartCADPage() {
       {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
           {/* Sticky Sidebar */}
           <div className="hidden lg:block lg:col-span-3">
             <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
@@ -204,13 +212,13 @@ export default function HeartCADPage() {
               </h3>
               <nav className="flex flex-col space-y-2 text-sm">
                 {[
-                  ['#overview', 'Overview'],
-                  ['#types', 'Classifications & Types'],
-                  ['#symptoms', 'Symptoms'],
-                  ['#diagnosis', 'Diagnostic Testing'],
-                  ['#treatment', 'Treatment & Procedures'],
-                  ['#living-with', 'Living with CAD'],
-                  ['#faqs', 'FAQs'],
+                  ["#overview", "Overview"],
+                  ["#types", "Classifications & Types"],
+                  ["#symptoms", "Symptoms"],
+                  ["#diagnosis", "Diagnostic Testing"],
+                  ["#treatment", "Treatment & Procedures"],
+                  ["#living-with", "Living with CAD"],
+                  ["#faqs", "FAQs"],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -225,8 +233,12 @@ export default function HeartCADPage() {
 
               <div className="pt-4 border-t border-slate-100">
                 <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
-                  <p className="text-xs font-bold text-blue-900">Experiencing Chest Pain?</p>
-                  <p className="text-[11px] text-slate-600 mt-1">Contact PulseCare Cardiology for urgent evaluation.</p>
+                  <p className="text-xs font-bold text-blue-900">
+                    Experiencing Chest Pain?
+                  </p>
+                  <p className="text-[11px] text-slate-600 mt-1">
+                    Contact PulseCare Cardiology for urgent evaluation.
+                  </p>
                   <Link
                     href="/contact"
                     className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
@@ -240,25 +252,42 @@ export default function HeartCADPage() {
 
           {/* Main Sections */}
           <div className="lg:col-span-9 space-y-12">
-
             {/* 1. OVERVIEW (USE IMAGE) */}
-            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section
+              id="overview"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
                   <Info className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Coronary Circulation</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What is Coronary Artery Disease?</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Coronary Circulation
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    What is Coronary Artery Disease?
+                  </h2>
                 </div>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Coronary Artery Disease (CAD) is the leading cause of heart attacks and cardiovascular mortality worldwide. It develops when cholesterol, fats, calcium, and inflammatory cells accumulate within the inner lining of the major epicardial coronary arteries — the vessel channels that deliver blood, oxygen, and nutrients to your continuously pumping heart muscle.
+                  Coronary Artery Disease (CAD) is the leading cause of heart
+                  attacks and cardiovascular mortality worldwide. It develops
+                  when cholesterol, fats, calcium, and inflammatory cells
+                  accumulate within the inner lining of the major epicardial
+                  coronary arteries — the vessel channels that deliver blood,
+                  oxygen, and nutrients to your continuously pumping heart
+                  muscle.
                 </p>
                 <p>
-                  As atherosclerotic plaque grows, it restricts blood flow to the myocardium during physical exertion or stress (causing <strong>Angina Pectoris</strong>). If a plaque ruptures, a blood clot forms instantly, completely occluding coronary blood flow and triggering an acute <strong>Myocardial Infarction (Heart Attack)</strong>.
+                  As atherosclerotic plaque grows, it restricts blood flow to
+                  the myocardium during physical exertion or stress (causing{" "}
+                  <strong>Angina Pectoris</strong>). If a plaque ruptures, a
+                  blood clot forms instantly, completely occluding coronary
+                  blood flow and triggering an acute{" "}
+                  <strong>Myocardial Infarction (Heart Attack)</strong>.
                 </p>
               </div>
 
@@ -275,26 +304,42 @@ export default function HeartCADPage() {
 
             {/* 2. TYPES */}
             <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications & Types of CAD</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
+                Classifications & Types of CAD
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
-                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  <div
+                    key={t.name}
+                    className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2"
+                  >
+                    <h3 className="font-bold text-slate-900 text-base">
+                      {t.name}
+                    </h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      {t.desc}
+                    </p>
                   </div>
                 ))}
               </div>
             </section>
 
             {/* 3. SYMPTOMS (USE ICONS) */}
-            <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section
+              id="symptoms"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="flex items-center space-x-3 mb-8">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
                   <HeartPulse className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Clinical Warning Signs</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of Coronary Disease</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Clinical Warning Signs
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Symptoms of Coronary Disease
+                  </h2>
                 </div>
               </div>
 
@@ -302,14 +347,21 @@ export default function HeartCADPage() {
                 {symptomList.map((s) => {
                   const IconComp = s.icon;
                   return (
-                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2">
+                    <div
+                      key={s.title}
+                      className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2"
+                    >
                       <div className="flex items-center space-x-3">
                         <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600 shadow-2xs">
                           <IconComp className="h-5 w-5" />
                         </div>
-                        <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
+                        <h3 className="font-bold text-slate-900 text-base">
+                          {s.title}
+                        </h3>
                       </div>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-1">{s.desc}</p>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-1">
+                        {s.desc}
+                      </p>
                     </div>
                   );
                 })}
@@ -317,19 +369,28 @@ export default function HeartCADPage() {
             </section>
 
             {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
-            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section
+              id="diagnosis"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
                   <Stethoscope className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Advanced Cardiac Diagnostics</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests & Imaging</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Advanced Cardiac Diagnostics
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Diagnostic Tests & Imaging
+                  </h2>
                 </div>
               </div>
 
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Accurate CAD diagnosis combines non-invasive risk stratification with advanced anatomical imaging. Dr. Almahmoud utilizes state-of-the-art diagnostic modalities:
+                Accurate CAD diagnosis combines non-invasive risk stratification
+                with advanced anatomical imaging. Dr. Almahmoud utilizes
+                state-of-the-art diagnostic modalities:
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -345,9 +406,13 @@ export default function HeartCADPage() {
                     </div>
                     <div className="flex items-center space-x-2 mb-2">
                       <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Treadmill Stress Echocardiogram</h3>
+                      <h3 className="font-extrabold text-slate-900 text-base">
+                        Treadmill Stress Echocardiogram
+                      </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates wall motion under stress.</p>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      Evaluates wall motion under stress.
+                    </p>
                   </div>
                 </div>
 
@@ -363,9 +428,13 @@ export default function HeartCADPage() {
                     </div>
                     <div className="flex items-center space-x-2 mb-2">
                       <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Coronary CT Angiography (CCTA)</h3>
+                      <h3 className="font-extrabold text-slate-900 text-base">
+                        Coronary CT Angiography (CCTA)
+                      </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">3D non-invasive plaque imaging.</p>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      3D non-invasive plaque imaging.
+                    </p>
                   </div>
                 </div>
 
@@ -381,9 +450,13 @@ export default function HeartCADPage() {
                     </div>
                     <div className="flex items-center space-x-2 mb-2">
                       <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Invasive Coronary Angiography</h3>
+                      <h3 className="font-extrabold text-slate-900 text-base">
+                        Invasive Coronary Angiography
+                      </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Gold-standard fluoroscopic vessel mapping.</p>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      Gold-standard fluoroscopic vessel mapping.
+                    </p>
                   </div>
                 </div>
 
@@ -399,29 +472,43 @@ export default function HeartCADPage() {
                     </div>
                     <div className="flex items-center space-x-2 mb-2">
                       <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">12-Lead Resting ECG & Holter</h3>
+                      <h3 className="font-extrabold text-slate-900 text-base">
+                        12-Lead Resting ECG & Holter
+                      </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Detects ST-T wave changes and silent myocardial ischemia.</p>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      Detects ST-T wave changes and silent myocardial ischemia.
+                    </p>
                   </div>
                 </div>
               </div>
             </section>
 
             {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
-            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section
+              id="treatment"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="flex items-center space-x-3 mb-8">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
                   <Activity className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Interventional Cardiology</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                    Interventional Cardiology
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Treatment & Procedures
+                  </h2>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                  <div
+                    key={t.name}
+                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                  >
                     <div className="relative h-48 w-full">
                       <Image
                         src={t.image}
@@ -431,13 +518,21 @@ export default function HeartCADPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                       <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
-                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                          {t.duration}
+                        </span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                          {t.recovery}
+                        </span>
                       </div>
                     </div>
                     <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                        {t.name}
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -445,14 +540,21 @@ export default function HeartCADPage() {
             </section>
 
             {/* 6. LIVING WITH CAD */}
-            <section id="living-with" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section
+              id="living-with"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
                   <ShieldCheck className="h-6 w-6 text-emerald-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Heart Health</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with CAD & Prevention</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
+                    Heart Health
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Living with CAD & Prevention
+                  </h2>
                 </div>
               </div>
 
@@ -460,23 +562,57 @@ export default function HeartCADPage() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Apple className="h-5 w-5 text-emerald-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Dietary Recommendations</h4>
+                    <h4 className="font-bold text-slate-900 text-base">
+                      Dietary Recommendations
+                    </h4>
                   </div>
                   <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Mediterranean diet rich in olive oil, fish, vegetables, and whole grains</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Reduce saturated fats, trans fats, and processed sugars</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Limit sodium intake to under 2,000 mg per day</span></li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>
+                        Mediterranean diet rich in olive oil, fish, vegetables,
+                        and whole grains
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>
+                        Reduce saturated fats, trans fats, and processed sugars
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>Limit sodium intake to under 2,000 mg per day</span>
+                    </li>
                   </ul>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Activity className="h-5 w-5 text-blue-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Physical Activity Guidelines</h4>
+                    <h4 className="font-bold text-slate-900 text-base">
+                      Physical Activity Guidelines
+                    </h4>
                   </div>
                   <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>At least 150 minutes of moderate aerobic exercise weekly</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Brisk walking, cycling, or swimming as low-impact options</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Enroll in cardiac rehabilitation after any heart event</span></li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>
+                        At least 150 minutes of moderate aerobic exercise weekly
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>
+                        Brisk walking, cycling, or swimming as low-impact
+                        options
+                      </span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span>
+                        Enroll in cardiac rehabilitation after any heart event
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -485,12 +621,15 @@ export default function HeartCADPage() {
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Patient Queries</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  Patient Queries
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Frequently Asked Questions
+                </h2>
               </div>
               <FAQAccordion items={faqs} />
             </section>
-
           </div>
         </div>
       </div>

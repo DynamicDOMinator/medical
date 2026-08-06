@@ -1243,15 +1243,15 @@ export default function HomeClient() {
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-sky-300 hover:bg-white text-blue-950 font-extrabold rounded-2xl transition-all shadow-xl shadow-sky-400/20 text-center hover-lift"
               >
                 <Stethoscope className="h-5 w-5" />
-                <span>Book Appointment</span>
+                <span>Request Appointment</span>
               </Link>
-              <a
-                href="tel:+18005557857"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-2xl transition-all text-center"
               >
-                <PhoneCall className="h-5 w-5 text-sky-300" />
-                <span>Call Clinic Desk</span>
-              </a>
+                <Calendar className="h-5 w-5 text-sky-300" />
+                <span>Book online</span>
+              </Link>
             </div>
           </div>
         </div>
