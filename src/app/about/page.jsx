@@ -306,21 +306,31 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl font-extrabold">
-            Ready to Request an Appointment?
-          </h3>
-          <p className="text-blue-100 text-base max-w-xl mx-auto">
-            Request an appointment with Dr. Mohamed Faher Almahmoud for general
-            cardiology, interventional evaluation, or second opinions.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-bold rounded-xl transition-all shadow-md"
-          >
-            Request an Appointment with Dr. Almahmoud
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+        <div className="bg-gradient-to-r from-blue-900 via-slate-900 to-blue-950 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl">
+          <div className="space-y-3">
+            <h3 className="text-2xl sm:text-3xl font-extrabold">
+              Request an Appointment
+            </h3>
+            <p className="text-blue-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+              Request an appointment with Dr. Mohamed Faher Almahmoud online for general cardiology, interventional evaluation, or second opinions.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-bold rounded-xl transition-all shadow-md text-sm"
+            >
+              Request an Appointment
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
+            >
+              Book Online
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
