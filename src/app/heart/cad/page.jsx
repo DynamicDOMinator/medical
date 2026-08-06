@@ -104,18 +104,11 @@ export default function HeartCADPage() {
       image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
-      name: 'Fractional Flow Reserve (FFR / iFR) Assessment',
-      desc: 'Pressure wire measurement inside coronary arteries to determine if a narrowed artery truly starves heart muscle of blood flow before stenting.',
-      duration: '30 Mins',
-      recovery: 'Same Day',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      name: 'Intravascular Ultrasound (IVUS) & OCT Imaging',
-      desc: 'High-definition sound and light wave cameras inserted inside coronary vessels to view plaque composition and verify stent expansion.',
-      duration: 'Diagnostic',
-      recovery: 'Immediate',
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
+      name: 'Coronary Artery Bypass Grafting (CABG)',
+      desc: 'Surgical revascularization utilizing arterial or venous grafts to bypass complex multi-vessel or left main coronary artery disease.',
+      duration: 'Surgical Procedure',
+      recovery: 'Hospital Rehabilitation',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Optimal Medical Therapy (OMT)',
@@ -123,6 +116,13 @@ export default function HeartCADPage() {
       duration: 'Daily Protocol',
       recovery: 'Long-term Protection',
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Cardiac Rehabilitation & Risk Control',
+      desc: 'Structured exercise training, Mediterranean diet guidance, strict blood pressure (<130/80) and LDL cholesterol optimization.',
+      duration: '12-Week Program',
+      recovery: 'Ongoing Wellness',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
