@@ -118,11 +118,11 @@ export default function HeartCADPage() {
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
-      name: 'Cardiac Rehabilitation & Risk Control',
-      desc: 'Structured exercise training, Mediterranean diet guidance, strict blood pressure (<130/80) and LDL cholesterol optimization.',
-      duration: '12-Week Program',
-      recovery: 'Ongoing Wellness',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
+      name: 'Coronary Angiography',
+      desc: 'An invasive diagnostic procedure using a contrast dye and X-rays to locate and measure the exact size of blockages in the heart arteries.',
+      duration: '30–45 Mins',
+      recovery: 'Same Day',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
