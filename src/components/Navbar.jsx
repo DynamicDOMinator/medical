@@ -55,11 +55,36 @@ const bloodVesselDiseases = [
   },
 ];
 
-const symptoms = [
+const symptomsCategoryList = [
   {
-    name: "Heart Palpitations",
-    href: "/symptom/palpitations",
-    desc: "Skipped beats, racing pulses & chest fluttering",
+    category: "Heart",
+    items: [
+      { name: "Chest pain", href: "/symptom/chest-pain" },
+      { name: "Shortness of breath", href: "/symptom/shortness-of-breath" },
+      { name: "Palpitations", href: "/symptom/palpitations" },
+      { name: "Dizziness", href: "/symptom/dizziness" },
+      { name: "Fatigue", href: "/symptom/fatigue" },
+    ],
+  },
+  {
+    category: "Blood Vessels",
+    items: [
+      { name: "Leg Pain", href: "/symptom/leg-pain" },
+      { name: "Lower Limb Swelling", href: "/symptom/lower-limb-swelling" },
+      { name: "Cold Feet / Numbness", href: "/symptom/cold-feet-numbness" },
+      { name: "Cramping while Walking", href: "/symptom/cramping-while-walking" },
+      { name: "Skin Discoloration", href: "/symptom/skin-discoloration" },
+    ],
+  },
+  {
+    category: "Hypertension",
+    items: [
+      { name: "Headaches", href: "/symptom/headaches" },
+      { name: "Chest Tightness", href: "/symptom/chest-tightness" },
+      { name: "Shortness of Breath", href: "/symptom/shortness-of-breath" },
+      { name: "Visual Changes", href: "/symptom/visual-changes" },
+      { name: "Dizziness", href: "/symptom/dizziness" },
+    ],
   },
 ];
 
@@ -97,7 +122,6 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
 
       {open && (
         <div className="absolute top-full left-0 mt-2 w-84 bg-white border border-blue-100 rounded-2xl shadow-xl shadow-blue-900/10 z-50 overflow-hidden animate-fade-in-up">
-          {/* Category header */}
           <Link
             href={categoryHref}
             className="flex items-center justify-between px-5 py-3.5 border-b border-blue-50 bg-gradient-to-r from-blue-50 to-sky-50 hover:from-blue-100 hover:to-sky-100 transition-colors"
@@ -110,7 +134,6 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
             </div>
             <span className="text-xs font-bold text-blue-600">Explore →</span>
           </Link>
-          {/* Disease list */}
           <div className="py-2 divide-y divide-slate-50">
             {items.map((item) => (
               <Link
@@ -125,6 +148,80 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
                   {item.desc}
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SymptomMegaDropdown() {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button
+        className={`flex items-center space-x-1.5 text-sm font-bold px-3 py-2 rounded-xl transition-all ${
+          open
+            ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50"
+        }`}
+      >
+        <AlertCircle className="h-4 w-4" />
+        <span>Symptoms</span>
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${
+            open ? "rotate-180 text-white" : "text-slate-400"
+          }`}
+        />
+      </button>
+
+      {open && (
+        <div className="absolute top-full -left-28 mt-2 w-[600px] bg-white border border-blue-100 rounded-2xl shadow-xl shadow-blue-900/10 z-50 overflow-hidden animate-fade-in-up p-5">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+            <div className="flex items-center space-x-2">
+              <AlertCircle className="h-4 w-4 text-blue-600" />
+              <span className="font-extrabold text-xs text-blue-900 uppercase tracking-wider">
+                Symptoms Evaluation
+              </span>
+            </div>
+            <span className="text-[11px] font-bold text-blue-600">
+              Select a symptom for diagnostic workup →
+            </span>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
+            {symptomsCategoryList.map((cat, idx) => (
+              <div key={idx} className="space-y-2">
+                <h4 className="text-[11px] font-extrabold text-blue-900 uppercase tracking-wider bg-blue-50 px-2 py-1 rounded-md">
+                  {cat.category}
+                </h4>
+                <div className="space-y-0.5">
+                  {cat.items.map((item, itemIdx) => (
+                    <Link
+                      key={itemIdx}
+                      href={item.href}
+                      className="block px-2 py-1 rounded-lg text-xs font-semibold text-slate-700 hover:text-blue-600 hover:bg-blue-50/80 transition-colors"
+                    >
+                      • {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -187,12 +284,7 @@ export default function Navbar() {
               <TrendingUp className="h-4 w-4" />
               <span>Hypertension</span>
             </Link>
-            <MegaDropdown
-              items={symptoms}
-              label="Symptoms"
-              icon={AlertCircle}
-              categoryHref="/symptom/palpitations"
-            />
+            <SymptomMegaDropdown />
 
             {/* Divider */}
             <div className="h-5 w-px bg-slate-200 mx-1.5" />
@@ -337,20 +429,29 @@ export default function Navbar() {
                   <span>Symptoms</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform ${mobileSymptomsOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-blue-600 transition-transform ${
+                    mobileSymptomsOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               {mobileSymptomsOpen && (
-                <div className="mt-1 ml-4 space-y-1 border-l-2 border-blue-100 pl-3">
-                  {symptoms.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-2 text-sm text-slate-700 hover:text-blue-600 font-semibold"
-                    >
-                      {item.name}
-                    </Link>
+                <div className="mt-2 ml-2 space-y-3 border-l-2 border-blue-100 pl-3">
+                  {symptomsCategoryList.map((cat, idx) => (
+                    <div key={idx} className="space-y-1">
+                      <p className="text-[11px] font-bold text-blue-900 uppercase tracking-wider">
+                        {cat.category}
+                      </p>
+                      {cat.items.map((item, iIdx) => (
+                        <Link
+                          key={iIdx}
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-1 text-xs text-slate-700 hover:text-blue-600 font-semibold"
+                        >
+                          • {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </div>
               )}
