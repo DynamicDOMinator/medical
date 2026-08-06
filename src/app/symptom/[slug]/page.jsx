@@ -8,8 +8,11 @@ import {
   ArrowRight,
   ChevronRight,
   Activity,
-  Heart,
   Calendar,
+  ShieldCheck,
+  HelpCircle,
+  Clock,
+  Sparkles,
 } from "lucide-react";
 import { symptomsData } from "../symptomsData";
 
@@ -19,7 +22,7 @@ export async function generateMetadata({ params }) {
   if (!symptom) return {};
 
   return {
-    title: `${symptom.name} — Evaluation & Diagnostic Testing | Dr. Almahmoud`,
+    title: `${symptom.name} — Medical Causes, Diagnostic Testing & Treatment | Dr. Almahmoud`,
     description: symptom.heroDesc,
   };
 }
@@ -46,10 +49,10 @@ export default async function SymptomDetailPage({ params }) {
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=80"
             alt={`${symptom.name} Evaluation`}
             fill
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center opacity-35"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/70 to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/75 to-slate-900/55" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -73,7 +76,7 @@ export default async function SymptomDetailPage({ params }) {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              {symptom.name} — Symptoms & Diagnostic Workup
+              {symptom.name} — Symptoms, Pathophysiology & Diagnostic Workup
             </h1>
 
             <p className="text-blue-100 text-base sm:text-lg leading-relaxed font-normal">
@@ -102,34 +105,98 @@ export default async function SymptomDetailPage({ params }) {
 
       {/* MAIN CONTENT AREA */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
-        {/* 2. OVERVIEW & PHYSIOLOGY */}
+        {/* 2. OVERVIEW & PATHOPHYSIOLOGY */}
         <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
-            Understanding {symptom.name}
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-            {symptom.overview}
-          </p>
+          <div className="flex items-center space-x-3 mb-6">
+            <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+              <Activity className="h-6 w-6 text-blue-600" />
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                Clinical Overview
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Understanding {symptom.name}
+              </h2>
+            </div>
+          </div>
 
-          <h3 className="text-lg font-bold text-slate-900 mb-3">
-            Potential Underlying Conditions
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {symptom.causes.map((cause, idx) => (
-              <div
-                key={idx}
-                className="flex items-start space-x-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/70"
-              >
-                <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                <span className="text-slate-800 text-xs sm:text-sm font-medium leading-snug">
-                  {cause}
-                </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7 space-y-4">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {symptom.overview}
+              </p>
+              {symptom.pathophysiology && (
+                <div className="bg-slate-50 border-l-4 border-blue-600 p-4 rounded-r-2xl space-y-2 mt-4">
+                  <h4 className="font-extrabold text-slate-900 text-sm flex items-center space-x-2">
+                    <Sparkles className="h-4 w-4 text-blue-600" />
+                    <span>Cardiovascular Pathophysiology</span>
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {symptom.pathophysiology}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Key Clinical Characteristics */}
+            {symptom.characteristics && (
+              <div className="lg:col-span-5 bg-blue-50/70 border border-blue-100 rounded-2xl p-6 space-y-4">
+                <h3 className="font-extrabold text-blue-950 text-base flex items-center space-x-2">
+                  <Clock className="h-5 w-5 text-blue-600" />
+                  <span>Common Symptoms & Triggers</span>
+                </h3>
+                <ul className="space-y-2.5">
+                  {symptom.characteristics.map((char, idx) => (
+                    <li key={idx} className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                      <CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
+                      <span>{char}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            )}
           </div>
         </section>
 
-        {/* 3. RED FLAGS & WARNING SIGNS */}
+        {/* 3. DIFFERENTIAL DIAGNOSIS / ASSOCIATED CONDITIONS */}
+        {symptom.associatedConditions && (
+          <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                <ShieldCheck className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  Differential Diagnosis
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Associated Cardiovascular & Vascular Conditions
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {symptom.associatedConditions.map((cond, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-2">
+                    <h3 className="font-extrabold text-slate-900 text-base">
+                      {cond.title}
+                    </h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      {cond.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 4. RED FLAGS & WARNING SIGNS */}
         <section className="bg-amber-50/80 border border-amber-200 rounded-3xl p-6 sm:p-8">
           <div className="flex items-center space-x-3 mb-4">
             <div className="bg-amber-500 p-2.5 rounded-xl text-white shadow-sm shrink-0">
@@ -148,7 +215,7 @@ export default async function SymptomDetailPage({ params }) {
             {symptom.redFlags.map((flag, idx) => (
               <div
                 key={idx}
-                className="flex items-start space-x-2.5 p-3 rounded-xl bg-white/80 border border-amber-200/80"
+                className="flex items-start space-x-2.5 p-3.5 rounded-xl bg-white/90 border border-amber-200/80 shadow-2xs"
               >
                 <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0 mt-1.5" />
                 <span className="text-slate-800 text-xs sm:text-sm font-semibold leading-snug">
@@ -159,7 +226,7 @@ export default async function SymptomDetailPage({ params }) {
           </div>
         </section>
 
-        {/* 4. DIAGNOSTIC TESTS (PUSH PATIENTS TO TEST) */}
+        {/* 5. DIAGNOSTIC TESTS (PUSH PATIENTS TO TEST) */}
         <section id="diagnostics" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
           <div className="flex items-center space-x-3 mb-6">
             <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
@@ -229,7 +296,76 @@ export default async function SymptomDetailPage({ params }) {
           </div>
         </section>
 
-        {/* 5. BOTTOM CTA */}
+        {/* 6. PREVENTION & LIFESTYLE TIPS */}
+        {symptom.preventionTips && (
+          <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                <ShieldCheck className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  Prevention & Guidelines
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Management & Cardiovascular Health Guidelines
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {symptom.preventionTips.map((tip, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start space-x-3 p-4 rounded-xl bg-slate-50 border border-slate-200/80"
+                >
+                  <CheckCircle className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                  <span className="text-slate-800 text-xs sm:text-sm font-semibold leading-relaxed">
+                    {tip}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 7. FREQUENTLY ASKED QUESTIONS (FAQ) */}
+        {symptom.faqs && (
+          <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
+                <HelpCircle className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                  Patient Inquiries
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Frequently Asked Questions about {symptom.name}
+                </h2>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {symptom.faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2"
+                >
+                  <h3 className="font-extrabold text-slate-900 text-base flex items-center space-x-2">
+                    <span className="text-blue-600 font-black">Q.</span>
+                    <span>{faq.q}</span>
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-6">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 8. BOTTOM CTA */}
         <div className="bg-gradient-to-r from-blue-900 via-slate-900 to-blue-950 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl">
           <div className="space-y-3">
             <h3 className="text-2xl sm:text-3xl font-extrabold">
