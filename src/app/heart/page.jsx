@@ -4,7 +4,7 @@ import { Heart, ArrowRight, Activity, Zap, Layers, TrendingUp } from 'lucide-rea
 
 export const metadata = {
   title: 'Heart Conditions | PulseCare Cardiology',
-  description: 'Explore patient guides for Coronary Artery Disease (CAD), Arrhythmias, Valvular Heart Disease, Congestive Heart Failure (CHF), and Hypertension.',
+  description: 'Explore patient guides for Coronary Artery Disease (CAD), Arrhythmias, Valvular Heart Disease, and Congestive Heart Failure (CHF).',
 };
 
 const heartDiseases = [
@@ -40,14 +40,6 @@ const heartDiseases = [
     image: '/images/chf.png',
     icon: Activity,
   },
-  {
-    slug: '../blood-vessels/hypertension',
-    name: 'Hypertension (HTN)',
-    tagline: 'High blood pressure & arterial stress',
-    description: 'Chronically elevated arterial pressure exerting damaging force against vessel walls, leading to systemic cardiac and organ complications.',
-    image: '/images/hypertension.png',
-    icon: TrendingUp,
-  },
 ];
 
 export default function HeartPage() {
@@ -80,7 +72,7 @@ export default function HeartPage() {
             </div>
           </div>
           <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Explore our specialized patient guides for primary heart conditions — CAD, Arrhythmias, Valvular Heart Disease, Congestive Heart Failure, and Hypertension.
+            Explore our specialized patient guides for primary heart conditions — CAD, Arrhythmias, Valvular Heart Disease, and Congestive Heart Failure.
           </p>
         </div>
       </div>
