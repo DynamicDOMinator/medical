@@ -1228,7 +1228,7 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                Schedule Consultation with Dr. Almahmoud
+                Request an Appointment
               </h2>
               <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
                 For expert evaluation of coronary artery disease, peripheral

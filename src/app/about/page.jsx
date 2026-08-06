@@ -253,12 +253,12 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl font-extrabold">Ready to Schedule a Consultation?</h3>
+          <h3 className="text-2xl font-extrabold">Ready to Request an Appointment?</h3>
           <p className="text-blue-100 text-base max-w-xl mx-auto">
-            Book an appointment with Dr. Mohamed Faher Almahmoud for general cardiology, interventional consultation, or second opinions.
+            Request an appointment with Dr. Mohamed Faher Almahmoud for general cardiology, interventional evaluation, or second opinions.
           </p>
           <Link href="/contact" className="inline-flex items-center px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-bold rounded-xl transition-all shadow-md">
-            Book Consultation with Dr. Almahmoud
+            Request an Appointment with Dr. Almahmoud
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
