@@ -109,8 +109,6 @@ export default function Footer() {
 
         {/* Medical disclaimer */}
         <div className="mt-12 pt-8 border-t border-slate-800 space-y-4">
-          
-
           <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 pt-2">
             <p>
               &copy; {currentYear} PulseCare Cardiology Clinic. All rights

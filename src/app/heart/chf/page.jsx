@@ -46,31 +46,19 @@ export default function CHFPage() {
   const typesList = [
     {
       name: "Heart Failure with Reduced EF (HFrEF)",
-      tag: "Systolic HF",
       desc: "Left ventricular ejection fraction is ≤40%. The heart muscle is weakened and cannot contract with normal force.",
-      color: "text-blue-700",
-      bg: "bg-blue-50",
     },
     {
       name: "Heart Failure with Preserved EF (HFpEF)",
-      tag: "Diastolic HF",
       desc: "Ejection fraction remains ≥50%, but heart muscle is stiff and unable to relax and fill properly during diastole.",
-      color: "text-indigo-700",
-      bg: "bg-indigo-50",
     },
     {
       name: "Mildly Reduced EF (HFmrEF)",
-      tag: "Intermediate State",
       desc: "Ejection fraction ranges between 41–49%, representing a transitional state that benefits from tailored medical therapy.",
-      color: "text-purple-700",
-      bg: "bg-purple-50",
     },
     {
       name: "Right-Sided Heart Failure",
-      tag: "Systemic Congestion",
       desc: "Right ventricle fails to effectively pump blood to the lungs, causing fluid backlog, peripheral leg edema, and liver engorgement.",
-      color: "text-amber-700",
-      bg: "bg-amber-50",
     },
   ];
 
@@ -301,10 +289,7 @@ export default function CHFPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}

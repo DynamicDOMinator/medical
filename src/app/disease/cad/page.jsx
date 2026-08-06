@@ -1,30 +1,29 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   Heart,
-  CheckCircle,
-  AlertTriangle,
-  ChevronRight,
   Info,
-  Stethoscope,
   Activity,
-  ShieldCheck,
-  Zap,
-  Clock,
-  HeartPulse,
-  FileText,
-  Apple,
+  Shield,
+  Stethoscope,
+  ChevronRight,
+  UserCheck,
+  Calendar,
+  Sparkles,
 } from 'lucide-react';
 import FAQAccordion from '@/components/FAQAccordion';
 
-export default function DiseaseCADPage() {
+export default function CADPage() {
   const faqs = [
     {
       question: 'What is Coronary Artery Disease (CAD)?',
       answer:
-        'Coronary Artery Disease occurs when cholesterol plaque accumulates in the arteries supplying oxygen-rich blood to your heart muscle. Over time, plaque narrows the coronary arteries, restricting blood flow and causing angina or heart attacks.',
+        'Coronary Artery Disease (CAD) is a cardiovascular condition caused by atherosclerosis—the gradual buildup of fatty plaque within the epicardial coronary arteries. Over time, these plaques narrow the arterial lumen, restricting oxygen-rich blood flow to the heart muscle.',
+    },
+    {
+      question: 'What are the main warning signs of CAD?',
+      answer:
+        'Common symptoms include exertional chest pressure or tightness (angina), shortness of breath during routine activities, fatigue, and pain radiating to the neck, jaw, shoulder, or left arm.',
     },
     {
       question: 'What is the difference between Angina and a Heart Attack?',
@@ -46,31 +45,19 @@ export default function DiseaseCADPage() {
   const typesList = [
     {
       name: 'Stable Angina',
-      tag: 'Exertional',
       desc: 'Predictable chest pressure occurring during physical activity or emotional stress that resolves within minutes of rest or sublingual nitroglycerin.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
     },
     {
       name: 'Unstable Angina',
-      tag: 'Pre-Infarction Emergency',
       desc: 'Unpredictable chest discomfort occurring at rest or with minimal exertion. Indicates plaque disruption and high immediate risk of heart attack.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
     },
     {
       name: 'Acute Myocardial Infarction (NSTEMI / STEMI)',
-      tag: 'Medical Emergency',
       desc: 'Complete or subtotal occlusion of a coronary artery causing cardiac cell death. Requires urgent catheterization and stent revascularization.',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
     },
     {
       name: 'Coronary Microvascular Disease (MVD)',
-      tag: 'Small Vessel CAD',
       desc: 'Damage to the walls of tiny coronary blood vessels that branch off from major arteries, causing angina despite open main arteries.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
     },
   ];
 
@@ -82,143 +69,118 @@ export default function DiseaseCADPage() {
     },
     {
       title: 'Shortness of Breath (Dyspnea)',
-      desc: 'Inability to catch your breath during mild physical activity when heart muscle is starved of oxygen.',
-      icon: Clock,
+      desc: 'Inability to catch breath during routine physical activities or when lying flat.',
+      icon: Activity,
     },
     {
-      title: 'Radiation to Arm, Neck or Jaw',
-      desc: 'Radiating discomfort extending into the left shoulder, left arm, neck, jaw, or upper back.',
-      icon: AlertTriangle,
+      title: 'Radiation of Pain',
+      desc: 'Discomfort radiating outward into shoulders, left arm, neck, jaw, or upper back.',
+      icon: Shield,
     },
     {
-      title: 'Extreme Fatigue & Weakness',
-      desc: 'Unusual, overwhelming tiredness during routine tasks caused by decreased cardiac output.',
-      icon: Info,
+      title: 'Fatigue & Lightheadedness',
+      desc: 'Unusual exhaustion, dizziness, cold sweats, or nausea during exertion.',
+      icon: Stethoscope,
+    },
+  ];
+
+  const diagnosisTests = [
+    {
+      title: '12-Lead Electrocardiogram (ECG)',
+      desc: 'Records cardiac electrical signals to detect ischemic ST-segment changes, T-wave inversions, or prior myocardial scars.',
     },
     {
-      title: 'Cold Sweats & Lightheadedness',
-      desc: 'Sudden diaphoresis (cold sweating), nausea, or dizziness accompanying chest pressure.',
-      icon: Zap,
+      title: 'Coronary CT Angiography (CCTA)',
+      desc: 'Non-invasive high-resolution 3D CT imaging quantifying coronary artery calcium score and luminal plaque narrowing.',
     },
     {
-      title: 'Heart Palpitations',
-      desc: 'Sensation of rapid, thumping, or irregular heartbeats triggered by myocardial ischemia.',
-      icon: HeartPulse,
+      title: 'Stress Echocardiography / Nuclear SPECT',
+      desc: 'Evaluates myocardial wall motion abnormalities and perfusion deficits under exercise or pharmacological stress.',
+    },
+    {
+      title: 'Invasive Coronary Angiography (Gold Standard)',
+      desc: 'Direct fluoroscopic visualization of coronary lumen geometry and fractional flow reserve (FFR/iFR) via arterial catheterization.',
     },
   ];
 
   const treatments = [
     {
-      name: 'Percutaneous Coronary Intervention (PCI / Stenting)',
-      desc: 'Minimally invasive catheterization where a tiny balloon dilates blocked heart arteries and a Drug-Eluting Stent (DES) scaffolds it open permanently.',
-      duration: '45–60 Mins',
-      recovery: '1–2 Days',
+      title: 'Guideline-Directed Medical Therapy (GDMT)',
+      desc: 'Antiplatelets (Aspirin, Clopidogrel), high-intensity statins (Atorvastatin, Rosuvastatin), Beta-Blockers, and ACE inhibitors/ARBs to stabilize plaque.',
     },
     {
-      name: 'Fractional Flow Reserve (FFR / iFR) Assessment',
-      desc: 'Pressure wire measurement inside coronary arteries to determine if a narrowed artery truly starves heart muscle of blood flow before stenting.',
-      duration: '30 Mins',
-      recovery: 'Same Day',
+      title: 'Percutaneous Coronary Intervention (PCI / Stenting)',
+      desc: 'Catheter-based balloon dilation and drug-eluting stent placement to restore vessel patency during acute or chronic ischemia.',
     },
     {
-      name: 'Intravascular Ultrasound (IVUS) & OCT Imaging',
-      desc: 'High-definition sound and light wave cameras inserted inside coronary vessels to view plaque composition and verify stent expansion.',
-      duration: 'Diagnostic',
-      recovery: 'Immediate',
+      title: 'Coronary Artery Bypass Grafting (CABG)',
+      desc: 'Surgical revascularization utilizing arterial/venous grafts to bypass complex multi-vessel or left main coronary disease.',
     },
     {
-      name: 'Optimal Medical Therapy (OMT)',
-      desc: 'Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.',
-      duration: 'Daily Protocol',
-      recovery: 'Long-term Protection',
+      title: 'Cardiac Rehabilitation & Risk Control',
+      desc: 'Structured exercise training, Mediterranean diet guidance, strict BP (<130/80) and HbA1c (<7.0%) optimization.',
     },
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-24">
-      {/* HERO SECTION */}
-      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=2000&q=80"
-            alt="CAD Clinical Background"
-            fill
-            className="object-cover object-center opacity-65"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/70 to-slate-900/50" />
-        </div>
-
+    <div className="min-h-screen bg-slate-50 pt-24 pb-16">
+      {/* Hero Header */}
+      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white py-16 sm:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
+          <div className="flex items-center space-x-2 text-sky-400 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
+            <Link href="/" className="hover:underline">Home</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/heart" className="hover:underline">Heart Conditions</Link>
-            <ChevronRight className="h-3 w-3" />
-            <span>Coronary Artery Disease</span>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-white">Coronary Artery Disease</span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-5">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Coronary Artery <br />
-                <span className="animated-gradient-text">Disease (CAD)</span>
-              </h1>
-              <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Detailed clinical guide to coronary plaque accumulation, angina pectoris, stress testing, cardiac catheterization, FFR/IVUS imaging, and drug-eluting stenting by Dr. Mohamed Faher Almahmoud.
-              </p>
+          <div className="max-w-3xl">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4">
+              Coronary Artery Disease <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">(CAD)</span>
+            </h1>
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+              A comprehensive clinical overview of coronary atherosclerosis, myocardial ischemia, diagnostic imaging, and evidence-based revascularization therapies.
+            </p>
 
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all text-sm"
-                >
-                  <Stethoscope className="mr-2 h-4 w-4" />
-                  Schedule Cardiac Consultation
-                </Link>
-                <a
-                  href="#diagnosis"
-                  className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
-                >
-                  <Activity className="mr-2 h-4 w-4 text-sky-300" />
-                  Stress Testing & Angiography
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="relative h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-slate-950 group">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiac Catheterization Suite"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-              </div>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-blue-600/30"
+              >
+                <Calendar className="h-5 w-5" />
+                <span>Schedule Consultation</span>
+              </Link>
+              <a
+                href="#overview"
+                className="inline-flex items-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all border border-white/10"
+              >
+                <Sparkles className="h-5 w-5 text-sky-400" />
+                <span>Explore Overview</span>
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* MAIN CONTENT */}
+      {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-          {/* Sticky Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
-                <FileText className="h-4 w-4 text-blue-600" />
-                <span>CAD Guide Outline</span>
-              </h3>
-              <nav className="flex flex-col space-y-2 text-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* Sticky Sidebar Navigation */}
+          <div className="lg:col-span-3">
+            <div className="sticky top-28 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">On This Page</h3>
+              <nav className="space-y-1 text-sm">
                 {[
                   ['#overview', 'Overview'],
                   ['#types', 'Classifications & Types'],
-                  ['#symptoms', 'Symptoms'],
-                  ['#diagnosis', 'Diagnostic Testing'],
-                  ['#treatment', 'Treatment & Procedures'],
+                  ['#symptoms', 'Symptoms & Signs'],
+                  ['#diagnosis', 'Diagnosis & Testing'],
+                  ['#treatment', 'Treatment Procedures'],
                   ['#living-with', 'Living with CAD'],
-                  ['#faqs', 'FAQs'],
+                  ['#faqs', 'Patient FAQs'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -231,22 +193,22 @@ export default function DiseaseCADPage() {
                 ))}
               </nav>
 
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 border-t border-slate-100 space-y-3">
                 <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
-                  <p className="text-xs font-bold text-blue-900">Experiencing Chest Pain?</p>
-                  <p className="text-[11px] text-slate-600 mt-1">Contact PulseCare Cardiology for urgent evaluation.</p>
+                  <p className="text-xs font-bold text-blue-900">Need Expert Heart Care?</p>
+                  <p className="text-[11px] text-slate-600 mt-1">Consult with Dr. Almahmoud at PulseCare Clinic.</p>
                   <Link
                     href="/contact"
                     className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
                   >
-                    Book Consultation
+                    Book Evaluation
                   </Link>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Main Sections */}
+          {/* Main Article Content */}
           <div className="lg:col-span-9 space-y-12">
 
             {/* 1. OVERVIEW (USE IMAGE) */}
@@ -287,10 +249,7 @@ export default function DiseaseCADPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
@@ -301,11 +260,11 @@ export default function DiseaseCADPage() {
             <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <HeartPulse className="h-6 w-6 text-blue-600" />
+                  <Heart className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Clinical Warning Signs</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of Coronary Disease</h2>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms & Indicators</h2>
                 </div>
               </div>
 
@@ -313,9 +272,9 @@ export default function DiseaseCADPage() {
                 {symptomList.map((s) => {
                   const IconComp = s.icon;
                   return (
-                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 hover:bg-blue-50 transition-colors space-y-2">
+                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 space-y-2">
                       <div className="flex items-center space-x-3">
-                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600 shadow-2xs">
+                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600">
                           <IconComp className="h-5 w-5" />
                         </div>
                         <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
@@ -334,87 +293,60 @@ export default function DiseaseCADPage() {
                   <Stethoscope className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Advanced Cardiac Diagnostics</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests & Imaging</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Diagnostic Workup</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnosis & Clinical Tests</h2>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    Accurate CAD diagnosis combines non-invasive risk stratification with advanced anatomical imaging. Dr. Almahmoud utilizes state-of-the-art diagnostic modalities:
-                  </p>
-                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
-                    <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Treadmill Stress Echocardiogram:</strong> Evaluates wall motion under stress.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Coronary CT Angiography (CCTA):</strong> 3D non-invasive plaque imaging.</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Invasive Coronary Angiography:</strong> Gold-standard fluoroscopic vessel mapping.</span>
-                      </li>
-                    </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                {diagnosisTests.map((test) => (
+                  <div key={test.title} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <h3 className="font-bold text-slate-900 text-base">{test.title}</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{test.desc}</p>
                   </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-64 rounded-2xl overflow-hidden border border-blue-200 shadow-lg">
-                    <Image
-                      src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                      alt="Cardiologist Analyzing Diagnostic Scan"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              {/* Diagnosis Image */}
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+                <Image
+                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiologist Reviewing Cardiac CT & Angiography"
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </section>
 
             {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
             <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="flex items-center space-x-3 mb-8">
+              <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Activity className="h-6 w-6 text-blue-600" />
+                  <Shield className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Interventional Cardiology</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Revascularization & Medical Care</span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
                 </div>
               </div>
 
-              <div className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
-                      </div>
-                    </div>
+                  <div key={t.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 space-y-2">
+                    <h3 className="font-bold text-slate-900 text-base">{t.title}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
+              {/* Treatment Image */}
+              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
                 <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Angioplasty Stent Procedure Room"
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cardiac Catheterization Laboratory Procedure Suite"
                   fill
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Interventional Procedure Suite</p>
-                  <p className="text-sm font-bold">Radial artery access for faster recovery and immediate ambulation.</p>
-                </div>
               </div>
             </section>
 
@@ -422,36 +354,32 @@ export default function DiseaseCADPage() {
             <section id="living-with" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                  <UserCheck className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Heart Health</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with CAD & Prevention</h2>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Long-Term Management</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Living with CAD</h2>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Apple className="h-5 w-5 text-emerald-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Dietary Recommendations</h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Mediterranean diet rich in olive oil, fish, vegetables, and whole grains</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Reduce saturated fats, trans fats, and processed sugars</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Limit sodium intake to under 2,000 mg per day</span></li>
-                  </ul>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <h3 className="font-bold text-slate-900 text-base">Heart-Healthy Nutrition</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed">
+                    Adopt a Mediterranean diet rich in extra virgin olive oil, whole grains, vegetables, and lean fish. Limit saturated fats and sodium.
+                  </p>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Activity className="h-5 w-5 text-blue-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Physical Activity Guidelines</h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>At least 150 minutes of moderate aerobic exercise weekly</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Brisk walking, cycling, or swimming as low-impact options</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Enroll in cardiac rehabilitation after any heart event</span></li>
-                  </ul>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <h3 className="font-bold text-slate-900 text-base">Regular Aerobic Activity</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed">
+                    Aim for 150 minutes per week of moderate-intensity exercise (brisk walking, cycling) approved by your cardiologist.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <h3 className="font-bold text-slate-900 text-base">Medication Adherence</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed">
+                    Never stop antiplatelet or statin therapy without consulting your cardiologist. Consistent dosing prevents acute stent thrombosis.
+                  </p>
                 </div>
               </div>
             </section>

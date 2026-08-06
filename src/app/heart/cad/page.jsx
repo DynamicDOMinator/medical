@@ -46,31 +46,19 @@ export default function HeartCADPage() {
   const typesList = [
     {
       name: 'Stable Angina',
-      tag: 'Exertional',
       desc: 'Predictable chest pressure occurring during physical activity or emotional stress that resolves within minutes of rest or sublingual nitroglycerin.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
     },
     {
       name: 'Unstable Angina',
-      tag: 'Pre-Infarction Emergency',
       desc: 'Unpredictable chest discomfort occurring at rest or with minimal exertion. Indicates plaque disruption and high immediate risk of heart attack.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
     },
     {
       name: 'Acute Myocardial Infarction (NSTEMI / STEMI)',
-      tag: 'Medical Emergency',
       desc: 'Complete or subtotal occlusion of a coronary artery causing cardiac cell death. Requires urgent catheterization and stent revascularization.',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
     },
     {
       name: 'Coronary Microvascular Disease (MVD)',
-      tag: 'Small Vessel CAD',
       desc: 'Damage to the walls of tiny coronary blood vessels that branch off from major arteries, causing angina despite open main arteries.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
     },
   ];
 
@@ -287,10 +275,7 @@ export default function HeartCADPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}

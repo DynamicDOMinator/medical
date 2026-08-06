@@ -76,12 +76,12 @@ export default function ArrhythmiasPage() {
   ];
 
   const arrhythmiaTypes = [
-    { name: 'Atrial Fibrillation (AFib)', desc: 'Most common arrhythmia. Chaotic, rapid atrial signals prevent organized atrial contraction and create an irregular ventricular response.', tag: 'Most Common', color: 'text-indigo-600', bg: 'bg-indigo-50' },
-    { name: 'Supraventricular Tachycardia (SVT)', desc: 'Sudden onset of rapid regular rhythm originating above the ventricles. Causes sudden racing heart at 150–250 bpm.', tag: 'Common', color: 'text-blue-600', bg: 'bg-blue-50' },
-    { name: 'Ventricular Tachycardia (VT)', desc: 'Fast rhythm originating in the ventricles — often in patients with structural heart disease. Can degenerate into ventricular fibrillation.', tag: 'Dangerous', color: 'text-red-600', bg: 'bg-red-50' },
-    { name: 'Heart Block (AV Block)', desc: 'Delayed or interrupted conduction from atria to ventricles through the AV node. Complete (3rd degree) heart block requires pacemaker.', tag: 'Bradycardia', color: 'text-orange-600', bg: 'bg-orange-50' },
-    { name: 'Wolff-Parkinson-White (WPW)', desc: 'An accessory electrical pathway bypasses the AV node, enabling rapid re-entry tachycardias. Diagnosed by delta wave on ECG.', tag: 'Congenital', color: 'text-purple-600', bg: 'bg-purple-50' },
-    { name: 'Sick Sinus Syndrome', desc: 'The sinus node fails to generate adequate impulses, causing alternating bradycardia and tachycardia (tachy-brady syndrome).', tag: 'Bradycardia', color: 'text-slate-600', bg: 'bg-slate-50' },
+    { name: 'Atrial Fibrillation (AFib)', desc: 'Most common arrhythmia. Chaotic, rapid atrial signals prevent organized atrial contraction and create an irregular ventricular response.' },
+    { name: 'Supraventricular Tachycardia (SVT)', desc: 'Sudden onset of rapid regular rhythm originating above the ventricles. Causes sudden racing heart at 150–250 bpm.' },
+    { name: 'Ventricular Tachycardia (VT)', desc: 'Fast rhythm originating in the ventricles — often in patients with structural heart disease. Can degenerate into ventricular fibrillation.' },
+    { name: 'Heart Block (AV Block)', desc: 'Delayed or interrupted conduction from atria to ventricles through the AV node. Complete (3rd degree) heart block requires pacemaker.' },
+    { name: 'Wolff-Parkinson-White (WPW)', desc: 'An accessory electrical pathway bypasses the AV node, enabling rapid re-entry tachycardias. Diagnosed by delta wave on ECG.' },
+    { name: 'Sick Sinus Syndrome', desc: 'The sinus node fails to generate adequate impulses, causing alternating bradycardia and tachycardia (tachy-brady syndrome).' },
   ];
 
   const treatments = [
@@ -189,8 +189,7 @@ export default function ArrhythmiasPage() {
                   ['#types', 'Types of Arrhythmias'],
                   ['#symptoms', 'Symptoms & Warning Signs'],
                   ['#diagnosis', 'ECG & Holter Monitor'],
-                  ['#ablation', 'Ablation & Pacemakers'],
-                  ['#afib', 'AFib & Stroke Prevention'],
+                  ['#treatment', 'Treatment Options'],
                   ['#faqs', 'Patient FAQs'],
                 ].map(([id, label]) => (
                   <a
@@ -257,10 +256,7 @@ export default function ArrhythmiasPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {arrhythmiaTypes.map(t => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-800 text-sm">{t.name}</h3>
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-800 text-sm">{t.name}</h3>
                     <p className="text-slate-500 text-xs leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
@@ -273,11 +269,7 @@ export default function ArrhythmiasPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/80 to-transparent" />
-                <div className="absolute left-6 top-1/2 -translate-y-1/2 text-white max-w-xs">
-                  <p className="text-xs uppercase tracking-wider font-bold text-indigo-300">Electrophysiology Lab</p>
-                  <p className="text-sm font-bold mt-1">Advanced mapping technology identifies and eliminates arrhythmia circuits.</p>
-                </div>
+            
               </div>
             </section>
 
@@ -357,63 +349,8 @@ export default function ArrhythmiasPage() {
                 ))}
               </div>
 
-              <div className="mt-8 relative h-60 rounded-2xl overflow-hidden border border-indigo-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=2000&q=80"
-                  alt="Electrophysiology Ablation Procedure Room"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-indigo-300">Electrophysiology Suite</p>
-                  <p className="text-sm font-bold">3D electroanatomical mapping for precise arrhythmia ablation targeting.</p>
-                </div>
-              </div>
+            
             </section>
-
-            {/* AFIB & STROKE PREVENTION */}
-            <section id="afib" className="scroll-mt-24">
-              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-3xl p-6 sm:p-10">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="bg-white p-3 rounded-2xl border border-indigo-100">
-                    <ShieldCheck className="h-6 w-6 text-indigo-600" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Stroke Prevention</span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">AFib & CHA₂DS₂-VASc Risk Scoring</h2>
-                  </div>
-                </div>
-
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  Atrial fibrillation creates blood stagnation in the left atrial appendage, promoting clot formation. These clots can embolize to the brain, causing disabling ischemic strokes. The CHA₂DS₂-VASc score is used to determine which AFib patients need anticoagulation therapy.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                  {[
-                    { factor: 'Congestive Heart Failure', points: '1 point' },
-                    { factor: 'Hypertension', points: '1 point' },
-                    { factor: 'Age ≥75 years', points: '2 points' },
-                    { factor: 'Diabetes Mellitus', points: '1 point' },
-                    { factor: 'Prior Stroke or TIA', points: '2 points' },
-                    { factor: 'Vascular Disease (CAD/PAD)', points: '1 point' },
-                    { factor: 'Age 65–74 years', points: '1 point' },
-                    { factor: 'Female Sex', points: '1 point' },
-                  ].map(item => (
-                    <div key={item.factor} className="flex items-center justify-between bg-white p-3 rounded-xl border border-indigo-100">
-                      <span className="text-xs text-slate-700 font-medium">{item.factor}</span>
-                      <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg">{item.points}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-white border border-indigo-100 p-4 rounded-2xl">
-                  <p className="text-xs font-bold text-indigo-900">Anticoagulation Recommendation:</p>
-                  <p className="text-sm text-slate-600 mt-1">Score ≥2 (men) or ≥3 (women): Oral anticoagulants (DOACs: Apixaban, Rivaroxaban, Dabigatran) are strongly recommended to reduce stroke risk by 60–70%.</p>
-                </div>
-              </div>
-            </section>
-
 
 
             {/* FAQS */}

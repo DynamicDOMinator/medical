@@ -41,31 +41,19 @@ export default function PalpitationsPage() {
   const typesList = [
     {
       name: 'Premature Contractions (PVCs / PACs)',
-      tag: 'Most Common',
       desc: 'Early heartbeats originating in the atria (PACs) or ventricles (PVCs) followed by a brief pause and a compensatory strong beat.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
     },
     {
       name: 'Supraventricular Tachycardia (SVT)',
-      tag: 'Rapid Rhythm',
       desc: 'Sudden episodes of very rapid heartbeats (150–220 bpm) originating above the ventricles, often due to an extra electrical pathway.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
     },
     {
       name: 'Atrial Fibrillation (AFib)',
-      tag: 'Irregular Rhythm',
       desc: 'Chaotic, rapid electrical signals in the upper chambers leading to an irregularly irregular heart rate and elevated stroke risk.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
     },
     {
       name: 'Ventricular Tachycardia (VT)',
-      tag: 'Medical Emergency',
       desc: 'Fast rhythm originating in the ventricles, often associated with structural heart disease or scar tissue. Requires immediate medical care.',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
     },
   ];
 
@@ -237,10 +225,7 @@ export default function PalpitationsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}

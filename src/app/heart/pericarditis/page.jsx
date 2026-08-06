@@ -41,31 +41,19 @@ export default function PericarditisPage() {
   const typesList = [
     {
       name: 'Acute Viral / Idiopathic Pericarditis',
-      tag: '80% of Cases',
       desc: 'Sudden onset of pericardial inflammation following enterovirus, adenovirus, Coxsackie, or SARS-CoV-2 infection.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
     },
     {
       name: 'Recurrent Pericarditis',
-      tag: 'Relapsing',
       desc: 'Repeat episodes of pericardial inflammation occurring after a symptom-free interval, often immune-mediated.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
     },
     {
       name: 'Constrictive Pericarditis',
-      tag: 'Fibrotic Scarring',
       desc: 'Chronic inflammation causes the pericardial sac to become thickened, fibrotic, and calcified, encasing the heart.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
     },
     {
       name: 'Cardiac Tamponade',
-      tag: 'Medical Emergency',
       desc: 'Rapid accumulation of pericardial effusion causing hemodynamic collapse and requiring urgent pericardiocentesis.',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
     },
   ];
 
@@ -281,10 +269,7 @@ export default function PericarditisPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}

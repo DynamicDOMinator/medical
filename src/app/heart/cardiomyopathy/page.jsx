@@ -42,31 +42,19 @@ export default function CardiomyopathyPage() {
   const typesList = [
     {
       name: 'Dilated Cardiomyopathy (DCM)',
-      tag: 'Most Common',
       desc: 'Left ventricle becomes enlarged (dilated) and weakened, impairing systolic pumping ability. Caused by genetics, viral myocarditis, or alcohol.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
     },
     {
       name: 'Hypertrophic Cardiomyopathy (HCM)',
-      tag: 'Inherited',
       desc: 'Asymmetric ventricular wall thickening (hypertrophy), often impairing left ventricular outflow. Leading cause of sudden cardiac arrest in young athletes.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
     },
     {
       name: 'Restrictive Cardiomyopathy (RCM)',
-      tag: 'Stiff Ventricles',
       desc: 'Ventricular walls become rigid and non-compliant, impairing diastolic filling. Associated with amyloidosis, sarcoidosis, and hemochromatosis.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
     },
     {
       name: 'Arrhythmogenic Right Ventricular Dysplasia (ARVD)',
-      tag: 'Fibrofatty Replacement',
       desc: 'Genetically determined replacement of RV myocardium by fibrofatty tissue, predisposing to dangerous ventricular arrhythmias.',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
     },
   ];
 
@@ -282,10 +270,7 @@ export default function CardiomyopathyPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {typesList.map((t) => (
                   <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
-                    </div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                   </div>
                 ))}
