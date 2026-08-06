@@ -262,15 +262,7 @@ export default function ArrhythmiasPage() {
                 ))}
               </div>
 
-              <div className="mt-6 relative h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=80"
-                  alt="Types of Cardiac Arrhythmias"
-                  fill
-                  className="object-cover"
-                />
-            
-              </div>
+              
             </section>
 
             {/* SYMPTOMS */}
