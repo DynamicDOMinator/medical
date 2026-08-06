@@ -731,15 +731,40 @@ export default function HomeClient() {
                 {/* Symptom Tags (Stacked under text) */}
                 {currentCategory.symptoms && (
                   <div className="flex flex-wrap gap-2 pt-1">
-                    {currentCategory.symptoms.map((sym, i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center px-3 py-1.5 bg-white border border-blue-200 text-blue-800 text-xs font-bold rounded-full shadow-2xs"
-                      >
-                        <Heart className="mr-1.5 h-3.5 w-3.5 text-blue-600 shrink-0" />
-                        {sym}
-                      </span>
-                    ))}
+                    {currentCategory.symptoms.map((sym, i) => {
+                      const slugMap = {
+                        "Chest pain": "chest-pain",
+                        "Shortness of breath": "shortness-of-breath",
+                        "Palpitations": "palpitations",
+                        "Dizziness": "dizziness",
+                        "Fatigue": "fatigue",
+                        "Leg Pain": "leg-pain",
+                        "Lower Limb Swelling": "lower-limb-swelling",
+                        "Cold Feet / Numbness": "cold-feet-numbness",
+                        "Cramping while Walking": "cramping-while-walking",
+                        "Skin Discoloration": "skin-discoloration",
+                        "Headaches": "headaches",
+                        "Chest Tightness": "chest-tightness",
+                        "Visual Changes": "visual-changes",
+                      };
+                      const slug =
+                        slugMap[sym] ||
+                        sym
+                          .toLowerCase()
+                          .replace(/[^a-z0-9]+/g, "-")
+                          .replace(/(^-|-$)/g, "");
+
+                      return (
+                        <Link
+                          key={i}
+                          href={`/symptom/${slug}`}
+                          className="inline-flex items-center px-3 py-1.5 bg-white border border-blue-200 text-blue-800 text-xs font-bold rounded-full shadow-2xs hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow-md cursor-pointer transition-all duration-200 group"
+                        >
+                          <Heart className="mr-1.5 h-3.5 w-3.5 text-blue-600 group-hover:text-white shrink-0 transition-colors" />
+                          <span>{sym}</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
