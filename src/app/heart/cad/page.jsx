@@ -101,24 +101,28 @@ export default function HeartCADPage() {
       desc: 'Minimally invasive catheterization where a tiny balloon dilates blocked heart arteries and a Drug-Eluting Stent (DES) scaffolds it open permanently.',
       duration: '45–60 Mins',
       recovery: '1–2 Days',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Fractional Flow Reserve (FFR / iFR) Assessment',
       desc: 'Pressure wire measurement inside coronary arteries to determine if a narrowed artery truly starves heart muscle of blood flow before stenting.',
       duration: '30 Mins',
       recovery: 'Same Day',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Intravascular Ultrasound (IVUS) & OCT Imaging',
       desc: 'High-definition sound and light wave cameras inserted inside coronary vessels to view plaque composition and verify stent expansion.',
       duration: 'Diagnostic',
       recovery: 'Immediate',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Optimal Medical Therapy (OMT)',
       desc: 'Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.',
       duration: 'Daily Protocol',
       recovery: 'Long-term Protection',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -375,31 +379,26 @@ export default function HeartCADPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={t.image}
+                        alt={t.name}
+                        fill
+                        className="object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Angioplasty Stent Procedure Room"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Interventional Procedure Suite</p>
-                  <p className="text-sm font-bold">Radial artery access for faster recovery and immediate ambulation.</p>
-                </div>
               </div>
             </section>
 

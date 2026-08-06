@@ -80,21 +80,25 @@ export default function ValvularHeartDiseasePage() {
       name: 'Transcatheter Aortic Valve Replacement (TAVR)',
       desc: 'A expandable artificial valve is deployed inside the diseased aortic valve via a small leg artery catheter puncture.',
       type: 'Minimally Invasive',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'MitraClip™ Transcatheter Edge-to-Edge Repair',
       desc: 'A small clip is guided into the heart to hold mitral valve leaflets together and reduce severe mitral regurgitation.',
       type: 'Catheter Repair',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Balloon Aortic / Mitral Valvuloplasty',
       desc: 'Catheter balloon inflation used to stretch open stiff, narrow heart valve openings in select symptomatic patients.',
       type: 'Interventional',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Surgical Valve Repair or Replacement',
       desc: 'Traditional or mini-thoracotomy surgical repair or replacement with mechanical or tissue prosthetic valves.',
       type: 'Surgical Option',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -319,12 +323,18 @@ export default function ValvularHeartDiseasePage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full w-fit">{t.type}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
+                      </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>

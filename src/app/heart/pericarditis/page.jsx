@@ -96,24 +96,28 @@ export default function PericarditisPage() {
       desc: 'First-line anti-inflammatory therapy (Ibuprofen/Aspirin) combined with Colchicine for 3 months to prevent recurrence.',
       duration: '3–6 Months',
       recovery: 'Outpatient Care',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Pericardiocentesis',
       desc: 'Echocardiogram-guided needle drainage of pericardial fluid to relieve cardiac tamponade.',
       duration: '30 Mins',
       recovery: 'Immediate Relief',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Interleukin-1 Blockers (Anakinra / Rilonacept)',
       desc: 'Targeted biologic therapy for refractory, corticosteroids-dependent recurrent pericarditis.',
       duration: 'Subcutaneous Injections',
       recovery: 'Long-term Protection',
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Pericardiectomy',
       desc: 'Surgical decortication and removal of the fibrotic pericardium for severe constrictive pericarditis.',
       duration: 'Surgical',
       recovery: 'In-patient Rehab',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -369,31 +373,21 @@ export default function PericarditisPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Procedure Center"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Pericardiocentesis Suite</p>
-                  <p className="text-sm font-bold">Emergency echo-guided fluid drainage for pericardial tamponade.</p>
-                </div>
               </div>
             </section>
 

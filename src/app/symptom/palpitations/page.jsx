@@ -67,10 +67,10 @@ export default function PalpitationsPage() {
   ];
 
   const treatments = [
-    { name: 'Ambulatory Holter & Patch Monitoring', desc: 'Continuous 24-hr to 14-day wearable ECG recording to capture irregular rhythm episodes.', duration: '24 hr – 14 Days', recovery: 'Non-invasive' },
-    { name: 'Catheter Ablation', desc: 'Minimally invasive radiofrequency or cryo energy ablation of abnormal electrical pathways causing SVT or AFib.', duration: '1–3 Hours', recovery: '1–2 Days' },
-    { name: 'Anti-Arrhythmic & Beta-Blocker Drugs', desc: 'Metoprolol, Bisoprolol, or Flecainide to stabilize sinus rhythm and control heart rate spikes.', duration: 'Daily Protocol', recovery: 'Long-term Control' },
-    { name: 'Lifestyle & Stimulant Removal', desc: 'Caffeine reduction, stress management, hydration, and electrolyte optimization.', duration: 'Ongoing', recovery: 'Immediate Relief' },
+    { name: 'Ambulatory Holter & Patch Monitoring', desc: 'Continuous 24-hr to 14-day wearable ECG recording to capture irregular rhythm episodes.', duration: '24 hr – 14 Days', recovery: 'Non-invasive', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Catheter Ablation', desc: 'Minimally invasive radiofrequency or cryo energy ablation of abnormal electrical pathways causing SVT or AFib.', duration: '1–3 Hours', recovery: '1–2 Days', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Anti-Arrhythmic & Beta-Blocker Drugs', desc: 'Metoprolol, Bisoprolol, or Flecainide to stabilize sinus rhythm and control heart rate spikes.', duration: 'Daily Protocol', recovery: 'Long-term Control', image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Lifestyle & Stimulant Removal', desc: 'Caffeine reduction, stress management, hydration, and electrolyte optimization.', duration: 'Ongoing', recovery: 'Immediate Relief', image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80' },
   ];
 
   return (
@@ -325,31 +325,21 @@ export default function PalpitationsPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Electrophysiology EP Lab Suite"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">EP Catheterization Suite</p>
-                  <p className="text-sm font-bold">3D electroanatomical mapping & ablation for SVT and AFib.</p>
-                </div>
               </div>
             </section>
 

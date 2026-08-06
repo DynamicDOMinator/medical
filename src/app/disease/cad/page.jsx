@@ -107,18 +107,22 @@ export default function CADPage() {
     {
       title: 'Guideline-Directed Medical Therapy (GDMT)',
       desc: 'Antiplatelets (Aspirin, Clopidogrel), high-intensity statins (Atorvastatin, Rosuvastatin), Beta-Blockers, and ACE inhibitors/ARBs to stabilize plaque.',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'Percutaneous Coronary Intervention (PCI / Stenting)',
       desc: 'Catheter-based balloon dilation and drug-eluting stent placement to restore vessel patency during acute or chronic ischemia.',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'Coronary Artery Bypass Grafting (CABG)',
       desc: 'Surgical revascularization utilizing arterial/venous grafts to bypass complex multi-vessel or left main coronary disease.',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'Cardiac Rehabilitation & Risk Control',
       desc: 'Structured exercise training, Mediterranean diet guidance, strict BP (<130/80) and HbA1c (<7.0%) optimization.',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -332,21 +336,17 @@ export default function CADPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
                 {treatments.map((t) => (
-                  <div key={t.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-base">{t.title}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  <div key={t.title} className="rounded-2xl bg-blue-50/40 border border-blue-100/80 overflow-hidden hover:border-blue-200 transition-all">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.title} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold text-slate-900 text-base mb-1">{t.title}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Treatment Image */}
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiac Catheterization Laboratory Procedure Suite"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 

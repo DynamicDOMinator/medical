@@ -78,10 +78,10 @@ export default function DVTPage() {
   ];
 
   const treatments = [
-    { name: 'Direct Oral Anticoagulants (DOACs)', desc: 'Eliquis (Apixaban), Xarelto (Rivaroxaban). First-line blood thinners that stop clot growth and prevent recurrence.', duration: '3–6 Months', recovery: 'Immediate Protection' },
-    { name: 'Low Molecular Weight Heparin (LMWH)', desc: 'Subcutaneous injections (Enoxaparin) preferred in active cancer or pregnancy where DOACs are contraindicated.', duration: 'Clinical Protocol', recovery: 'Outpatient Care' },
-    { name: 'Catheter-Directed Thrombolysis (CDT)', desc: 'Minimally invasive catheter delivers tPA directly into massive iliofemoral clots to dissolve blockage.', duration: 'Procedural', recovery: 'In-hospital Stay' },
-    { name: 'IVC Filter Placement', desc: 'Filter inserted in inferior vena cava to trap emboli before reaching lungs when blood thinners are unsafe.', duration: '30 Mins', recovery: 'Same Day' },
+    { name: 'Direct Oral Anticoagulants (DOACs)', desc: 'Eliquis (Apixaban), Xarelto (Rivaroxaban). First-line blood thinners that stop clot growth and prevent recurrence.', duration: '3–6 Months', recovery: 'Immediate Protection', image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Low Molecular Weight Heparin (LMWH)', desc: 'Subcutaneous injections (Enoxaparin) preferred in active cancer or pregnancy where DOACs are contraindicated.', duration: 'Clinical Protocol', recovery: 'Outpatient Care', image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Catheter-Directed Thrombolysis (CDT)', desc: 'Minimally invasive catheter delivers tPA directly into massive iliofemoral clots to dissolve blockage.', duration: 'Procedural', recovery: 'In-hospital Stay', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80' },
+    { name: 'IVC Filter Placement', desc: 'Filter inserted in inferior vena cava to trap emboli before reaching lungs when blood thinners are unsafe.', duration: '30 Mins', recovery: 'Same Day', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80' },
   ];
 
   return (
@@ -339,31 +339,21 @@ export default function DVTPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Catheter-Directed Thrombolysis Room"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Vascular Intervention Suite</p>
-                  <p className="text-sm font-bold">Catheter-directed thrombolysis and mechanical thrombectomy for limb-threatening DVT.</p>
-                </div>
               </div>
             </section>
 

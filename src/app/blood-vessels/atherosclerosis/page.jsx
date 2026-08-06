@@ -80,10 +80,10 @@ export default function AtherosclerosisPage() {
   ];
 
   const treatments = [
-    { name: 'High-Intensity Statin Therapy', desc: 'Atorvastatin 80 mg or Rosuvastatin 40 mg. Lowers LDL-C by >50%, halts plaque growth, and stabilizes fibrous caps.', duration: 'Daily Medication', recovery: 'Long-term Protection' },
-    { name: 'PCSK9 Inhibitors (Evolocumab / Alirocumab)', desc: 'Injectable monoclonal antibodies providing additional 50–60% LDL-C reduction for high-risk patients.', duration: 'Bi-weekly Injection', recovery: 'Plaque Regression' },
-    { name: 'Antiplatelet Therapy (Aspirin / Clopidogrel)', desc: 'Inhibits platelet aggregation on vulnerable plaque surfaces to prevent acute arterial thrombosis.', duration: 'Daily Protocol', recovery: 'Ongoing Prevention' },
-    { name: 'Angioplasty & Stenting / Endarterectomy', desc: 'Interventional reopening of severely occluded coronary, carotid, or peripheral vessels using drug-eluting stents.', duration: 'Procedural', recovery: 'Rapid Revascularization' },
+    { name: 'High-Intensity Statin Therapy', desc: 'Atorvastatin 80 mg or Rosuvastatin 40 mg. Lowers LDL-C by >50%, halts plaque growth, and stabilizes fibrous caps.', duration: 'Daily Medication', recovery: 'Long-term Protection', image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80' },
+    { name: 'PCSK9 Inhibitors (Evolocumab / Alirocumab)', desc: 'Injectable monoclonal antibodies providing additional 50–60% LDL-C reduction for high-risk patients.', duration: 'Bi-weekly Injection', recovery: 'Plaque Regression', image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Antiplatelet Therapy (Aspirin / Clopidogrel)', desc: 'Inhibits platelet aggregation on vulnerable plaque surfaces to prevent acute arterial thrombosis.', duration: 'Daily Protocol', recovery: 'Ongoing Prevention', image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Angioplasty & Stenting / Endarterectomy', desc: 'Interventional reopening of severely occluded coronary, carotid, or peripheral vessels using drug-eluting stents.', duration: 'Procedural', recovery: 'Rapid Revascularization', image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80' },
   ];
 
   return (
@@ -341,31 +341,21 @@ export default function AtherosclerosisPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Vascular Cath Lab"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Plaque Stabilization Center</p>
-                  <p className="text-sm font-bold">Goal LDL-C &lt;55 mg/dL for high-risk secondary prevention.</p>
-                </div>
               </div>
             </section>
 

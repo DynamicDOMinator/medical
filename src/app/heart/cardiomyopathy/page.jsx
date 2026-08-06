@@ -97,24 +97,28 @@ export default function CardiomyopathyPage() {
       desc: 'Beta-blockers, ARNI/ACEi, MRAs, and SGLT2 inhibitors to relieve symptoms and reduce disease progression.',
       duration: 'Daily Protocol',
       recovery: 'Long-term Management',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Implantable Cardioverter Defibrillator (ICD)',
       desc: 'Implanted device to monitor cardiac rhythm and deliver life-saving shocks if malignant ventricular arrhythmias occur.',
       duration: '1 Hour Procedure',
       recovery: '1–2 Weeks',
+      image: 'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Septal Myectomy / Alcohol Ablation',
       desc: 'Surgical or catheter-based reduction of thickened septal muscle to relieve outflow tract obstruction in HCM.',
       duration: 'Procedural',
       recovery: 'Hospital Stay Required',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Cardiac Transplantation',
       desc: 'Definitive therapy for end-stage refractory cardiomyopathy failing optimal medical and device care.',
       duration: 'Surgical',
       recovery: 'Rehabilitation',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -370,31 +374,21 @@ export default function CardiomyopathyPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="Procedure Room"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Advanced Electrophysiology & Surgery</p>
-                  <p className="text-sm font-bold">Implantable cardioverter defibrillator (ICD) placement for SCD prevention.</p>
-                </div>
               </div>
             </section>
 

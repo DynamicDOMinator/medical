@@ -89,26 +89,31 @@ export default function ThromboembolicDiseasePage() {
       name: 'Direct Oral Anticoagulants (DOACs)',
       desc: 'Apixaban, Rivaroxaban, Dabigatran. First-line therapy for most VTE. No routine INR monitoring. Proven to be as effective as warfarin with significantly lower bleeding rates.',
       type: 'Anticoagulation',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Low Molecular Weight Heparin (LMWH)',
       desc: 'Enoxaparin subcutaneous injections. Preferred for cancer-associated VTE (LMWH or DOAC) and during pregnancy (DOACs cross the placenta).',
       type: 'Anticoagulation',
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Systemic Thrombolysis (tPA)',
       desc: 'IV alteplase for massive, hemodynamically unstable PE with cardiac arrest or cardiogenic shock. Rapidly dissolves the clot but carries significant bleeding risk.',
       type: 'Clot Dissolution',
+      image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter-Directed Thrombolysis (CDT)',
       desc: 'Low-dose local tPA delivered directly into the pulmonary artery clot via catheter. For submassive PE with RV dysfunction — maximizes efficacy while minimizing bleeding risk.',
       type: 'Interventional',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'IVC Filter Placement',
       desc: 'Retrievable inferior vena cava filter placed when anticoagulation is absolutely contraindicated. Prevents clot migration from legs to lungs.',
       type: 'Mechanical',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -364,12 +369,18 @@ export default function ThromboembolicDiseasePage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full w-fit">{t.type}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
+                      </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>

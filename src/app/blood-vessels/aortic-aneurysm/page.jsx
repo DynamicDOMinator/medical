@@ -78,10 +78,10 @@ export default function AorticAneurysmPage() {
   ];
 
   const treatments = [
-    { name: 'Endovascular Aneurysm Repair (EVAR / TEVAR)', desc: 'Minimally invasive stent graft deployed through groin arteries to seal and reinforce the aneurysm sac.', duration: '1–2 Hours', recovery: '1–2 Days' },
-    { name: 'Open Surgical Aortic Repair', desc: 'Direct open repair where weakened aortic segment is replaced with a durable synthetic Dacron graft.', duration: 'Surgical', recovery: 'Hospital Rehabilitation' },
-    { name: 'Ultrasound / CT Surveillance', desc: 'Serial duplex ultrasound or CT imaging every 6–12 months for small asymptomatic aneurysms (<5.0 cm).', duration: 'Periodic Scan', recovery: 'Non-invasive' },
-    { name: 'Strict Blood Pressure Optimization', desc: 'Aggressive BP control (<120/80 mmHg) using Beta-blockers and ARBs to reduce stress on aortic wall.', duration: 'Daily Protocol', recovery: 'Long-term Protection' },
+    { name: 'Endovascular Aneurysm Repair (EVAR / TEVAR)', desc: 'Minimally invasive stent graft deployed through groin arteries to seal and reinforce the aneurysm sac.', duration: '1–2 Hours', recovery: '1–2 Days', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Open Surgical Aortic Repair', desc: 'Direct open repair where weakened aortic segment is replaced with a durable synthetic Dacron graft.', duration: 'Surgical', recovery: 'Hospital Rehabilitation', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Ultrasound / CT Surveillance', desc: 'Serial duplex ultrasound or CT imaging every 6–12 months for small asymptomatic aneurysms (<5.0 cm).', duration: 'Periodic Scan', recovery: 'Non-invasive', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Strict Blood Pressure Optimization', desc: 'Aggressive BP control (<120/80 mmHg) using Beta-blockers and ARBs to reduce stress on aortic wall.', duration: 'Daily Protocol', recovery: 'Long-term Protection', image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80' },
   ];
 
   return (
@@ -339,31 +339,21 @@ export default function AorticAneurysmPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=2000&q=80"
-                  alt="EVAR Stent Procedure Suite"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Endovascular Hybrid Operating Suite</p>
-                  <p className="text-sm font-bold">Minimally invasive EVAR stent graft exclusion of abdominal aortic aneurysms.</p>
-                </div>
               </div>
             </section>
 

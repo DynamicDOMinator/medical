@@ -100,30 +100,35 @@ export default function VenousDiseasePage() {
       desc: 'A tiny catheter delivers targeted heat energy to seal diseased refluxing veins shut, re-routing blood to healthy veins.',
       duration: '30-45 Mins',
       recovery: 'Immediate Walking',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'VenaSeal™ Medical Vein Adhesive',
       desc: 'An innovative non-thermal procedure using tiny drops of medical adhesive to close diseased veins without tumescent anesthesia.',
       duration: '20-30 Mins',
       recovery: 'No Hose Needed',
+      image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Ultrasound-Guided Foam Sclerotherapy',
       desc: 'Targeted injection of a specialized sclerosant agent into deeper tributary veins to collapse smaller diseased vessels.',
       duration: '15-20 Mins',
       recovery: 'Same-day Return',
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Micro-Phlebectomy',
       desc: 'Minimally invasive micro-incisions to gently remove large bulging surface varicose veins with virtually no scarring.',
       duration: '45 Mins',
       recovery: '1-2 Days',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Medical-Grade Compression Therapy',
       desc: 'Graduated compression stockings (20-30 mmHg) that provide external pressure to assist calf muscle pump action.',
       duration: 'Daily Wear',
       recovery: 'Symptom Relief',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -396,32 +401,21 @@ export default function VenousDiseasePage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <div className="flex items-center space-x-2">
-                        <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">{t.duration}</span>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">{t.recovery}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
+                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
                       </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Treatment Procedure Visual Showcase */}
-              <div className="mt-8 relative h-64 rounded-2xl overflow-hidden border border-blue-100 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=2000&q=80"
-                  alt="Modern Endovascular Catheter Procedure Room"
-                  fill
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs uppercase tracking-wider font-extrabold text-sky-300">Outpatient Procedure Suite</p>
-                  <p className="text-sm font-bold">Performed in 30 minutes with local anesthesia & zero hospital stay.</p>
-                </div>
               </div>
             </section>
 

@@ -83,21 +83,25 @@ export default function PADPage() {
       name: 'Supervised Exercise Therapy (SET)',
       desc: 'Structured treadmill walking program to build collateral blood vessel pathways and increase pain-free walking distance.',
       type: 'Conservative',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Endovascular Balloon Angioplasty',
       desc: 'A tiny catheter with a balloon tip is navigated to the blocked leg artery and inflated to push plaque against arterial walls.',
       type: 'Minimally Invasive',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Directional / Laser Atherectomy',
       desc: 'Advanced catheter device gently shaves or laser-vaporizes tough calcified plaque from peripheral arterial walls.',
       type: 'Plaque Removal',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Peripheral Arterial Stenting',
       desc: 'Placement of a metallic mesh stent to scaffold narrowed leg arteries open and ensure durable long-term blood flow.',
       type: 'Revascularization',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -332,12 +336,18 @@ export default function PADPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full w-fit">{t.type}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
+                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
+                      </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>

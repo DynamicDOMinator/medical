@@ -89,21 +89,25 @@ export default function ArrhythmiasPage() {
       name: 'Antiarrhythmic Medication Therapy',
       desc: 'Rate-control (beta-blockers, calcium channel blockers) or rhythm-control medications (flecainide, amiodarone, sotalol) to stabilize heart electrical signals.',
       type: 'Medical Therapy',
+      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter Ablation (RF & Cryoablation)',
       desc: 'Minimally invasive catheter procedure that delivers thermal energy to scar tiny areas of heart tissue causing abnormal signals. Gold standard for SVT and AFib.',
       type: 'Interventional',
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Permanent Pacemaker Implantation',
       desc: 'Implantation of a tiny battery-powered device under the skin to send electric impulses when the heart beats too slowly or pauses.',
       type: 'Device Therapy',
+      image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Implantable Cardioverter-Defibrillator (ICD)',
       desc: 'Device that continuously monitors rhythm, delivers anti-tachycardia pacing, or a defibrillation shock to terminate ventricular fibrillation and prevent sudden death.',
       type: 'Device Therapy',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -296,18 +300,32 @@ export default function ArrhythmiasPage() {
             </section>
 
             {/* DIAGNOSIS */}
-            <section id="diagnosis" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">ECG & Rhythm Monitoring</h2>
+            <section id="diagnosis" className="bg-white border border-indigo-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-indigo-50 p-3 rounded-2xl border border-indigo-100">
+                  <Stethoscope className="h-6 w-6 text-indigo-600" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Advanced Cardiac Diagnostics</span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests & Imaging</h2>
+                </div>
+              </div>
+
+              <p className="text-slate-600 text-sm leading-relaxed mb-8">
+                Accurate arrhythmia diagnosis combines non-invasive rhythm monitoring with advanced cardiac imaging. The following modalities are used to capture, characterize, and localize abnormal heart rhythms.
+              </p>
+
               <div className="space-y-3">
                 {[
-                  { abbr: 'ECG', name: '12-Lead Electrocardiogram', desc: 'The first-line diagnostic test — records the electrical activity of the heart at a single point in time across 12 different leads. Identifies AFib, heart block, delta waves (WPW), and ST changes.' },
-                  { abbr: 'HOLTER', name: '24–48 Hour Holter Monitor', desc: 'A wearable continuous ECG recorder worn for 24–48 hours. Captures arrhythmias occurring during daily activities and correlates them with symptoms.' },
-                  { abbr: 'PATCH', name: 'Extended ECG Patch Monitor', desc: 'Adhesive ECG patches worn for 7–14 days or up to 30 days. Ideal for infrequent arrhythmias not captured on standard Holter monitoring.' },
-                  { abbr: 'ILR', name: 'Implantable Loop Recorder (ILR)', desc: 'A tiny subcutaneous device implanted under the skin that continuously monitors rhythm for up to 3 years — used for unexplained syncope evaluation.' },
-                  { abbr: 'EPS', name: 'Electrophysiology Study (EPS)', desc: 'An invasive intracardiac test where catheters are used to map the heart\'s electrical system, induce and analyze arrhythmias, and plan ablation therapy.' },
+                  { abbr: 'ECG', name: '12-Lead Electrocardiogram', desc: 'First-line diagnostic test recording the heart\'s electrical activity across 12 leads. Identifies AFib, heart block, delta waves (WPW), and ventricular rhythms in real time.' },
+                  { abbr: 'HOLTER', name: '24–48 Hour Holter Monitor', desc: 'Continuous wearable ECG recorder worn for 24–48 hours to capture arrhythmias during daily activities and correlate them with patient symptoms.' },
+                  { abbr: 'PATCH', name: 'Extended ECG Patch Monitor', desc: 'Adhesive ECG patches worn for 7–30 days. Ideal for detecting infrequent or paroxysmal arrhythmias not captured on standard Holter monitoring.' },
+                  { abbr: 'ECHO', name: 'Echocardiogram (Cardiac Ultrasound)', desc: 'Ultrasound evaluation of cardiac structure and function — detects structural heart disease, valve abnormalities, and ventricular dysfunction driving arrhythmias.' },
+                  { abbr: 'ILR', name: 'Implantable Loop Recorder', desc: 'A subcutaneous device continuously monitoring rhythm for up to 3 years. Used for unexplained syncope or cryptogenic stroke evaluation.' },
+                  { abbr: 'EPS', name: 'Electrophysiology Study (EPS)', desc: 'Invasive intracardiac mapping procedure using catheters to study the heart\'s electrical pathways, induce arrhythmias, and plan targeted ablation therapy.' },
                 ].map(d => (
-                  <div key={d.abbr} className="bg-white border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
-                    <div className="bg-indigo-50 text-indigo-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0 text-center">{d.abbr}</div>
+                  <div key={d.abbr} className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
+                    <div className="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0 text-center min-w-[52px]">{d.abbr}</div>
                     <div>
                       <h4 className="font-bold text-slate-800 text-sm">{d.name}</h4>
                       <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">{d.desc}</p>
@@ -331,12 +349,18 @@ export default function ArrhythmiasPage() {
 
               <div className="space-y-5">
                 {treatments.map((t) => (
-                  <div key={t.name} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-indigo-200 transition-all">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">{t.name}</h3>
-                      <span className="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full w-fit">{t.type}</span>
+                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-indigo-200 transition-all overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
+                        <span className="bg-indigo-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
+                      </div>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
