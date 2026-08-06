@@ -38,11 +38,7 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white/10 p-4 rounded-2xl border border-white/20">
-              <Heart className="h-10 w-10 text-sky-400" fill="currentColor" />
-            </div>
-          </div>
+      
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
             About Dr. Mohamed Faher Almahmoud
           </h1>
