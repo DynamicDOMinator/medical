@@ -328,7 +328,7 @@ export default function PericarditisPage() {
                     Confirmation relies on clinical criteria (at least 2 out of 4: sharp positional pain, friction rub, ECG ST elevation, pericardial effusion):
                   </p>
                   <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
-                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Tools:</h4>
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />

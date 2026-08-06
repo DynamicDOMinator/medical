@@ -294,6 +294,23 @@ export default function ValvularHeartDiseasePage() {
                   <p>
                     Echocardiography uses high-frequency sound waves to generate detailed moving pictures of your heart valves in motion. Doppler ultrasound measures blood flow velocity across valves to calculate exact pressure gradients and valve area.
                   </p>
+                  <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
+                    <ul className="space-y-1.5 text-xs text-slate-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Transthoracic Echocardiogram (TTE):</strong> Standard 2D/3D non-invasive valve evaluation.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Transesophageal Echocardiogram (TEE):</strong> High-resolution esophageal ultrasound probe.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Color Doppler Velocity Mapping:</strong> Measures pressure gradients and regurgitant volumes.</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="lg:col-span-5 relative">
