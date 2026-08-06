@@ -297,55 +297,78 @@ export default function PADPage() {
                 The primary screening test for PAD is the <strong>Ankle-Brachial Index (ABI)</strong>. It is a quick, pain-free test comparing blood pressure in your ankles to blood pressure in your arms using Doppler ultrasound cuffs.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Ankle-Brachial Index (ABI)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80"
+                        alt="Ankle-Brachial Index (ABI)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Ankle-Brachial Index (ABI)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Gold-standard non-invasive Doppler pressure ratio test (&lt;0.90 confirms PAD).</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Arterial Duplex Ultrasound</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
+                        alt="Arterial Duplex Ultrasound"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Arterial Duplex Ultrasound</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Visualizes leg artery plaque occlusion and blood flow velocities.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Toe-Brachial Index (TBI)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
+                        alt="Toe-Brachial Index (TBI)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Toe-Brachial Index (TBI)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates microvascular flow in non-compressible calcified vessels.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">CT / MR Angiography (CTA/MRA)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+                        alt="CT / MR Angiography (CTA/MRA)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">CT / MR Angiography (CTA/MRA)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">3D vascular arterial roadmapping prior to stenting or surgery.</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="ABI Testing Consultation"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 

@@ -354,55 +354,78 @@ export default function VenousDiseasePage() {
                 Accurate treatment begins with detailed vascular mapping. At PulseCare Cardiology Clinic, Dr. Almahmoud performs high-resolution <strong>Color Duplex Ultrasound scans</strong> to evaluate lower extremity venous anatomy:
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Duplex Reflux Mapping</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
+                        alt="Duplex Reflux Mapping"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Duplex Reflux Mapping</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Measures valve reflux duration in seconds (&gt;0.5s indicates valve failure).</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Saphenous Trunk Mapping</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
+                        alt="Saphenous Trunk Mapping"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Saphenous Trunk Mapping</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Maps exact anatomical course of Great & Small Saphenous veins.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Perforator Vein Inspection</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+                        alt="Perforator Vein Inspection"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Perforator Vein Inspection</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Identifies incompetent calf perforator veins contributing to ulcers.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Deep Venous Assessment</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+                        alt="Deep Venous Assessment"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Deep Venous Assessment</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Rules out Deep Vein Thrombosis (DVT) and deep vein compression.</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Performing Ultrasound Scan"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 

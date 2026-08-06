@@ -327,55 +327,78 @@ export default function CardiomyopathyPage() {
                 Comprehensive workup determines the precise muscle subtype and guides medical or device interventions:
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Echocardiography</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
+                        alt="Echocardiography"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Echocardiography</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Primary test for wall thickness and EF.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Cardiac MRI (CMR)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+                        alt="Cardiac MRI (CMR)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Cardiac MRI (CMR)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Gold standard for myocardial tissue fibrosis characterization.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Genetic Panel Testing</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
+                        alt="Genetic Panel Testing"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Genetic Panel Testing</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Identifies underlying inherited gene mutations.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">24-Hour Holter Monitor</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                        alt="24-Hour Holter Monitor"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">24-Hour Holter Monitor</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Screens for non-sustained ventricular tachycardia (NSVT).</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiac Imaging Evaluation"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 

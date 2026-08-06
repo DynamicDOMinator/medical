@@ -278,55 +278,78 @@ export default function PalpitationsPage() {
                 Capturing rhythm during symptomatic episodes is key to definitive diagnosis:
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">24–48 Hr Holter Monitor</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                        alt="24–48 Hr Holter Monitor"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">24–48 Hr Holter Monitor</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Continuous ECG rhythm logging during daily activity.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">14-Day Extended Patch Monitor</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+                        alt="14-Day Extended Patch Monitor"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">14-Day Extended Patch Monitor</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Captures paroxysmal infrequent arrhythmias.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Echocardiography</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
+                        alt="Echocardiography"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Echocardiography</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates structural valve and myocardial muscle integrity.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Treadmill Exercise Stress Test</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+                        alt="Treadmill Exercise Stress Test"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Treadmill Exercise Stress Test</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses catecholamine/exertion-triggered arrhythmia spikes.</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
-                  alt="Holter Monitor ECG Analysis"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 

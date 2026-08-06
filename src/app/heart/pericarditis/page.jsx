@@ -326,55 +326,78 @@ export default function PericarditisPage() {
                 Confirmation relies on clinical criteria (at least 2 out of 4: sharp positional pain, friction rub, ECG ST elevation, pericardial effusion):
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">12-Lead Electrocardiogram (ECG)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                        alt="12-Lead Electrocardiogram (ECG)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">12-Lead Electrocardiogram (ECG)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Widespread concave ST elevation and PR segment depression.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Transthoracic Echocardiography</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
+                        alt="Transthoracic Echocardiography"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Transthoracic Echocardiography</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses presence and size of pericardial fluid effusion.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Cardiac MRI (CMR)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
+                        alt="Cardiac MRI (CMR)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Cardiac MRI (CMR)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates active pericardial inflammation and thickening.</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all p-5 flex space-x-3.5 items-start">
-                  <div className="bg-blue-100/80 p-2.5 rounded-xl text-blue-600 shrink-0 mt-0.5">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1">Inflammatory Biomarkers (hs-CRP / ESR)</h3>
+                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
+                      <Image
+                        src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
+                        alt="Inflammatory Biomarkers (hs-CRP / ESR)"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
+                      <h3 className="font-extrabold text-slate-900 text-base">Inflammatory Biomarkers (hs-CRP / ESR)</h3>
+                    </div>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Quantifies systemic pericardial inflammation.</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-blue-200 shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiac Pericarditis Evaluation"
-                  fill
-                  className="object-cover object-center"
-                />
               </div>
             </section>
 
