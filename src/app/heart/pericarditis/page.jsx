@@ -342,6 +342,10 @@ export default function PericarditisPage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Cardiac MRI:</strong> Evaluates active pericardial inflammation and thickening.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Inflammatory Biomarkers (hs-CRP / ESR):</strong> Quantifies systemic pericardial inflammation.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

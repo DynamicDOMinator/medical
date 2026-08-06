@@ -383,6 +383,10 @@ export default function CHFPage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Cardiac MRI / PET:</strong> Evaluates myocardial tissue viability and scar burden.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>12-Lead ECG & Chest X-Ray:</strong> Assesses QRS width, LBBB, and pulmonary congestion.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

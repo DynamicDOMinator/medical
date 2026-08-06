@@ -284,15 +284,19 @@ export default function PalpitationsPage() {
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>24–48 Hr Holter Monitor:</strong> Continuous ECG rhythm logging.</span>
+                        <span><strong>24–48 Hr Holter Monitor:</strong> Continuous ECG rhythm logging during daily activity.</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>14-Day Cardiac Patch Monitor:</strong> Captures infrequent symptoms.</span>
+                        <span><strong>14-Day Extended Patch Monitor:</strong> Captures paroxysmal infrequent arrhythmias.</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Echocardiography:</strong> Evaluates structural valve and muscle integrity.</span>
+                        <span><strong>Echocardiography:</strong> Evaluates structural valve and myocardial muscle integrity.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Treadmill Exercise Stress Test:</strong> Assesses catecholamine/exertion-triggered arrhythmia spikes.</span>
                       </li>
                     </ul>
                   </div>

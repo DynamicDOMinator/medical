@@ -304,11 +304,15 @@ export default function AtherosclerosisPage() {
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Coronary Calcium Score (CAC):</strong> Quantifies coronary calcification.</span>
+                        <span><strong>Coronary Calcium Score (CAC):</strong> Quantifies subclinical coronary calcification.</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Advanced Lipid Panel:</strong> Measures ApoB and Lp(a) particles.</span>
+                        <span><strong>Advanced Lipid Panel:</strong> Measures ApoB, Lp(a), and atherogenic particles.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Carotid Duplex Ultrasound:</strong> Screens for carotid artery intima-media thickness & bifurcation plaque.</span>
                       </li>
                     </ul>
                   </div>

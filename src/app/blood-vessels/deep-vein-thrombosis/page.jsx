@@ -306,7 +306,11 @@ export default function DVTPage() {
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>Wells DVT Score:</strong> Stratifies pre-test probability.</span>
+                        <span><strong>Wells DVT Clinical Score:</strong> Stratifies pre-test clinical probability.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>CT / MR Venography:</strong> Evaluates pelvic and iliofemoral venous extension.</span>
                       </li>
                     </ul>
                   </div>

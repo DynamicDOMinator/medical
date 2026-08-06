@@ -360,15 +360,19 @@ export default function VenousDiseasePage() {
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span>Measures valve reflux duration in seconds (&gt;0.5s indicates valve failure).</span>
+                        <span><strong>Duplex Reflux Mapping:</strong> Measures valve reflux duration in seconds (&gt;0.5s indicates valve failure).</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span>Maps the exact location of saphenous vein incompetence.</span>
+                        <span><strong>Saphenous Trunk Mapping:</strong> Maps exact anatomical course of Great & Small Saphenous veins.</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span>Rules out Deep Vein Thrombosis (DVT) and obstructive venous blood clots.</span>
+                        <span><strong>Perforator Vein Inspection:</strong> Identifies incompetent calf perforator veins contributing to ulcers.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Deep Venous Assessment:</strong> Rules out Deep Vein Thrombosis (DVT) and deep vein compression.</span>
                       </li>
                     </ul>
                   </div>

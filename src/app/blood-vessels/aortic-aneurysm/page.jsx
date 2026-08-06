@@ -306,7 +306,11 @@ export default function AorticAneurysmPage() {
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
-                        <span><strong>MRA (Magnetic Resonance Angiography):</strong> Radiation-free aortic mapping.</span>
+                        <span><strong>MRA (Magnetic Resonance Angiography):</strong> Radiation-free longitudinal aortic mapping.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Echocardiography (TTE/TEE):</strong> Evaluates ascending aortic root and aortic valve involvement.</span>
                       </li>
                     </ul>
                   </div>

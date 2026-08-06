@@ -309,6 +309,10 @@ export default function ValvularHeartDiseasePage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Color Doppler Velocity Mapping:</strong> Measures pressure gradients and regurgitant volumes.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Cardiac CT & Calcium Scoring:</strong> Evaluates aortic valve calcification prior to TAVR.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

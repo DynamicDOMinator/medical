@@ -343,6 +343,10 @@ export default function CardiomyopathyPage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Genetic Panel Testing:</strong> Identifies underlying inherited gene mutations.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>24-Hour Holter Monitor:</strong> Screens for non-sustained ventricular tachycardia (NSVT).</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

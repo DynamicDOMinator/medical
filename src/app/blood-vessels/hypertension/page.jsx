@@ -364,6 +364,10 @@ export default function HypertensionPage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Renal Duplex Ultrasound:</strong> Evaluates renal artery stenosis in secondary hypertension.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Renal & Endocrine Biomarkers:</strong> Serum Creatinine, eGFR, Urine Albumin, and Aldosterone-to-Renin ratio.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

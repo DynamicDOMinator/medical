@@ -301,10 +301,22 @@ export default function PADPage() {
                   <div className="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 space-y-2">
                     <h4 className="font-bold text-blue-950 text-sm">Diagnostic Modalities:</h4>
                     <ul className="space-y-1.5 text-xs text-slate-700">
-                      <li><strong>1.00 – 1.40:</strong> Normal arterial circulation.</li>
-                      <li><strong>0.90 – 0.99:</strong> Borderline peripheral arterial flow.</li>
-                      <li><strong>0.50 – 0.89:</strong> Moderate PAD causing walking pain.</li>
-                      <li><strong>&lt;0.50:</strong> Severe PAD / Risk of Critical Limb Ischemia.</li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Ankle-Brachial Index (ABI):</strong> Gold-standard non-invasive Doppler pressure ratio test (&lt;0.90 confirms PAD).</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Arterial Duplex Ultrasound:</strong> Visualizes leg artery plaque occlusion and blood flow velocities.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>Toe-Brachial Index (TBI):</strong> Evaluates microvascular flow in non-compressible calcified vessels.</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>CT / MR Angiography (CTA/MRA):</strong> 3D vascular arterial roadmapping prior to stenting or surgery.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>

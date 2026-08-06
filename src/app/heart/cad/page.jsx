@@ -348,6 +348,10 @@ export default function HeartCADPage() {
                         <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                         <span><strong>Invasive Coronary Angiography:</strong> Gold-standard fluoroscopic vessel mapping.</span>
                       </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
+                        <span><strong>12-Lead Resting ECG & Holter:</strong> Detects ST-T wave changes and silent myocardial ischemia.</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
