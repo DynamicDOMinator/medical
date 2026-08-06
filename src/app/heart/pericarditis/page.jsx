@@ -371,7 +371,7 @@ export default function PericarditisPage() {
                 </div>
               </div>
 
-              <div className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {treatments.map((t) => (
                   <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
                     <div className="relative h-48 w-full">
