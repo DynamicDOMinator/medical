@@ -113,82 +113,203 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white border border-slate-200/80 rounded-2xl p-7 space-y-5">
-            <h2 className="text-2xl font-bold text-slate-800">
-              Request a Consultation
-            </h2>
-            <p className="text-slate-500 text-sm">
-              Our patient coordinators will reach out within 1 business day to
-              confirm your appointment.
-            </p>
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-7 space-y-5 shadow-xs">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-800">
+                Request an Appointment & Book Online
+              </h2>
+              <p className="text-slate-500 text-sm mt-1">
+                Our patient coordinators will reach out within 1 business day to confirm your appointment.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                  First Name
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  First Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="John"
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                  Last Name
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Last Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Doe"
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+1 (555) 000-0000"
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Email Address <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="john@example.com"
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Reason for Visit / Appointment (TEXT INPUT as requested) */}
             <div>
-              <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                Phone Number
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                Reason for Appointment <span className="text-red-500">*</span>
               </label>
               <input
-                type="tel"
-                placeholder="+1 (555) 000-0000"
-                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"
+                type="text"
+                placeholder="Type the reason for your appointment (e.g. Chest pain, arrhythmia, second opinion...)"
+                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
               />
             </div>
+
+            {/* Preferred contact method */}
             <div>
-              <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                Email Address
+              <label className="block text-xs font-bold text-slate-800 mb-2">
+                Preferred contact method <span className="text-red-500">*</span>
               </label>
-              <input
-                type="email"
-                placeholder="john@example.com"
-                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"
-              />
+              <div className="flex items-center space-x-6">
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="contact_method"
+                    value="Phone"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>Phone</span>
+                </label>
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="contact_method"
+                    value="Email"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>Email</span>
+                </label>
+              </div>
             </div>
+
+            {/* Preferred Location */}
             <div>
-              <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                Reason for Visit
+              <label className="block text-xs font-bold text-slate-800 mb-2">
+                Preferred Location <span className="text-red-500">*</span>
               </label>
-              <select className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
-                <option>Select a reason...</option>
-                <option>Chest pain or angina</option>
-                <option>Palpitations or arrhythmia</option>
-                <option>Heart failure follow-up</option>
-                <option>Blood pressure management</option>
-                <option>Second opinion</option>
-                <option>Annual cardiac checkup</option>
-                <option>Other</option>
-              </select>
+              <div className="flex flex-wrap items-center gap-6">
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="location"
+                    value="Houston"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>Houston</span>
+                </label>
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="location"
+                    value="Tomball"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>Tomball</span>
+                </label>
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="location"
+                    value="Cypress"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>Cypress</span>
+                </label>
+              </div>
             </div>
+
+            {/* Who are you? */}
             <div>
-              <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+              <label className="block text-xs font-bold text-slate-800 mb-2">
+                Who are you? <span className="text-red-500">*</span>
+              </label>
+              <div className="flex flex-wrap items-center gap-6">
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="patient_type"
+                    value="New Patient"
+                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>A New Patient</span>
+                </label>
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="patient_type"
+                    value="Existing Patient"
+                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>An Existing Patient</span>
+                </label>
+                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="patient_type"
+                    value="Emergency Appointment"
+                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                  />
+                  <span>I need an Emergency Appointment</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Agreement */}
+            <div className="pt-2 border-t border-slate-100">
+              <label className="block text-xs font-bold text-slate-800 mb-2">
+                Agreement <span className="text-red-500">*</span>
+              </label>
+              <label className="flex items-start space-x-2.5 text-sm text-slate-700 cursor-pointer">
+                <input
+                  type="checkbox"
+                  required
+                  className="h-4 w-4 mt-0.5 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                />
+                <span className="text-xs text-slate-600 leading-relaxed">
+                  I consent to communicate with me for treatment purposes.
+                </span>
+              </label>
+            </div>
+
+            {/* Additional Notes */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Additional Notes
               </label>
               <textarea
                 rows={3}
                 placeholder="Please share any relevant medical history or symptoms..."
-                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all resize-none"
+                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
               />
             </div>
-            <button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-sm shadow-brand-500/20">
+
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-md shadow-blue-600/20 text-sm">
               <Heart className="h-4 w-4" fill="currentColor" />
               <span>Request My Appointment</span>
             </button>
