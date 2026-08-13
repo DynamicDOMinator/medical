@@ -49,10 +49,7 @@ export default function HeartCareClient() {
   };
 
   const toggleItem = (id) => {
-    setOpenItems((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setOpenItems((prev) => (prev[id] ? {} : { [id]: true }));
   };
 
   const expandAll = () => {

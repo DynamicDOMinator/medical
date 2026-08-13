@@ -1194,9 +1194,6 @@ export default function HomeClient() {
                   className="w-full text-left p-6 flex items-center justify-between space-x-4 bg-white hover:bg-slate-50/50 transition-colors"
                 >
                   <div className="flex items-center space-x-3">
-                    <span className="text-xs font-black text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 shrink-0">
-                      0{idx + 1}
-                    </span>
                     <h3 className="font-bold text-slate-900 text-base sm:text-lg">
                       {faq.question}
                     </h3>
@@ -1224,23 +1221,14 @@ export default function HomeClient() {
           })}
         </div>
 
-        {/* FAQ Contact Footer Callout */}
-        <div className="mt-12 text-center bg-slate-50 border border-slate-200/80 rounded-2xl p-6 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-left space-y-1">
-            <h4 className="font-extrabold text-slate-900 text-sm">
-              Still have questions about your care?
-            </h4>
-            <p className="text-xs text-slate-500">
-              Our clinical desk is ready to answer your specific medical
-              questions.
-            </p>
-          </div>
+        {/* FAQ Heart Care Link */}
+        <div className="mt-12 text-center">
           <Link
-            href="/contact"
-            className="inline-flex items-center space-x-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition-all shadow-md shrink-0 hover-lift"
+            href="/heart-care"
+            className="inline-flex items-center space-x-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-2xl transition-all shadow-md hover:scale-[1.02]"
           >
-            <Stethoscope className="h-4 w-4" />
-            <span>Ask Dr. Almahmoud</span>
+            <span>Learn More</span>
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
