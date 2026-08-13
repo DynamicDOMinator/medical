@@ -64,6 +64,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/heart-care"
+                  className="hover:text-white transition-colors"
+                >
+                  Heart Care FAQs
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/disease/cad"
                   className="hover:text-white transition-colors"
                 >
