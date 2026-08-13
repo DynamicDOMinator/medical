@@ -245,7 +245,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="max-w-6xl mt-3 sm:mt-4 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg shadow-blue-950/10 mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
+      <div className="max-w-7xl mt-3 sm:mt-4 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg shadow-blue-950/10 mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link
