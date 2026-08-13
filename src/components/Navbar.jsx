@@ -302,7 +302,7 @@ export default function Navbar() {
               >
                 {link.name}
               </Link>
-            ))}
+            ))} 
 
             {/* CTA */}
             <a

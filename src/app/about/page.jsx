@@ -17,7 +17,7 @@ import {
 export const metadata = {
   title: "About Dr. Mohamed Faher Almahmoud | PulseCare Cardiology",
   description:
-    "Learn about Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C. — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.",
+    "Learn about Dr. Mohamed Faher Almahmoud M.D., F.A.C.C. — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.",
 };
 
 export default function AboutPage() {
@@ -61,22 +61,25 @@ export default function AboutPage() {
                 <div className="relative h-96 sm:h-[480px] w-full rounded-2xl overflow-hidden bg-slate-900">
                   <Image
                     src="/doc-img.png"
-                    alt="Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C."
+                    alt="Dr. Mohamed Faher Almahmoud M.D., F.A.C.C."
                     fill
                     className="object-cover object-top"
                     priority
                   />
+                  {/* Doctor Title Overlay (ON THE IMAGE ONLY ON PHONE VIEW) */}
+                  <div className="sm:hidden absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+                  <div className="sm:hidden absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/20 shadow-xl text-center">
+                    <h3 className="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">
+                      <div>Dr. Mohamed Faher Almahmoud</div>
+                      <div className="text-blue-600 text-xs font-bold mt-0.5">
+                        M.D., F.A.C.C.
+                      </div>
+                    </h3>
+                    <p className="text-blue-600 text-[11px] font-bold mt-1">
+                      Board-Certified Cardiologist & Interventional Specialist
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              {/* Doctor Name & Title under photo (phone view) */}
-              <div className="sm:hidden text-center bg-white border border-blue-100 rounded-2xl p-4 shadow-sm space-y-1">
-                <h3 className="font-extrabold text-slate-900 text-sm">
-                  Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C.
-                </h3>
-                <p className="text-blue-600 text-xs font-bold">
-                  Board-Certified Cardiologist & Interventional Specialist
-                </p>
               </div>
 
               {/* 6 Board Certifications */}
@@ -108,10 +111,12 @@ export default function AboutPage() {
 
             {/* Right: Full Biography */}
             <div className="lg:col-span-7 space-y-6">
-              <div>
+              <div className="hidden sm:block">
                 <h2 className="text-3xl font-extrabold text-slate-900">
-                  Dr. Mohamed Faher Almahmoud,{" "}
-                  <span className="text-blue-600">M.D., F.A.C.C.</span>
+                  <div>Dr. Mohamed Faher Almahmoud</div>
+                  <div className="text-blue-600 text-2xl font-bold mt-1">
+                    M.D., F.A.C.C.
+                  </div>
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
                   Cardiologist & Interventional Vascular Specialist
