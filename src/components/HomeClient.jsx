@@ -529,18 +529,6 @@ export default function HomeClient() {
                     className="object-cover object-top hover:scale-105 transition-transform duration-500"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-blue-100 shadow-lg text-center">
-                    <h3 className="font-extrabold text-slate-900 text-base">
-                      Dr. Mohamed Faher Almahmoud
-                    </h3>
-                    <p className="text-blue-600 text-xs font-bold mt-0.5">
-                      M.D., F.A.C.C.
-                    </p>
-                    <p className="text-slate-500 text-[11px] mt-1">
-                      Specialist in General & Interventional Cardiology
-                    </p>
-                  </div>
                 </div>
               </div>
 
