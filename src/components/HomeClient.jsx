@@ -532,6 +532,16 @@ export default function HomeClient() {
                 </div>
               </div>
 
+              {/* Doctor Name & Title under photo (phone view) */}
+              <div className="sm:hidden text-center bg-white border border-blue-100 rounded-2xl p-4 shadow-sm space-y-1">
+                <h3 className="font-extrabold text-slate-900 text-sm">
+                  Dr. Mohamed Faher Almahmoud, M.D., F.A.C.C.
+                </h3>
+                <p className="text-blue-600 text-xs font-bold">
+                  Board-Certified Cardiologist & Interventional Specialist
+                </p>
+              </div>
+
               {/* Board Certification Badges (6 Items) */}
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
                 <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">

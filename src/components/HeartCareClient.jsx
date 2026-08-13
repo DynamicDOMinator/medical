@@ -165,8 +165,8 @@ export default function HeartCareClient() {
                   </ul>
                 </div>
 
-                <div className="bg-sky-50/60 border border-sky-100 rounded-2xl p-4">
-                  <h5 className="font-extrabold text-xs text-sky-900 uppercase tracking-wider mb-2.5 pb-1 border-b border-sky-200/60">
+                <div className="bg-blue-50/60 border border-blue-100 rounded-2xl p-4">
+                  <h5 className="font-extrabold text-xs text-blue-900 uppercase tracking-wider mb-2.5 pb-1 border-b border-blue-200/60">
                     Circulation-related symptoms
                   </h5>
                   <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
@@ -181,8 +181,8 @@ export default function HeartCareClient() {
                   </ul>
                 </div>
 
-                <div className="bg-indigo-50/60 border border-indigo-100 rounded-2xl p-4">
-                  <h5 className="font-extrabold text-xs text-indigo-900 uppercase tracking-wider mb-2.5 pb-1 border-b border-indigo-200/60">
+                <div className="bg-blue-50/60 border border-blue-100 rounded-2xl p-4">
+                  <h5 className="font-extrabold text-xs text-blue-900 uppercase tracking-wider mb-2.5 pb-1 border-b border-blue-200/60">
                     Other important symptoms
                   </h5>
                   <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">

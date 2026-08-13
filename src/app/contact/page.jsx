@@ -208,42 +208,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Preferred Location */}
-            <div>
-              <label className="block text-xs font-bold text-slate-800 mb-2">
-                Preferred Location <span className="text-red-500">*</span>
-              </label>
-              <div className="flex flex-wrap items-center gap-6">
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="location"
-                    value="Houston"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>Houston</span>
-                </label>
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="location"
-                    value="Tomball"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>Tomball</span>
-                </label>
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="location"
-                    value="Cypress"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>Cypress</span>
-                </label>
-              </div>
-            </div>
-
             {/* Who are you? */}
             <div>
               <label className="block text-xs font-bold text-slate-800 mb-2">
@@ -267,15 +231,6 @@ export default function ContactPage() {
                     className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
                   />
                   <span>An Existing Patient</span>
-                </label>
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="patient_type"
-                    value="Emergency Appointment"
-                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>I need an Emergency Appointment</span>
                 </label>
               </div>
             </div>
