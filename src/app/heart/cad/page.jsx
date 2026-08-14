@@ -384,11 +384,13 @@ export default function HeartCADPage() {
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Accurate CAD diagnosis combines non-invasive risk stratification
-                with advanced anatomical imaging. Dr. Almahmoud utilizes
-                state-of-the-art diagnostic modalities:
-              </p>
+           <p className="pb-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Finding the right answers starts with understanding your
+                    heart. We use a range of tests and procedures to see how
+                    your heart is working and check for problems with your
+                    coronary arteries. We’ll explain what to expect at every
+                    step.
+                  </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
@@ -499,13 +501,7 @@ export default function HeartCADPage() {
                     for selected cases based on symptoms, anatomy, and overall
                     risk.
                   </p>
-                  <p>
-                    Finding the right answers starts with understanding your
-                    heart. We use a range of tests and procedures to see how
-                    your heart is working and check for problems with your
-                    coronary arteries. We’ll explain what to expect at every
-                    step.
-                  </p>
+                  
                 </div>
               </div>
 
@@ -526,15 +522,8 @@ export default function HeartCADPage() {
                           fill
                           className="object-cover object-center"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                        <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
-                          <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                            {t.duration}
-                          </span>
-                          <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                            {t.recovery}
-                          </span>
-                        </div>
+                        
+                        
                       </div>
                       <div className="p-5">
                         <h4 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
@@ -563,77 +552,7 @@ export default function HeartCADPage() {
               </div>
             </section>
 
-            {/* 6. LIVING WITH CAD */}
-            <section
-              id="living-with"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
-            >
-              <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Living with CAD & Prevention
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Apple className="h-5 w-5 text-emerald-600" />
-                    <h4 className="font-bold text-slate-900 text-base">
-                      Dietary Recommendations
-                    </h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>
-                        Mediterranean diet rich in olive oil, fish, vegetables,
-                        and whole grains
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>
-                        Reduce saturated fats, trans fats, and processed sugars
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>Limit sodium intake to under 2,000 mg per day</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Activity className="h-5 w-5 text-blue-600" />
-                    <h4 className="font-bold text-slate-900 text-base">
-                      Physical Activity Guidelines
-                    </h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>
-                        At least 150 minutes of moderate aerobic exercise weekly
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>
-                        Brisk walking, cycling, or swimming as low-impact
-                        options
-                      </span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>
-                        Enroll in cardiac rehabilitation after any heart event
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
+          
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
