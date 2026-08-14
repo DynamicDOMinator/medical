@@ -363,43 +363,40 @@ const googleReviewsList = [
 
 const faqData = [
   {
-    question: "What should I expect during my first cardiology consultation?",
+    question: "What symptoms present differently in men vs women?",
     answer:
-      "During your initial visit, Dr. Almahmoud conducts a comprehensive clinical assessment including a thorough review of your medical history, current symptoms, medication list, and lifestyle risk factors. A targeted physical examination will be performed, followed by recommended diagnostic testing tailored specifically to your condition.",
-    category: "Consultation & Visits",
+      "There is no single symptom pattern that reliably distinguishes cardiovascular disease in men from women. The absence of classic chest pain does not mean the heart is not the cause. For this reason, we encourage patients—particularly those with cardiovascular risk factors—not to dismiss a new, unexplained, persistent, or concerning symptom, even if it does not sound like a typical heart problem.",
+    category: "Symptoms & Presentation",
   },
   {
-    question: "Do I need a physician referral to schedule an appointment?",
+    question: "What heart symptoms should patients never ignore?",
     answer:
-      "While many insurance plans allow direct booking without a referral, certain HMO or specific networks require a primary care doctor's referral. Our clinic staff will assist in verifying your insurance requirements prior to your visit.",
-    category: "Appointments & Insurance",
+      "Patients should never ignore unexplained chest tightness, pressure, or burning; shortness of breath with mild exertion or when lying flat; sudden unexplained fainting, dizziness, or near-blackouts; rapid or fluttering heartbeats accompanied by weakness; and swelling in both legs or feet. Any new, worsening, or exertional discomfort warrants prompt evaluation.",
+    category: "Clinical Warning Signs",
   },
   {
-    question: "What diagnostic tests are performed directly at the clinic?",
+    question: "Why do people delay seeing a cardiologist?",
     answer:
-      "Our practice offers complete in-office diagnostic capabilities, including 12-lead ECG, 3D Echocardiography, Treadmill & Nuclear Stress Testing, 24–48h Holter Monitoring, Ambulatory BP Monitoring, and Peripheral Vascular Duplex Ultrasound.",
-    category: "Diagnostic Testing",
+      "Many patients delay evaluation because cardiovascular symptoms can be subtle, intermittent, or easily mistaken for aging, stress, indigestion, or lack of fitness. Others hesitate out of fear of undergoing invasive procedures. At our practice, evaluation is individualized and often managed conservatively with lifestyle and targeted medical therapy.",
+    category: "Cardiology Consultation",
   },
   {
-    question:
-      "How long does recovery take after a minimally invasive procedure like stenting?",
+    question: "What happens if my test results are borderline?",
     answer:
-      "Most minimally invasive procedures (such as coronary angiography or stenting) are performed via radial artery access (wrist). Patients typically return home the same day or following overnight observation, returning to normal light activities within 48 to 72 hours.",
-    category: "Procedures & Interventions",
+      "Borderline test results are evaluated in the context of your overall cardiovascular risk profile, personal symptoms, and medical history. Rather than ordering unnecessary invasive tests, we may recommend advanced functional imaging, lifestyle optimization, or close interval monitoring to ensure your heart health remains secure.",
+    category: "Diagnostic Results",
   },
   {
-    question:
-      "Can I get a second opinion on a recommended heart procedure or surgery?",
+    question: "How do you determine which tests I need?",
     answer:
-      "Yes. Dr. Almahmoud frequently provides expert second opinions for complex coronary artery disease, structural valve decisions (such as TAVR vs surgical replacement), and vascular conditions to ensure patients have total clarity on all conservative and interventional options.",
-    category: "Second Opinions",
+      "We take a targeted, personalized approach based on your specific symptoms, physical examination findings, and risk factors. We avoid a one-size-fits-all approach, selecting only the diagnostic evaluations (such as ECG, Echocardiography, Stress Testing, or CT Coronary Angiography) that provide actionable clinical insight.",
+    category: "Personalized Testing",
   },
   {
-    question:
-      "What should I do if I experience sudden severe chest pain or shortness of breath?",
+    question: "Do you provide long-term follow-up?",
     answer:
-      "If you experience sudden, severe crushing chest pain, pain radiating to your jaw or left arm, severe fainting, or acute shortness of breath, please call 911 or seek immediate emergency hospital emergency care.",
-    category: "Emergency Guidance",
+      "Yes. Cardiovascular disease and risk management are lifelong journeys. We provide comprehensive long-term follow-up care to monitor your treatment response, track biomarker and imaging progress, manage medications, and adapt your care plan as your health needs evolve.",
+    category: "Ongoing Care",
   },
 ];
 
@@ -1128,7 +1125,7 @@ export default function HomeClient() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Got Questions? We Have Clear Answers.
+            Your Heart Health: Questions Patients Often Ask
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Everything you need to know about clinic visits, diagnostic testing,

@@ -67,7 +67,7 @@ export default function Footer() {
                   href="/heart-care"
                   className="hover:text-white transition-colors"
                 >
-                  Heart Care FAQs
+                  Your Heart Health: Questions Patients Often Ask
                 </Link>
               </li>
               <li>

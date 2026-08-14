@@ -115,7 +115,7 @@ export default function AtherosclerosisPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Atherosclerosis Outline"
               items={[
@@ -128,8 +128,7 @@ export default function AtherosclerosisPage() {
                 ['#faqs', 'FAQs'],
               ]}
               cta={{
-                title: "High LDL Cholesterol?",
-                desc: "Schedule a lipid panel and CAC score assessment.",
+                title: "Experiencing Chest Tightness or Poor Circulation?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}

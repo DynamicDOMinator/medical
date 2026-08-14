@@ -140,7 +140,7 @@ export default function ArrhythmiasPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Arrhythmia Guide"
               accent="indigo"
@@ -153,8 +153,7 @@ export default function ArrhythmiasPage() {
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
-                title: "Experiencing Palpitations?",
-                desc: "Get a Holter monitor rhythm evaluation.",
+                title: "Experiencing Palpitations or Irregular Heartbeats?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}
@@ -171,10 +170,21 @@ export default function ArrhythmiasPage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Cardiac arrhythmias occur when the electrical signals that coordinate heartbeats misfire, causing the heart to beat too fast (tachycardia, &gt;100 bpm), too slow (bradycardia, &lt;60 bpm), or irregularly (atrial fibrillation). The heart's electrical system relies on a precisely timed cascade: the SA node fires, conducts through the AV node, and spreads through the His-Purkinje system to the ventricles.
+                  Arrhythmias are disorders of the heart’s electrical system
+                  that can cause slow, fast, or irregular heartbeats. They range
+                  from harmless to potentially serious conditions.
                 </p>
                 <p>
-                  When this conduction system is disrupted — by scarring, inflammation, electrolyte imbalance, or structural disease — abnormal rhythms emerge. Some arrhythmias are benign; others can be life-threatening and require urgent intervention.
+                  Arrhythmias can be intermittent and difficult to detect,
+                  meaning that a routine ECG may not always capture the abnormal
+                  rhythm. In some cases, extended heart-rhythm monitoring may be
+                  needed.
+                </p>
+                <p>
+                  Importantly, symptoms do not always reflect the severity of an
+                  arrhythmia. A serious arrhythmia may cause only mild symptoms,
+                  while a less serious rhythm disturbance may feel very
+                  noticeable or uncomfortable.
                 </p>
               </div>
 

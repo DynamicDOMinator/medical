@@ -153,8 +153,8 @@ export default function CardiomyopathyPage() {
       {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          {/* Sticky Sidebar */}
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Cardiomyopathy Outline"
               items={[
@@ -167,8 +167,7 @@ export default function CardiomyopathyPage() {
                 ["#faqs", "FAQs"],
               ]}
               cta={{
-                title: "Family History of Heart Disease?",
-                desc: "Get echocardiography & genetic risk screening.",
+                title: "Experiencing Fatigue or Breathlessness?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}

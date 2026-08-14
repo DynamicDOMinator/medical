@@ -46,20 +46,20 @@ export default function HeartCADPage() {
 
   const typesList = [
     {
-      name: "Stable Angina",
-      desc: "Predictable chest pressure occurring during physical activity or emotional stress that resolves within minutes of rest or sublingual nitroglycerin.",
+      name: "Obstructive CAD",
+      desc: "Plaque significantly narrows a coronary artery and can restrict blood flow.",
     },
     {
-      name: "Unstable Angina",
-      desc: "Unpredictable chest discomfort occurring at rest or with minimal exertion. Indicates plaque disruption and high immediate risk of heart attack.",
+      name: "Non-obstructive CAD",
+      desc: "Symptoms or disease may occur despite no major blockage in the large coronary arteries.",
     },
     {
-      name: "Acute Myocardial Infarction (NSTEMI / STEMI)",
-      desc: "Complete or subtotal occlusion of a coronary artery causing cardiac cell death. Requires urgent catheterization and stent revascularization.",
+      name: "Chronic CAD",
+      desc: "Long-standing disease that may cause predictable symptoms, particularly with exertion.",
     },
     {
-      name: "Coronary Microvascular Disease (MVD)",
-      desc: "Damage to the walls of tiny coronary blood vessels that branch off from major arteries, causing angina despite open main arteries.",
+      name: "Acute Coronary Syndrome",
+      desc: "Sudden reduction in coronary blood flow, including unstable angina and heart attacks.",
     },
   ];
 
@@ -158,23 +158,23 @@ export default function HeartCADPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Sticky Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="CAD Guide Outline"
               items={[
                 ["#overview", "Overview"],
                 ["#types", "Classifications & Types"],
                 ["#symptoms", "Symptoms"],
+                ["#risk-factors", "Risk Factors & Prevention"],
                 ["#diagnosis", "Diagnostic Testing"],
                 ["#treatment", "Treatment & Procedures"],
                 ["#living-with", "Living with CAD"],
                 ["#faqs", "FAQs"],
               ]}
               cta={{
-                title: "Experiencing Chest Pain?",
-                desc: "Contact PulseCare Cardiology for urgent evaluation.",
+                title: "Experiencing Chest Pain or Pressure?",
                 href: "/contact",
-                btnText: "Book Consultation",
+                btnText: "Book Evaluation",
               }}
             />
           </div>
@@ -194,21 +194,15 @@ export default function HeartCADPage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Coronary Artery Disease (CAD) is the leading cause of heart
-                  attacks and cardiovascular mortality worldwide. It develops
-                  when cholesterol, fats, calcium, and inflammatory cells
-                  accumulate within the inner lining of the major epicardial
-                  coronary arteries — the vessel channels that deliver blood,
-                  oxygen, and nutrients to your continuously pumping heart
-                  muscle.
+                  Coronary artery disease is a lifelong condition caused by
+                  atherosclerosis, where plaque builds up in the heart’s
+                  arteries. It is not just about “blockages,” but about an active
+                  disease process that can progress or suddenly rupture and cause
+                  a heart attack.
                 </p>
                 <p>
-                  As atherosclerotic plaque grows, it restricts blood flow to
-                  the myocardium during physical exertion or stress (causing{" "}
-                  <strong>Angina Pectoris</strong>). If a plaque ruptures, a
-                  blood clot forms instantly, completely occluding coronary
-                  blood flow and triggering an acute{" "}
-                  <strong>Myocardial Infarction (Heart Attack)</strong>.
+                  The severity of a blockage alone does not fully define risk,
+                  since heart attacks can occur even with moderate disease.
                 </p>
               </div>
 
@@ -224,24 +218,45 @@ export default function HeartCADPage() {
             </section>
 
             {/* 2. TYPES */}
-            <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
-                Classifications & Types of CAD
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <section
+              id="types"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Classifications & Types of CAD
+                </h2>
+              </div>
+              <div className="divide-y divide-slate-200/80">
                 {typesList.map((t) => (
                   <div
                     key={t.name}
-                    className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <h3 className="font-bold text-slate-900 text-base">
-                      {t.name}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      {t.desc}
-                    </p>
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* CAD Progression Medical Infographic */}
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
+                  <Image
+                    src="/images/cad-progression.jpg"
+                    alt="How Coronary Artery Disease Develops - CAD Progression Infographic"
+                    fill
+                    className="object-contain object-center"
+                  />
+                </div>
               </div>
             </section>
 
@@ -278,6 +293,83 @@ export default function HeartCADPage() {
                     </div>
                   );
                 })}
+              </div>
+            </section>
+
+            {/* 4. RISK FACTORS & PREVENTION */}
+            <section
+              id="risk-factors"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 space-y-6"
+            >
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+                  Risk Factors & Prevention
+                </h2>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Understanding what drives plaque progression and taking proactive steps allows for significant risk reduction and long-term cardiovascular health preservation.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Risk Factors Box - Subtle warm/orange accent */}
+                <div className="bg-amber-50/40 border border-amber-200/80 rounded-2xl p-6 space-y-4">
+                  <div className="flex items-center space-x-2.5 text-amber-900 font-bold text-base">
+                    <div className="p-2 rounded-xl bg-amber-500/10 text-amber-600 border border-amber-200 shrink-0">
+                      <AlertTriangle className="h-5 w-5" />
+                    </div>
+                    <span>Risk Factors</span>
+                  </div>
+
+                  <ul className="space-y-2.5 pt-2">
+                    {[
+                      "High blood pressure",
+                      "Family history",
+                      "Diabetes",
+                      "Smoking",
+                      "High cholesterol",
+                      "Overweight / obesity",
+                      "Physical inactivity",
+                      "Increasing age",
+                    ].map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center space-x-3 text-slate-700 text-xs sm:text-sm"
+                      >
+                        <span className="h-2 w-2 rounded-full bg-amber-500 shrink-0" />
+                        <span className="font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Prevention Box - Subtle fresh green/emerald accent */}
+                <div className="bg-emerald-50/40 border border-emerald-200/80 rounded-2xl p-6 space-y-4">
+                  <div className="flex items-center space-x-2.5 text-emerald-950 font-bold text-base">
+                    <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 border border-emerald-200 shrink-0">
+                      <ShieldCheck className="h-5 w-5" />
+                    </div>
+                    <span>Prevention</span>
+                  </div>
+
+                  <ul className="space-y-2.5 pt-2">
+                    {[
+                      "Don't smoke",
+                      "Eat a heart-healthy diet",
+                      "Exercise regularly",
+                      "Maintain a healthy weight",
+                      "Take prescribed medications",
+                      "Monitor BP, cholesterol & glucose",
+                    ].map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center space-x-3 text-slate-700 text-xs sm:text-sm"
+                      >
+                        <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0" />
+                        <span className="font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </section>
 
@@ -392,47 +484,82 @@ export default function HeartCADPage() {
             {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
             <section
               id="treatment"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 space-y-6"
             >
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4">
                   Treatment & Procedures
                 </h2>
+                <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p>
+                    Treatment is not always a stent or surgery; many patients
+                    benefit most from medical therapy and aggressive risk-factor
+                    control, including cholesterol, blood pressure, diabetes,
+                    smoking, and lifestyle management. Procedures are reserved
+                    for selected cases based on symptoms, anatomy, and overall
+                    risk.
+                  </p>
+                  <p>
+                    Finding the right answers starts with understanding your
+                    heart. We use a range of tests and procedures to see how
+                    your heart is working and check for problems with your
+                    coronary arteries. We’ll explain what to expect at every
+                    step.
+                  </p>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {treatments.map((t) => (
-                  <div
-                    key={t.name}
-                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
-                  >
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                          {t.duration}
-                        </span>
-                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                          {t.recovery}
-                        </span>
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
+                  Examples
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {treatments.map((t) => (
+                    <div
+                      key={t.name}
+                      className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                    >
+                      <div className="relative h-48 w-full">
+                        <Image
+                          src={t.image}
+                          alt={t.name}
+                          fill
+                          className="object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                        <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                          <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                            {t.duration}
+                          </span>
+                          <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
+                            {t.recovery}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-5">
+                        <h4 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                          {t.name}
+                        </h4>
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                          {t.desc}
+                        </p>
                       </div>
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
-                        {t.name}
-                      </h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        {t.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-6 rounded-2xl bg-blue-50/70 border border-blue-100 text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+                <p>
+                  Most importantly, CAD requires ongoing prevention even after
+                  treatment, because the disease can affect multiple arteries
+                  over time.
+                </p>
+                <p className="font-semibold text-blue-950">
+                  The goal is not just to open arteries, but to prevent heart
+                  attacks, preserve heart function, and maintain long-term
+                  health and quality of life.
+                </p>
               </div>
             </section>
 

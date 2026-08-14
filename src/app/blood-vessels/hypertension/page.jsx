@@ -169,7 +169,7 @@ export default function HypertensionPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sticky Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Hypertension Outline"
               items={[
@@ -182,8 +182,7 @@ export default function HypertensionPage() {
                 ['#faqs', 'FAQs'],
               ]}
               cta={{
-                title: "Blood Pressure Above 130/80?",
-                desc: "Schedule a 24-hr ambulatory monitoring evaluation.",
+                title: "Experiencing High Blood Pressure or Headaches?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}

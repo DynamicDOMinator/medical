@@ -113,7 +113,7 @@ export default function AorticAneurysmPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Aortic Guide Outline"
               items={[
@@ -126,10 +126,9 @@ export default function AorticAneurysmPage() {
                 ['#faqs', 'FAQs'],
               ]}
               cta={{
-                title: "Men 65-75 with Smoking History?",
-                desc: "One-time screening ultrasound recommended.",
+                title: "Experiencing Deep Chest, Back, or Abdominal Pain?",
                 href: "/contact",
-                btnText: "Book Screening",
+                btnText: "Book Evaluation",
               }}
             />
           </div>

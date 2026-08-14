@@ -150,7 +150,7 @@ export default function PericarditisPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Pericarditis Outline"
               items={[
@@ -163,8 +163,7 @@ export default function PericarditisPage() {
                 ['#faqs', 'FAQs'],
               ]}
               cta={{
-                title: "Sharp Positional Chest Pain?",
-                desc: "Get an ECG and echocardiogram evaluation.",
+                title: "Experiencing Sharp Chest Pain When Lying Down?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}

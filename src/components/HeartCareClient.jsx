@@ -872,7 +872,7 @@ export default function HeartCareClient() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Heart Care FAQs
+            Your Heart Health: Questions Patients Often Ask
           </h1>
           <p className="mt-4 sm:mt-6 text-blue-100/90 text-base sm:text-xl max-w-3xl mx-auto font-normal leading-relaxed">
             Understanding when to seek cardiovascular care, what symptoms to

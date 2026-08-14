@@ -113,7 +113,7 @@ export default function DVTPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="DVT Outline"
               items={[
@@ -126,10 +126,9 @@ export default function DVTPage() {
                 ['#faqs', 'FAQs'],
               ]}
               cta={{
-                title: "Sudden Unilateral Leg Swelling?",
-                desc: "Get an urgent vascular duplex ultrasound.",
+                title: "Experiencing Sudden Leg Swelling or Calf Pain?",
                 href: "/contact",
-                btnText: "Urgent Evaluation",
+                btnText: "Book Evaluation",
               }}
             />
           </div>

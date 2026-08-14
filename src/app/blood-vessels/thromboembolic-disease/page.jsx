@@ -146,7 +146,7 @@ export default function ThromboembolicDiseasePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Thromboembolic Guide"
               items={[
@@ -159,10 +159,9 @@ export default function ThromboembolicDiseasePage() {
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
-                title: "Sudden Chest Pain or Shortness of Breath?",
-                desc: "Seek immediate emergency medical evaluation.",
+                title: "Experiencing Sudden Breathlessness or Clot Symptoms?",
                 href: "/contact",
-                btnText: "Contact Us",
+                btnText: "Book Evaluation",
               }}
             />
           </div>

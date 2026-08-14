@@ -134,7 +134,7 @@ export default function PADPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
           {/* Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="PAD Guide Sections"
               items={[
@@ -145,8 +145,7 @@ export default function PADPage() {
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
-                title: "Experiencing Leg Pain While Walking?",
-                desc: "Schedule an Ankle-Brachial Index (ABI) flow test.",
+                title: "Experiencing Leg Pain or Cramping While Walking?",
                 href: "/contact",
                 btnText: "Book Evaluation",
               }}

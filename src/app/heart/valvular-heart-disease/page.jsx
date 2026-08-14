@@ -134,7 +134,7 @@ export default function ValvularHeartDiseasePage() {
       {/* 2. MAIN LAYOUT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Valvular Guide Contents"
               items={[
@@ -145,10 +145,9 @@ export default function ValvularHeartDiseasePage() {
                 ["#faqs", "Patient FAQs"],
               ]}
               cta={{
-                title: "Diagnosed with Aortic Stenosis?",
-                desc: "Consult with our Structural Heart team for TAVR evaluation.",
+                title: "Experiencing Shortness of Breath or Murmur?",
                 href: "/contact",
-                btnText: "Request Evaluation",
+                btnText: "Book Evaluation",
               }}
             />
           </div>

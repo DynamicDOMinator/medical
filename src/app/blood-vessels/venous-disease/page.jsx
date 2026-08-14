@@ -189,7 +189,7 @@ export default function VenousDiseasePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Sticky Navigation Sidebar */}
-          <div className="hidden lg:block lg:col-span-3">
+          <div className="lg:col-span-3">
             <GuideSidebarNav
               title="Clinical Guide Contents"
               items={[
@@ -202,10 +202,9 @@ export default function VenousDiseasePage() {
                 ["#faqs", "Patient FAQs"],
               ]}
               cta={{
-                title: "Need Immediate Evaluation?",
-                desc: "Book an appointment at PulseCare Cardiology Clinic.",
+                title: "Experiencing Heavy, Aching Legs or Varicose Veins?",
                 href: "/contact",
-                btnText: "Book Consultation",
+                btnText: "Book Evaluation",
               }}
             />
           </div>

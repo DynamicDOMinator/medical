@@ -335,6 +335,24 @@ export default async function SymptomDetailPage({ params }) {
             </Link>
           </div>
         </div>
+
+        {/* Mobile Sticky Bottom CTA */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3">
+          <div className="min-w-0 flex-1 text-left">
+            <p className="text-xs font-extrabold text-slate-900 truncate">
+              Experiencing {symptom.name}?
+            </p>
+            <p className="text-[11px] text-slate-500 truncate mt-0.5">
+              Consult Dr. Almahmoud for expert evaluation.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="shrink-0 bg-blue-600 hover:bg-blue-700 shadow-blue-600/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95"
+          >
+            Book Evaluation
+          </Link>
+        </div>
       </div>
     </div>
   );
