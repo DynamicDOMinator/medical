@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Heart,
+  HeartPulse,
   Activity,
   Menu,
   X,
@@ -240,6 +241,7 @@ export default function Navbar() {
   const [mobileHeartOpen, setMobileHeartOpen] = useState(false);
   const [mobileVesselsOpen, setMobileVesselsOpen] = useState(false);
   const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
+  const [activeSymptomCat, setActiveSymptomCat] = useState("heart");
 
   const staticLinks = [
     { name: "Heart Care", href: "/heart-care" },
@@ -264,7 +266,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
             <MegaDropdown
               items={heartDiseases}
@@ -350,7 +352,9 @@ export default function Navbar() {
                   <span>Heart Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${mobileHeartOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${
+                    mobileHeartOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               {mobileHeartOpen && (
@@ -391,7 +395,9 @@ export default function Navbar() {
                   <span>Blood Vessel Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${mobileVesselsOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${
+                    mobileVesselsOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               {mobileVesselsOpen && (
@@ -448,33 +454,127 @@ export default function Navbar() {
                 />
               </button>
               {mobileSymptomsOpen && (
-                <div className="mt-2.5 p-3 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-4">
-                  {symptomsCategoryList.map((cat, idx) => {
-                    const CatIcon = cat.icon || AlertCircle;
-                    return (
-                      <div key={idx} className="space-y-2">
-                        <div className="flex items-center space-x-1.5 px-1">
-                          <CatIcon className="h-3.5 w-3.5 text-blue-600" />
-                          <span className="text-[11px] font-extrabold text-slate-900 uppercase tracking-wider">
-                            {cat.category}
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                          {cat.items.map((item, iIdx) => (
+                <div className="mt-3 px-3 py-2">
+                  <div className="border-l-2 border-sky-400/80 pl-4 py-1 space-y-4">
+                    {/* HEART */}
+                    <div className="space-y-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveSymptomCat(
+                            activeSymptomCat === "heart" ? null : "heart"
+                          )
+                        }
+                        className="flex items-center justify-between w-full text-left py-1 group"
+                      >
+                        <span className="text-xs font-black text-[#1d5b79] uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                          HEART
+                        </span>
+                        <ChevronDown
+                          className={`h-3.5 w-3.5 text-[#1d5b79] transition-transform duration-200 ${
+                            activeSymptomCat === "heart"
+                              ? "rotate-180 text-blue-600"
+                              : ""
+                          }`}
+                        />
+                      </button>
+
+                      {activeSymptomCat === "heart" && (
+                        <div className="space-y-2 pl-1 animate-fade-in-up">
+                          {symptomsCategoryList[0].items.map((item, iIdx) => (
                             <Link
                               key={iIdx}
                               href={item.href}
                               onClick={() => setMobileOpen(false)}
-                              className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                              className="block text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors py-0.5"
                             >
-                              <span className="truncate">{item.name}</span>
-                              <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform shrink-0 ml-1" />
+                              • {item.name}
                             </Link>
                           ))}
                         </div>
-                      </div>
-                    );
-                  })}
+                      )}
+                    </div>
+
+                    {/* BLOOD VESSELS */}
+                    <div className="space-y-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveSymptomCat(
+                            activeSymptomCat === "vessels" ? null : "vessels"
+                          )
+                        }
+                        className="flex items-center justify-between w-full text-left py-1 group"
+                      >
+                        <span className="text-xs font-black text-[#1d5b79] uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                          BLOOD VESSELS
+                        </span>
+                        <ChevronDown
+                          className={`h-3.5 w-3.5 text-[#1d5b79] transition-transform duration-200 ${
+                            activeSymptomCat === "vessels"
+                              ? "rotate-180 text-blue-600"
+                              : ""
+                          }`}
+                        />
+                      </button>
+
+                      {activeSymptomCat === "vessels" && (
+                        <div className="space-y-2 pl-1 animate-fade-in-up">
+                          {symptomsCategoryList[1].items.map((item, iIdx) => (
+                            <Link
+                              key={iIdx}
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors py-0.5"
+                            >
+                              • {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* HYPERTENSION */}
+                    <div className="space-y-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveSymptomCat(
+                            activeSymptomCat === "hypertension"
+                              ? null
+                              : "hypertension"
+                          )
+                        }
+                        className="flex items-center justify-between w-full text-left py-1 group"
+                      >
+                        <span className="text-xs font-black text-[#1d5b79] uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+                          HYPERTENSION
+                        </span>
+                        <ChevronDown
+                          className={`h-3.5 w-3.5 text-[#1d5b79] transition-transform duration-200 ${
+                            activeSymptomCat === "hypertension"
+                              ? "rotate-180 text-blue-600"
+                              : ""
+                          }`}
+                        />
+                      </button>
+
+                      {activeSymptomCat === "hypertension" && (
+                        <div className="space-y-2 pl-1 animate-fade-in-up">
+                          {symptomsCategoryList[2].items.map((item, iIdx) => (
+                            <Link
+                              key={iIdx}
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors py-0.5"
+                            >
+                              • {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
