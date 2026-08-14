@@ -665,7 +665,7 @@ export default function HomeClient() {
 
         {/* Tab Content */}
         {currentCategory && (
-          <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xl shadow-blue-900/5 transition-all duration-300 animate-fade-in-up">
+          <div className="p-6 sm:p-10 transition-all duration-300 animate-fade-in-up">
             {/* Symptoms Intro Section */}
             <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-slate-50 border border-blue-100 rounded-2xl p-6 mb-8 space-y-4">
               <div className="space-y-3">
@@ -807,17 +807,17 @@ export default function HomeClient() {
           </div>
 
           {/* Sub-section 1: Clinical Assessment */}
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-md space-y-6 shadow-xl">
+          <div className="  space-y-6  ">
             <div className="flex items-center space-x-3 border-b border-white/10 pb-4">
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
                 1
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  We listen, assess your symptoms, and understand your individual cardiovascular risk.
+                  We start by getting to know you
                 </h3>
-                <p className="text-xs text-sky-300 mt-1">
-                  Comprehensive initial evaluation & risk factor analysis
+                <p className="text-sm sm:text-base text-blue-100/90 mt-1">
+                  We listen, assess your symptoms, and understand your individual cardiovascular risk.
                 </p>
               </div>
             </div>
@@ -866,10 +866,10 @@ export default function HomeClient() {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    We select targeted diagnostic tests based on your symptoms, findings, and risk profile —avoiding unnecessary testing.
+                    We look closer when needed
                   </h3>
-                  <p className="text-xs text-sky-300 mt-1">
-                    Depending on your condition, this may include:
+                  <p className="text-sm sm:text-base text-blue-100/90 mt-1">
+                    We select targeted diagnostic tests based on your symptoms, findings, and risk profile — avoiding unnecessary testing.
                   </p>
                 </div>
               </div>
@@ -926,8 +926,11 @@ export default function HomeClient() {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  We bring everything together to create a plan tailored to you and your long-term health.
+                  We bring it all together
                 </h3>
+                <p className="text-sm sm:text-base text-blue-100/90 mt-1">
+                  We bring everything together to create a plan tailored to you and your long-term health.
+                </p>
               </div>
             </div>
 
