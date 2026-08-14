@@ -9,6 +9,7 @@ import {
   X,
   PhoneCall,
   ChevronDown,
+  ChevronRight,
   AlertCircle,
   TrendingUp,
 } from "lucide-react";
@@ -57,17 +58,19 @@ const bloodVesselDiseases = [
 
 const symptomsCategoryList = [
   {
-    category: "Heart",
+    category: "Heart Symptoms",
+    icon: Heart,
     items: [
-      { name: "Chest pain", href: "/symptom/chest-pain" },
-      { name: "Shortness of breath", href: "/symptom/shortness-of-breath" },
+      { name: "Chest Pain", href: "/symptom/chest-pain" },
+      { name: "Shortness of Breath", href: "/symptom/shortness-of-breath" },
       { name: "Palpitations", href: "/symptom/palpitations" },
       { name: "Dizziness", href: "/symptom/dizziness" },
       { name: "Fatigue", href: "/symptom/fatigue" },
     ],
   },
   {
-    category: "Blood Vessels",
+    category: "Vascular Symptoms",
+    icon: Activity,
     items: [
       { name: "Leg Pain", href: "/symptom/leg-pain" },
       { name: "Lower Limb Swelling", href: "/symptom/lower-limb-swelling" },
@@ -77,7 +80,8 @@ const symptomsCategoryList = [
     ],
   },
   {
-    category: "Hypertension",
+    category: "Hypertension Indicators",
+    icon: TrendingUp,
     items: [
       { name: "Headaches", href: "/symptom/headaches" },
       { name: "Chest Tightness", href: "/symptom/chest-tightness" },
@@ -336,7 +340,7 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileHeartOpen(!mobileHeartOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
               >
                 <div className="flex items-center space-x-2">
                   <Heart
@@ -346,28 +350,32 @@ export default function Navbar() {
                   <span>Heart Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform ${mobileHeartOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${mobileHeartOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {mobileHeartOpen && (
-                <div className="mt-1 ml-4 space-y-1 border-l-2 border-blue-100 pl-3">
+                <div className="mt-2 p-2.5 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-1.5">
                   <Link
                     href="/heart"
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-xs font-bold text-blue-600"
+                    className="flex items-center justify-between px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-xs hover:bg-blue-700 transition-all"
                   >
-                    Browse All Heart Conditions →
+                    <span>Browse All Heart Conditions</span>
+                    <span>→</span>
                   </Link>
-                  {heartDiseases.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-2 text-sm text-slate-700 hover:text-blue-600 font-semibold"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <div className="space-y-1 pt-1">
+                    {heartDiseases.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -376,35 +384,39 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileVesselsOpen(!mobileVesselsOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
               >
                 <div className="flex items-center space-x-2">
                   <Activity className="h-4 w-4 text-blue-600" />
                   <span>Blood Vessel Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform ${mobileVesselsOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${mobileVesselsOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {mobileVesselsOpen && (
-                <div className="mt-1 ml-4 space-y-1 border-l-2 border-blue-100 pl-3">
+                <div className="mt-2 p-2.5 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-1.5">
                   <Link
                     href="/blood-vessels"
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-xs font-bold text-blue-600"
+                    className="flex items-center justify-between px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-xs hover:bg-blue-700 transition-all"
                   >
-                    Browse All Blood Vessel Conditions →
+                    <span>Browse All Vascular Conditions</span>
+                    <span>→</span>
                   </Link>
-                  {bloodVesselDiseases.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-2 text-sm text-slate-700 hover:text-blue-600 font-semibold"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <div className="space-y-1 pt-1">
+                    {bloodVesselDiseases.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -413,7 +425,7 @@ export default function Navbar() {
             <Link
               href="/blood-vessels/hypertension"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
             >
               <TrendingUp className="h-4 w-4 text-blue-600" />
               <span>Hypertension</span>
@@ -423,37 +435,46 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileSymptomsOpen(!mobileSymptomsOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50 rounded-xl"
+                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
               >
                 <div className="flex items-center space-x-2">
                   <AlertCircle className="h-4 w-4 text-blue-600" />
                   <span>Symptoms</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-blue-600 transition-transform ${
+                  className={`h-4 w-4 text-blue-600 transition-transform duration-200 ${
                     mobileSymptomsOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
               {mobileSymptomsOpen && (
-                <div className="mt-2 ml-2 space-y-3 border-l-2 border-blue-100 pl-3">
-                  {symptomsCategoryList.map((cat, idx) => (
-                    <div key={idx} className="space-y-1">
-                      <p className="text-[11px] font-bold text-blue-900 uppercase tracking-wider">
-                        {cat.category}
-                      </p>
-                      {cat.items.map((item, iIdx) => (
-                        <Link
-                          key={iIdx}
-                          href={item.href}
-                          onClick={() => setMobileOpen(false)}
-                          className="block py-1 text-xs text-slate-700 hover:text-blue-600 font-semibold"
-                        >
-                          • {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  ))}
+                <div className="mt-2.5 p-3 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-4">
+                  {symptomsCategoryList.map((cat, idx) => {
+                    const CatIcon = cat.icon || AlertCircle;
+                    return (
+                      <div key={idx} className="space-y-2">
+                        <div className="flex items-center space-x-1.5 px-1">
+                          <CatIcon className="h-3.5 w-3.5 text-blue-600" />
+                          <span className="text-[11px] font-extrabold text-slate-900 uppercase tracking-wider">
+                            {cat.category}
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                          {cat.items.map((item, iIdx) => (
+                            <Link
+                              key={iIdx}
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                            >
+                              <span className="truncate">{item.name}</span>
+                              <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform shrink-0 ml-1" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

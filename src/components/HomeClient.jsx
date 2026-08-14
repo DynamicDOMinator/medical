@@ -184,57 +184,33 @@ const doctorSpecialties = [
 const diagnosticTests = [
   {
     name: "ECG",
-    desc: "12-lead electrical rhythm tracing & arrhythmia detection.",
+    desc: "Heart rhythm and electrical activity.",
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Echocardiography",
-    desc: "3D valve motion, ejection fraction & wall ultrasound.",
+    desc: "Heart structure, function, and blood flow.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Stress Testing",
-    desc: "Treadmill & nuclear myocardial perfusion evaluation.",
+    desc: "How your heart responds to physical stress.",
     image:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Holter Monitoring",
-    desc: "Continuous 24–48 hr wearable ECG pulse recording.",
+    desc: "Extended monitoring to detect intermittent rhythm changes.",
     image:
       "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80",
   },
   {
-    name: "Ambulatory Blood Pressure Monitoring",
-    desc: "24-hour continuous BP trend & nocturnal profiling.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
-  },
-  {
     name: "CT Coronary Angiography",
-    desc: "High-resolution non-invasive coronary calcium & plaque CT.",
+    desc: "Detailed imaging of the coronary arteries when appropriate.",
     image:
       "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Cardiac MRI",
-    desc: "Detailed tissue characterization for cardiomyopathy & scar.",
-    image:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Vascular Ultrasound",
-    desc: "Arterial & venous duplex color Doppler flow imaging.",
-    image:
-      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    name: "Blood Tests",
-    desc: "Cardio-metabolic biomarkers, lipids, troponin & renal profile.",
-    image:
-      "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -246,12 +222,7 @@ const treatmentProgressionStages = [
     title: "Prevention",
     color: "bg-emerald-500/10 border-emerald-200 text-emerald-950",
     badgeColor: "bg-emerald-600 text-white",
-    items: [
-      "Lifestyle changes",
-      "Risk factor management",
-      "Smoking cessation",
-      "Cholesterol control",
-    ],
+    desc: "Reduce risk & protect your heart",
   },
   {
     step: "02",
@@ -260,13 +231,7 @@ const treatmentProgressionStages = [
     title: "Medical Therapy",
     color: "bg-blue-500/10 border-blue-200 text-blue-950",
     badgeColor: "bg-blue-600 text-white",
-    items: [
-      "Blood pressure treatment",
-      "Heart failure medications",
-      "Antiarrhythmics",
-      "Anticoagulation",
-      "Lipid-lowering therapy",
-    ],
+    desc: "Control your condition",
   },
   {
     step: "03",
@@ -275,12 +240,7 @@ const treatmentProgressionStages = [
     title: "Minimally Invasive Procedures",
     color: "bg-indigo-500/10 border-indigo-200 text-indigo-950",
     badgeColor: "bg-indigo-600 text-white",
-    items: [
-      "Coronary angiography",
-      "Coronary stenting (PCI)",
-      "Pacemaker implantation",
-      "Catheter ablation",
-    ],
+    desc: "When needed to treat underlying condition",
   },
   {
     step: "04",
@@ -289,12 +249,7 @@ const treatmentProgressionStages = [
     title: "Advanced Cardiac Interventions",
     color: "bg-rose-500/10 border-rose-200 text-rose-950",
     badgeColor: "bg-rose-600 text-white",
-    items: [
-      "Structural heart interventions",
-      "Complex coronary interventions",
-      "Device therapy",
-      "Other specialized procedures",
-    ],
+    desc: "For complex conditions, we offer specialized interventions and device-based therapies when they are appropriate.",
   },
 ];
 
@@ -469,9 +424,7 @@ export default function HomeClient() {
             <div className="space-y-6 text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Comprehensive <br className="hidden sm:inline" />
-                <span className="animated-gradient-text font-black">
-                  Heart & Vascular Care
-                </span>
+                Heart & Vascular Care
               </h1>
 
               <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
@@ -699,11 +652,10 @@ export default function HomeClient() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center space-x-2 px-5 py-3.5 rounded-2xl font-bold text-sm transition-all duration-300 ${
-                  isActive
-                    ? "bg-blue-600 text-white shadow-xl shadow-blue-600/25 scale-105"
-                    : "bg-white text-slate-700 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80"
-                }`}
+                className={`flex items-center space-x-2 px-5 py-3.5 rounded-2xl font-bold text-sm transition-all duration-300 ${isActive
+                  ? "bg-blue-600 text-white shadow-xl shadow-blue-600/25 scale-105"
+                  : "bg-white text-slate-700 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80"
+                  }`}
               >
                 <Icon
                   className={`h-4 w-4 ${isActive ? "text-white" : "text-blue-600"}`}
@@ -865,9 +817,9 @@ export default function HomeClient() {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  Clinical Assessment
+                  We listen, assess your symptoms, and understand your individual cardiovascular risk.
                 </h3>
-                <p className="text-xs text-sky-300">
+                <p className="text-xs text-sky-300 mt-1">
                   Comprehensive initial evaluation & risk factor analysis
                 </p>
               </div>
@@ -917,16 +869,16 @@ export default function HomeClient() {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    Targeted Diagnostic Testing
+                    We select targeted diagnostic tests based on your symptoms, findings, and risk profile —avoiding unnecessary testing.
                   </h3>
-                  <p className="text-xs text-sky-300">
+                  <p className="text-xs text-sky-300 mt-1">
                     Depending on your condition, this may include:
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {diagnosticTests.map((test, idx) => (
                 <div
                   key={idx}
@@ -954,6 +906,18 @@ export default function HomeClient() {
                   </div>
                 </div>
               ))}
+
+              {/* 6th Card: And more, when clinically appropriate */}
+              <div className="group bg-gradient-to-br from-blue-900/50 via-slate-900/60 to-blue-950/70 border border-white/10 hover:border-sky-400/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-center transition-all duration-300 shadow-lg hover-lift">
+                <div className="space-y-2">
+                  <h4 className="font-bold text-white text-base sm:text-lg leading-snug">
+                    And more, when clinically appropriate
+                  </h4>
+                  <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">
+                    We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -965,70 +929,62 @@ export default function HomeClient() {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  Personalized Treatment Plan
+                  We bring everything together to create a plan tailored to you and your long-term health.
                 </h3>
               </div>
             </div>
 
             {/* Horizontal Progression Flow Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {treatmentProgressionStages.map((stage, idx) => {
                 const StageIcon = stage.icon;
                 return (
-                  <div key={idx} className="relative flex flex-col h-full">
-                    <div
-                      className={`h-full bg-white/5 border border-white/10 hover:border-sky-400/50 p-6 rounded-3xl backdrop-blur-md transition-all duration-300 space-y-4 hover-lift flex flex-col justify-between ${stage.color}`}
-                    >
-                      <div className="space-y-3">
-                        <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 w-fit">
-                          <StageIcon className={`h-6 w-6 ${stage.iconColor}`} />
-                        </div>
-                        <h4 className="font-extrabold text-lg text-white">
-                          {stage.title}
-                        </h4>
-
-                        <ul className="space-y-2 pt-2 border-t border-white/10 text-xs text-blue-100">
-                          {stage.items.map((item, i) => (
-                            <li key={i} className="flex items-center space-x-2">
-                              <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  <div
+                    key={idx}
+                    className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2 hover:bg-white/10 transition-colors"
+                  >
+                    <div className="flex items-center space-x-2 text-sky-300 font-bold text-sm">
+                      <StageIcon className={`h-4 w-4 shrink-0 ${stage.iconColor}`} />
+                      <span>{stage.title}</span>
                     </div>
+                    <p className="text-xs text-blue-200 leading-relaxed">
+                      {stage.desc}
+                    </p>
                   </div>
                 );
               })}
             </div>
 
             {/* Closing Philosophical Callout */}
-            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/40 p-6 sm:p-8 rounded-3xl mt-8 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 backdrop-blur-xl shadow-2xl">
-              <div className="bg-gradient-to-br from-sky-400/20 to-blue-600/20 p-3.5 rounded-2xl shrink-0 border border-sky-400/40 text-sky-300 shadow-md">
-                <ShieldCheck className="h-8 w-8 text-sky-400" />
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-base font-extrabold text-white tracking-wide">
-                  Patient-Centered Treatment Philosophy
+            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/40 p-5 sm:p-8 rounded-3xl mt-8 space-y-4 backdrop-blur-xl shadow-2xl">
+              {/* Header Row: Icon + Title */}
+              <div className="flex items-center space-x-3.5 sm:space-x-4">
+                <div className="bg-gradient-to-br from-sky-400/20 to-blue-600/20 p-2.5 sm:p-3 rounded-2xl shrink-0 border border-sky-400/40 text-sky-300 shadow-md">
+                  <ShieldCheck className="h-6 w-6 sm:h-7 sm:w-7 text-sky-400" />
+                </div>
+                <h4 className="text-base sm:text-lg font-extrabold text-white tracking-wide">
+                  A treatment plan built around you
                 </h4>
-                <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-normal">
-                  &ldquo;Not every patient needs advanced procedures. Our goal
-                  is to recommend the{" "}
-                  <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold">
-                    least invasive treatment
-                  </span>{" "}
-                  that will provide the{" "}
-                  <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold">
-                    best possible outcome
-                  </span>{" "}
-                  for your specific condition. When more advanced interventions
-                  are appropriate,{" "}
-                  <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-200 bg-clip-text text-transparent font-bold">
-                    we&apos;ll discuss all available options and help you make an informed decision.
-                  </span>
-                  &rdquo;
-                </p>
               </div>
+
+              {/* Description spanning from the left */}
+              <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-normal">
+                &ldquo;Not every patient needs advanced procedures. Our goal
+                is to recommend the{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold">
+                  least invasive treatment
+                </span>{" "}
+                that will provide the{" "}
+                <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold">
+                  best possible outcome
+                </span>{" "}
+                for your specific condition. When more advanced interventions
+                are appropriate,{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-200 bg-clip-text text-transparent font-bold">
+                  we&apos;ll discuss all available options and help you make an informed decision.
+                </span>
+                &rdquo;
+              </p>
             </div>
           </div>
         </div>
@@ -1186,11 +1142,10 @@ export default function HomeClient() {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-xs ${
-                  isOpen
-                    ? "border-blue-500 shadow-md ring-2 ring-blue-500/10"
-                    : "border-slate-200/80 hover:border-blue-300"
-                }`}
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-xs ${isOpen
+                  ? "border-blue-500 shadow-md ring-2 ring-blue-500/10"
+                  : "border-slate-200/80 hover:border-blue-300"
+                  }`}
               >
                 <button
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
@@ -1202,11 +1157,10 @@ export default function HomeClient() {
                     </h3>
                   </div>
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen
-                        ? "bg-blue-600 text-white rotate-180"
-                        : "bg-slate-100 text-slate-600"
-                    }`}
+                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen
+                      ? "bg-blue-600 text-white rotate-180"
+                      : "bg-slate-100 text-slate-600"
+                      }`}
                   >
                     <ChevronDown className="h-5 w-5" />
                   </div>

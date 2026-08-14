@@ -18,6 +18,7 @@ import {
   Apple,
   Dna,
 } from "lucide-react";
+import GuideSidebarNav from "@/components/GuideSidebarNav";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export default function CardiomyopathyPage() {
@@ -142,58 +143,10 @@ export default function CardiomyopathyPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center text-xs text-sky-300 font-bold mb-4 space-x-1.5 bg-white/10 w-fit px-3 py-1.5 rounded-full border border-white/20 backdrop-blur-md">
-            <Link href="/heart" className="hover:underline">
-              Heart Conditions
-            </Link>
-            <ChevronRight className="h-3 w-3" />
-            <span>Cardiomyopathy</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 space-y-5">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Cardiomyopathy & <br />
-                <span className="animated-gradient-text">
-                  Heart Muscle Health
-                </span>
-              </h1>
-              <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Comprehensive guide to dilated, hypertrophic, and restrictive
-                cardiomyopathy, genetic testing, cardiac MRI imaging, and ICD
-                defibrillator protection by Dr. Mohamed Faher Almahmoud.
-              </p>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-lg transition-all text-sm"
-                >
-                  <Stethoscope className="mr-2 h-4 w-4" />
-                  Schedule Cardiac Consultation
-                </Link>
-                <a
-                  href="#treatment"
-                  className="inline-flex items-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
-                >
-                  <Activity className="mr-2 h-4 w-4 text-sky-300" />
-                  Treatments & Devices
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="relative h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-slate-950 group">
-                <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiomyopathy MRI Evaluation"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-              </div>
-            </div>
-          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Cardiomyopathy & <br />
+            Heart Muscle Health
+          </h1>
         </div>
       </div>
 
@@ -202,49 +155,24 @@ export default function CardiomyopathyPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Sidebar */}
           <div className="hidden lg:block lg:col-span-3">
-            <div className="sticky top-28 bg-white border border-blue-100 rounded-3xl p-6 space-y-4 shadow-sm">
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider border-b border-blue-50 pb-3 flex items-center space-x-2">
-                <FileText className="h-4 w-4 text-blue-600" />
-                <span>Cardiomyopathy Outline</span>
-              </h3>
-              <nav className="flex flex-col space-y-2 text-sm">
-                {[
-                  ["#overview", "Overview"],
-                  ["#types", "Classifications & Types"],
-                  ["#symptoms", "Symptoms"],
-                  ["#diagnosis", "Diagnostic Testing"],
-                  ["#treatment", "Treatment & Procedures"],
-                  ["#living-with", "Living with Cardiomyopathy"],
-                  ["#faqs", "FAQs"],
-                ].map(([id, label]) => (
-                  <a
-                    key={id}
-                    href={id}
-                    className="hover:text-blue-600 text-slate-600 font-medium transition-colors flex items-center py-1 group"
-                  >
-                    <ChevronRight className="h-4 w-4 mr-1.5 text-blue-400 group-hover:translate-x-1 transition-transform shrink-0" />
-                    <span>{label}</span>
-                  </a>
-                ))}
-              </nav>
-
-              <div className="pt-4 border-t border-slate-100">
-                <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
-                  <p className="text-xs font-bold text-blue-900">
-                    Family History of Heart Disease?
-                  </p>
-                  <p className="text-[11px] text-slate-600 mt-1">
-                    Get echocardiography & genetic risk screening.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
-                  >
-                    Book Evaluation
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <GuideSidebarNav
+              title="Cardiomyopathy Outline"
+              items={[
+                ["#overview", "Overview"],
+                ["#types", "Classifications & Types"],
+                ["#symptoms", "Symptoms"],
+                ["#diagnosis", "Diagnostic Testing"],
+                ["#treatment", "Treatment & Procedures"],
+                ["#living-with", "Living with Cardiomyopathy"],
+                ["#faqs", "FAQs"],
+              ]}
+              cta={{
+                title: "Family History of Heart Disease?",
+                desc: "Get echocardiography & genetic risk screening.",
+                href: "/contact",
+                btnText: "Book Evaluation",
+              }}
+            />
           </div>
 
           <div className="lg:col-span-9 space-y-12">
@@ -253,18 +181,10 @@ export default function CardiomyopathyPage() {
               id="overview"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Info className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Myocardial Pathology
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    What is Cardiomyopathy?
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  What is Cardiomyopathy?
+                </h2>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -320,18 +240,10 @@ export default function CardiomyopathyPage() {
               id="symptoms"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <HeartPulse className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Clinical Signs
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Symptoms of Cardiomyopathy
-                  </h2>
-                </div>
+              <div className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Symptoms of Cardiomyopathy
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -364,18 +276,10 @@ export default function CardiomyopathyPage() {
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Stethoscope className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Advanced Imaging & Genetics
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Diagnosis & Diagnostic Tests
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Diagnosis & Diagnostic Tests
+                </h2>
               </div>
 
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
@@ -480,18 +384,10 @@ export default function CardiomyopathyPage() {
               id="treatment"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Activity className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Therapeutic Options
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Treatment & Procedures
-                  </h2>
-                </div>
+              <div className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Treatment & Procedures
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -535,18 +431,10 @@ export default function CardiomyopathyPage() {
               id="living-with"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
-                    Self-Management
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Living with Cardiomyopathy
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Living with Cardiomyopathy
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -609,9 +497,6 @@ export default function CardiomyopathyPage() {
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                  Patient Queries
-                </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                   Frequently Asked Questions
                 </h2>

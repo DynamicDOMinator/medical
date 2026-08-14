@@ -11,6 +11,7 @@ import {
   Calendar,
   Sparkles,
 } from "lucide-react";
+import GuideSidebarNav from "@/components/GuideSidebarNav";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export default function CADPage() {
@@ -136,48 +137,9 @@ export default function CADPage() {
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center space-x-2 text-sky-400 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/heart" className="hover:underline">
-              Heart Conditions
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-white">Coronary Artery Disease</span>
-          </div>
-
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4">
-              Coronary Artery Disease{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
-                (CAD)
-              </span>
-            </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
-              A comprehensive clinical overview of coronary atherosclerosis,
-              myocardial ischemia, diagnostic imaging, and evidence-based
-              revascularization therapies.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-blue-600/30"
-              >
-                <Calendar className="h-5 w-5" />
-                <span>Schedule Consultation</span>
-              </Link>
-              <a
-                href="#overview"
-                className="inline-flex items-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3 rounded-xl backdrop-blur-sm transition-all border border-white/10"
-              >
-                <Sparkles className="h-5 w-5 text-sky-400" />
-                <span>Explore Overview</span>
-              </a>
-            </div>
-          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+            Coronary Artery Disease (CAD)
+          </h1>
         </div>
       </section>
 
@@ -185,49 +147,25 @@ export default function CADPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Sticky Sidebar Navigation */}
-          <div className="lg:col-span-3">
-            <div className="sticky top-28 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-4">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                On This Page
-              </h3>
-              <nav className="space-y-1 text-sm">
-                {[
-                  ["#overview", "Overview"],
-                  ["#types", "Classifications & Types"],
-                  ["#symptoms", "Symptoms & Signs"],
-                  ["#diagnosis", "Diagnosis & Testing"],
-                  ["#treatment", "Treatment Procedures"],
-                  ["#living-with", "Living with CAD"],
-                  ["#faqs", "Patient FAQs"],
-                ].map(([id, label]) => (
-                  <a
-                    key={id}
-                    href={id}
-                    className="hover:text-blue-600 text-slate-600 font-medium transition-colors flex items-center py-1 group"
-                  >
-                    <ChevronRight className="h-4 w-4 mr-1.5 text-blue-400 group-hover:translate-x-1 transition-transform shrink-0" />
-                    <span>{label}</span>
-                  </a>
-                ))}
-              </nav>
-
-              <div className="pt-4 border-t border-slate-100 space-y-3">
-                <div className="bg-blue-50/80 p-4 rounded-2xl border border-blue-100">
-                  <p className="text-xs font-bold text-blue-900">
-                    Need Expert Heart Care?
-                  </p>
-                  <p className="text-[11px] text-slate-600 mt-1">
-                    Consult with Dr. Almahmoud at PulseCare Clinic.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-3 block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 rounded-xl transition-all shadow-md shadow-blue-600/20"
-                  >
-                    Book Evaluation
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className="hidden lg:block lg:col-span-3">
+            <GuideSidebarNav
+              title="On This Page"
+              items={[
+                ["#overview", "Overview"],
+                ["#types", "Classifications & Types"],
+                ["#symptoms", "Symptoms & Signs"],
+                ["#diagnosis", "Diagnosis & Testing"],
+                ["#treatment", "Treatment Procedures"],
+                ["#living-with", "Living with CAD"],
+                ["#faqs", "Patient FAQs"],
+              ]}
+              cta={{
+                title: "Need Expert Heart Care?",
+                desc: "Consult with Dr. Almahmoud at PulseCare Clinic.",
+                href: "/contact",
+                btnText: "Book Evaluation",
+              }}
+            />
           </div>
 
           {/* Main Article Content */}
@@ -237,18 +175,10 @@ export default function CADPage() {
               id="overview"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Info className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Coronary Circulation
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    What is Coronary Artery Disease?
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  What is Coronary Artery Disease?
+                </h2>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -309,18 +239,10 @@ export default function CADPage() {
               id="symptoms"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Heart className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Clinical Warning Signs
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Symptoms & Indicators
-                  </h2>
-                </div>
+              <div className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Symptoms & Indicators
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -353,18 +275,10 @@ export default function CADPage() {
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Stethoscope className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Diagnostic Workup
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Diagnosis & Clinical Tests
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Diagnosis & Clinical Tests
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
@@ -399,18 +313,10 @@ export default function CADPage() {
               id="treatment"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <Shield className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Revascularization & Medical Care
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Treatment & Procedures
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Treatment & Procedures
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
@@ -446,18 +352,10 @@ export default function CADPage() {
               id="living-with"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                  <UserCheck className="h-6 w-6 text-blue-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                    Long-Term Management
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    Living with CAD
-                  </h2>
-                </div>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Living with CAD
+                </h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm">
@@ -496,9 +394,6 @@ export default function CADPage() {
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
               <div className="text-center mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                  Patient Queries
-                </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                   Frequently Asked Questions
                 </h2>

@@ -56,24 +56,7 @@ export default async function SymptomDetailPage({ params }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center space-x-2 text-xs font-semibold text-sky-300 mb-6 uppercase tracking-wider">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-            <Link href="/symptom/chest-pain" className="hover:text-white transition-colors">
-              Symptoms
-            </Link>
-            <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
-            <span className="text-white">{symptom.name}</span>
-          </nav>
-
           <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-sky-300 text-xs font-bold uppercase tracking-wider">
-              <Activity className="h-4 w-4" />
-              <span>{symptom.categoryBadge}</span>
-            </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               {symptom.name} — Symptoms, Pathophysiology & Diagnostic Workup
@@ -107,18 +90,10 @@ export default async function SymptomDetailPage({ params }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
         {/* 2. OVERVIEW & PATHOPHYSIOLOGY */}
         <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-              <Activity className="h-6 w-6 text-blue-600" />
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                Clinical Overview
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Understanding {symptom.name}
-              </h2>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Understanding {symptom.name}
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -162,18 +137,10 @@ export default async function SymptomDetailPage({ params }) {
         {/* 3. DIFFERENTIAL DIAGNOSIS / ASSOCIATED CONDITIONS */}
         {symptom.associatedConditions && (
           <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                <ShieldCheck className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                  Differential Diagnosis
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Associated Cardiovascular & Vascular Conditions
-                </h2>
-              </div>
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Associated Cardiovascular & Vascular Conditions
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -228,18 +195,10 @@ export default async function SymptomDetailPage({ params }) {
 
         {/* 5. DIAGNOSTIC TESTS (PUSH PATIENTS TO TEST) */}
         <section id="diagnostics" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-              <Stethoscope className="h-6 w-6 text-blue-600" />
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                Advanced Diagnostics
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Recommended Diagnostic Tests for {symptom.name}
-              </h2>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Recommended Diagnostic Tests for {symptom.name}
+            </h2>
           </div>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
@@ -299,18 +258,10 @@ export default async function SymptomDetailPage({ params }) {
         {/* 6. PREVENTION & LIFESTYLE TIPS */}
         {symptom.preventionTips && (
           <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                <ShieldCheck className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                  Prevention & Guidelines
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Management & Cardiovascular Health Guidelines
-                </h2>
-              </div>
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Management & Cardiovascular Health Guidelines
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -332,18 +283,10 @@ export default async function SymptomDetailPage({ params }) {
         {/* 7. FREQUENTLY ASKED QUESTIONS (FAQ) */}
         {symptom.faqs && (
           <section className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-blue-50 p-3 rounded-2xl border border-blue-100">
-                <HelpCircle className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                  Patient Inquiries
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Frequently Asked Questions about {symptom.name}
-                </h2>
-              </div>
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                Frequently Asked Questions about {symptom.name}
+              </h2>
             </div>
 
             <div className="space-y-4">
