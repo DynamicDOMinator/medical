@@ -337,12 +337,12 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-blue-100 bg-white max-h-[80vh] overflow-y-auto pointer-events-auto mt-2">
-          <div className="px-4 py-4 space-y-2">
+          <div className="px-4 py-3 space-y-1">
             {/* Heart accordion */}
             <div>
               <button
                 onClick={() => setMobileHeartOpen(!mobileHeartOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
+                className="flex items-center justify-between w-full px-2 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
                   <Heart
@@ -358,22 +358,22 @@ export default function Navbar() {
                 />
               </button>
               {mobileHeartOpen && (
-                <div className="mt-2 p-2.5 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-1.5">
+                <div className="pl-6 py-1 space-y-1">
                   <Link
                     href="/heart"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-xs hover:bg-blue-700 transition-all"
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
                   >
                     <span>Browse All Heart Conditions</span>
                     <span>→</span>
                   </Link>
-                  <div className="space-y-1 pt-1">
+                  <div className="space-y-0.5">
                     {heartDiseases.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
-                        className="flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                        className="flex items-center justify-between py-2 text-slate-700 hover:text-blue-600 text-xs font-semibold transition-colors group"
                       >
                         <span>{item.name}</span>
                         <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform" />
@@ -388,7 +388,7 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileVesselsOpen(!mobileVesselsOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
+                className="flex items-center justify-between w-full px-2 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
                   <Activity className="h-4 w-4 text-blue-600" />
@@ -401,22 +401,22 @@ export default function Navbar() {
                 />
               </button>
               {mobileVesselsOpen && (
-                <div className="mt-2 p-2.5 rounded-2xl bg-slate-50 border border-blue-100/70 space-y-1.5">
+                <div className="pl-6 py-1 space-y-1">
                   <Link
                     href="/blood-vessels"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow-xs hover:bg-blue-700 transition-all"
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
                   >
                     <span>Browse All Vascular Conditions</span>
                     <span>→</span>
                   </Link>
-                  <div className="space-y-1 pt-1">
+                  <div className="space-y-0.5">
                     {bloodVesselDiseases.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
-                        className="flex items-center justify-between px-3 py-2 rounded-xl bg-white border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/70 text-slate-700 hover:text-blue-700 text-xs font-semibold shadow-2xs transition-all group"
+                        className="flex items-center justify-between py-2 text-slate-700 hover:text-blue-600 text-xs font-semibold transition-colors group"
                       >
                         <span>{item.name}</span>
                         <ChevronRight className="h-3.5 w-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform" />
@@ -431,7 +431,7 @@ export default function Navbar() {
             <Link
               href="/blood-vessels/hypertension"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center space-x-2 px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
+              className="flex items-center space-x-2 px-2 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:text-blue-600"
             >
               <TrendingUp className="h-4 w-4 text-blue-600" />
               <span>Hypertension</span>
@@ -441,7 +441,7 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileSymptomsOpen(!mobileSymptomsOpen)}
-                className="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-blue-900 bg-blue-50/90 rounded-xl transition-colors hover:bg-blue-100/70"
+                className="flex items-center justify-between w-full px-2 py-2.5 text-sm font-bold text-slate-900 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
                   <AlertCircle className="h-4 w-4 text-blue-600" />
