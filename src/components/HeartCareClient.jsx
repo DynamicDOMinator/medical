@@ -1007,8 +1007,8 @@ export default function HeartCareClient() {
               No matching questions found
             </h3>
             <p className="text-slate-500 text-sm max-w-md mx-auto">
-              We couldn't find any FAQs matching "{searchQuery}". Try searching
-              for different terms like "symptoms", "check-up", or "treatment".
+              We couldn&apos;t find any FAQs matching &ldquo;{searchQuery}&rdquo;. Try searching
+              for different terms like &ldquo;symptoms&rdquo;, &ldquo;check-up&rdquo;, or &ldquo;treatment&rdquo;.
             </p>
             <button
               onClick={() => {

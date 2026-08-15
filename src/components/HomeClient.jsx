@@ -1069,7 +1069,7 @@ export default function HomeClient() {
                         ))}
                       </div>
                       <p className="text-slate-700 text-xs leading-relaxed font-normal">
-                        "{review.quote}"
+                        &ldquo;{review.quote}&rdquo;
                       </p>
                       <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                         <div>
@@ -1102,7 +1102,7 @@ export default function HomeClient() {
                         ))}
                       </div>
                       <p className="text-slate-700 text-xs leading-relaxed font-normal">
-                        "{review.quote}"
+                        &ldquo;{review.quote}&rdquo;
                       </p>
                       <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
                         <div>

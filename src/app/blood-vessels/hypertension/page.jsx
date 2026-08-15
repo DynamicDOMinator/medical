@@ -296,7 +296,7 @@ export default function HypertensionPage() {
               </div>
 
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-               Blood pressure changes over time. One reading does not always tell the whole story. Home monitoring and trends can provide a much better understanding of a patient's true blood pressure. 
+               Blood pressure changes over time. One reading does not always tell the whole story. Home monitoring and trends can provide a much better understanding of a patient&apos;s true blood pressure. 
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -381,7 +381,7 @@ export default function HypertensionPage() {
               </div>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-                Ultimately, hypertension care is not simply about <strong>“getting the number down.”</strong> It is about understanding the patient's overall cardiovascular risk and controlling blood pressure in a way that is <strong>effective, sustainable, and protective of the heart, brain, kidneys, and vascular system over the long term.</strong>
+                Ultimately, hypertension care is not simply about <strong>“getting the number down.”</strong> It is about understanding the patient&apos;s overall cardiovascular risk and controlling blood pressure in a way that is <strong>effective, sustainable, and protective of the heart, brain, kidneys, and vascular system over the long term.</strong>
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
