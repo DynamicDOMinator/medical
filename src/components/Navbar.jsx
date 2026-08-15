@@ -238,21 +238,6 @@ function SymptomsMegaDropdown({ isActive }) {
               );
             })}
           </div>
-
-          {/* Minimalist Bottom Bar */}
-          <div className="mt-4 pt-3 border-t border-slate-500 flex items-center justify-between text-xs text-slate-500">
-            <span className="text-[11px] text-slate-400">
-              Select any symptom for targeted diagnostic guidance
-            </span>
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center space-x-1 font-bold text-blue-600 hover:text-blue-700 hover:underline text-xs"
-            >
-              <span>Book Doctor Consultation</span>
-              <ArrowRight className="h-3 w-3" />
-            </Link>
-          </div>
         </div>
       )}
     </div>
