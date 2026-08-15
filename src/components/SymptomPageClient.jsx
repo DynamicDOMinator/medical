@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import {
-  Stethoscope,
   CheckCircle2,
   AlertTriangle,
   ChevronDown,
@@ -12,23 +11,11 @@ import {
   HelpCircle,
   Clock,
   Activity,
-  HeartPulse,
-  TrendingUp,
   Info,
   ChevronRight,
-  TestTube,
 } from "lucide-react";
 import SymptomIllustration from "@/components/SymptomIllustration";
 import StickyDiagnosisBar from "@/components/StickyDiagnosisBar";
-
-// Map test icon string to component
-const testIconMap = {
-  Activity: Activity,
-  HeartPulse: HeartPulse,
-  TrendingUp: TrendingUp,
-  TestTube: TestTube,
-  ShieldCheck: ShieldCheck,
-};
 
 export default function SymptomPageClient({ symptom }) {
   // Section 6: Interactive FAQ state (all closed by default)
@@ -66,23 +53,6 @@ export default function SymptomPageClient({ symptom }) {
             <p className="text-sky-100 text-base sm:text-lg leading-relaxed font-normal">
               {symptom.heroDesc}
             </p>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center space-x-2 px-6 py-3.5 bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 text-slate-950 font-extrabold rounded-2xl shadow-lg shadow-sky-500/20 transition-all text-sm transform hover:scale-[1.02] active:scale-95"
-              >
-                <Stethoscope className="h-4 w-4" />
-                <span>Book Clinical Consultation</span>
-              </Link>
-              <a
-                href="#finding-the-cause"
-                className="inline-flex items-center space-x-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-2xl backdrop-blur-md transition-all text-sm"
-              >
-                <Activity className="h-4 w-4 text-sky-300" />
-                <span>View Diagnostic Workup</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -97,7 +67,7 @@ export default function SymptomPageClient({ symptom }) {
           aria-labelledby="section-understanding"
           className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
         >
-          <div className="border-b border-slate-100 pb-5">
+          <div>
             <h2
               id="section-understanding"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
@@ -163,7 +133,7 @@ export default function SymptomPageClient({ symptom }) {
           aria-labelledby="section-causes"
           className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
         >
-          <div className="border-b border-slate-100 pb-5">
+          <div>
             <h2
               id="section-causes"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
@@ -247,7 +217,7 @@ export default function SymptomPageClient({ symptom }) {
           aria-labelledby="section-finding-the-cause"
           className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8 scroll-mt-24"
         >
-          <div className="border-b border-slate-100 pb-5">
+          <div>
             <h2
               id="section-finding-the-cause"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
@@ -260,34 +230,35 @@ export default function SymptomPageClient({ symptom }) {
             {symptom.findingTheCause.intro}
           </p>
 
-          {/* Exactly 4 Tailored Tests (Text Cards with Simple Medical Icons, No Stock Photos) */}
+          {/* Exactly 3 Tailored Tests + 4th 'And more' Card */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {symptom.findingTheCause.tests.map((test, idx) => {
-              const IconComp = testIconMap[test.icon] || Activity;
-              return (
-                <div
-                  key={idx}
-                  className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/20 transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="bg-blue-600 text-white p-2.5 rounded-xl shadow-xs shrink-0">
-                        <IconComp className="h-5 w-5" />
-                      </div>
-                      <span className="text-[11px] font-extrabold px-2.5 py-0.5 bg-blue-100/70 text-blue-800 rounded-full">
-                        Test {idx + 1} of 4
-                      </span>
-                    </div>
-                    <h3 className="font-extrabold text-slate-900 text-base">
-                      {test.name}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      {test.desc}
-                    </p>
-                  </div>
+            {symptom.findingTheCause.tests.slice(0, 3).map((test, idx) => (
+              <div
+                key={idx}
+                className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/20 transition-all flex flex-col justify-center"
+              >
+                <div className="space-y-2">
+                  <h3 className="font-extrabold text-slate-900 text-base leading-snug">
+                    {test.name}
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {test.desc}
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+
+            {/* 4th Card: And more, when clinically appropriate */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-slate-50 to-sky-50/60 border border-blue-200/90 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex flex-col justify-center">
+              <div className="space-y-2">
+                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug">
+                  And more, when clinically appropriate
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -378,7 +349,7 @@ export default function SymptomPageClient({ symptom }) {
           aria-labelledby="section-what-can-help"
           className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
         >
-          <div className="border-b border-slate-100 pb-5">
+          <div>
             <h2
               id="section-what-can-help"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
@@ -451,7 +422,7 @@ export default function SymptomPageClient({ symptom }) {
           aria-labelledby="section-faqs"
           className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
         >
-          <div className="border-b border-slate-100 pb-5">
+          <div>
             <h2
               id="section-faqs"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
