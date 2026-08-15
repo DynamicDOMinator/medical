@@ -13,7 +13,6 @@ import {
   TrendingUp,
   Stethoscope,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { useState, useRef } from "react";
 
@@ -99,7 +98,7 @@ const symptomsCategories = [
   },
 ];
 
-function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
+function MegaDropdown({ items, label, icon: Icon, categoryHref, isActive }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -108,7 +107,7 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
     setOpen(true);
   };
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(false), 120);
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
   };
 
   return (
@@ -120,34 +119,30 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
       <button
         type="button"
         className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-          open
-            ? "bg-slate-900 text-white shadow-sm"
-            : "text-slate-700 hover:text-slate-950 hover:bg-slate-100/80"
+          isActive
+            ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+            : open
+            ? "bg-blue-50 text-blue-700"
+            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
         }`}
       >
-        <Icon className="h-4 w-4 text-slate-500 group-hover:text-slate-700" />
+        <Icon className={`h-4 w-4 ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-500"}`} />
         <span>{label}</span>
         <ChevronDown
           className={`h-3.5 w-3.5 transition-transform duration-200 ${
-            open ? "rotate-180 text-white" : "text-slate-400"
-          }`}
+            open ? "rotate-180" : ""
+          } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
         />
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-2.5 w-76 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-xl shadow-slate-900/10 z-50 overflow-hidden animate-fade-in-up p-2">
-          <Link
-            href={categoryHref}
-            className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-blue-600 hover:bg-blue-50/80 transition-colors mb-1"
-          >
-            <span>All {label} Overview</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+        <div className="absolute top-full left-0 mt-2 w-76 bg-white/98 backdrop-blur-xl border border-slate-200/90 rounded-2xl shadow-xl shadow-slate-950/10 z-50 overflow-hidden animate-fade-in-up p-2">
           <div className="space-y-0.5">
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setOpen(false)}
                 className="block px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
               >
                 <div className="text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
@@ -159,13 +154,24 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref }) {
               </Link>
             ))}
           </div>
+          {/* Browse All as the last item */}
+          <div className="mt-1 pt-1 border-t border-slate-100">
+            <Link
+              href={categoryHref}
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-blue-600 hover:bg-blue-50/80 transition-colors"
+            >
+              <span>Browse All {label} Conditions</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-function SymptomsMegaDropdown() {
+function SymptomsMegaDropdown({ isActive }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -174,7 +180,7 @@ function SymptomsMegaDropdown() {
     setOpen(true);
   };
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(false), 140);
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
   };
 
   return (
@@ -186,22 +192,24 @@ function SymptomsMegaDropdown() {
       <button
         type="button"
         className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-          open
+          isActive
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/80"
+            : open
+            ? "bg-blue-50 text-blue-700"
+            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
         }`}
       >
-        <Stethoscope className="h-4 w-4" />
+        <Stethoscope className={`h-4 w-4 ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-500"}`} />
         <span>Symptoms</span>
         <ChevronDown
           className={`h-3.5 w-3.5 transition-transform duration-200 ${
-            open ? "rotate-180 text-white" : "text-slate-400"
-          }`}
+            open ? "rotate-180" : ""
+          } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
         />
       </button>
 
       {open && (
-        <div className="absolute top-full -left-44 lg:-left-28 mt-2.5 w-[660px] bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-2xl shadow-slate-950/15 z-50 overflow-hidden animate-fade-in-up p-5">
+        <div className="absolute top-full -left-44 lg:-left-28 mt-2 w-[660px] bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-2xl shadow-slate-950/15 z-50 overflow-hidden animate-fade-in-up p-5">
           {/* 3 Clean Minimalist Columns */}
           <div className="grid grid-cols-3 gap-6">
             {symptomsCategories.map((col) => {
@@ -256,12 +264,25 @@ function SymptomsMegaDropdown() {
 }
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileHeartOpen, setMobileHeartOpen] = useState(false);
   const [mobileVesselsOpen, setMobileVesselsOpen] = useState(false);
-  const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(true);
+  const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
   const [activeMobileSymptomCat, setActiveMobileSymptomCat] = useState("heart");
+
+  // Precise route matching so no two items are active simultaneously
+  const isHeartActive =
+    pathname === "/heart" ||
+    (pathname.startsWith("/heart/") && pathname !== "/heart-care");
+
+  const isHypertensionActive = pathname === "/blood-vessels/hypertension";
+
+  const isVesselsActive =
+    (pathname === "/blood-vessels" || pathname.startsWith("/blood-vessels/")) &&
+    !isHypertensionActive;
+
+  const isSymptomsActive = pathname.startsWith("/symptom");
 
   const staticLinks = [
     { name: "Heart Care", href: "/heart-care" },
@@ -293,44 +314,49 @@ export default function Navbar() {
               label="Heart"
               icon={Heart}
               categoryHref="/heart"
+              isActive={isHeartActive}
             />
             <MegaDropdown
               items={bloodVesselDiseases}
               label="Blood Vessels"
               icon={Activity}
               categoryHref="/blood-vessels"
+              isActive={isVesselsActive}
             />
             <Link
               href="/blood-vessels/hypertension"
               className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-                pathname === "/blood-vessels/hypertension"
-                  ? "bg-slate-900 text-white shadow-sm"
-                  : "text-slate-700 hover:text-slate-950 hover:bg-slate-100/80"
+                isHypertensionActive
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                  : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
               }`}
             >
-              <TrendingUp className="h-4 w-4 text-slate-500" />
+              <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-slate-500"}`} />
               <span>Hypertension</span>
             </Link>
 
-            {/* Intuitive Clean Symptoms Dropdown */}
-            <SymptomsMegaDropdown />
+            {/* Consistent Nav UI for Symptoms Dropdown */}
+            <SymptomsMegaDropdown isActive={isSymptomsActive} />
 
             {/* Divider */}
             <div className="h-4 w-px bg-slate-200 mx-1.5" />
 
-            {staticLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-                  pathname === link.href
-                    ? "bg-blue-50 text-blue-700 font-bold"
-                    : "text-slate-600 hover:text-slate-950 hover:bg-slate-100/70"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {staticLinks.map((link) => {
+              const isLinkActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
+                    isLinkActive
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                      : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
 
             {/* Call Clinic CTA */}
             <a
@@ -360,72 +386,7 @@ export default function Navbar() {
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (
         <div className="md:hidden border border-slate-200 bg-white max-h-[85vh] overflow-y-auto pointer-events-auto mt-2 rounded-3xl mx-3 shadow-2xl">
-          <div className="px-4 py-4 space-y-2">
-            {/* Symptoms Section (Top Priority on Mobile) */}
-            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-3">
-              <button
-                type="button"
-                onClick={() => setMobileSymptomsOpen(!mobileSymptomsOpen)}
-                className="flex items-center justify-between w-full py-1 text-sm font-extrabold text-slate-900"
-              >
-                <div className="flex items-center space-x-2 text-blue-700">
-                  <Stethoscope className="h-4 w-4" />
-                  <span>Symptoms Guide</span>
-                </div>
-                <ChevronDown
-                  className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${
-                    mobileSymptomsOpen ? "rotate-180 text-blue-600" : ""
-                  }`}
-                />
-              </button>
-
-              {mobileSymptomsOpen && (
-                <div className="mt-3 space-y-2 pt-2 border-t border-slate-200/70">
-                  {symptomsCategories.map((cat) => {
-                    const isExpanded = activeMobileSymptomCat === cat.id;
-                    const CatIcon = cat.icon;
-                    return (
-                      <div key={cat.id} className="rounded-xl border border-slate-200/80 bg-white overflow-hidden">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setActiveMobileSymptomCat(isExpanded ? null : cat.id)
-                          }
-                          className="flex items-center justify-between w-full p-2.5 text-left font-bold text-xs text-slate-800 hover:bg-blue-50/50 transition-colors"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <CatIcon className={`h-4 w-4 ${cat.iconColor}`} />
-                            <span>{cat.category}</span>
-                          </div>
-                          <ChevronDown
-                            className={`h-3.5 w-3.5 text-slate-400 transition-transform duration-200 ${
-                              isExpanded ? "rotate-180 text-blue-600" : ""
-                            }`}
-                          />
-                        </button>
-
-                        {isExpanded && (
-                          <div className="px-3 pb-3 pt-1 bg-slate-50/60 divide-y divide-slate-100">
-                            {cat.items.map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="flex items-center justify-between py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors group"
-                              >
-                                <span>{item.name}</span>
-                                <ChevronRight className="h-3.5 w-3.5 text-slate-300 group-hover:text-blue-600 transition-transform" />
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
+          <div className="px-4 py-4 space-y-1">
             {/* Heart Conditions Accordion */}
             <div>
               <button
@@ -445,13 +406,6 @@ export default function Navbar() {
               </button>
               {mobileHeartOpen && (
                 <div className="pl-6 py-1 space-y-1">
-                  <Link
-                    href="/heart"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-1.5 text-xs font-bold text-blue-600"
-                  >
-                    <span>Browse All Heart Conditions →</span>
-                  </Link>
                   {heartDiseases.map((item) => (
                     <Link
                       key={item.href}
@@ -462,6 +416,13 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
+                  <Link
+                    href="/heart"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-100"
+                  >
+                    <span>Browse All Heart Conditions →</span>
+                  </Link>
                 </div>
               )}
             </div>
@@ -485,13 +446,6 @@ export default function Navbar() {
               </button>
               {mobileVesselsOpen && (
                 <div className="pl-6 py-1 space-y-1">
-                  <Link
-                    href="/blood-vessels"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-1.5 text-xs font-bold text-blue-600"
-                  >
-                    <span>Browse All Vascular Conditions →</span>
-                  </Link>
                   {bloodVesselDiseases.map((item) => (
                     <Link
                       key={item.href}
@@ -502,6 +456,13 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
+                  <Link
+                    href="/blood-vessels"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-100"
+                  >
+                    <span>Browse All Vascular Conditions →</span>
+                  </Link>
                 </div>
               )}
             </div>
@@ -510,28 +471,99 @@ export default function Navbar() {
             <Link
               href="/blood-vessels/hypertension"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center space-x-2 px-3 py-2.5 text-sm font-bold text-slate-800 transition-colors hover:text-blue-600"
+              className={`flex items-center space-x-2 px-3 py-2.5 text-sm font-bold transition-colors ${
+                isHypertensionActive
+                  ? "bg-blue-600 text-white rounded-xl shadow-sm"
+                  : "text-slate-800 hover:text-blue-600"
+              }`}
             >
-              <TrendingUp className="h-4 w-4 text-blue-600" />
+              <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-blue-600"}`} />
               <span>Hypertension</span>
             </Link>
 
+            {/* Symptoms Accordion */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setMobileSymptomsOpen(!mobileSymptomsOpen)}
+                className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-bold text-slate-800 transition-colors hover:text-blue-600"
+              >
+                <div className="flex items-center space-x-2">
+                  <Stethoscope className="h-4 w-4 text-blue-600" />
+                  <span>Symptoms</span>
+                </div>
+                <ChevronDown
+                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
+                    mobileSymptomsOpen ? "rotate-180 text-blue-600" : ""
+                  }`}
+                />
+              </button>
+
+              {mobileSymptomsOpen && (
+                <div className="pl-6 py-1 space-y-2">
+                  {symptomsCategories.map((cat) => {
+                    const isExpanded = activeMobileSymptomCat === cat.id;
+                    const CatIcon = cat.icon;
+                    return (
+                      <div key={cat.id} className="space-y-1">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveMobileSymptomCat(isExpanded ? null : cat.id)
+                          }
+                          className="flex items-center justify-between w-full py-1.5 text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <CatIcon className={`h-3.5 w-3.5 ${cat.iconColor}`} />
+                            <span>{cat.category}</span>
+                          </div>
+                          <ChevronDown
+                            className={`h-3 w-3 text-slate-400 transition-transform ${
+                              isExpanded ? "rotate-180 text-blue-600" : ""
+                            }`}
+                          />
+                        </button>
+
+                        {isExpanded && (
+                          <div className="pl-5 space-y-1 py-1">
+                            {cat.items.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="block py-1 text-xs text-slate-600 hover:text-blue-600 font-medium transition-colors"
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
             {/* Static Links */}
             <div className="border-t border-slate-100 pt-2 space-y-1">
-              {staticLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2 rounded-xl text-sm font-semibold ${
-                    pathname === link.href
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-700"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {staticLinks.map((link) => {
+                const isLinkActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-3 py-2 rounded-xl text-sm font-semibold ${
+                      isLinkActive
+                        ? "bg-blue-600 text-white font-bold shadow-sm"
+                        : "text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="pt-2">
