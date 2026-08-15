@@ -79,29 +79,44 @@ export default function PADPage() {
     },
   ];
 
+  const diagnosticTests = [
+    {
+      name: "Ankle-Brachial Index (ABI)",
+      desc: "Compares blood pressure readings between your ankles and arms; a score below 0.9 points to PAD.",
+    },
+    {
+      name: "Exercise ABI Test",
+      desc: "Measures blood pressure changes before and after walking on a treadmill.",
+    },
+    {
+      name: "Doppler Ultrasound",
+      desc: "Uses sound waves to view blood flow and spot blocked vessels.",
+    },
+    {
+      name: "Angiography",
+      desc: "Uses specialized imaging and contrast dye to map out exact blockages in the arteries.",
+    },
+  ];
+
   const treatments = [
     {
       name: 'Supervised Exercise Therapy (SET)',
       desc: 'Structured treadmill walking program to build collateral blood vessel pathways and increase pain-free walking distance.',
-      type: 'Conservative',
       image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Endovascular Balloon Angioplasty',
       desc: 'A tiny catheter with a balloon tip is navigated to the blocked leg artery and inflated to push plaque against arterial walls.',
-      type: 'Minimally Invasive',
       image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Directional / Laser Atherectomy',
       desc: 'Advanced catheter device gently shaves or laser-vaporizes tough calcified plaque from peripheral arterial walls.',
-      type: 'Plaque Removal',
       image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Peripheral Arterial Stenting',
       desc: 'Placement of a metallic mesh stent to scaffold narrowed leg arteries open and ensure durable long-term blood flow.',
-      type: 'Revascularization',
       image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -138,10 +153,10 @@ export default function PADPage() {
             <GuideSidebarNav
               title="PAD Guide Sections"
               items={[
-                ['#overview', 'What is PAD?'],
-                ['#symptoms', 'Claudication Symptoms'],
-                ['#diagnosis', 'ABI & Duplex Testing'],
-                ['#treatments', 'Angioplasty & Stenting'],
+                ['#overview', 'Overview'],
+                ['#symptoms', 'Symptoms'],
+                ['#diagnosis', 'Diagnosis'],
+                ['#treatment', 'Treatment'],
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
@@ -163,20 +178,26 @@ export default function PADPage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Peripheral Artery Disease (PAD) is a circulatory disorder in which fatty cholesterol plaques narrow the arteries that carry oxygen-rich blood to your legs, feet, and arms. Like coronary artery disease in the heart, PAD is a sign of systemic atherosclerosis.
-                </p>
-                <p>
-                  When leg arteries become narrowed or blocked, leg muscles do not receive enough oxygenated blood during physical activity. This causes painful muscle cramping known as <strong>intermittent claudication</strong>.
+                  Peripheral artery disease (PAD) is more than a circulation problem in the legs—it is a manifestation of systemic atherosclerosis. The same disease process that affects the arteries of the legs can also affect the heart and brain, which is why PAD is an important marker of overall cardiovascular risk.
                 </p>
               </div>
 
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              <div className="mt-8 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80"
-                  alt="Endovascular Catheter Suite"
+                  src="/images/pad-overview-illustration.jpg"
+                  alt="Peripheral Artery Disease (PAD) Overview Illustration"
                   fill
                   className="object-cover object-center"
                 />
+              </div>
+
+              <div className="mt-8 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  Progressive PAD can reduce walking ability, physical activity, strength, and mobility, sometimes leading to significant disability.
+                </p>
+                <p>
+                  Advanced PAD can threaten the limb. Severe disease may cause rest pain, nonhealing wounds, ulcers, or gangrene and can ultimately result in amputation.
+                </p>
               </div>
             </section>
 
@@ -204,113 +225,86 @@ export default function PADPage() {
               </div>
             </section>
 
-            {/* DIAGNOSIS WITH IMAGE */}
-            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            {/* DIAGNOSIS */}
+            <section
+              id="diagnosis"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Ankle-Brachial Index (ABI) Testing</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Diagnosis
+                </h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                The primary screening test for PAD is the <strong>Ankle-Brachial Index (ABI)</strong>. It is a quick, pain-free test comparing blood pressure in your ankles to blood pressure in your arms using Doppler ultrasound cuffs.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80"
-                        alt="Ankle-Brachial Index (ABI)"
-                        fill
-                        className="object-cover"
-                      />
+              <div className="divide-y divide-slate-200/80">
+                {diagnosticTests.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
                     </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Ankle-Brachial Index (ABI)</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Gold-standard non-invasive Doppler pressure ratio test (&lt;0.90 confirms PAD).</p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
-                        alt="Arterial Duplex Ultrasound"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Arterial Duplex Ultrasound</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Visualizes leg artery plaque occlusion and blood flow velocities.</p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
-                        alt="Toe-Brachial Index (TBI)"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Toe-Brachial Index (TBI)</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates microvascular flow in non-compressible calcified vessels.</p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
-                        alt="CT / MR Angiography (CTA/MRA)"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">CT / MR Angiography (CTA/MRA)</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">3D vascular arterial roadmapping prior to stenting or surgery.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* TREATMENTS */}
-            <section id="treatments" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Endovascular Angioplasty & Stenting</h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {treatments.map((t) => (
-                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
-                    <div className="relative h-48 w-full">
-                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
-                      </div>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
+              </div>
+            </section>
+
+            {/* TREATMENT */}
+            <section
+              id="treatment"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Treatment
+                </h2>
+              </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                Treatment for peripheral artery disease (PAD) focuses on improving blood flow, relieving symptoms, protecting your legs, and reducing the risk of heart attack and stroke. The right approach depends on the severity of the disease, your symptoms, and your overall health.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                {treatments.map((t) => (
+                  <div
+                    key={t.name}
+                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                  >
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={t.image}
+                        alt={t.name}
+                        fill
+                        className="object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                        {t.name}
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Note Callout */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Our goal is to choose the least invasive treatment that can safely improve your circulation and help you stay active.
+                </p>
               </div>
             </section>
 

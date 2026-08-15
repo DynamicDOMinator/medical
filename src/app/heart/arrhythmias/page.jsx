@@ -44,16 +44,7 @@ export default function ArrhythmiasPage() {
   ];
 
   const symptomList = [
-    {
-      title: 'Heart Palpitations & Thumping',
-      desc: 'Sensation of skipped beats, fluttering, racing, or thumping feelings in the chest caused by irregular electrical firing.',
-      icon: Zap,
-    },
-    {
-      title: 'Lightheadedness & Dizziness',
-      desc: 'Temporary feeling of weakness or unsteadiness caused by reduced brain perfusion during fast or slow rhythms.',
-      icon: Info,
-    },
+
     {
       title: 'Fainting Spells (Syncope)',
       desc: 'Sudden temporary loss of consciousness due to profound electrical pauses (complete heart block) or rapid rhythms.',
@@ -76,38 +67,62 @@ export default function ArrhythmiasPage() {
     },
   ];
 
-  const arrhythmiaTypes = [
-    { name: 'Atrial Fibrillation (AFib)', desc: 'Most common arrhythmia. Chaotic, rapid atrial signals prevent organized atrial contraction and create an irregular ventricular response.' },
-    { name: 'Supraventricular Tachycardia (SVT)', desc: 'Sudden onset of rapid regular rhythm originating above the ventricles. Causes sudden racing heart at 150–250 bpm.' },
-    { name: 'Ventricular Tachycardia (VT)', desc: 'Fast rhythm originating in the ventricles — often in patients with structural heart disease. Can degenerate into ventricular fibrillation.' },
-    { name: 'Heart Block (AV Block)', desc: 'Delayed or interrupted conduction from atria to ventricles through the AV node. Complete (3rd degree) heart block requires pacemaker.' },
-    { name: 'Wolff-Parkinson-White (WPW)', desc: 'An accessory electrical pathway bypasses the AV node, enabling rapid re-entry tachycardias. Diagnosed by delta wave on ECG.' },
-    { name: 'Sick Sinus Syndrome', desc: 'The sinus node fails to generate adequate impulses, causing alternating bradycardia and tachycardia (tachy-brady syndrome).' },
+  const arrhythmiaCategories = [
+    {
+      title: 'Fast Heart Rhythms',
+      category: 'Tachyarrhythmias',
+      items: 'Supraventricular tachycardia · Atrial tachycardia · Atrial flutter · Ventricular tachycardia',
+    },
+    {
+      title: 'Slow Heart Rhythms',
+      category: 'Bradyarrhythmias',
+      items: 'Sinus bradycardia · Sinus node dysfunction · Heart block',
+    },
+    {
+      title: 'Irregular Heart Rhythms',
+      category: 'Irregular rhythms',
+      items: 'Atrial fibrillation · Premature atrial contractions · Premature ventricular contractions',
+    },
+  ];
+
+  const diagnosticTests = [
+    {
+      name: 'Holter Monitor',
+      desc: 'A portable ECG device worn for 24 hours or longer during daily routines.',
+    },
+    {
+      name: 'Event Recorder',
+      desc: 'A wearable monitor used for up to 30 days, activated when you feel symptoms.',
+    },
+    {
+      name: 'Echocardiogram',
+      desc: 'An ultrasound test that uses sound waves to check heart structure, valves, and blood flow.',
+    },
+    {
+      name: 'Electrophysiology Study (EPS)',
+      desc: 'A hospital procedure using thin tubes threaded into the heart to map abnormal electrical signals.',
+    },
   ];
 
   const treatments = [
     {
       name: 'Antiarrhythmic Medication Therapy',
       desc: 'Rate-control (beta-blockers, calcium channel blockers) or rhythm-control medications (flecainide, amiodarone, sotalol) to stabilize heart electrical signals.',
-      type: 'Medical Therapy',
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter Ablation (RF & Cryoablation)',
       desc: 'Minimally invasive catheter procedure that delivers thermal energy to scar tiny areas of heart tissue causing abnormal signals. Gold standard for SVT and AFib.',
-      type: 'Interventional',
       image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Permanent Pacemaker Implantation',
       desc: 'Implantation of a tiny battery-powered device under the skin to send electric impulses when the heart beats too slowly or pauses.',
-      type: 'Device Therapy',
       image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Implantable Cardioverter-Defibrillator (ICD)',
       desc: 'Device that continuously monitors rhythm, delivers anti-tachycardia pacing, or a defibrillation shock to terminate ventricular fibrillation and prevent sudden death.',
-      type: 'Device Therapy',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -115,7 +130,7 @@ export default function ArrhythmiasPage() {
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
       {/* HERO SECTION */}
-      <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=2000&q=80"
@@ -124,7 +139,7 @@ export default function ArrhythmiasPage() {
             className="object-cover object-center opacity-65"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-indigo-950/70 to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-blue-950/70 to-slate-900/50" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -142,14 +157,13 @@ export default function ArrhythmiasPage() {
           {/* Sidebar */}
           <div className="lg:col-span-3">
             <GuideSidebarNav
-              title="Arrhythmia Guide"
-              accent="indigo"
+              title="Arrhythmia Guide Outline"
               items={[
                 ['#overview', 'What are Arrhythmias?'],
                 ['#types', 'Types of Arrhythmias'],
-                ['#symptoms', 'Symptoms & Warning Signs'],
-                ['#diagnosis', 'ECG & Holter Monitor'],
-                ['#ablation', 'Ablation & Pacemakers'],
+                ['#symptoms', 'Symptoms'],
+                ['#diagnosis', 'Diagnostic Testing'],
+                ['#treatment', 'Treatment'],
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
@@ -163,7 +177,7 @@ export default function ArrhythmiasPage() {
           <div className="lg:col-span-9 space-y-12">
 
             {/* OVERVIEW */}
-            <section id="overview" className="bg-white border border-indigo-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What are Cardiac Arrhythmias?</h2>
               </div>
@@ -173,12 +187,6 @@ export default function ArrhythmiasPage() {
                   Arrhythmias are disorders of the heart’s electrical system
                   that can cause slow, fast, or irregular heartbeats. They range
                   from harmless to potentially serious conditions.
-                </p>
-                <p>
-                  Arrhythmias can be intermittent and difficult to detect,
-                  meaning that a routine ECG may not always capture the abnormal
-                  rhythm. In some cases, extended heart-rhythm monitoring may be
-                  needed.
                 </p>
                 <p>
                   Importantly, symptoms do not always reflect the severity of an
@@ -199,33 +207,73 @@ export default function ArrhythmiasPage() {
             </section>
 
             {/* TYPES */}
-            <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Types of Cardiac Arrhythmias</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {arrhythmiaTypes.map(t => (
-                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <h3 className="font-bold text-slate-800 text-sm">{t.name}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{t.desc}</p>
+            <section
+              id="types"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Types of Cardiac Arrhythmias
+                </h2>
+              </div>
+
+              <div className="divide-y divide-slate-200/80">
+                {arrhythmiaCategories.map((t) => (
+                  <div
+                    key={t.title}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0 space-y-0.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.title}
+                      </h3>
+                      <p className="italic text-blue-600 font-medium text-xs sm:text-sm">
+                        {t.category}
+                      </p>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.items}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
 
-              
+              {/* Arrhythmia 3 Rhythms Light Infographic */}
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
+                  <Image
+                    src="/images/arrhythmia-types-visual.jpg"
+                    alt="Fast, Slow, and Irregular Heart Rhythms Comparison"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+
+              {/* Clinical Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Some arrhythmias, like atrial fibrillation, increase stroke risk and require more than just heart rate control.
+                </p>
+              </div>
             </section>
 
             {/* SYMPTOMS */}
-            <section id="symptoms" className="bg-white border border-indigo-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="symptoms" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Symptoms of Arrhythmias</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What might you notice?</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {symptomList.map((s) => {
                   const IconComp = s.icon;
                   return (
-                    <div key={s.title} className="p-5 rounded-2xl bg-indigo-50/40 border border-indigo-100/80 space-y-2">
+                    <div key={s.title} className="p-5 rounded-2xl bg-blue-50/40 border border-blue-100/80 space-y-2">
                       <div className="flex items-center space-x-3">
-                        <div className="bg-white p-2 rounded-xl border border-indigo-100 text-indigo-600">
+                        <div className="bg-white p-2 rounded-xl border border-blue-100 text-blue-600">
                           <IconComp className="h-5 w-5" />
                         </div>
                         <h3 className="font-bold text-slate-900 text-base">{s.title}</h3>
@@ -235,63 +283,98 @@ export default function ArrhythmiasPage() {
                   );
                 })}
               </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <p>
+                    Arrhythmias can be intermittent and hard to detect, sometimes requiring extended monitoring.
+                  </p>
+                  <p>
+                    Symptoms don’t always match severity—serious arrhythmias may feel mild, and benign ones may feel intense.
+                  </p>
+                </div>
+              </div>
             </section>
 
             {/* DIAGNOSIS */}
-            <section id="diagnosis" className="bg-white border border-indigo-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests & Imaging</h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-8">
-                Accurate arrhythmia diagnosis combines non-invasive rhythm monitoring with advanced cardiac imaging. The following modalities are used to capture, characterize, and localize abnormal heart rhythms.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Depending on the symptoms and suspected rhythm problem, extended heart-rhythm monitoring may be necessary.
               </p>
 
-              <div className="space-y-3">
-                {[
-                  { abbr: 'ECG', name: '12-Lead Electrocardiogram', desc: 'First-line diagnostic test recording the heart\'s electrical activity across 12 leads. Identifies AFib, heart block, delta waves (WPW), and ventricular rhythms in real time.' },
-                  { abbr: 'HOLTER', name: '24–48 Hour Holter Monitor', desc: 'Continuous wearable ECG recorder worn for 24–48 hours to capture arrhythmias during daily activities and correlate them with patient symptoms.' },
-                  { abbr: 'PATCH', name: 'Extended ECG Patch Monitor', desc: 'Adhesive ECG patches worn for 7–30 days. Ideal for detecting infrequent or paroxysmal arrhythmias not captured on standard Holter monitoring.' },
-                  { abbr: 'ECHO', name: 'Echocardiogram (Cardiac Ultrasound)', desc: 'Ultrasound evaluation of cardiac structure and function — detects structural heart disease, valve abnormalities, and ventricular dysfunction driving arrhythmias.' },
-                  { abbr: 'ILR', name: 'Implantable Loop Recorder', desc: 'A subcutaneous device continuously monitoring rhythm for up to 3 years. Used for unexplained syncope or cryptogenic stroke evaluation.' },
-                  { abbr: 'EPS', name: 'Electrophysiology Study (EPS)', desc: 'Invasive intracardiac mapping procedure using catheters to study the heart\'s electrical pathways, induce arrhythmias, and plan targeted ablation therapy.' },
-                ].map(d => (
-                  <div key={d.abbr} className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
-                    <div className="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1.5 rounded-xl h-fit shrink-0 text-center min-w-[52px]">{d.abbr}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-sm">{d.name}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">{d.desc}</p>
+              <div className="divide-y divide-slate-200/80">
+                {diagnosticTests.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Wearable technology can help detection, but results must be interpreted carefully.
+                </p>
               </div>
             </section>
 
-            {/* ABLATION & PACEMAKERS */}
-            <section id="ablation" className="bg-white border border-indigo-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Ablation, Pacemakers & ICDs</h2>
+            {/* TREATMENT */}
+            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment</h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {treatments.map((t) => (
-                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-indigo-200 transition-all overflow-hidden">
-                    <div className="relative h-48 w-full">
-                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
-                        <span className="bg-indigo-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
+              <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                <p>
+                  Treatment is individualized and depends on the type of arrhythmia, its cause, symptoms, associated conditions, and overall risk.
+                </p>
+                <p>
+                  Treatment may range from observation and monitoring to:
+                </p>
+                <p>
+                  Some cases can be significantly improved or resolved with procedures, reducing long-term medication needs.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  Examples
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {treatments.map((t) => (
+                    <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
+                      <div className="relative h-48 w-full">
+                        <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      </div>
+                      <div className="p-5">
+                        <h4 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h4>
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
                       </div>
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-
-            
             </section>
 
 

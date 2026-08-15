@@ -46,34 +46,25 @@ export default function HypertensionPage() {
     },
   ];
 
-  const typesList = [
+  const mainTypes = [
     {
       name: 'Primary (Essential) Hypertension',
-      tag: '90-95% of Cases',
-      desc: 'Develops gradually over years without a single identifiable cause. Driven by age, arterial stiffening, genetics, excess sodium, and obesity.',
-      color: 'text-blue-700',
-      bg: 'bg-blue-50',
+      desc: 'Develops slowly over time with no single clear cause; linked to age, genetics, and lifestyle.',
     },
     {
       name: 'Secondary Hypertension',
-      tag: 'Underlying Cause',
-      desc: 'Appears suddenly and causes higher BP than primary HTN. Caused by renal artery stenosis, kidney disease, sleep apnea, or adrenal tumors.',
-      color: 'text-purple-700',
-      bg: 'bg-purple-50',
+      desc: 'Caused by another medical condition, such as kidney disease, sleep apnea, or thyroid/hormone imbalances.',
+    },
+  ];
+
+  const specificSubtypes = [
+    {
+      name: 'Resistant Hypertension',
+      desc: 'Blood pressure stays higher than normal even when you take three or more different blood pressure medicines.',
     },
     {
       name: 'Isolated Systolic Hypertension',
-      tag: 'Common in Elderly',
-      desc: 'Systolic BP is ≥130 mmHg while diastolic remains normal (<80 mmHg). Caused by age-related loss of arterial elasticity.',
-      color: 'text-amber-700',
-      bg: 'bg-amber-50',
-    },
-    {
-      name: 'Hypertensive Emergency / Crisis',
-      tag: 'Immediate Danger',
-      desc: 'Blood pressure exceeds 180/120 mmHg with acute target-organ damage (chest pain, stroke symptoms, acute renal failure).',
-      color: 'text-red-700',
-      bg: 'bg-red-50',
+      desc: 'Only the top number (systolic pressure) is high while the bottom number remains normal; very common in older adults.',
     },
   ];
 
@@ -114,29 +105,21 @@ export default function HypertensionPage() {
     {
       name: 'ACE Inhibitors & ARBs',
       desc: 'Lisinopril, Losartan, Valsartan. Block renin-angiotensin-aldosterone axis, relaxing systemic arteries and protecting kidney function.',
-      duration: 'Daily Protocol',
-      recovery: 'Ongoing Control',
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Calcium Channel Blockers (CCBs)',
       desc: 'Amlodipine, Felodipine, Nifedipine. Inhibit calcium entry into arterial smooth muscle cells, reducing systemic vascular resistance.',
-      duration: 'Daily Protocol',
-      recovery: 'Rapid BP Reduction',
       image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Thiazide & Loop Diuretics',
       desc: 'Hydrochlorothiazide, Chlorthalidone, Furosemide. Promote renal excretion of excess sodium and water to reduce blood volume.',
-      duration: 'Daily Medication',
-      recovery: 'Long-term Benefit',
       image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Renal Artery Denervation (Catheter Procedure)',
       desc: 'Minimally invasive radiofrequency catheter ablation of renal sympathetic nerves for resistant hypertension.',
-      duration: '60 Mins',
-      recovery: '1 Day',
       image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -177,7 +160,7 @@ export default function HypertensionPage() {
                 ['#types', 'Classifications & Types'],
                 ['#symptoms', 'Symptoms'],
                 ['#diagnosis', 'Diagnostic Testing'],
-                ['#treatment', 'Treatment & Procedures'],
+                ['#treatment', 'Treatment'],
                 ['#living-with', 'Living with Hypertension'],
                 ['#faqs', 'FAQs'],
               ]}
@@ -218,18 +201,67 @@ export default function HypertensionPage() {
             </section>
 
             {/* 2. TYPES */}
-            <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Classifications & Types of Hypertension</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {typesList.map((t) => (
-                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${t.bg} ${t.color}`}>{t.tag}</span>
+            <section
+              id="types"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Classifications & Types of Hypertension
+                </h2>
+              </div>
+
+              <div className="divide-y divide-slate-200/80">
+                {mainTypes.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4">
+                  Specific Subtypes and Situations
+                </h3>
+                <div className="divide-y divide-slate-200/80">
+                  {specificSubtypes.map((t) => (
+                    <div
+                      key={t.name}
+                      className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                    >
+                      <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                        <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                          {t.name}
+                        </h3>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                          {t.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Risk depends on more than the blood pressure number. Cholesterol, diabetes, smoking, kidney function, age, family history, and evidence of existing cardiovascular disease all influence the overall risk.
+                </p>
               </div>
             </section>
 
@@ -264,7 +296,7 @@ export default function HypertensionPage() {
               </div>
 
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Accurate blood pressure determination requires standardized measurement techniques and evaluation of target organ health:
+               Blood pressure changes over time. One reading does not always tell the whole story. Home monitoring and trends can provide a much better understanding of a patient's true blood pressure. 
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -342,11 +374,15 @@ export default function HypertensionPage() {
               </div>
             </section>
 
-            {/* 5. TREATMENT (PROCEDURES) (USE IMAGE) */}
+            {/* 5. TREATMENT */}
             <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment & Procedures</h2>
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment</h2>
               </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                Ultimately, hypertension care is not simply about <strong>“getting the number down.”</strong> It is about understanding the patient's overall cardiovascular risk and controlling blood pressure in a way that is <strong>effective, sustainable, and protective of the heart, brain, kidneys, and vascular system over the long term.</strong>
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {treatments.map((t) => (
@@ -354,10 +390,6 @@ export default function HypertensionPage() {
                     <div className="relative h-48 w-full">
                       <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.duration}</span>
-                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.recovery}</span>
-                      </div>
                     </div>
                     <div className="p-5">
                       <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
@@ -377,24 +409,24 @@ export default function HypertensionPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
-                    <Apple className="h-5 w-5 text-emerald-600" />
-                    <h4 className="font-bold text-slate-900 text-base">DASH Diet & Sodium Control</h4>
+                    <Apple className="h-5 w-5 text-blue-600" />
+                    <h4 className="font-bold text-slate-900 text-base">Diet & Lifestyle</h4>
                   </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Follow DASH diet rich in potassium, calcium, and fiber</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Restrict sodium intake to &lt;1,500–2,000 mg per day</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Avoid ultra-processed foods and hidden dietary sodium</span></li>
+                  <ul className="space-y-2.5 text-sm text-slate-600">
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Follow a heart-healthy diet rich in fruits, vegetables, and whole grains</span></li>
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Limit dietary sodium and avoid ultra-processed foods</span></li>
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Engage in regular physical activity such as brisk walking or swimming</span></li>
                   </ul>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Activity className="h-5 w-5 text-blue-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Exercise & Home Monitoring</h4>
+                    <h4 className="font-bold text-slate-900 text-base">Daily Management & Monitoring</h4>
                   </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>150 minutes of aerobic physical exercise per week</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Home blood pressure monitoring twice daily (morning & evening)</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Weight loss (every 10 kg lost drops BP by 5–10 mmHg)</span></li>
+                  <ul className="space-y-2.5 text-sm text-slate-600">
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Keep a daily log of home blood pressure readings to track trends</span></li>
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Take all prescribed blood pressure medications consistently</span></li>
+                    <li className="flex items-start space-x-2.5"><CheckCircle className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" /><span>Manage stress, prioritize quality sleep, and attend routine checkups</span></li>
                   </ul>
                 </div>
               </div>

@@ -44,16 +44,7 @@ export default function ValvularHeartDiseasePage() {
   ];
 
   const symptomList = [
-    {
-      title: "Exertional Shortness of Breath",
-      desc: "Difficulty breathing during routine walking or climbing stairs due to elevated pulmonary venous pressure.",
-      icon: Clock,
-    },
-    {
-      title: "Chest Pain & Angina Tightness",
-      desc: "Pressure or discomfort in the chest when heart muscle work exceeds impaired blood delivery through narrowed valves.",
-      icon: AlertTriangle,
-    },
+    
     {
       title: "Dizziness & Fainting (Syncope)",
       desc: "Sudden lightheadedness or fainting caused by temporary reduction of blood flow to the brain across a severe aortic valve stenosis.",
@@ -80,28 +71,24 @@ export default function ValvularHeartDiseasePage() {
     {
       name: "Transcatheter Aortic Valve Replacement (TAVR)",
       desc: "A expandable artificial valve is deployed inside the diseased aortic valve via a small leg artery catheter puncture.",
-      type: "Minimally Invasive",
       image:
         "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "MitraClip™ Transcatheter Edge-to-Edge Repair",
       desc: "A small clip is guided into the heart to hold mitral valve leaflets together and reduce severe mitral regurgitation.",
-      type: "Catheter Repair",
       image:
         "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Balloon Aortic / Mitral Valvuloplasty",
       desc: "Catheter balloon inflation used to stretch open stiff, narrow heart valve openings in select symptomatic patients.",
-      type: "Interventional",
       image:
         "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Surgical Valve Repair or Replacement",
       desc: "Traditional or mini-thoracotomy surgical repair or replacement with mechanical or tissue prosthetic valves.",
-      type: "Surgical Option",
       image:
         "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
     },
@@ -139,7 +126,7 @@ export default function ValvularHeartDiseasePage() {
               title="Valvular Guide Contents"
               items={[
                 ["#overview", "Valve Disease Overview"],
-                ["#symptoms", "Symptoms & Warning Signs"],
+                ["#symptoms", "Symptoms"],
                 ["#diagnosis", "Echocardiography Diagnostics"],
                 ["#treatments", "TAVR & MitraClip Options"],
                 ["#faqs", "Patient FAQs"],
@@ -188,6 +175,10 @@ export default function ValvularHeartDiseasePage() {
                   className="object-cover object-center"
                 />
               </div>
+
+              <p className="mt-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+                Over time, untreated valve disease can strain the heart and lead to complications like heart enlargement, rhythm problems, or heart failure.
+              </p>
             </section>
 
             {/* SYMPTOMS */}
@@ -333,6 +324,14 @@ export default function ValvularHeartDiseasePage() {
                   </div>
                 </div>
               </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Not all valve disease needs immediate treatment; mild cases are often monitored. The key challenge is timing intervention correctly, since waiting too long can harm the heart, but not every abnormal valve requires a procedure.
+                </p>
+              </div>
             </section>
 
             {/* TREATMENTS */}
@@ -340,11 +339,15 @@ export default function ValvularHeartDiseasePage() {
               id="treatments"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
-              <div className="mb-8">
+              <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                   Transcatheter TAVR & MitraClip Procedures
                 </h2>
               </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                Modern treatments include both surgery and less invasive catheter-based options for selected patients.
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {treatments.map((t) => (
@@ -360,11 +363,6 @@ export default function ValvularHeartDiseasePage() {
                         className="object-cover object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                          {t.type}
-                        </span>
-                      </div>
                     </div>
                     <div className="p-5">
                       <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
@@ -376,6 +374,14 @@ export default function ValvularHeartDiseasePage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  The main goal is to protect heart function and quality of life by monitoring carefully and treating at the right time—not too early or too late.
+                </p>
               </div>
             </section>
 

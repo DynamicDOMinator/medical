@@ -85,35 +85,44 @@ export default function ThromboembolicDiseasePage() {
     { factor: 'Active cancer treatment', points: '1 point' },
   ];
 
+  const diagnosticTests = [
+    {
+      name: 'CT Pulmonary Angiography (CT-PA)',
+      desc: 'Visualizes thrombi directly in pulmonary arteries with high resolution and accuracy to confirm or rule out a pulmonary embolism.',
+    },
+    {
+      name: 'Lower Extremity Duplex Ultrasound',
+      desc: 'High-resolution vascular ultrasound evaluating deep leg veins to detect or rule out deep vein thrombosis (DVT).',
+    },
+    {
+      name: 'D-Dimer Blood Assay',
+      desc: 'Measures clot-degradation protein fragments in the blood to help rule out active clot formation in appropriate patients.',
+    },
+    {
+      name: 'Echocardiogram',
+      desc: 'Assesses right ventricular strain, heart chamber function, and pulmonary artery pressures affected by blood clots.',
+    },
+  ];
+
   const treatments = [
     {
       name: 'Direct Oral Anticoagulants (DOACs)',
       desc: 'Apixaban, Rivaroxaban, Dabigatran. First-line therapy for most VTE. No routine INR monitoring. Proven to be as effective as warfarin with significantly lower bleeding rates.',
-      type: 'Anticoagulation',
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Low Molecular Weight Heparin (LMWH)',
       desc: 'Enoxaparin subcutaneous injections. Preferred for cancer-associated VTE (LMWH or DOAC) and during pregnancy (DOACs cross the placenta).',
-      type: 'Anticoagulation',
       image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      name: 'Systemic Thrombolysis (tPA)',
-      desc: 'IV alteplase for massive, hemodynamically unstable PE with cardiac arrest or cardiogenic shock. Rapidly dissolves the clot but carries significant bleeding risk.',
-      type: 'Clot Dissolution',
-      image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter-Directed Thrombolysis (CDT)',
       desc: 'Low-dose local tPA delivered directly into the pulmonary artery clot via catheter. For submassive PE with RV dysfunction — maximizes efficacy while minimizing bleeding risk.',
-      type: 'Interventional',
       image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'IVC Filter Placement',
       desc: 'Retrievable inferior vena cava filter placed when anticoagulation is absolutely contraindicated. Prevents clot migration from legs to lungs.',
-      type: 'Mechanical',
       image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -150,12 +159,13 @@ export default function ThromboembolicDiseasePage() {
             <GuideSidebarNav
               title="Thromboembolic Guide"
               items={[
-                ['#overview', 'What is VTE?'],
-                ['#symptoms', 'DVT & PE Symptoms'],
+                ['#overview', 'Overview'],
+                ['#patient-insights', 'What Patients Should Know'],
+                ['#symptoms', 'Symptoms'],
                 ['#wells', 'Wells PE Score'],
-                ['#diagnosis', 'CT-PA & D-Dimer'],
-                ['#treatments', 'Anticoagulants & Thrombolysis'],
-                ['#prevention', 'VTE Prevention'],
+                ['#diagnosis', 'Diagnostic Testing'],
+                ['#treatment', 'Treatment'],
+                ['#prevention', 'Prevention'],
                 ['#faqs', 'Patient FAQs'],
               ]}
               cta={{
@@ -178,18 +188,36 @@ export default function ThromboembolicDiseasePage() {
                 <p>
                   Thromboembolic disease occurs when blood clots (thrombi) form inside venous blood vessels. If a clot breaks loose from lower limb deep veins, it travels through the vena cava and right heart chambers into pulmonary lung arteries — causing a potentially catastrophic Pulmonary Embolism (PE).
                 </p>
-                <p>
-                  VTE is the third most common cardiovascular emergency after myocardial infarction and stroke. Pulmonary embolism kills approximately 100,000 Americans annually — yet up to 70% of deaths are missed at initial presentation because symptoms are nonspecific and overlap with other conditions.
-                </p>
               </div>
 
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              <div className="mt-8 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                  alt="Patient Clinical Evaluation"
+                  src="/images/thromboembolic.png"
+                  alt="Thromboembolic Disease & Venous Thrombus Medical Illustration"
                   fill
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                 />
+              </div>
+            </section>
+
+            {/* WHAT PATIENTS SHOULD KNOW */}
+            <section
+              id="patient-insights"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  What Patients Should Know
+                </h2>
+              </div>
+
+              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  A clot is often a warning, not just an isolated event. When a DVT or PE occurs, it is important to understand why it happened—including recent surgery or immobilization, medications, cancer, inherited or acquired clotting disorders, or other risk factors.
+                </p>
+                <p>
+                  Pulmonary embolism can be unpredictable. A relatively small clot may cause significant symptoms in some patients, while others may have few warning signs before a potentially serious event.
+                </p>
               </div>
             </section>
 
@@ -258,40 +286,50 @@ export default function ThromboembolicDiseasePage() {
             </section>
 
             {/* DIAGNOSIS */}
-            <section id="diagnosis" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">Diagnostic Investigations</h2>
-              <div className="space-y-3">
-                {[
-                  { abbr: 'CT-PA', name: 'CT Pulmonary Angiography (CT-PA)', desc: 'Gold standard for PE diagnosis — visualizes thrombi directly in pulmonary arteries with high resolution. Rapid, widely available, and highly accurate (sensitivity >95%).' },
-                  { abbr: 'D-DIMER', name: 'D-Dimer Assay', desc: 'Extremely sensitive (>95%) but not specific. A negative D-dimer effectively rules out PE in low-probability patients, avoiding radiation from CT-PA.' },
-                  { abbr: 'DUPLEX', name: 'Lower Extremity Duplex Ultrasound', desc: 'Confirms DVT as source of PE. If positive in a patient with PE symptoms, confirms the VTE diagnosis and guides treatment duration.' },
-                  { abbr: 'ECHO', name: 'Echocardiogram (Bedside)', desc: 'Rapid assessment of right ventricular strain — RV dilation (RV/LV ratio >0.9) and septal flattening indicate hemodynamic compromise from massive PE.' },
-                ].map(d => (
-                  <div key={d.abbr} className="bg-white border border-slate-200/80 rounded-2xl p-5 flex space-x-4">
-                    <div className="bg-blue-50 text-blue-700 font-bold text-xs px-2 py-1.5 rounded-xl h-fit shrink-0 text-center min-w-[56px]">{d.abbr}</div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-sm">{d.name}</h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">{d.desc}</p>
+            <section
+              id="diagnosis"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Diagnostic
+                </h2>
+              </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Diagnosing thromboembolic disease starts with understanding your symptoms, medical history, and risk factors. We use a clinical assessment and targeted tests, such as ultrasound and CT imaging, to determine whether a clot is present, where it is located, and how it is affecting blood flow.
+              </p>
+
+              <div className="divide-y divide-slate-200/80">
+                {diagnosticTests.map((d) => (
+                  <div
+                    key={d.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {d.name}
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {d.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <Image src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="CT Pulmonary Angiography PE Diagnosis" fill className="object-cover" />
-                </div>
-                <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                  <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Echocardiogram Right Ventricular Strain" fill className="object-cover" />
-                </div>
-              </div>
             </section>
 
-            {/* TREATMENTS */}
-            <section id="treatments" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">VTE Treatment Strategies</h2>
+            {/* TREATMENT */}
+            <section id="treatment" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment</h2>
               </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                Treatment focuses on stopping the clot from growing, preventing new clots, and reducing the risk of complications. Depending on the location and severity of the clot, treatment may include blood-thinning medications, clot-removal procedures, or clot-dissolving treatment in selected cases.
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {treatments.map((t) => (
@@ -299,9 +337,6 @@ export default function ThromboembolicDiseasePage() {
                     <div className="relative h-48 w-full">
                       <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">{t.type}</span>
-                      </div>
                     </div>
                     <div className="p-5">
                       <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>

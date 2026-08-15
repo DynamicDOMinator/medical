@@ -57,17 +57,31 @@ export default function VenousDiseasePage() {
     },
   ];
 
+  const typesList = [
+    {
+      name: "Chronic Venous Insufficiency (CVI)",
+      desc: "Weak vein valves allow blood to flow backward and pool in the legs, causing swelling, heaviness, and skin changes.",
+    },
+    {
+      name: "Varicose & Spider Veins",
+      desc: "Varicose veins are enlarged, twisted veins; spider veins are smaller, web-like veins visible beneath the skin.",
+    },
+    {
+      name: "Deep Vein Thrombosis (DVT)",
+      desc: "A blood clot forms in a deep vein, usually in the leg, and may cause swelling, pain, and warmth.",
+    },
+    {
+      name: "Superficial Thrombophlebitis",
+      desc: "A vein close to the skin becomes inflamed and develops a small clot, causing tenderness, redness, or warmth.",
+    },
+    {
+      name: "Venous Ulcers",
+      desc: "Slow-healing sores, usually around the ankle, caused by long-term poor venous circulation.",
+    },
+  ];
+
   const symptomList = [
-    {
-      title: "Persistent Leg Swelling (Edema)",
-      desc: "Fluid accumulation in lower legs and ankles that worsens after standing or towards the end of the day.",
-      icon: Droplets,
-    },
-    {
-      title: "Bulging & Twisted Varicose Veins",
-      desc: "Enlarged, rope-like blue or purple surface veins visible along calves and thighs.",
-      icon: Activity,
-    },
+    
     {
       title: "Aching, Heaviness & Fatigue",
       desc: "A dull, tired, or throbbing sensation in the lower extremities relieved by leg elevation.",
@@ -120,44 +134,28 @@ export default function VenousDiseasePage() {
 
   const treatments = [
     {
-      name: "Radiofrequency & Laser Ablation (RFA / EVLT)",
-      desc: "A tiny catheter delivers targeted heat energy to seal diseased refluxing veins shut, re-routing blood to healthy veins.",
-      duration: "30-45 Mins",
-      recovery: "Immediate Walking",
+      name: "Endovenous Ablation",
+      desc: "Uses heat from a laser (EVLT) or radiofrequency (RFA) delivered via a thin tube (catheter) to seal shut the faulty main vein.",
       image:
         "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "VenaSeal™ Medical Vein Adhesive",
-      desc: "An innovative non-thermal procedure using tiny drops of medical adhesive to close diseased veins without tumescent anesthesia.",
-      duration: "20-30 Mins",
-      recovery: "No Hose Needed",
-      image:
-        "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Ultrasound-Guided Foam Sclerotherapy",
-      desc: "Targeted injection of a specialized sclerosant agent into deeper tributary veins to collapse smaller diseased vessels.",
-      duration: "15-20 Mins",
-      recovery: "Same-day Return",
+      name: "Sclerotherapy",
+      desc: "Injects a liquid or foam chemical agent into smaller varicose or spider veins to scar and close them so they fade away.",
       image:
         "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Micro-Phlebectomy",
-      desc: "Minimally invasive micro-incisions to gently remove large bulging surface varicose veins with virtually no scarring.",
-      duration: "45 Mins",
-      recovery: "1-2 Days",
+      name: "Ambulatory Phlebectomy",
+      desc: "Removes bulging surface varicose veins through tiny skin punctures that generally need no stitches.",
       image:
         "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Medical-Grade Compression Therapy",
-      desc: "Graduated compression stockings (20-30 mmHg) that provide external pressure to assist calf muscle pump action.",
-      duration: "Daily Wear",
-      recovery: "Symptom Relief",
+      name: "Nonthermal Glue Ablation",
+      desc: "Uses a medical-grade adhesive delivered via catheter to close the vein without requiring heat or post-procedure compression stockings.",
       image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -193,12 +191,13 @@ export default function VenousDiseasePage() {
             <GuideSidebarNav
               title="Clinical Guide Contents"
               items={[
-                ["#overview", "Disease Overview & Anatomy"],
-                ["#symptoms", "Symptoms & Progression"],
+                ["#overview", "Overview"],
+                ["#types", "Types of Venous Disease"],
+                ["#symptoms", "Symptoms"],
                 ["#causes", "Causes & Risk Factors"],
-                ["#diagnosis", "Vascular Duplex Ultrasound"],
-                ["#treatments", "Minimally Invasive Therapies"],
-                ["#prevention", "Lifestyle & Compression"],
+                ["#diagnosis", "Diagnostic Testing"],
+                ["#treatment", "Treatment"],
+                ["#prevention", "Lifestyle & Prevention"],
                 ["#faqs", "Patient FAQs"],
               ]}
               cta={{
@@ -224,21 +223,10 @@ export default function VenousDiseasePage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Venous disease encompasses a wide spectrum of vascular
-                  conditions where the veins in the lower extremities struggle
-                  to pump oxygen-depleted blood back to the heart against
-                  gravity. Under normal conditions, tiny, delicate one-way
-                  valves inside your leg veins close to prevent blood from
-                  flowing backward.
+                  Venous disease is common and can affect your comfort, mobility, and quality of life. It occurs when the veins in your legs have difficulty returning blood to the heart, causing blood to pool in the lower legs.
                 </p>
                 <p>
-                  When these vein valves become damaged, stretched, or
-                  incompetent, blood begins to pool in the lower leg veins — a
-                  condition known as <strong>venous reflux</strong> or{" "}
-                  <strong>Chronic Venous Insufficiency (CVI)</strong>. Over
-                  time, high blood pressure inside the veins causes vessel walls
-                  to expand, leading to painful swelling, spider veins, bulging
-                  varicose veins, and skin ulcerations.
+                  When the small valves inside the veins become weak or damaged, blood can flow backward and increase pressure in the veins. This may cause swelling, aching, heaviness, varicose veins, skin changes, and, in advanced cases, leg ulcers.
                 </p>
               </div>
 
@@ -250,6 +238,62 @@ export default function VenousDiseasePage() {
                   fill
                   className="object-cover object-center"
                 />
+              </div>
+            </section>
+
+            {/* TYPES */}
+            <section
+              id="types"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Types of Venous Disease
+                </h2>
+              </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Venous disease can range from <strong>spider and varicose veins</strong> to <strong>chronic venous insufficiency</strong>, <strong>skin changes</strong>, and <strong>venous ulcers</strong>. Identifying the type and underlying cause helps us choose the right treatment for you.
+              </p>
+
+              <div className="divide-y divide-slate-200/80">
+                {typesList.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Types of Venous Disease Visual Infographic */}
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
+                  <Image
+                    src="/images/venous-types-visual-white.jpg"
+                    alt="Types of Venous Disease Medical Illustration"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Swelling has many causes. Not all leg swelling is due to veins—cardiac, renal, lymphatic, medication, and clot-related causes should be considered.
+                </p>
               </div>
             </section>
 
@@ -300,20 +344,19 @@ export default function VenousDiseasePage() {
                 </h2>
               </div>
 
-              <div className="space-y-4">
-                {riskFactors.map((r, i) => (
+              <div className="divide-y divide-slate-200/80">
+                {riskFactors.map((r) => (
                   <div
                     key={r.name}
-                    className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <div className="bg-blue-600 text-white font-extrabold text-xs h-6 w-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                      {i + 1}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 text-sm sm:text-base">
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                         {r.name}
-                      </h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mt-0.5">
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {r.detail}
                       </p>
                     </div>
@@ -334,10 +377,7 @@ export default function VenousDiseasePage() {
               </div>
 
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Accurate treatment begins with detailed vascular mapping. At
-                PulseCare Cardiology Clinic, Dr. Almahmoud performs
-                high-resolution <strong>Color Duplex Ultrasound scans</strong>{" "}
-                to evaluate lower extremity venous anatomy:
+                We combine a clinical examination with targeted tests when needed to identify the underlying problem, assess blood flow, and determine the most appropriate treatment for you.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -435,14 +475,14 @@ export default function VenousDiseasePage() {
               </div>
             </section>
 
-            {/* MINIMALLY INVASIVE TREATMENTS */}
+            {/* TREATMENT */}
             <section
-              id="treatments"
+              id="treatment"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="mb-8">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Minimally Invasive Endovenous Procedures
+                  Treatment
                 </h2>
               </div>
 
@@ -460,14 +500,6 @@ export default function VenousDiseasePage() {
                         className="object-cover object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                      <div className="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
-                        <span className="bg-blue-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                          {t.duration}
-                        </span>
-                        <span className="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm">
-                          {t.recovery}
-                        </span>
-                      </div>
                     </div>
                     <div className="p-5">
                       <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
