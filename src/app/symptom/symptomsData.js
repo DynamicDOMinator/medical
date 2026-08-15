@@ -12,7 +12,7 @@ export const symptomsData = {
       "A sensation of tightness, pressure, aching, or sharpness in the chest area. Understanding what it feels like and when to seek medical evaluation provides clarity and peace of mind.",
     understanding: {
       overview:
-        "Chest discomfort is one of the most common reasons patients seek medical advice. It can feel like a heavy band around the chest, an aching pressure, a sharp pinch when breathing deeply, or a burning sensation. It can develop gradually over weeks during physical activity, or occur intermittently when you are resting or feeling stressed. In plain terms, while chest discomfort can sometimes indicate a cardiac issue, it is also frequently caused by muscle strain, digestion, or stress.",
+        "Chest pain is discomfort or tightness anywhere in your chest area. It can feel heavy, aching, sharp, or burning. While it can be cardiac, common triggers also include muscle strain, acid reflux, and stress.",
       feelings: [
         "A sensation of heaviness, squeezing, or tightness across the central chest",
         "A dull ache or burning sensation that may spread toward the left shoulder, arm, or jaw",
@@ -20,9 +20,9 @@ export const symptomsData = {
         "Brief fluttering or fleeting twinges lasting only a few seconds",
       ],
       development:
-        "Chest sensations often develop in predictable patterns—such as during brisk walking, climbing stairs, or after a heavy meal—or they may appear without an obvious trigger during moments of fatigue or anxiety.",
+        "It often appears during physical activity, after meals, or during stress, but can also occur while resting.",
       meaning:
-        "Experiencing chest discomfort simply means your body is signaling that sensitive nerves in the chest wall, esophagus, lungs, or cardiovascular system are being stimulated. A structured clinical review helps identify the precise origin.",
+        "It indicates that sensitive nerves in your chest, muscles, or heart are reacting. A clinical check identifies the exact source.",
     },
     causes: {
       reassuranceNote:
@@ -141,7 +141,7 @@ export const symptomsData = {
       "Feeling breathless or unable to catch a full breath during ordinary activities. Professional evaluation identifies whether your heart or lungs need support.",
     understanding: {
       overview:
-        "Shortness of breath (medically known as dyspnea) is the sensation that you are working harder than usual to breathe, or that you cannot draw enough air into your lungs. It can happen after climbing a flight of stairs that used to be easy, when lying flat in bed at night, or suddenly during rest. In everyday terms, breathing is coordinated closely between your lungs, heart, and blood circulation. When any part of this system is under extra demand, your body prompts you to breathe more deeply.",
+        "Shortness of breath is feeling winded or working harder than usual to breathe. It can occur during exertion, at rest, or when lying flat. Common causes range from deconditioning and stress to heart and lung factors.",
       feelings: [
         "Feeling winded after light physical tasks like grocery shopping or climbing one flight of stairs",
         "Needing to prop yourself up on extra pillows at night to breathe comfortably",
@@ -149,9 +149,9 @@ export const symptomsData = {
         "Waking up abruptly a few hours after falling asleep feeling the urge to sit upright",
       ],
       development:
-        "Breathlessness can develop slowly over months as physical conditioning changes, or it can appear more noticeably after a viral illness, a change in blood pressure, or weight fluctuations.",
+        "It may build gradually over time or appear suddenly during exertion, stress, or when lying flat.",
       meaning:
-        "It is a protective signal from your body indicating that oxygen exchange or circulation needs assessment. In many cases, it is completely reversible once the underlying trigger is addressed.",
+        "Your body is signaling increased demand on your heart or lungs. Most causes are readily treatable once evaluated.",
     },
     causes: {
       reassuranceNote:
@@ -269,7 +269,7 @@ export const symptomsData = {
       "Feelings of a fluttering, racing, pounding, or skipped heartbeat. Reassuring evaluation determines the underlying electrical rhythm.",
     understanding: {
       overview:
-        "Palpitations are sensations where you become suddenly aware of your own heartbeat. You might feel like your heart just skipped a beat, added an extra thumping beat, or started fluttering rapidly like a butterfly in your chest. In everyday life, the heart beats roughly 100,000 times each day. Most of the time your brain filters this out, but changes in adrenaline, hydration, sleep, or electrical conduction can make you acutely aware of individual beats.",
+        "Palpitations are sensations where you notice your heart fluttering, pounding, or skipping a beat. They often happen during rest or activity. Common triggers include caffeine, dehydration, poor sleep, and stress.",
       feelings: [
         "A momentary pause followed by a noticeable 'hard thump' or flip-flop in the chest",
         "Rapid, fluttering heartbeats that start and stop suddenly",
@@ -277,9 +277,9 @@ export const symptomsData = {
         "A racing pulse that seems out of proportion to your physical activity level",
       ],
       development:
-        "Palpitations can happen at any time—often while relaxing on the sofa, after drinking an espresso, during a stressful meeting, or during athletic workouts.",
+        "They can occur during rest, exercise, stress, or after caffeine, poor sleep, or dehydration.",
       meaning:
-        "In the vast majority of people, palpitations represent harmless extra beats (ectopic beats). A rhythm assessment provides definitive confirmation.",
+        "Most flutterings are harmless extra beats. A simple rhythm check confirms your heart's baseline health.",
     },
     causes: {
       reassuranceNote:
@@ -397,7 +397,7 @@ export const symptomsData = {
       "Lightheadedness, unsteadiness, or temporary loss of consciousness (syncope). Structured cardiovascular evaluation clarifies the root cause.",
     understanding: {
       overview:
-        "Dizziness can range from feeling lightheaded when standing up quickly, to feeling unsteady on your feet, to a sudden blackout or fainting episode (syncope). In simple terms, your brain requires a continuous, stable supply of oxygenated blood and constant blood pressure. If blood pressure dips momentarily, or if the heart rhythm slows down or speeds up too dramatically, the brain briefly receives less blood flow, creating lightheadedness or causing the body to faint to restore blood flow.",
+        "Dizziness is feeling lightheaded, unsteady, or faint. It often happens when standing up quickly or in warm spaces. Common causes include temporary blood pressure shifts, dehydration, medications, and heart rhythm changes.",
       feelings: [
         "A feeling that the room is dimming or that you might pass out when standing up from a chair",
         "Unsteadiness or a floaty sensation in your head without the room actually spinning",
@@ -405,9 +405,9 @@ export const symptomsData = {
         "A brief blackout where you wake up on the floor with no memory of the fall",
       ],
       development:
-        "Episodes can occur after prolonged standing in warm environments, after dehydration, during intense emotional moments, or unexpectedly without any warning.",
+        "It often happens when standing up quickly, in warm rooms, during dehydration, or after intense exertion.",
       meaning:
-        "While many fainting spells are benign vasovagal reflexes, unexplained fainting warrants careful cardiac screening to rule out rhythm pauses or valve conditions.",
+        "Your brain briefly received less blood flow. Checking your blood pressure and heart rhythm pinpoints the cause.",
     },
     causes: {
       reassuranceNote:
@@ -525,7 +525,7 @@ export const symptomsData = {
       "Persistent, unexplained tiredness or low stamina that does not improve with standard rest. Comprehensive cardiac evaluation rules out circulatory strain.",
     understanding: {
       overview:
-        "Fatigue is more than just feeling sleepy after a busy day—it is an overwhelming lack of energy and physical stamina that makes ordinary daily tasks feel exhausting. You may find that your legs feel heavy, that walking across the room takes effort, or that you need frequent daytime naps. In plain language, your heart is the central pump delivering oxygen-rich and nutrient-dense blood to every muscle and organ in your body. When the pump is working under extra resistance or reduced efficiency, your body prioritizes vital organs, leaving your muscles feeling drained.",
+        "Fatigue is persistent low energy and reduced physical stamina that rest does not easily fix. Daily tasks may feel unusually exhausting. Common triggers include poor sleep, stress, vitamin deficiencies, and reduced circulation.",
       feelings: [
         "Waking up in the morning feeling unrefreshed despite a full night of sleep",
         "Feeling a heavy, sluggish exhaustion in your legs and arms during simple chores",
@@ -533,9 +533,9 @@ export const symptomsData = {
         "Needing several hours of rest after minor activities like grocery shopping or gardening",
       ],
       development:
-        "Cardiac fatigue typically builds gradually over weeks to months, often disguised as normal aging or stress until exercise tolerance becomes visibly restricted.",
+        "It tends to develop gradually over weeks, making ordinary daily tasks and exercise feel unusually tiring.",
       meaning:
-        "Fatigue is your body's universal cue that energy delivery is reduced. A targeted cardiac assessment ensures your heart and circulation are supporting your lifestyle.",
+        "Your body is working harder to deliver energy and oxygen to muscles. Evaluation helps restore your stamina.",
     },
     causes: {
       reassuranceNote:
@@ -657,7 +657,7 @@ export const symptomsData = {
       "Cramping, aching, or tightness in the calf, thigh, or buttock muscles during walking that resolves with rest (Claudication). Expert vascular screening evaluates blood flow.",
     understanding: {
       overview:
-        "Leg pain that predictably occurs while walking and goes away when you stop and rest is medically referred to as intermittent claudication. It feels like a tight, cramping ache in your calf, thigh, or buttock muscles. In plain language, when you walk, your leg muscles require more oxygen-rich blood. If the arteries supplying your legs are narrowed, the blood flow cannot keep up with the muscles' demand during movement, causing an ache that subsides once you rest.",
+        "Claudication is cramping or aching in your legs that occurs while walking and eases with rest. It feels like tired, tight muscles. Common causes include reduced arterial blood flow (PAD) and muscle fatigue.",
       feelings: [
         "A cramp-like ache in the calf or thigh after walking a predictable distance (e.g., two blocks)",
         "A sensation of heavy, tired, or tight muscles that forces you to pause for a few minutes",
@@ -665,9 +665,9 @@ export const symptomsData = {
         "Pain that returns when you resume walking the same distance",
       ],
       development:
-        "It usually begins gradually, starting on inclines or brisk walks, and over time may occur after shorter walking distances.",
+        "It typically starts after walking a set distance and reliably eases after a few minutes of rest.",
       meaning:
-        "This is a classic sign of Peripheral Artery Disease (PAD). Because arteries throughout the body are connected, detecting it early protects both your legs and your heart.",
+        "Your leg muscles need more blood flow during movement. Early detection protects your circulation.",
     },
     causes: {
       reassuranceNote:
@@ -785,7 +785,7 @@ export const symptomsData = {
       "Fluid accumulation in the lower legs, ankles, or feet (Edema). Specialized vascular and cardiac evaluations determine the precise origin.",
     understanding: {
       overview:
-        "Leg swelling (peripheral edema) occurs when excess fluid collects in the tissues of your lower legs, ankles, or feet. You might notice that your socks leave deep indentations, your shoes feel tight by evening, or pressing a finger against your shin leaves a temporary dimple (pitting). In everyday terms, veins in your legs work against gravity to carry blood back up to your heart with the help of tiny one-way valves and calf muscles. If these valves weaken or if the heart is pumping under elevated fluid pressure, fluid seeps into surrounding tissues.",
+        "Leg swelling is fluid buildup in your lower legs, ankles, or feet. It can make shoes feel tight and skin feel stretched. Common causes include prolonged standing, vein valve leakage, medications, and fluid retention.",
       feelings: [
         "Puffy, swollen ankles that look visibly larger at the end of the day",
         "Shoes or sandals that feel uncomfortably tight by afternoon or evening",
@@ -793,9 +793,9 @@ export const symptomsData = {
         "A temporary indent left behind when you press your thumb firmly against the ankle bone",
       ],
       development:
-        "Swelling often builds gradually throughout the day, especially after long periods of sitting or standing, and typically improves overnight after elevating your legs in bed.",
+        "It often builds toward the evening after standing or sitting, and improves overnight when you elevate your legs.",
       meaning:
-        "Leg swelling can stem from local vein valve leakage (venous insufficiency), medication side effects, or general fluid retention related to heart, kidney, or liver function.",
+        "Fluid is pooling in your lower limbs due to vein valves or fluid balance. Targeted care restores healthy flow.",
     },
     causes: {
       reassuranceNote:
@@ -913,7 +913,7 @@ export const symptomsData = {
       "A tired, full, throbbing, or restless sensation in the lower limbs, especially after standing. Targeted vascular assessment identifies venous valve function.",
     understanding: {
       overview:
-        "Leg heaviness and aching feels like carrying extra weight in your lower limbs, often described as a dull, throbbing, or tired sensation in the calves. It tends to worsen after standing on hard surfaces or sitting for hours, and often feels significantly better when you put your feet up. In everyday language, your veins rely on healthy internal one-way valves to prevent blood from flowing backward toward your feet. When these valves become stretched or inefficient, venous blood pressure builds in the lower leg, stretching tissue nerves and causing an aching, heavy sensation.",
+        "Leg heaviness is a tired, full, or throbbing ache in your lower legs, especially after standing. It typically improves when elevating your feet. The most common cause is vein valve strain and gravity pooling.",
       feelings: [
         "A heavy, lead-like feeling in the calves and thighs at the end of a workday",
         "A dull, persistent ache that improves almost immediately when you elevate your legs",
@@ -921,9 +921,9 @@ export const symptomsData = {
         "A tight, throbbing sensation in the lower calves after standing in one place",
       ],
       development:
-        "It typically progresses slowly over years, often aggravated by occupations requiring prolonged standing (such as teachers, nurses, or retail workers) or warm weather.",
+        "It gradually worsens after long hours of standing or sitting, and feels noticeably better when your legs are elevated.",
       meaning:
-        "This is the hallmark symptom of early Chronic Venous Insufficiency (CVI). Modern, non-invasive therapies can restore comfortable circulation.",
+        "Vein valves in your legs are working under gravity strain. Gentle in-office treatments provide lasting relief.",
     },
     causes: {
       reassuranceNote:
@@ -1041,7 +1041,7 @@ export const symptomsData = {
       "Enlarged, twisted, or bulging veins visible beneath the skin surface. Modern, minimally invasive vascular care restores comfort and circulation.",
     understanding: {
       overview:
-        "Varicose veins are swollen, twisted, blue or dark purple blood vessels that bulge noticeably beneath the surface of the skin, most commonly along the calves, inner thighs, or ankles. In everyday terms, veins are designed with delicate one-way valves that allow blood to travel up toward the heart while preventing it from sliding back down. When these valves stretch or weaken, blood pools in the superficial veins, causing them to expand, twist, and become prominent.",
+        "Varicose veins are enlarged, twisted blue or purple veins visible beneath the skin. They can cause aching, itching, or heaviness. Common contributors include genetics, prolonged standing, pregnancy, and vein valve reflux.",
       feelings: [
         "Visible bulging, rope-like blue or purple cords along the leg",
         "An uncomfortable burning, throbbing, or itching sensation over the enlarged veins",
@@ -1049,9 +1049,9 @@ export const symptomsData = {
         "Tenderness or mild aching when pressing directly over a bulging vein",
       ],
       development:
-        "They often develop gradually over years, influenced by genetics, pregnancy, standing occupations, and age.",
+        "They develop slowly over time due to genetics, standing work, pregnancy, or natural vein elasticity changes.",
       meaning:
-        "While many people view them as a cosmetic concern, varicose veins are a true medical condition representing underlying venous reflux that can be easily treated.",
+        "Surface vein valves are allowing blood to pool. Modern, minimally invasive treatments easily restore circulation.",
     },
     causes: {
       reassuranceNote:
@@ -1169,7 +1169,7 @@ export const symptomsData = {
       "Feet that feel unusually cold to the touch, or look pale, blue, purple, or mottled. Non-invasive vascular assessment checks microcirculation and arterial flow.",
     understanding: {
       overview:
-        "Having feet that feel noticeably colder than the rest of your body, or noticing that your toes turn white, pale, bluish-purple, or reddish, indicates changes in blood circulation or temperature regulation. In simple terms, your arterial system pumps warm, oxygen-rich blood from your heart all the way down to the tiny capillary blood vessels in your toes. If blood flow is slowed by narrowed arteries or if tiny vessels overreact to cool temperatures, the skin loses its warm pink tone and feels chilled.",
+        "Cold or discolored feet occur when your toes feel unusually chilly or turn pale, blue, or red. They may tingle or feel numb. Common causes include cool weather sensitivity (Raynaud's), nerve changes, and reduced arterial circulation.",
       feelings: [
         "Feet that feel icy cold even when wearing warm wool socks or under blankets",
         "Toes turning noticeably white or bluish in cool air, followed by redness and tingling when warming up",
@@ -1177,9 +1177,9 @@ export const symptomsData = {
         "Skin on the feet appearing pale, shiny, or unusually smooth with slow toenail growth",
       ],
       development:
-        "It can occur suddenly in response to cold weather, air conditioning, or emotional stress (spasm), or develop gradually as a sign of reduced arterial inflow.",
+        "It can trigger in cool air, air conditioning, or stress, or persist continuously from reduced blood flow.",
       meaning:
-        "A clinical vascular exam distinguishes between harmless cold sensitivity (Raynaud's phenomenon) and arterial blockages that need protection.",
+        "Your body's small blood vessels or arteries are reacting. A quick pulse exam clarifies your circulation.",
     },
     causes: {
       reassuranceNote:
@@ -1301,7 +1301,7 @@ export const symptomsData = {
       "Elevated blood pressure readings (Hypertension). Understanding blood pressure ranges, monitoring techniques, and individualized care protects your heart.",
     understanding: {
       overview:
-        "Blood pressure is the force of your blood pushing against the walls of your arteries as your heart pumps. A reading consists of two numbers: the top number (systolic) measures the pressure when your heart beats, and the bottom number (diastolic) measures the pressure when your heart rests between beats. In everyday terms, think of blood pressure like water pressure in a garden hose. When the pressure stays consistently too high (above 130/80 mmHg), the artery walls become stiffer, requiring your heart to work harder.",
+        "High blood pressure is elevated resistance against your artery walls as your heart pumps. Most people feel completely normal. Common contributors include genetics, dietary salt, stress, sleep apnea, and natural vascular stiffness.",
       feelings: [
         "High blood pressure is famously called the 'silent condition' because most people feel completely normal",
         "Occasional morning occipital tension or a sensation of mild pressure behind the eyes",
@@ -1309,9 +1309,9 @@ export const symptomsData = {
         "A sensation of hearing your pulse in your ears (pulsatile tinnitus) when resting quietly",
       ],
       development:
-        "It typically develops gradually over years, shaped by genetics, diet, stress, kidney function, and arterial elasticity.",
+        "It develops silently over years through genetics, diet, lifestyle, and natural arterial stiffness.",
       meaning:
-        "Having high blood pressure readings simply means your vascular resistance is elevated. With modern guidance, it is highly manageable and treatable.",
+        "Your heart and blood vessels are working under extra resistance. Proactive care keeps your heart protected.",
     },
     causes: {
       reassuranceNote:
@@ -1429,7 +1429,7 @@ export const symptomsData = {
       "Headaches that may be related to blood pressure fluctuations or cardiovascular tone. Expert evaluation clarifies the relationship between blood pressure and cranial discomfort.",
     understanding: {
       overview:
-        "A headache is pain or discomfort in any region of the head, varying from a dull tension band across the forehead to throbbing pressure at the back of the neck or skull (occipital region). In everyday terms, while everyday headaches are most commonly caused by muscle tension, eye strain, poor sleep, or dehydration, significant spikes in blood pressure can affect cranial blood vessel resistance. When blood pressure rises sharply, the pressure on cerebral micro-vessels can produce a characteristic morning throbbing sensation.",
+        "A headache is pain or discomfort anywhere in the head. It can feel dull, tight, or throbbing. Common triggers include muscle tension, eye strain, poor sleep, dehydration, and blood pressure changes.",
       feelings: [
         "A dull, throbbing pressure felt primarily at the back of the head or neck upon waking up in the morning",
         "A tight band-like sensation squeezing across the forehead and temples during stressful periods",
@@ -1437,9 +1437,9 @@ export const symptomsData = {
         "Head discomfort accompanied by mild visual fuzziness or fatigue",
       ],
       development:
-        "Hypertension-related headaches often appear in the morning and gradually ease after sitting upright and moving around, whereas tension headaches typically build toward the end of a long workday.",
+        "They often appear in the morning or during stress, easing after moving around, resting, or hydrating.",
       meaning:
-        "Checking your blood pressure when a headache occurs helps determine whether the headache is vascular, tension-related, or a sign of elevated pressure.",
+        "Checking your blood pressure during a headache clarifies whether it is tension-related or vascular.",
     },
     causes: {
       reassuranceNote:
@@ -1557,7 +1557,7 @@ export const symptomsData = {
       "Lightheadedness or unsteadiness related to blood pressure regulation and vascular tone. Comprehensive cardiovascular assessment ensures stable cerebral perfusion.",
     understanding: {
       overview:
-        "Dizziness associated with blood pressure often feels like lightheadedness, wooziness, or a momentary feeling of unsteadiness when changing positions. In plain language, your body relies on sensitive pressure sensors (baroreceptors) in your neck and heart to fine-tune blood pressure from second to second. If blood pressure fluctuates too rapidly—either spiking or dropping too low from medications—the brain experiences brief changes in blood flow, creating a fleeting sensation of lightheadedness.",
+        "Dizziness is feeling woozy, floaty, or unsteady on your feet. It often occurs when changing positions or starting medications. Common causes include blood pressure fluctuations, dehydration, and inner ear changes.",
       feelings: [
         "Feeling lightheaded or faint when standing up from a chair or bed (postural dizziness)",
         "A floaty, woozy sensation when walking through busy environments or under bright lights",
@@ -1565,9 +1565,9 @@ export const symptomsData = {
         "Unsteadiness paired with a feeling of warmth or mild nausea",
       ],
       development:
-        "It can occur after starting a new blood pressure prescription, increasing a dosage, after prolonged bed rest, or in warm weather when blood vessels naturally dilate.",
+        "It often occurs when changing positions, starting new blood pressure medication, or in warm weather.",
       meaning:
-        "Dizziness is a sign that blood pressure regulation needs fine-tuning. Adjusting hydration, posture habits, or medication doses usually restores stability.",
+        "Your blood pressure regulation needs fine-tuning. Simple adjustments quickly restore your balance.",
     },
     causes: {
       reassuranceNote:

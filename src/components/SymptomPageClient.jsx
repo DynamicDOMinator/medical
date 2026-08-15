@@ -6,18 +6,26 @@ import {
   CheckCircle2,
   AlertTriangle,
   ChevronDown,
-  Calendar,
   ShieldCheck,
-  HelpCircle,
-  Clock,
   Activity,
   Info,
   ChevronRight,
+  Plus,
 } from "lucide-react";
 import SymptomIllustration from "@/components/SymptomIllustration";
 import StickyDiagnosisBar from "@/components/StickyDiagnosisBar";
 
 export default function SymptomPageClient({ symptom }) {
+  // Causes accordion state
+  const [openCauses, setOpenCauses] = useState({});
+
+  const toggleCause = (key) => {
+    setOpenCauses((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   // Section 6: Interactive FAQ state (all closed by default)
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
@@ -92,7 +100,7 @@ export default function SymptomPageClient({ symptom }) {
                 {symptom.understanding.feelings.map((feeling, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 bg-white p-3 rounded-xl border border-slate-200/60 shadow-2xs"
+                    className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 py-1"
                   >
                     <CheckCircle2 className="h-4 w-4 text-sky-600 shrink-0 mt-0.5" />
                     <span>{feeling}</span>
@@ -161,49 +169,87 @@ export default function SymptomPageClient({ symptom }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Everyday / Common Causes */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+              <div className="border-b border-slate-200/70 pb-3">
                 <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                   Everyday & Non-Cardiac Factors
                 </h3>
-                <span className="text-[10px] font-bold px-2 py-0.5 bg-white border border-slate-200 rounded-full text-slate-600">
-                  Common
-                </span>
               </div>
-              <div className="space-y-3">
-                {symptom.causes.commonCauses.map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200/60 shadow-2xs space-y-1">
-                    <h4 className="font-bold text-slate-900 text-xs sm:text-sm">
-                      {item.title}
-                    </h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
+              <div className="divide-y divide-slate-200/70">
+                {symptom.causes.commonCauses.map((item, idx) => {
+                  const key = `common-${idx}`;
+                  const isOpen = !!openCauses[key];
+                  return (
+                    <div key={idx} className="py-3 first:pt-0 last:pb-0">
+                      <button
+                        type="button"
+                        onClick={() => toggleCause(key)}
+                        className="w-full flex items-center justify-between text-left gap-3 group focus:outline-none cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
+                          {item.title}
+                        </h4>
+                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${
+                          isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
+                        }`}>
+                          <Plus
+                            className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                              isOpen ? "rotate-45 text-blue-600" : ""
+                            }`}
+                          />
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <p className="text-slate-600 text-xs leading-relaxed pt-2">
+                          {item.desc}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Cardiovascular & Vascular Considerations */}
             <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+              <div className="border-b border-slate-200/70 pb-3">
                 <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                   Cardiovascular & Vascular Conditions
                 </h3>
-                <span className="text-[10px] font-bold px-2 py-0.5 bg-blue-100 border border-blue-200 rounded-full text-blue-800">
-                  Clinical Workup
-                </span>
               </div>
-              <div className="space-y-3">
-                {symptom.causes.cardiovascularCauses.map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200/60 shadow-2xs space-y-1">
-                    <h4 className="font-bold text-slate-900 text-xs sm:text-sm">
-                      {item.title}
-                    </h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
+              <div className="divide-y divide-slate-200/70">
+                {symptom.causes.cardiovascularCauses.map((item, idx) => {
+                  const key = `cardio-${idx}`;
+                  const isOpen = !!openCauses[key];
+                  return (
+                    <div key={idx} className="py-3 first:pt-0 last:pb-0">
+                      <button
+                        type="button"
+                        onClick={() => toggleCause(key)}
+                        className="w-full flex items-center justify-between text-left gap-3 group focus:outline-none cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
+                          {item.title}
+                        </h4>
+                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${
+                          isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
+                        }`}>
+                          <Plus
+                            className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                              isOpen ? "rotate-45 text-blue-600" : ""
+                            }`}
+                          />
+                        </div>
+                      </button>
+                      {isOpen && (
+                        <p className="text-slate-600 text-xs leading-relaxed pt-2">
+                          {item.desc}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -347,7 +393,7 @@ export default function SymptomPageClient({ symptom }) {
         <section
           id="what-can-help"
           aria-labelledby="section-what-can-help"
-          className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
+          className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6"
         >
           <div>
             <h2
@@ -358,59 +404,52 @@ export default function SymptomPageClient({ symptom }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Practical Daily Guidance */}
-            <div className="space-y-4">
-              <h3 className="font-extrabold text-slate-900 text-base flex items-center space-x-2">
-                <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                <span>Practical Daily Measures</span>
-              </h3>
-              <div className="space-y-3">
+          <div className="divide-y divide-slate-200/80">
+            {/* Practical Daily Measures */}
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1">
+              <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                  Practical Daily Measures
+                </h3>
+              </div>
+              <div className="flex-1 space-y-2">
                 {symptom.whatCanHelp.practicalGuidance.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start space-x-3"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0 mt-2" />
-                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-                      {item}
-                    </p>
-                  </div>
+                  <p key={idx} className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item}
+                  </p>
                 ))}
               </div>
             </div>
 
             {/* What You Should Monitor */}
-            <div className="space-y-4">
-              <h3 className="font-extrabold text-slate-900 text-base flex items-center space-x-2">
-                <Clock className="h-5 w-5 text-blue-600" />
-                <span>What You Should Track & Monitor</span>
-              </h3>
-              <div className="space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors">
+              <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                  What You Should Monitor
+                </h3>
+              </div>
+              <div className="flex-1 space-y-2">
                 {symptom.whatCanHelp.whatToMonitor.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start space-x-3"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-sky-500 shrink-0 mt-2" />
-                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-                      {item}
-                    </p>
-                  </div>
+                  <p key={idx} className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item}
+                  </p>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* When to Arrange Assessment Banner */}
-          <div className="p-6 rounded-2xl bg-blue-50/80 border border-blue-200/80 space-y-2">
-            <h3 className="font-extrabold text-blue-950 text-sm sm:text-base flex items-center space-x-2">
-              <Calendar className="h-4 w-4 text-blue-600" />
-              <span>When to Arrange a Professional Assessment</span>
-            </h3>
-            <p className="text-blue-900 text-xs sm:text-sm leading-relaxed">
-              {symptom.whatCanHelp.whenToArrangeAssessment}
-            </p>
+            {/* When to Arrange Assessment */}
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors last:pb-1">
+              <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                  When to Arrange Assessment
+                </h3>
+              </div>
+              <div className="flex-1">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  {symptom.whatCanHelp.whenToArrangeAssessment}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -453,14 +492,7 @@ export default function SymptomPageClient({ symptom }) {
                     className="w-full p-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 focus:outline-none"
                     aria-expanded={isOpen}
                   >
-                    <div className="flex items-center space-x-3">
-                      <HelpCircle
-                        className={`h-5 w-5 shrink-0 transition-colors ${
-                          isOpen ? "text-blue-600" : "text-slate-400"
-                        }`}
-                      />
-                      <span>{faq.question}</span>
-                    </div>
+                    <span>{faq.question}</span>
                     <ChevronDown
                       className={`h-5 w-5 text-slate-400 shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-blue-600" : ""
