@@ -118,20 +118,18 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref, isActive }) {
     >
       <button
         type="button"
-        className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-          isActive
+        className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${isActive
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : open
-            ? "bg-blue-50 text-blue-700"
-            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
-        }`}
+              ? "bg-blue-50 text-blue-700"
+              : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
+          }`}
       >
         <Icon className={`h-4 w-4 ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-500"}`} />
         <span>{label}</span>
         <ChevronDown
-          className={`h-3.5 w-3.5 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""
+            } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
         />
       </button>
 
@@ -155,7 +153,7 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref, isActive }) {
             ))}
           </div>
           {/* Browse All as the last item */}
-          <div className="mt-1 pt-1 border-t border-slate-100">
+          <div className="mt-1 pt-1 border-t border-slate-500">
             <Link
               href={categoryHref}
               onClick={() => setOpen(false)}
@@ -191,20 +189,18 @@ function SymptomsMegaDropdown({ isActive }) {
     >
       <button
         type="button"
-        className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-          isActive
+        className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${isActive
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : open
-            ? "bg-blue-50 text-blue-700"
-            : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
-        }`}
+              ? "bg-blue-50 text-blue-700"
+              : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
+          }`}
       >
         <Stethoscope className={`h-4 w-4 ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-500"}`} />
         <span>Symptoms</span>
         <ChevronDown
-          className={`h-3.5 w-3.5 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""
+            } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
         />
       </button>
 
@@ -244,7 +240,7 @@ function SymptomsMegaDropdown({ isActive }) {
           </div>
 
           {/* Minimalist Bottom Bar */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+          <div className="mt-4 pt-3 border-t border-slate-500 flex items-center justify-between text-xs text-slate-500">
             <span className="text-[11px] text-slate-400">
               Select any symptom for targeted diagnostic guidance
             </span>
@@ -266,10 +262,16 @@ function SymptomsMegaDropdown({ isActive }) {
 export default function Navbar() {
   const pathname = usePathname() || "";
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileHeartOpen, setMobileHeartOpen] = useState(false);
-  const [mobileVesselsOpen, setMobileVesselsOpen] = useState(false);
-  const [mobileSymptomsOpen, setMobileSymptomsOpen] = useState(false);
+  const [openMobileTab, setOpenMobileTab] = useState(null);
   const [activeMobileSymptomCat, setActiveMobileSymptomCat] = useState("heart");
+
+  const toggleMobileTab = (tab) => {
+    setOpenMobileTab((prev) => (prev === tab ? null : tab));
+  };
+
+  const mobileHeartOpen = openMobileTab === "heart";
+  const mobileVesselsOpen = openMobileTab === "vessels";
+  const mobileSymptomsOpen = openMobileTab === "symptoms";
 
   // Precise route matching so no two items are active simultaneously
   const isHeartActive =
@@ -292,7 +294,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="max-w-7xl mt-3 sm:mt-4 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg shadow-slate-950/5 mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
+      <div className="md:max-w-7xl max-w-[96%] mt-3 sm:mt-4 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg shadow-slate-950/5 mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
         <div className="flex justify-between h-16 items-center">
           {/* Clinic Brand Logo */}
           <Link
@@ -325,11 +327,10 @@ export default function Navbar() {
             />
             <Link
               href="/blood-vessels/hypertension"
-              className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-                isHypertensionActive
+              className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${isHypertensionActive
                   ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
                   : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
-              }`}
+                }`}
             >
               <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-slate-500"}`} />
               <span>Hypertension</span>
@@ -347,11 +348,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${
-                    isLinkActive
+                  className={`text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${isLinkActive
                       ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
                       : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -391,7 +391,7 @@ export default function Navbar() {
             <div>
               <button
                 type="button"
-                onClick={() => setMobileHeartOpen(!mobileHeartOpen)}
+                onClick={() => toggleMobileTab("heart")}
                 className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-bold text-slate-800 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
@@ -399,9 +399,8 @@ export default function Navbar() {
                   <span>Heart Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
-                    mobileHeartOpen ? "rotate-180 text-blue-600" : ""
-                  }`}
+                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileHeartOpen ? "rotate-180 text-blue-600" : ""
+                    }`}
                 />
               </button>
               {mobileHeartOpen && (
@@ -419,7 +418,7 @@ export default function Navbar() {
                   <Link
                     href="/heart"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-100"
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-500"
                   >
                     <span>Browse All Heart Conditions →</span>
                   </Link>
@@ -431,7 +430,7 @@ export default function Navbar() {
             <div>
               <button
                 type="button"
-                onClick={() => setMobileVesselsOpen(!mobileVesselsOpen)}
+                onClick={() => toggleMobileTab("vessels")}
                 className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-bold text-slate-800 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
@@ -439,9 +438,8 @@ export default function Navbar() {
                   <span>Blood Vessel Conditions</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
-                    mobileVesselsOpen ? "rotate-180 text-blue-600" : ""
-                  }`}
+                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileVesselsOpen ? "rotate-180 text-blue-600" : ""
+                    }`}
                 />
               </button>
               {mobileVesselsOpen && (
@@ -459,7 +457,7 @@ export default function Navbar() {
                   <Link
                     href="/blood-vessels"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-100"
+                    className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-500"
                   >
                     <span>Browse All Vascular Conditions →</span>
                   </Link>
@@ -471,11 +469,10 @@ export default function Navbar() {
             <Link
               href="/blood-vessels/hypertension"
               onClick={() => setMobileOpen(false)}
-              className={`flex items-center space-x-2 px-3 py-2.5 text-sm font-bold transition-colors ${
-                isHypertensionActive
+              className={`flex items-center space-x-2 px-3 py-2.5 text-sm font-bold transition-colors ${isHypertensionActive
                   ? "bg-blue-600 text-white rounded-xl shadow-sm"
                   : "text-slate-800 hover:text-blue-600"
-              }`}
+                }`}
             >
               <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-blue-600"}`} />
               <span>Hypertension</span>
@@ -485,7 +482,7 @@ export default function Navbar() {
             <div>
               <button
                 type="button"
-                onClick={() => setMobileSymptomsOpen(!mobileSymptomsOpen)}
+                onClick={() => toggleMobileTab("symptoms")}
                 className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-bold text-slate-800 transition-colors hover:text-blue-600"
               >
                 <div className="flex items-center space-x-2">
@@ -493,9 +490,8 @@ export default function Navbar() {
                   <span>Symptoms</span>
                 </div>
                 <ChevronDown
-                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${
-                    mobileSymptomsOpen ? "rotate-180 text-blue-600" : ""
-                  }`}
+                  className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileSymptomsOpen ? "rotate-180 text-blue-600" : ""
+                    }`}
                 />
               </button>
 
@@ -518,9 +514,8 @@ export default function Navbar() {
                             <span>{cat.category}</span>
                           </div>
                           <ChevronDown
-                            className={`h-3 w-3 text-slate-400 transition-transform ${
-                              isExpanded ? "rotate-180 text-blue-600" : ""
-                            }`}
+                            className={`h-3 w-3 text-slate-400 transition-transform ${isExpanded ? "rotate-180 text-blue-600" : ""
+                              }`}
                           />
                         </button>
 
@@ -554,11 +549,10 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block px-3 py-2 rounded-xl text-sm font-semibold ${
-                      isLinkActive
+                    className={`block px-3 py-2 rounded-xl text-sm font-semibold ${isLinkActive
                         ? "bg-blue-600 text-white font-bold shadow-sm"
                         : "text-slate-700 hover:bg-slate-50"
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>
