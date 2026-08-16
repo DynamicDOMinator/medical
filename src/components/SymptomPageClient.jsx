@@ -100,9 +100,8 @@ export default function SymptomPageClient({ symptom }) {
                 {symptom.understanding.feelings.map((feeling, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 py-1"
+                    className="text-xs sm:text-sm text-slate-700 py-1"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-sky-600 shrink-0 mt-0.5" />
                     <span>{feeling}</span>
                   </li>
                 ))}
@@ -127,9 +126,6 @@ export default function SymptomPageClient({ symptom }) {
             <div className="w-full">
               <SymptomIllustration slug={symptom.slug} name={symptom.name} />
             </div>
-            <p className="text-[11px] text-slate-400 text-center mt-3 font-medium">
-              Descriptive medical illustration of physiological pathways related to {symptom.name.toLowerCase()}.
-            </p>
           </div>
         </section>
 
@@ -151,18 +147,16 @@ export default function SymptomPageClient({ symptom }) {
           </div>
 
           {/* Reassurance Callout Box */}
-          <div className="bg-sky-50/80 border border-sky-200/80 rounded-2xl p-5 sm:p-6 flex items-start space-x-4">
-            <div className="bg-sky-600 text-white p-2 rounded-xl shrink-0 mt-0.5 shadow-sm">
-              <ShieldCheck className="h-5 w-5" />
-            </div>
-            <div className="space-y-1">
+          <div className="bg-sky-50/80 border border-sky-200/80 rounded-2xl p-5 sm:p-6 space-y-2">
+            <div className="flex items-center space-x-2.5">
+              <ShieldCheck className="h-5 w-5 text-sky-600 shrink-0" />
               <h3 className="font-extrabold text-sky-950 text-sm sm:text-base">
                 A Reassuring Note for Patients
               </h3>
-              <p className="text-sky-900/90 text-xs sm:text-sm leading-relaxed">
-                {symptom.causes.reassuranceNote}
-              </p>
             </div>
+            <p className="text-sky-900/90 text-xs sm:text-sm leading-relaxed">
+              {symptom.causes.reassuranceNote}
+            </p>
           </div>
 
           {/* Side-by-side Cause Categories */}
@@ -314,56 +308,22 @@ export default function SymptomPageClient({ symptom }) {
         <section
           id="urgent-care"
           aria-labelledby="section-urgent-care"
-          className="bg-amber-50/90 border-2 border-amber-300/80 rounded-3xl p-6 sm:p-10 shadow-sm space-y-8"
+          className="bg-gradient-to-br from-rose-50/50 via-slate-50/80 to-amber-50/30 rounded-3xl border border-rose-200/70 shadow-sm p-6 sm:p-10 space-y-8"
         >
-          <div className="border-b border-amber-200/80 pb-5">
-            <div className="flex items-center space-x-3">
-              <div className="bg-amber-500 text-white p-2.5 rounded-xl shadow-sm shrink-0">
-                <AlertTriangle className="h-6 w-6" />
-              </div>
-              <div>
-                <h2
-                  id="section-urgent-care"
-                  className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
-                >
-                  When Should You Seek Urgent Care?
-                </h2>
-                <p className="text-amber-900 text-xs sm:text-sm font-medium mt-0.5">
-                  Clear guidance distinguishing immediate medical red flags from symptoms suitable for routine clinic assessment.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Urgent Warning Signs (Immediate Action Required) */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <span className="h-3 w-3 rounded-full bg-rose-600 animate-pulse" />
-              <h3 className="font-extrabold text-rose-950 text-sm sm:text-base">
-                Immediate Emergency Warning Signs (Call 911 / 999):
-              </h3>
-            </div>
-            <p className="text-amber-950 text-xs sm:text-sm">
-              {symptom.urgentCare.emergencyIntro}
+          <div>
+            <h2
+              id="section-urgent-care"
+              className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+            >
+              When Should You Seek Urgent Care?
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-1">
+              Clear guidance distinguishing immediate medical red flags from symptoms suitable for routine clinic assessment.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {symptom.urgentCare.warningSigns.map((sign, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start space-x-3 p-4 rounded-xl bg-white border border-rose-200 shadow-2xs"
-                >
-                  <AlertTriangle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span className="text-slate-900 text-xs sm:text-sm font-bold leading-snug">
-                    {sign}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Routine Assessment Symptoms (Non-Emergency) */}
-          <div className="pt-4 border-t border-amber-200/80 space-y-4">
+          <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <span className="h-3 w-3 rounded-full bg-emerald-600" />
               <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
@@ -371,15 +331,42 @@ export default function SymptomPageClient({ symptom }) {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               {symptom.urgentCare.routineAssessment.map((routine, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start space-x-3 p-4 rounded-xl bg-white/80 border border-slate-200/80"
+                  className="flex items-start space-x-3 py-1.5"
                 >
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">
                     {routine}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Urgent Warning Signs (Immediate Action Required) */}
+          <div className="pt-6 border-t border-slate-200/70 space-y-4">
+            <div className="flex items-center space-x-2">
+              <span className="h-3 w-3 rounded-full bg-rose-600 animate-pulse" />
+              <h3 className="font-extrabold text-rose-950 text-sm sm:text-base">
+                Immediate Emergency Warning Signs (Call 911 / 999):
+              </h3>
+            </div>
+            <p className="text-slate-600 text-xs sm:text-sm">
+              {symptom.urgentCare.emergencyIntro}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              {symptom.urgentCare.warningSigns.map((sign, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start space-x-3 py-1.5"
+                >
+                  <AlertTriangle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
+                  <span className="text-slate-900 text-xs sm:text-sm font-bold leading-snug">
+                    {sign}
                   </span>
                 </div>
               ))}
