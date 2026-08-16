@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Heart, Navigation, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Heart, Navigation, ExternalLink, Printer } from "lucide-react";
 
 export const metadata = {
   title: "Contact PulseCare Cardiology | Book a Consultation",
@@ -219,10 +219,9 @@ export default function ContactPage() {
                     isTel: true,
                   },
                   {
-                    icon: Phone,
-                    label: "Direct Inquiries",
-                    value: "+1 (312) 787-9332",
-                    isTel: true,
+                    icon: Printer,
+                    label: "Fax Number",
+                    value: "+1 (832) 861-4762",
                   },
                   {
                     icon: Mail,

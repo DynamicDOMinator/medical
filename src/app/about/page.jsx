@@ -450,10 +450,10 @@ export default function AboutPage() {
                         +1 (312) 787-9332
                       </a>
                       <br />
-                      Direct Inquiries:{" "}
-                      <a href="tel:+13127879332" className="font-semibold text-slate-800 hover:text-blue-600">
-                        +1 (312) 787-9332
-                      </a>
+                      Fax:{" "}
+                      <span className="font-semibold text-slate-800">
+                        +1 (832) 861-4762
+                      </span>
                     </p>
                   </div>
                 </div>
