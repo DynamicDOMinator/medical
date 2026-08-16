@@ -28,15 +28,15 @@ export default function Footer() {
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
-                <span>233 E Erie St Ste 500, Chicago, IL 60611 (Floor 1 · Streeterville Center Condos)</span>
+                <span>150 Pine Forest Drive # 102, The Woodlands, TX 77384</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-brand-400 shrink-0" />
                 <a
-                  href="tel:+13127879332"
+                  href="tel:+12813581950"
                   className="hover:text-white transition-colors"
                 >
-                  +1 (312) 787-9332
+                  +1 (281) 358-1950
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -96,9 +96,15 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-slate-400">
               <li className="flex justify-between">
-                <span>Monday - Friday:</span>
+                <span>Mon - Thu:</span>
                 <span className="text-white font-medium">
                   8:00 AM - 6:00 PM
+                </span>
+              </li>
+              <li className="flex justify-between">
+                <span>Friday:</span>
+                <span className="text-white font-medium">
+                  8:00 AM - 1:00 PM
                 </span>
               </li>
               <li className="flex justify-between">

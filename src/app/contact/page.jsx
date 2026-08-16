@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Heart, Navigation, ExternalLink, Printer } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Heart, Navigation, ExternalLink, Printer, Calendar } from "lucide-react";
 
 export const metadata = {
   title: "Contact PulseCare Cardiology | Book a Consultation",
@@ -8,7 +8,10 @@ export const metadata = {
 };
 
 const GOOGLE_MAPS_LOCATION_URL =
-  "https://www.google.com/maps/search/?api=1&query=233+E+Erie+St+Ste+500,+Chicago,+IL+60611";
+  "https://www.google.com/maps/search/?api=1&query=150+Pine+Forest+Drive+%23+102,+The+Woodlands,+TX+77384";
+
+const HEALOW_BOOKING_URL =
+  "https://healow.com/apps/provider/mohamed-almahmoud-2103459";
 
 export default function ContactPage() {
   return (
@@ -40,162 +43,190 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form - ORDER 1 ON PHONE (Mobile), ORDER 2 ON DESKTOP */}
-          <div className="order-1 lg:order-2 bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-5 shadow-sm">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-800">
-                Request an Appointment
-              </h2>
-              <p className="text-slate-500 text-sm mt-1">
-                Our patient coordinators will reach out within 1 business day to confirm your appointment.
-              </p>
-            </div>
+          {/* Contact Form Column - ORDER 1 ON PHONE (Mobile), ORDER 2 ON DESKTOP */}
+          <div className="order-1 lg:order-2 space-y-4">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-5 shadow-sm">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-800">
+                  Request an Appointment
+                </h2>
+                <p className="text-slate-500 text-sm mt-1">
+                  Our patient coordinators will reach out within 1 business day to confirm your appointment.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    First Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="John"
+                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Last Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Doe"
+                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+1 (555) 000-0000"
+                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="john@example.com"
+                    className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Reason for Visit / Appointment (TEXT INPUT as requested) */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  First Name <span className="text-red-500">*</span>
+                  Reason for Appointment <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="John"
+                  placeholder="Type the reason for your appointment (e.g. Chest pain, arrhythmia, second opinion...)"
                   className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
                 />
               </div>
+
+              {/* Preferred contact method */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Last Name <span className="text-red-500">*</span>
+                <label className="block text-xs font-bold text-slate-800 mb-2">
+                  Preferred contact method <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Doe"
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                />
+                <div className="flex items-center space-x-6">
+                  <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="contact_method"
+                      value="Phone"
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                    />
+                    <span>Phone</span>
+                  </label>
+                  <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="contact_method"
+                      value="Email"
+                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
+                    />
+                    <span>Email</span>
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Who are you? */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Phone Number <span className="text-red-500">*</span>
+                <label className="block text-xs font-bold text-slate-800 mb-2">
+                  Who are you? <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="tel"
-                  placeholder="+1 (555) 000-0000"
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                />
+                <div className="flex flex-wrap items-center gap-6">
+                  <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="patient_type"
+                      value="New Patient"
+                      className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                    />
+                    <span>A New Patient</span>
+                  </label>
+                  <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="patient_type"
+                      value="Existing Patient"
+                      className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                    />
+                    <span>An Existing Patient</span>
+                  </label>
+                </div>
               </div>
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                />
-              </div>
-            </div>
 
-            {/* Reason for Visit / Appointment (TEXT INPUT as requested) */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                Reason for Appointment <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Type the reason for your appointment (e.g. Chest pain, arrhythmia, second opinion...)"
-                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-              />
-            </div>
-
-            {/* Preferred contact method */}
-            <div>
-              <label className="block text-xs font-bold text-slate-800 mb-2">
-                Preferred contact method <span className="text-red-500">*</span>
-              </label>
-              <div className="flex items-center space-x-6">
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="contact_method"
-                    value="Phone"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>Phone</span>
+              {/* Agreement */}
+              <div className="pt-2 border-t border-slate-100">
+                <label className="block text-xs font-bold text-slate-800 mb-2">
+                  Agreement <span className="text-red-500">*</span>
                 </label>
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="contact_method"
-                    value="Email"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>Email</span>
-                </label>
-              </div>
-            </div>
-
-            {/* Who are you? */}
-            <div>
-              <label className="block text-xs font-bold text-slate-800 mb-2">
-                Who are you? <span className="text-red-500">*</span>
-              </label>
-              <div className="flex flex-wrap items-center gap-6">
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                <label className="flex items-start space-x-2.5 text-sm text-slate-700 cursor-pointer">
                   <input
                     type="checkbox"
-                    name="patient_type"
-                    value="New Patient"
-                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                    required
+                    className="h-4 w-4 mt-0.5 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
                   />
-                  <span>A New Patient</span>
-                </label>
-                <label className="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="patient_type"
-                    value="Existing Patient"
-                    className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
-                  />
-                  <span>An Existing Patient</span>
+                  <span className="text-xs text-slate-600 leading-relaxed">
+                    I consent to communicate with me for treatment purposes.
+                  </span>
                 </label>
               </div>
-            </div>
 
-            {/* Agreement */}
-            <div className="pt-2 border-t border-slate-100">
-              <label className="block text-xs font-bold text-slate-800 mb-2">
-                Agreement <span className="text-red-500">*</span>
-              </label>
-              <label className="flex items-start space-x-2.5 text-sm text-slate-700 cursor-pointer">
-                <input
-                  type="checkbox"
-                  required
-                  className="h-4 w-4 mt-0.5 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+              {/* Additional Notes */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Additional Notes
+                </label>
+                <textarea
+                  rows={3}
+                  placeholder="Please share any relevant medical history or symptoms..."
+                  className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
                 />
-                <span className="text-xs text-slate-600 leading-relaxed">
-                  I consent to communicate with me for treatment purposes.
-                </span>
-              </label>
+              </div>
+
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-md shadow-blue-600/20 text-sm cursor-pointer">
+                <Heart className="h-4 w-4" fill="currentColor" />
+                <span>Request My Appointment</span>
+              </button>
             </div>
 
-            {/* Additional Notes */}
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                Additional Notes
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Please share any relevant medical history or symptoms..."
-                className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
-              />
+            {/* Direct Book Online Banner outside the form container */}
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-3.5 text-left w-full sm:w-auto">
+                <div className="bg-blue-50 border border-blue-100 p-2.5 rounded-xl shrink-0 text-blue-600">
+                  <Calendar className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-900">
+                    Prefer direct scheduling?
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    Select a time slot and book online instantly via Healow.
+                  </p>
+                </div>
+              </div>
+              <a
+                href={HEALOW_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center space-x-2 px-6 py-3 bg-slate-900 hover:bg-blue-600 text-white font-bold rounded-xl transition-all text-xs sm:text-sm shadow-md active:scale-95 text-center"
+              >
+                <span>Book Online</span>
+                <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
-
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-md shadow-blue-600/20 text-sm cursor-pointer">
-              <Heart className="h-4 w-4" fill="currentColor" />
-              <span>Request My Appointment</span>
-            </button>
           </div>
 
           {/* Clinic Information & Google Map with Hours - ORDER 2 ON PHONE (Mobile), ORDER 1 ON DESKTOP */}
@@ -210,18 +241,18 @@ export default function ContactPage() {
                   {
                     icon: MapPin,
                     label: "Address",
-                    value: "233 E Erie St Ste 500\nChicago, IL 60611, United States\n(Floor 1 · Streeterville Center Condos)",
+                    value: "150 Pine Forest Drive # 102\nThe Woodlands, TX 77384, United States",
                   },
                   {
                     icon: Phone,
                     label: "Main Line",
-                    value: "+1 (312) 787-9332",
+                    value: "+1 (281) 358-1950",
                     isTel: true,
                   },
                   {
                     icon: Printer,
                     label: "Fax Number",
-                    value: "+1 (832) 861-4762",
+                    value: "+1 (281) 358-1923",
                   },
                   {
                     icon: Mail,
@@ -271,7 +302,8 @@ export default function ContactPage() {
               </div>
               <div className="space-y-2.5 text-sm divide-y divide-slate-100 pt-1">
                 {[
-                  ["Monday – Friday", "8:00 AM – 6:00 PM"],
+                  ["Monday – Thursday", "8:00 AM – 6:00 PM"],
+                  ["Friday", "8:00 AM – 1:00 PM"],
                   ["Saturday", "9:00 AM – 2:00 PM"],
                   ["Sunday", "Closed (Emergency Line Open)"],
                 ].map(([day, hours]) => (
@@ -309,7 +341,7 @@ export default function ContactPage() {
               <div className="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
                 <iframe
                   title="PulseCare Clinic Google Map Location"
-                  src="https://maps.google.com/maps?q=233+E+Erie+St+Ste+500,+Chicago,+IL+60611&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=150+Pine+Forest+Drive+%23+102,+The+Woodlands,+TX+77384&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

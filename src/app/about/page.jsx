@@ -425,11 +425,9 @@ export default function AboutPage() {
                       Facility Address
                     </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      233 E Erie St Ste 500
+                      150 Pine Forest Drive # 102
                       <br />
-                      Chicago, IL 60611, United States
-                      <br />
-                      <span className="text-slate-500 font-medium">(Floor 1 · Streeterville Center Condos)</span>
+                      The Woodlands, TX 77384, United States
                     </p>
                   </div>
                 </div>
@@ -446,13 +444,13 @@ export default function AboutPage() {
                     </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
                       Main Clinic:{" "}
-                      <a href="tel:+13127879332" className="font-semibold text-slate-800 hover:text-blue-600">
-                        +1 (312) 787-9332
+                      <a href="tel:+12813581950" className="font-semibold text-slate-800 hover:text-blue-600">
+                        +1 (281) 358-1950
                       </a>
                       <br />
                       Fax:{" "}
                       <span className="font-semibold text-slate-800">
-                        +1 (832) 861-4762
+                        +1 (281) 358-1923
                       </span>
                     </p>
                   </div>
@@ -470,9 +468,15 @@ export default function AboutPage() {
                     </h3>
                     <div className="text-slate-600 text-xs mt-1 space-y-1">
                       <div className="flex justify-between gap-4">
-                        <span>Mon – Fri:</span>
+                        <span>Mon – Thu:</span>
                         <span className="font-semibold text-slate-800">
                           8:00 AM – 6:00 PM
+                        </span>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <span>Friday:</span>
+                        <span className="font-semibold text-slate-800">
+                          8:00 AM – 1:00 PM
                         </span>
                       </div>
                       <div className="flex justify-between gap-4">
