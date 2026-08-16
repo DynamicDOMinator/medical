@@ -303,17 +303,18 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Section 1 Header Banner (Standalone with colored background, outside white parent container) */}
+        <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-3">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
+            We believe great cardiovascular care starts before a serious problem develops.
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Our approach is built around prevention, early detection, and personalized care—so you are not simply treated for a diagnosis, but cared for as a whole person.
+          </p>
+        </div>
+
         {/* Section 1: Philosophy / Care Approach ("What sets our approach apart") */}
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
-          <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-2xl p-5 sm:p-7 space-y-2.5">
-            <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
-              We believe great cardiovascular care starts before a serious problem develops.
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-              Our approach is built around prevention, early detection, and personalized care—so you are not simply treated for a diagnosis, but cared for as a whole person.
-            </p>
-          </div>
-
           <div className="space-y-4">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               What sets our approach apart:
@@ -332,17 +333,18 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Section 2 Header Banner (Standalone with colored background, outside white parent container) */}
+        <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-3">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
+            You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Early evaluation, prevention, and regular follow-up can make a meaningful difference in protecting your cardiovascular health.
+          </p>
+        </div>
+
         {/* Section 2: Patient Guidance ("A few things we want every patient to know") */}
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
-          <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-2xl p-5 sm:p-7 space-y-2.5">
-            <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
-              You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
-              Early evaluation, prevention, and regular follow-up can make a meaningful difference in protecting your cardiovascular health.
-            </p>
-          </div>
-
           <div className="space-y-4">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               A few things we want every patient to know:
