@@ -1,17 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import ReviewsSlider from "@/components/ReviewsSlider";
 import {
-  Heart,
   Award,
-  Users,
-  Clock,
   ArrowRight,
   GraduationCap,
   Building2,
   CheckCircle2,
   MapPin,
   Phone,
+  Clock,
   Navigation,
+  Star,
+  ExternalLink,
+  Quote,
+  ShieldCheck,
+  HeartHandshake,
 } from "lucide-react";
 
 export const metadata = {
@@ -19,6 +23,109 @@ export const metadata = {
   description:
     "Learn about Dr. Mohamed Faher Almahmoud M.D., F.A.C.C. — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.",
 };
+
+const approachPoints = [
+  {
+    title: "We look at the whole picture.",
+    desc: "We consider your symptoms, medical history, lifestyle, risk factors, and test results—not just one finding.",
+  },
+  {
+    title: "We focus on prevention.",
+    desc: "Identifying cardiovascular risk early can help prevent disease before it becomes a major problem.",
+  },
+  {
+    title: "We test with purpose.",
+    desc: "We use targeted, individualized testing and avoid unnecessary procedures whenever possible.",
+  },
+  {
+    title: "We choose less invasive options when appropriate.",
+    desc: "When an intervention is needed, we consider minimally invasive approaches whenever they are suitable.",
+  },
+  {
+    title: "We stay involved over time.",
+    desc: "Your cardiovascular needs can change, so we continue to monitor your health and adjust your care when needed.",
+  },
+  {
+    title: "We listen and explain.",
+    desc: "Your questions, preferences, and goals are an important part of every decision.",
+  },
+  {
+    title: "We are there when you need us.",
+    desc: "Concerning or urgent symptoms deserve timely assessment and appropriate attention.",
+  },
+];
+
+const patientGuidancePoints = [
+  {
+    title: "No concern is too small.",
+    desc: "If something is worrying you, we want to hear about it.",
+  },
+  {
+    title: "Small changes can matter.",
+    desc: "New fatigue, shortness of breath, palpitations, or a change in your ability to exercise are worth discussing.",
+  },
+  {
+    title: "Be open with us.",
+    desc: "Sharing your medications, side effects, lifestyle challenges, and concerns helps us build a plan that works for your life.",
+  },
+  {
+    title: "Bring your previous records.",
+    desc: "Earlier tests and reports can help us understand the bigger picture and avoid unnecessary repetition.",
+  },
+  {
+    title: "An abnormal test does not always mean a procedure.",
+    desc: "Many cardiovascular conditions can be managed effectively with medication, lifestyle changes, and monitoring.",
+  },
+  {
+    title: "A normal test is not the end of prevention.",
+    desc: "Protecting your heart is an ongoing process, even when everything looks reassuring today.",
+  },
+  {
+    title: "Your goals matter.",
+    desc: "Your care should reflect what is important to you—not just what appears on a test result.",
+  },
+];
+
+const googleReviews = [
+  {
+    name: "Jasmin V.",
+    badge: "Verified Patient",
+    date: "2 months ago",
+    rating: 5,
+    text: "Dr. Almahmoud has been a source of reassurance during some difficult moments. He has a rare combination of expertise and genuine compassion. He takes the time to listen, never makes you feel rushed, and creates an environment where patients feel safe and supported. I am incredibly grateful for his care. He is an exceptional physician.",
+  },
+  {
+    name: "Jamie Barnett",
+    badge: "5 reviews",
+    date: "3 months ago",
+    rating: 5,
+    text: "Absolutely love Dr. Almahmoud! He listens to everything you say, addresses all your concerns, isn't pushy with procedures, and follows up with you when you do have procedures. Was just hospitalized last week and he personally called me to check in.",
+  },
+  {
+    name: "Bonnie Drones",
+    badge: "Local Guide · 17 reviews",
+    date: "1 month ago",
+    rating: 5,
+    text: "Dr. Mohamed is the BEST Doctor around, he gave me my life back with the procedure he did. I can't thank him enough 😊 He's a doctor who listens to what your concerns are and comes to a conclusion.",
+  },
+  {
+    name: "Kathy Savell",
+    badge: "Verified Patient",
+    date: "1 month ago",
+    rating: 5,
+    text: "I am 73, this is the most kind and considerate Dr. I have ever been associated with. When he makes his rounds at the hospital and sees my name as a patient he will come find me to see if there is anything I need or any advice he can offer.",
+  },
+  {
+    name: "Patient Review",
+    badge: "Google Review",
+    date: "3 months ago",
+    rating: 5,
+    text: "Dr. Almahmoud has a unique manner in care that upon first meeting you feel like you are with a physician that is willing to adapt his expertise to the patient rather than a physician who demands the patient to adapt.",
+  },
+];
+
+const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/place/Mohamed+Faher+Almahmoud,+M.D.,+F.A.C.C/@30.0510449,-95.2432324,17z/data=!3m1!5s0x8640b2b3bb230983:0xd5d65ccbea669bd1!4m8!3m7!1s0x8640b30fdf4f3879:0x9c8238f6e7902f2b!8m2!3d30.0510449!4d-95.2406575!9m1!1b1!16s%2Fg%2F11qng1wk14";
 
 export default function AboutPage() {
   return (
@@ -38,7 +145,6 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-      
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
             About Dr. Mohamed Faher Almahmoud
           </h1>
@@ -50,7 +156,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Main Profile Section */}
+      {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
         {/* Profile Card */}
         <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl">
@@ -76,7 +182,10 @@ export default function AboutPage() {
                       </div>
                     </h3>
                     <p className="text-blue-600 text-[11px] font-bold mt-1">
-                      Board-Certified Cardiologist & Interventional Specialist
+                      Cardiologist & Interventional Vascular Specialist
+                    </p>
+                    <p className="text-slate-600 text-[10.5px] font-semibold mt-0.5">
+                      Practicing at TCA
                     </p>
                   </div>
                 </div>
@@ -120,6 +229,9 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
                   Cardiologist & Interventional Vascular Specialist
+                </p>
+                <p className="text-slate-600 font-semibold text-sm mt-0.5">
+                  Practicing at TCA
                 </p>
               </div>
 
@@ -190,25 +302,107 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Clinic Location & Interactive Google Map Section */}
-        <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+        {/* Section 1: Philosophy / Care Approach ("What sets our approach apart") */}
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+          <div className="space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              We believe great cardiovascular care starts before a serious problem develops.
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Our approach is built around prevention, early detection, and personalized care—so you are not simply treated for a diagnosis, but cared for as a whole person.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+              What sets our approach apart:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
+              {approachPoints.map((point, idx) => (
+                <div key={idx} className="space-y-1">
+                  <h4 className="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2.5">
+                    <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                    <span>{point.title}</span>
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-4.5">
+                    {point.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Long-term partnership callout */}
+          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-2">
+            <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
+              More than a visit. A long-term partnership.
+            </h4>
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              <strong>Our goal is to be your cardiovascular partner—not simply a clinic you visit when something goes wrong.</strong> We are here to help you understand your heart health, make informed decisions, and protect your cardiovascular health for the years ahead.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 2: Patient Guidance ("A few things we want every patient to know") */}
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+          <div className="space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Early evaluation, prevention, and regular follow-up can make a meaningful difference in protecting your cardiovascular health.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+              A few things we want every patient to know:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
+              {patientGuidancePoints.map((point, idx) => (
+                <div key={idx} className="space-y-1">
+                  <h4 className="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2.5">
+                    <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
+                    <span>{point.title}</span>
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-4.5">
+                    {point.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Takeaway Callout */}
+          <div className="bg-blue-50/70 border border-blue-200/70 rounded-2xl p-6 space-y-2">
+            <h4 className="font-extrabold text-blue-950 text-base sm:text-lg">
+              Most importantly, you don&apos;t need to have all the answers before you see us.
+            </h4>
+            <p className="text-blue-900/90 text-sm sm:text-base leading-relaxed">
+              <strong>Our role is to listen, understand your concerns, explain what we find, and help you make informed decisions about your heart health.</strong> We are here to help you understand your risk, explore your options, and build a plan that supports your health over the long term.
+            </p>
+          </div>
+        </div>
+
+        {/* Section 3: Patient Reviews ("Hear it from them" Slider) */}
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+          <ReviewsSlider
+            reviews={googleReviews}
+            googleMapsUrl={GOOGLE_MAPS_URL}
+          />
+        </div>
+
+        {/* Section 4: Clinic Location (Cleaned: No subtitle, No badge) */}
+        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-2">
-                <MapPin className="h-3.5 w-3.5" />
-                <span>Clinic Location & Practice Details</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Visit Dr. Almahmoud&apos;s Practice
+                Clinic Location
               </h2>
-              <p className="text-slate-600 text-sm mt-1">
-                Conveniently located for comprehensive cardiac evaluations,
-                testing, and consultations.
-              </p>
             </div>
 
             <a
-              href="https://maps.google.com/?q=120+Heart+Health+Way+Suite+400+Chicago+IL+60601"
+              href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center space-x-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md shrink-0"
@@ -301,8 +495,8 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <div className="relative h-80 sm:h-[380px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
                 <iframe
-                  title="Dr. Almahmoud Clinic Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.3662991048896!2d-87.6278!3d41.8819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca8b34fee61%3A0x1d5828236173a1d9!2sChicago%2C%20IL!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  title="Dr. Mohamed Faher Almahmoud Clinic Location Map"
+                  src="https://maps.google.com/maps?q=Mohamed+Faher+Almahmoud,+M.D.,+F.A.C.C&ll=30.0510449,-95.2406575&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
