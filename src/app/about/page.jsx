@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ReviewsSlider from "@/components/ReviewsSlider";
 import PatientGuidanceAccordion from "@/components/PatientGuidanceAccordion";
+import BrowseThisPageDrawer from "@/components/BrowseThisPageDrawer";
 import {
   Award,
   ArrowRight,
@@ -128,9 +129,44 @@ const googleReviews = [
 const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/place/Mohamed+Faher+Almahmoud,+M.D.,+F.A.C.C/@30.0510449,-95.2432324,17z/data=!3m1!5s0x8640b2b3bb230983:0xd5d65ccbea669bd1!4m8!3m7!1s0x8640b30fdf4f3879:0x9c8238f6e7902f2b!8m2!3d30.0510449!4d-95.2406575!9m1!1b1!16s%2Fg%2F11qng1wk14";
 
+const providerMenuItems = [
+  {
+    id: "overview",
+    title: "Overview",
+    subtitle: "Dr. Almahmoud Biography & Credentials",
+  },
+  {
+    id: "early-evaluation",
+    title: "Early Evaluation",
+    subtitle: "Care starts before serious problems develop",
+  },
+  {
+    id: "prevention",
+    title: "Prevention",
+    subtitle: "What sets our approach apart",
+  },
+  {
+    id: "regular-follow-up",
+    title: "Regular Follow-up",
+    subtitle: "Things we want every patient to know",
+  },
+  {
+    id: "patient-reviews",
+    title: "Patient Reviews",
+    subtitle: "Verified patient testimonials",
+  },
+  {
+    id: "clinic-location",
+    title: "Clinic Location & Hours",
+    subtitle: "150 Pine Forest Drive, The Woodlands, TX",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className="bg-slate-50 min-h-screen">
+      {/* Side-Docked Browse this page Menu Drawer */}
+      <BrowseThisPageDrawer menuItems={providerMenuItems} />
       {/* Hero */}
       <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
         {/* Background Image & Overlay */}
@@ -160,7 +196,7 @@ export default function AboutPage() {
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-16">
         {/* Profile Card */}
-        <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl">
+        <div id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl scroll-mt-24 sm:scroll-mt-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left: Doctor Photo */}
             <div className="lg:col-span-5 space-y-6">
@@ -303,18 +339,23 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Section 1 Header Banner (Standalone with colored background, outside white parent container) */}
-        <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-3">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
+        {/* Section 1 Header Banner (Early Evaluation) */}
+        <div id="early-evaluation" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
             We believe great cardiovascular care starts before a serious problem develops.
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Our approach is built around prevention, early detection, and personalized care—so you are not simply treated for a diagnosis, but cared for as a whole person.
+          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
+            Our approach is built around{" "}
+            <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
+              prevention, early detection, and personalized care
+            </span>
+            —so you are not simply treated for a diagnosis, but cared for as a whole person.
           </p>
         </div>
 
-        {/* Section 1: Philosophy / Care Approach ("What sets our approach apart") */}
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+        {/* Section 1: Philosophy / Care Approach (Prevention) */}
+        <div id="prevention" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
           <div className="space-y-4">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               What sets our approach apart:
@@ -333,13 +374,17 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Section 2 Header Banner (Standalone with colored background, outside white parent container) */}
-        <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-3">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
+        {/* Section 2 Header Banner (Regular Follow-up) */}
+        <div id="regular-follow-up" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
             You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Early evaluation, prevention, and regular follow-up can make a meaningful difference in protecting your cardiovascular health.
+          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
+            <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-bold">
+              Early evaluation, prevention, and regular follow-up
+            </span>{" "}
+            can make a meaningful difference in protecting your cardiovascular health.
           </p>
         </div>
 
@@ -364,7 +409,7 @@ export default function AboutPage() {
         </div>
 
         {/* Section 3: Patient Reviews ("Hear it from them" Slider) */}
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+        <div id="patient-reviews" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
           <ReviewsSlider
             reviews={googleReviews}
             googleMapsUrl={GOOGLE_MAPS_URL}
@@ -372,7 +417,7 @@ export default function AboutPage() {
         </div>
 
         {/* Section 4: Clinic Location (Cleaned: No subtitle, No badge) */}
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+        <div id="clinic-location" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
