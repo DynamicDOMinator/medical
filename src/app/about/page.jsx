@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ReviewsSlider from "@/components/ReviewsSlider";
+import PatientGuidanceAccordion from "@/components/PatientGuidanceAccordion";
 import {
   Award,
   ArrowRight,
@@ -304,11 +305,11 @@ export default function AboutPage() {
 
         {/* Section 1: Philosophy / Care Approach ("What sets our approach apart") */}
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-2xl p-5 sm:p-7 space-y-2.5">
+            <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
               We believe great cardiovascular care starts before a serious problem develops.
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
               Our approach is built around prevention, early detection, and personalized care—so you are not simply treated for a diagnosis, but cared for as a whole person.
             </p>
           </div>
@@ -317,27 +318,15 @@ export default function AboutPage() {
             <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               What sets our approach apart:
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
-              {approachPoints.map((point, idx) => (
-                <div key={idx} className="space-y-1">
-                  <h4 className="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2.5">
-                    <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                    <span>{point.title}</span>
-                  </h4>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-4.5">
-                    {point.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <PatientGuidanceAccordion points={approachPoints} />
           </div>
 
           {/* Long-term partnership callout */}
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-2">
+          <div className="space-y-2 pt-1">
             <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
               More than a visit. A long-term partnership.
             </h4>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               <strong>Our goal is to be your cardiovascular partner—not simply a clinic you visit when something goes wrong.</strong> We are here to help you understand your heart health, make informed decisions, and protect your cardiovascular health for the years ahead.
             </p>
           </div>
@@ -345,11 +334,11 @@ export default function AboutPage() {
 
         {/* Section 2: Patient Guidance ("A few things we want every patient to know") */}
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
-          <div className="space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50 border border-blue-100/90 rounded-2xl p-5 sm:p-7 space-y-2.5">
+            <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug sm:leading-tight">
               You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
               Early evaluation, prevention, and regular follow-up can make a meaningful difference in protecting your cardiovascular health.
             </p>
           </div>
@@ -358,27 +347,15 @@ export default function AboutPage() {
             <h3 className="text-lg sm:text-xl font-bold text-slate-900">
               A few things we want every patient to know:
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
-              {patientGuidancePoints.map((point, idx) => (
-                <div key={idx} className="space-y-1">
-                  <h4 className="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2.5">
-                    <span className="h-2 w-2 rounded-full bg-blue-600 shrink-0" />
-                    <span>{point.title}</span>
-                  </h4>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-4.5">
-                    {point.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <PatientGuidanceAccordion points={patientGuidancePoints} />
           </div>
 
           {/* Takeaway Callout */}
-          <div className="bg-blue-50/70 border border-blue-200/70 rounded-2xl p-6 space-y-2">
-            <h4 className="font-extrabold text-blue-950 text-base sm:text-lg">
+          <div className="space-y-2 pt-1">
+            <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
               Most importantly, you don&apos;t need to have all the answers before you see us.
             </h4>
-            <p className="text-blue-900/90 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               <strong>Our role is to listen, understand your concerns, explain what we find, and help you make informed decisions about your heart health.</strong> We are here to help you understand your risk, explore your options, and build a plan that supports your health over the long term.
             </p>
           </div>
