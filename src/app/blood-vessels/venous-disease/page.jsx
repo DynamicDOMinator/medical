@@ -577,13 +577,15 @@ export default function VenousDiseasePage() {
                   Almahmoud.
                 </p>
               </div>
-              <Link
-                href="/contact"
+              <a
+                href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-4 bg-sky-400 hover:bg-sky-300 text-slate-950 font-extrabold text-sm rounded-2xl shadow-xl transition-all shrink-0"
               >
                 <Stethoscope className="mr-2 h-4 w-4" />
                 Book Vein Scan
-              </Link>
+              </a>
             </div>
           </div>
         </div>

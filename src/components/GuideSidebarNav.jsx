@@ -175,16 +175,31 @@ export default function GuideSidebarNav({
               {cta.desc && (
                 <p className="text-xs text-slate-600 leading-relaxed">{cta.desc}</p>
               )}
-              <Link
-                href={cta.href || "/contact"}
-                className={`block text-center ${
-                  isIndigo
-                    ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
-                    : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
-                } text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl transition-all shadow-md active:scale-95`}
-              >
-                {cta.btnText || "Book Evaluation"}
-              </Link>
+              {cta.href && !cta.href.startsWith("http") ? (
+                <Link
+                  href={cta.href}
+                  className={`block text-center ${
+                    isIndigo
+                      ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
+                      : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
+                  } text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl transition-all shadow-md active:scale-95`}
+                >
+                  {cta.btnText || "Book Evaluation"}
+                </Link>
+              ) : (
+                <a
+                  href={cta.href || "https://healow.com/apps/provider/mohamed-almahmoud-2103459"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block text-center ${
+                    isIndigo
+                      ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
+                      : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
+                  } text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl transition-all shadow-md active:scale-95`}
+                >
+                  {cta.btnText || "Book Evaluation"}
+                </a>
+              )}
             </div>
           </div>
         )}
@@ -198,16 +213,31 @@ export default function GuideSidebarNav({
               {cta.title}
             </p>
           </div>
-          <Link
-            href={cta.href || "/contact"}
-            className={`shrink-0 ${
-              isIndigo
-                ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
-                : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
-            } text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95`}
-          >
-            {cta.btnText || "Book Evaluation"}
-          </Link>
+          {cta.href && !cta.href.startsWith("http") ? (
+            <Link
+              href={cta.href}
+              className={`shrink-0 ${
+                isIndigo
+                  ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
+                  : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
+              } text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95`}
+            >
+              {cta.btnText || "Book Evaluation"}
+            </Link>
+          ) : (
+            <a
+              href={cta.href || "https://healow.com/apps/provider/mohamed-almahmoud-2103459"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`shrink-0 ${
+                isIndigo
+                  ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20"
+                  : "bg-blue-600 hover:bg-blue-700 shadow-blue-600/20"
+              } text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-all shadow-md active:scale-95`}
+            >
+              {cta.btnText || "Book Evaluation"}
+            </a>
+          )}
         </div>
       )}
     </>

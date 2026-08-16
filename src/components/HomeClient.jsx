@@ -441,12 +441,14 @@ export default function HomeClient() {
                     Request Appointment
                   </Link>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover-lift text-sm sm:text-base"
                   >
                     Book online
-                  </Link>
+                  </a>
                 </div>
 
                 <a
@@ -1215,13 +1217,15 @@ export default function HomeClient() {
                 <Stethoscope className="h-5 w-5" />
                 <span>Request Appointment</span>
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-2xl transition-all text-center"
               >
                 <Calendar className="h-5 w-5 text-sky-300" />
                 <span>Book online</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

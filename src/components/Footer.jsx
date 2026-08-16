@@ -123,9 +123,9 @@ export default function Footer() {
               reserved.
             </p>
             <div className="flex space-x-4 mt-2 sm:mt-0">
-              <a href="#" className="hover:text-slate-300">
+              <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
               <a href="#" className="hover:text-slate-300">
                 Terms of Use
               </a>

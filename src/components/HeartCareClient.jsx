@@ -1105,13 +1105,15 @@ export default function HeartCareClient() {
                           <span>{category.banner.buttonText}</span>
                           <ArrowRight className="h-4 w-4" />
                         </Link>
-                        <Link
-                          href="/contact"
+                        <a
+                          href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3.5 rounded-2xl font-bold text-sm backdrop-blur-sm transition-all hover:scale-[1.02]"
                         >
                           <Calendar className="h-4 w-4 text-sky-300" />
                           <span>Book Online</span>
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>

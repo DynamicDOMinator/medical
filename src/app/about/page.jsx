@@ -530,13 +530,15 @@ export default function AboutPage() {
               Request an Appointment
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link
-              href="/contact"
+            <a
+              href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
             >
               Book Online
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
