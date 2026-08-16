@@ -345,7 +345,7 @@ export default function Navbar() {
 
             {/* Call Clinic CTA */}
             <a
-              href="tel:+18005557857"
+              href="tel:+13127879332"
               className="ml-2 inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all shadow-sm shadow-blue-600/20 shrink-0"
             >
               <PhoneCall className="h-3.5 w-3.5" />
@@ -547,12 +547,12 @@ export default function Navbar() {
 
             <div className="pt-2">
               <a
-                href="tel:+18005557857"
+                href="tel:+13127879332"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center space-x-2 w-full py-3 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md"
               >
                 <PhoneCall className="h-4 w-4" />
-                <span>Call PulseCare Clinic (800) 555-PULSE</span>
+                <span>Call PulseCare Clinic (312) 787-9332</span>
               </a>
             </div>
           </div>

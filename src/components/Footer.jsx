@@ -26,17 +26,17 @@ export default function Footer() {
               guarantee world-class heart care.
             </p>
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-brand-400 shrink-0" />
-                <span>120 Heart Health Way, Suite 400, Chicago, IL 60601</span>
+              <div className="flex items-start space-x-2">
+                <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
+                <span>233 E Erie St Ste 500, Chicago, IL 60611 (Floor 1 · Streeterville Center Condos)</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-brand-400 shrink-0" />
                 <a
-                  href="tel:+18005557857"
+                  href="tel:+13127879332"
                   className="hover:text-white transition-colors"
                 >
-                  +1 (800) 555-7857
+                  +1 (312) 787-9332
                 </a>
               </div>
               <div className="flex items-center space-x-2">

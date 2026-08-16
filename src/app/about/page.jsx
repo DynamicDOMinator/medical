@@ -425,9 +425,11 @@ export default function AboutPage() {
                       Facility Address
                     </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      120 Heart Health Way, Suite 400
+                      233 E Erie St Ste 500
                       <br />
-                      Chicago, IL 60601
+                      Chicago, IL 60611, United States
+                      <br />
+                      <span className="text-slate-500 font-medium">(Floor 1 · Streeterville Center Condos)</span>
                     </p>
                   </div>
                 </div>
@@ -444,14 +446,14 @@ export default function AboutPage() {
                     </h3>
                     <p className="text-slate-600 text-xs mt-1 leading-relaxed">
                       Main Clinic:{" "}
-                      <span className="font-semibold text-slate-800">
-                        +1 (800) 555-7857
-                      </span>
+                      <a href="tel:+13127879332" className="font-semibold text-slate-800 hover:text-blue-600">
+                        +1 (312) 787-9332
+                      </a>
                       <br />
-                      24/7 Emergency:{" "}
-                      <span className="font-semibold text-slate-800">
-                        +1 (800) 555-STAT
-                      </span>
+                      Direct Inquiries:{" "}
+                      <a href="tel:+13127879332" className="font-semibold text-slate-800 hover:text-blue-600">
+                        +1 (312) 787-9332
+                      </a>
                     </p>
                   </div>
                 </div>
