@@ -78,7 +78,7 @@ const symptomsCategories = [
     icon: Activity,
     iconColor: "text-sky-500",
     items: [
-      { name: "Leg Pain When Walking", href: "/symptom/leg-pain-when-walking" },
+      { name: "Leg Pain", href: "/symptom/leg-pain-when-walking" },
       { name: "Leg Swelling", href: "/symptom/leg-swelling" },
       { name: "Leg Heaviness & Aching", href: "/symptom/leg-heaviness-and-aching" },
       { name: "Varicose Veins", href: "/symptom/varicose-veins" },

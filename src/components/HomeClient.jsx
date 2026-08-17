@@ -38,10 +38,10 @@ const doctorSpecialties = [
     description:
       "Expert medical diagnosis, interventional consultation, and management for coronary artery disease, valvular heart disease (TAVR, MitraClip), and electrical heart disorders.",
     symptoms: [
-      "Chest pain",
-      "Shortness of breath",
+      "Chest Pain",
+      "Shortness of Breath",
       "Palpitations",
-      "Dizziness",
+      "Dizziness & Fainting",
       "Fatigue",
     ],
     symptomText:
@@ -89,10 +89,10 @@ const doctorSpecialties = [
       "Specialized interventional diagnosis for peripheral artery disease (PAD), deep vein thrombosis (DVT), pulmonary embolism, and hyperlipidemia.",
     symptoms: [
       "Leg Pain",
-      "Lower Limb Swelling",
-      "Cold Feet / Numbness",
-      "Cramping while Walking",
-      "Skin Discoloration",
+      "Leg Swelling",
+      "Leg Heaviness & Aching",
+      "Varicose Veins",
+      "Cold or Discolored Feet",
     ],
     symptomText:
       "can signal underlying arterial blockages or venous reflux disease. Early vascular evaluation and ultrasound screening can prevent major complications.",
@@ -131,10 +131,8 @@ const doctorSpecialties = [
     description:
       "Expert evaluation, continuous monitoring, and tailored treatments for essential, secondary, and resistant hypertension to protect target organs and arterial health.",
     symptoms: [
+      "High Blood Pressure",
       "Headaches",
-      "Chest Tightness",
-      "Shortness of Breath",
-      "Visual Changes",
       "Dizziness",
     ],
     symptomText:
@@ -666,19 +664,20 @@ export default function HomeClient() {
                   <div className="flex flex-wrap gap-2 pt-1">
                     {currentCategory.symptoms.map((sym, i) => {
                       const slugMap = {
-                        "Chest pain": "chest-pain",
-                        "Shortness of breath": "shortness-of-breath",
+                        "Chest Pain": "chest-pain",
+                        "Shortness of Breath": "shortness-of-breath",
                         "Palpitations": "palpitations",
-                        "Dizziness": "dizziness",
+                        "Dizziness & Fainting": "dizziness-and-fainting",
                         "Fatigue": "fatigue",
-                        "Leg Pain": "leg-pain",
-                        "Lower Limb Swelling": "lower-limb-swelling",
-                        "Cold Feet / Numbness": "cold-feet-numbness",
-                        "Cramping while Walking": "cramping-while-walking",
-                        "Skin Discoloration": "skin-discoloration",
+                        "Leg Pain": "leg-pain-when-walking",
+                        "Leg Pain When Walking": "leg-pain-when-walking",
+                        "Leg Swelling": "leg-swelling",
+                        "Leg Heaviness & Aching": "leg-heaviness-and-aching",
+                        "Varicose Veins": "varicose-veins",
+                        "Cold or Discolored Feet": "cold-or-discolored-feet",
+                        "High Blood Pressure": "high-blood-pressure",
                         "Headaches": "headaches",
-                        "Chest Tightness": "chest-tightness",
-                        "Visual Changes": "visual-changes",
+                        "Dizziness": "dizziness",
                       };
                       const slug =
                         slugMap[sym] ||
