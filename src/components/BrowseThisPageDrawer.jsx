@@ -48,7 +48,7 @@ export default function BrowseThisPageDrawer({
         <button
           type="button"
           onClick={() => setBrowseOpen(true)}
-          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl shadow-xl shadow-blue-600/30 border-l border-t border-b border-blue-400/40 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
+          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-blue-700 hover:bg-blue-800 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl border-l border-t border-b border-blue-500/40 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
           aria-label="Browse this page"
         >
           <span className="tracking-tight">Browse this page</span>
@@ -68,7 +68,7 @@ export default function BrowseThisPageDrawer({
           {/* Dropdown / Modal Panel */}
           <div className="absolute inset-x-3 top-16 sm:top-24 max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-blue-950/20 overflow-hidden z-10 transition-all transform animate-slide-down">
             {/* Header bar */}
-            <div className="bg-blue-600 text-white px-5 py-4 flex items-center justify-between border-b border-blue-700">
+            <div className="bg-blue-700 text-white px-5 py-4 flex items-center justify-between border-b border-blue-800">
               <button
                 type="button"
                 onClick={() => setBrowseOpen(false)}
@@ -80,7 +80,7 @@ export default function BrowseThisPageDrawer({
               <button
                 type="button"
                 onClick={() => setBrowseOpen(false)}
-                className="p-1.5 rounded-full hover:bg-blue-700 text-blue-100 hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 rounded-full hover:bg-blue-800 text-blue-100 hover:text-white transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />

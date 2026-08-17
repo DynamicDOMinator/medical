@@ -885,11 +885,11 @@ export default function HeartCareClient() {
         </div>
       </div>
 
-      {/* Side-Docked "Browse this page" Button (Stuck to Right Edge - Screenshot 1) */}
+      {/* Side-Docked "Browse this page" Button (Stuck to Right Edge) */}
       <div className="fixed top-28 sm:top-32 right-0 z-40">
         <button
           onClick={() => setBrowseOpen(true)}
-          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-[#001c4c] hover:bg-blue-900 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl shadow-2xl shadow-blue-950/50 border-l border-t border-b border-blue-400/30 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
+          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-blue-700 hover:bg-blue-800 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl border-l border-t border-b border-blue-500/40 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
           aria-label="Browse this page"
         >
           <span className="tracking-tight">Browse this page</span>
@@ -897,7 +897,7 @@ export default function HeartCareClient() {
         </button>
       </div>
 
-      {/* "Browse this page" Drawer / Topic Menu Modal (Screenshot 2) */}
+      {/* "Browse this page" Drawer / Topic Menu Modal */}
       {browseOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden animate-fade-in">
           {/* Backdrop overlay */}
@@ -908,18 +908,18 @@ export default function HeartCareClient() {
 
           {/* Dropdown / Modal Panel */}
           <div className="absolute inset-x-3 top-16 sm:top-24 max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-blue-950/20 overflow-hidden z-10 transition-all transform animate-slide-down">
-            {/* Header bar matching Screenshot 2 */}
-            <div className="bg-[#001c4c] text-white px-5 py-4 flex items-center justify-between border-b border-blue-900">
+            {/* Header bar */}
+            <div className="bg-blue-700 text-white px-5 py-4 flex items-center justify-between border-b border-blue-800">
               <button
                 onClick={() => setBrowseOpen(false)}
-                className="flex items-center space-x-2 font-bold text-sm sm:text-base text-white hover:text-sky-300 transition-colors"
+                className="flex items-center space-x-2 font-bold text-sm sm:text-base text-white hover:text-sky-100 transition-colors"
               >
                 <ChevronLeft className="h-5 w-5 text-white" />
                 <span>Browse this page</span>
               </button>
               <button
                 onClick={() => setBrowseOpen(false)}
-                className="p-1 rounded-full hover:bg-blue-900 text-slate-300 hover:text-white transition-colors"
+                className="p-1.5 rounded-full hover:bg-blue-800 text-blue-100 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
