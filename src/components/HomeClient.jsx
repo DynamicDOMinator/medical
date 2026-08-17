@@ -634,7 +634,7 @@ export default function HomeClient() {
       {/* 3. DOCTOR'S SPECIALTIES & CONDITIONS HUB */}
       <section
         id="doctor-specialties"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+        className="max-w-7xl mx-auto  py-16"
       >
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -643,7 +643,7 @@ export default function HomeClient() {
         </div>
 
         {/* Specialty Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+        <div className="md:flex grid grid-cols-3 px-2 md:flex-wrap justify-center gap-2 sm:gap-3 mb-8">
           {doctorSpecialties.map((cat) => {
             const Icon = cat.icon;
             const isActive = activeTab === cat.id;
@@ -651,15 +651,15 @@ export default function HomeClient() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center space-x-2 px-5 py-3.5 rounded-2xl font-bold text-sm transition-all duration-300 ${isActive
+                className={`flex items-center space-x-2 md:px-5 md:py-3.5 px-3  py-2 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-300 ${isActive
                   ? "bg-blue-600 text-white shadow-xl shadow-blue-600/25 scale-105"
                   : "bg-white text-slate-700 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80"
                   }`}
               >
                 <Icon
-                  className={`h-4 w-4 ${isActive ? "text-white" : "text-blue-600"}`}
+                  className={`h-4 w-4 hidden md:block ${isActive ? "text-white" : "text-blue-600"}`}
                 />
-                <span>{cat.label}</span>
+                <span className=" w-full text-center">{cat.label}</span>
               </button>
             );
           })}
