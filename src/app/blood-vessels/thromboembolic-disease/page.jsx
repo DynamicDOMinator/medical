@@ -75,16 +75,6 @@ export default function ThromboembolicDiseasePage() {
     },
   ];
 
-  const peProbability = [
-    { factor: 'Clinical signs of DVT (leg swelling + pain)', points: '3 points' },
-    { factor: 'Alternative diagnosis less likely than PE', points: '3 points' },
-    { factor: 'Heart rate > 100 bpm', points: '1.5 points' },
-    { factor: 'Immobilization or surgery in past 4 weeks', points: '1.5 points' },
-    { factor: 'Previous DVT or PE', points: '1.5 points' },
-    { factor: 'Hemoptysis', points: '1 point' },
-    { factor: 'Active cancer treatment', points: '1 point' },
-  ];
-
   const diagnosticTests = [
     {
       name: 'CT Pulmonary Angiography (CT-PA)',
@@ -162,7 +152,6 @@ export default function ThromboembolicDiseasePage() {
                 ['#overview', 'Overview'],
                 ['#patient-insights', 'What Patients Should Know'],
                 ['#symptoms', 'Symptoms'],
-                ['#wells', 'Wells PE Score'],
                 ['#diagnosis', 'Diagnostic Testing'],
                 ['#treatment', 'Treatment'],
                 ['#prevention', 'Prevention'],
@@ -245,45 +234,7 @@ export default function ThromboembolicDiseasePage() {
               </div>
             </section>
 
-            {/* WELLS PE SCORE */}
-            <section id="wells" className="scroll-mt-24">
-              <div className="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-3xl p-6 sm:p-10">
-                <div className="mb-6">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Wells Criteria for PE Probability</h2>
-                </div>
 
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  The Wells PE score stratifies patients into low, moderate, or high pre-test probability, guiding the sequence of diagnostic testing and helping avoid unnecessary CT-PA radiation in low-risk patients.
-                </p>
-
-                <div className="space-y-2">
-                  {peProbability.map(item => (
-                    <div key={item.factor} className="flex items-center justify-between bg-white p-3 rounded-xl border border-indigo-100">
-                      <span className="text-xs text-slate-700 font-medium">{item.factor}</span>
-                      <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg shrink-0 ml-4">{item.points}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-5 grid grid-cols-3 gap-3">
-                  <div className="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-center">
-                    <p className="text-xs font-bold text-emerald-800">Low Probability</p>
-                    <p className="text-emerald-700 text-xs mt-0.5">Score ≤ 4</p>
-                    <p className="text-[10px] text-slate-600 mt-1">D-Dimer first</p>
-                  </div>
-                  <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl text-center">
-                    <p className="text-xs font-bold text-amber-800">Moderate</p>
-                    <p className="text-amber-700 text-xs mt-0.5">Score 5–6</p>
-                    <p className="text-[10px] text-slate-600 mt-1">CT-PA directly</p>
-                  </div>
-                  <div className="bg-red-50 border border-red-200 p-3 rounded-xl text-center">
-                    <p className="text-xs font-bold text-red-800">High Probability</p>
-                    <p className="text-red-700 text-xs mt-0.5">Score ≥ 7</p>
-                    <p className="text-[10px] text-slate-600 mt-1">CT-PA + anticoagulate</p>
-                  </div>
-                </div>
-              </div>
-            </section>
 
             {/* DIAGNOSIS */}
             <section
