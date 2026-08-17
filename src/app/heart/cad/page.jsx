@@ -168,7 +168,6 @@ export default function HeartCADPage() {
                 ["#risk-factors", "Risk Factors & Prevention"],
                 ["#diagnosis", "Diagnostic Testing"],
                 ["#treatment", "Treatment & Procedures"],
-                ["#living-with", "Living with CAD"],
                 ["#faqs", "FAQs"],
               ]}
               cta={{

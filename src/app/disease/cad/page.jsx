@@ -160,7 +160,6 @@ export default function CADPage() {
                 ["#risk-factors", "Risk Factors & Prevention"],
                 ["#diagnosis", "Diagnosis & Testing"],
                 ["#treatment", "Treatment Procedures"],
-                ["#living-with", "Living with CAD"],
                 ["#faqs", "Patient FAQs"],
               ]}
               cta={{
@@ -477,49 +476,7 @@ export default function CADPage() {
               </div>
             </section>
 
-            {/* 6. LIVING WITH CAD */}
-            <section
-              id="living-with"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
-            >
-              <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Living with CAD
-                </h2>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-                  <h3 className="font-bold text-slate-900 text-base">
-                    Heart-Healthy Nutrition
-                  </h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">
-                    Adopt a Mediterranean diet rich in extra virgin olive oil,
-                    whole grains, vegetables, and lean fish. Limit saturated
-                    fats and sodium.
-                  </p>
-                </div>
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-                  <h3 className="font-bold text-slate-900 text-base">
-                    Regular Aerobic Activity
-                  </h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">
-                    Aim for 150 minutes per week of moderate-intensity exercise
-                    (brisk walking, cycling) approved by your cardiologist.
-                  </p>
-                </div>
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-                  <h3 className="font-bold text-slate-900 text-base">
-                    Medication Adherence
-                  </h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">
-                    Never stop antiplatelet or statin therapy without consulting
-                    your cardiologist. Consistent dosing prevents acute stent
-                    thrombosis.
-                  </p>
-                </div>
-              </div>
-            </section>
 
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">

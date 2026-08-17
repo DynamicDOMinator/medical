@@ -15,7 +15,6 @@ import {
   HeartPulse,
   FileText,
   Droplets,
-  Apple,
 } from "lucide-react";
 import GuideSidebarNav from "@/components/GuideSidebarNav";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -164,7 +163,6 @@ export default function CHFPage() {
                 ["#symptoms", "Symptoms"],
                 ["#diagnosis", "Diagnostic Testing"],
                 ["#treatment", "Treatment"],
-                ["#living-with", "Living with CHF"],
                 ["#faqs", "FAQs"],
               ]}
               cta={{
@@ -351,42 +349,7 @@ export default function CHFPage() {
               </div>
             </section>
 
-            {/* 6. LIVING WITH CHF */}
-            <section
-              id="living-with"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
-            >
-              <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Living with CHF & Self-Care
-                </h2>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Droplets className="h-5 w-5 text-blue-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Fluid & Sodium Restriction</h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Daily morning weight monitoring before eating</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Limit sodium intake to &lt;2,000 mg daily</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Report 2–3 lb weight gain in 24 hours to clinic</span></li>
-                  </ul>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <Apple className="h-5 w-5 text-emerald-600" />
-                    <h4 className="font-bold text-slate-900 text-base">Exercise & Medication Compliance</h4>
-                  </div>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Take GDMT medications strictly as prescribed</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Tailored cardiac rehabilitation exercise protocol</span></li>
-                    <li className="flex items-center space-x-2"><CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" /><span>Avoid NSAID painkillers which trigger fluid retention</span></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
 
             {/* 7. FAQS */}
             <section id="faqs" className="scroll-mt-24 space-y-6">
