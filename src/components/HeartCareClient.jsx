@@ -1085,10 +1085,6 @@ export default function HeartCareClient() {
                     <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
                     <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                       <div className="space-y-2 max-w-2xl">
-                        <div className="inline-flex items-center space-x-1.5 text-xs font-extrabold uppercase tracking-wider text-sky-400 bg-sky-950/60 px-3 py-1 rounded-md border border-sky-800/50">
-                          <Sparkles className="h-3.5 w-3.5" />
-                          <span>Actionable Advice</span>
-                        </div>
                         <h3 className="text-xl sm:text-2xl font-bold text-white">
                           {category.banner.title}
                         </h3>
