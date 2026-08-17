@@ -389,7 +389,7 @@ const faqData = [
   {
     question: "How do you determine which tests I need?",
     answer:
-      "We take a targeted, personalized approach based on your specific symptoms, physical examination findings, and risk factors. We avoid a one-size-fits-all approach, selecting only the diagnostic evaluations (such as ECG, Echocardiography, Stress Testing, or CT Coronary Angiography) that provide actionable clinical insight.",
+      "Individualized approach depending on complaints. Patients usually get a screening ECG on their first visit then testing is based on symptoms, age, risk factors, physical ability, and prior cardiac history.",
     category: "Personalized Testing",
   },
   {
