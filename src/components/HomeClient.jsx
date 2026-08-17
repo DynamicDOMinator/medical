@@ -447,7 +447,7 @@ export default function HomeClient() {
       >
         <div className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-12 shadow-xl shadow-blue-900/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left: Photo on Left & Board Certifications */}
+            {/* Left: Photo on Left */}
             <div className="lg:col-span-5 space-y-6">
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-blue-100 via-sky-50 to-slate-100 p-2 border border-blue-200/80 shadow-lg">
                 <div className="relative h-96 sm:h-[480px] w-full rounded-2xl overflow-hidden bg-slate-900">
@@ -473,6 +473,25 @@ export default function HomeClient() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Right Column: Doctor Title, Board Certifications, Education & Fellowships */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="hidden sm:block">
+                <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3">
+                  <GraduationCap className="h-4 w-4" />
+                  <span>Meet Your Cardiologist</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                  <div>Dr. Mohamed Faher Almahmoud</div>
+                  <div className="text-blue-600 text-2xl sm:text-3xl font-bold mt-1">
+                    M.D., F.A.C.C.
+                  </div>
+                </h2>
+                <p className="text-blue-600 font-bold text-sm mt-1">
+                  Board-Certified Cardiologist & Interventional Specialist
+                </p>
+              </div>
 
               {/* Board Certification Badges (6 Items) */}
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
@@ -491,70 +510,6 @@ export default function HomeClient() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Right Column: Full Doctor Biography, Education, Fellowship */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="hidden sm:block">
-                <div className="inline-flex items-center space-x-2 text-blue-600 text-xs font-extrabold uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100 mb-3">
-                  <GraduationCap className="h-4 w-4" />
-                  <span>Meet Your Cardiologist</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                  <div>Dr. Mohamed Faher Almahmoud</div>
-                  <div className="text-blue-600 text-2xl sm:text-3xl font-bold mt-1">
-                    M.D., F.A.C.C.
-                  </div>
-                </h2>
-                <p className="text-blue-600 font-bold text-sm mt-1">
-                  Board-Certified Cardiologist & Interventional Specialist
-                </p>
-              </div>
-
-              {/* Personal Philosophy Quote */}
-              <div className="bg-gradient-to-r from-blue-50 via-sky-50 to-indigo-50 border-l-4 border-blue-600 p-4 sm:p-5 rounded-r-2xl text-slate-800 shadow-xs">
-                <p className="text-xs font-extrabold text-blue-700 uppercase tracking-wider mb-1">
-                  Personal Philosophy
-                </p>
-                <p className="italic text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
-                  &ldquo;I believe every patient deserves a clear diagnosis, an
-                  understandable treatment plan, and enough time to ask
-                  questions.&rdquo;
-                </p>
-              </div>
-
-              {/* Full Biography Text */}
-              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
-                <p>
-                  Dr. Almahmoud is a board-certified cardiologist specialized in
-                  general and interventional cardiology with interest in
-                  coronary artery disease, peripheral vascular disease and
-                  valvular/structural heart disease.
-                </p>
-                <p>
-                  Dr. Almahmoud has expertise in clinical research with
-                  interests in weight loss, atrial fibrillation, heart failure,
-                  valvular heart disease, atherosclerosis and hyperlipidemia
-                  (high cholesterol). He completed two years of NIH sponsored
-                  clinical research fellowship and participated in several
-                  landmark clinical trials targeting atherosclerosis and
-                  ischemic heart disease.
-                </p>
-                <p>
-                  His expertise includes advanced coronary interventions,
-                  peripheral vascular disease and structural/valvular heart
-                  disease. Including a variety of minimally invasive
-                  trans-catheter procedures for patients with deep venous
-                  thrombosis, pulmonary embolism, aortic stenosis (TAVR and
-                  aortic valvuloplasty), mitral regurgitation (MitraClip),
-                  atrial septal defect (ASD), patent foramen ovale (PFO), and
-                  hypertrophic cardiomyopathy (HOCM).
-                </p>
-                <p>
-                  He is also trained on advanced mechanical support devices for
-                  patients with acute heart failure and cardiogenic shock.{" "}
-                </p>
               </div>
 
               {/* Education & Fellowships Cards */}
@@ -602,6 +557,17 @@ export default function HomeClient() {
                     </li>
                   </ul>
                 </div>
+              </div>
+
+              {/* Button: Learn more about Dr. Almahmoud */}
+              <div className="pt-2">
+                <Link
+                  href="/about"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm md:text-base rounded-2xl shadow-lg shadow-blue-600/25 transition-all duration-300 hover:scale-[1.02] active:scale-100 text-center"
+                >
+                  <span>Learn more about Dr. Almahmoud</span>
+                  <ArrowRight className="h-4 w-4 shrink-0" />
+                </Link>
               </div>
             </div>
           </div>
