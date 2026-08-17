@@ -5,36 +5,12 @@ import { ChevronLeft, X, MoreVertical, ArrowUp } from "lucide-react";
 
 export default function BrowseThisPageDrawer({
   menuItems = [
-    {
-      id: "overview",
-      title: "Overview",
-      subtitle: "Biography & Board Certifications",
-    },
-    {
-      id: "early-evaluation",
-      title: "Early Evaluation",
-      subtitle: "Care starts before serious problems develop",
-    },
-    {
-      id: "prevention",
-      title: "Prevention",
-      subtitle: "What sets our approach apart",
-    },
-    {
-      id: "regular-follow-up",
-      title: "Regular Follow-up",
-      subtitle: "Things every patient should know",
-    },
-    {
-      id: "patient-reviews",
-      title: "Patient Reviews",
-      subtitle: "Verified patient testimonials",
-    },
-    {
-      id: "clinic-location",
-      title: "Clinic Location & Hours",
-      subtitle: "The Woodlands, TX location & map",
-    },
+    { id: "overview", title: "Overview" },
+    { id: "early-evaluation", title: "Early Evaluation" },
+    { id: "prevention", title: "Prevention" },
+    { id: "regular-follow-up", title: "Regular Follow-up" },
+    { id: "patient-reviews", title: "Patient Reviews" },
+    { id: "clinic-location", title: "Clinic Location & Hours" },
   ],
 }) {
   const [browseOpen, setBrowseOpen] = useState(false);
@@ -72,7 +48,7 @@ export default function BrowseThisPageDrawer({
         <button
           type="button"
           onClick={() => setBrowseOpen(true)}
-          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-[#001c4c] hover:bg-blue-900 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl shadow-2xl shadow-blue-950/50 border-l border-t border-b border-blue-400/30 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
+          className="flex items-center space-x-2 pl-4 pr-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs sm:text-sm rounded-l-2xl shadow-xl shadow-blue-600/30 border-l border-t border-b border-blue-400/40 transition-all hover:-translate-x-1 active:translate-x-0 cursor-pointer"
           aria-label="Browse this page"
         >
           <span className="tracking-tight">Browse this page</span>
@@ -92,11 +68,11 @@ export default function BrowseThisPageDrawer({
           {/* Dropdown / Modal Panel */}
           <div className="absolute inset-x-3 top-16 sm:top-24 max-w-xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-blue-950/20 overflow-hidden z-10 transition-all transform animate-slide-down">
             {/* Header bar */}
-            <div className="bg-[#001c4c] text-white px-5 py-4 flex items-center justify-between border-b border-blue-900">
+            <div className="bg-blue-600 text-white px-5 py-4 flex items-center justify-between border-b border-blue-700">
               <button
                 type="button"
                 onClick={() => setBrowseOpen(false)}
-                className="flex items-center space-x-2 font-bold text-sm sm:text-base text-white hover:text-sky-300 transition-colors"
+                className="flex items-center space-x-2 font-bold text-sm sm:text-base text-white hover:text-sky-100 transition-colors"
               >
                 <ChevronLeft className="h-5 w-5 text-white" />
                 <span>Browse this page</span>
@@ -104,7 +80,7 @@ export default function BrowseThisPageDrawer({
               <button
                 type="button"
                 onClick={() => setBrowseOpen(false)}
-                className="p-1.5 rounded-full hover:bg-blue-900 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 rounded-full hover:bg-blue-700 text-blue-100 hover:text-white transition-colors cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -118,19 +94,12 @@ export default function BrowseThisPageDrawer({
                   key={item.id}
                   type="button"
                   onClick={() => scrollToSection(item.id)}
-                  className="w-full text-left px-6 py-4 font-bold text-[#001c4c] text-sm sm:text-base hover:bg-blue-50/80 transition-colors flex items-center justify-between group border-b border-slate-100 cursor-pointer"
+                  className="w-full text-left px-6 py-4 font-bold text-slate-900 text-sm sm:text-base hover:bg-blue-50/80 transition-colors flex items-center justify-between group border-b border-slate-100 cursor-pointer"
                 >
-                  <div className="pr-4">
-                    <span className="block text-slate-900 group-hover:text-blue-600 transition-colors">
-                      {item.title}
-                    </span>
-                    {item.subtitle && (
-                      <span className="text-xs text-slate-500 font-normal mt-0.5 block">
-                        {item.subtitle}
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-xs font-semibold text-slate-400 group-hover:text-blue-600 shrink-0">
+                  <span className="block text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {item.title}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-400 group-hover:text-blue-600 shrink-0 ml-3">
                     View →
                   </span>
                 </button>

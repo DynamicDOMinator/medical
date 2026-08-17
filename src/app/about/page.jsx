@@ -130,36 +130,12 @@ const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/place/Mohamed+Faher+Almahmoud,+M.D.,+F.A.C.C/@30.0510449,-95.2432324,17z/data=!3m1!5s0x8640b2b3bb230983:0xd5d65ccbea669bd1!4m8!3m7!1s0x8640b30fdf4f3879:0x9c8238f6e7902f2b!8m2!3d30.0510449!4d-95.2406575!9m1!1b1!16s%2Fg%2F11qng1wk14";
 
 const providerMenuItems = [
-  {
-    id: "overview",
-    title: "Overview",
-    subtitle: "Dr. Almahmoud Biography & Credentials",
-  },
-  {
-    id: "early-evaluation",
-    title: "Early Evaluation",
-    subtitle: "Care starts before serious problems develop",
-  },
-  {
-    id: "prevention",
-    title: "Prevention",
-    subtitle: "What sets our approach apart",
-  },
-  {
-    id: "regular-follow-up",
-    title: "Regular Follow-up",
-    subtitle: "Things we want every patient to know",
-  },
-  {
-    id: "patient-reviews",
-    title: "Patient Reviews",
-    subtitle: "Verified patient testimonials",
-  },
-  {
-    id: "clinic-location",
-    title: "Clinic Location & Hours",
-    subtitle: "150 Pine Forest Drive, The Woodlands, TX",
-  },
+  { id: "overview", title: "Overview" },
+  { id: "early-evaluation", title: "Early Evaluation" },
+  { id: "prevention", title: "Prevention" },
+  { id: "regular-follow-up", title: "Regular Follow-up" },
+  { id: "patient-reviews", title: "Patient Reviews" },
+  { id: "clinic-location", title: "Clinic Location & Hours" },
 ];
 
 export default function AboutPage() {
@@ -339,72 +315,78 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Section 1 Header Banner (Early Evaluation) */}
-        <div id="early-evaluation" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
-            We believe great cardiovascular care starts before a serious problem develops.
-          </h2>
-          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
-            Our approach is built around{" "}
-            <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
-              prevention, early detection, and personalized care
-            </span>
-            —so you are not simply treated for a diagnosis, but cared for as a whole person.
-          </p>
-        </div>
-
-        {/* Section 1: Philosophy / Care Approach (Prevention) */}
-        <div id="prevention" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
-          <div className="space-y-4">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-              What sets our approach apart:
-            </h3>
-            <PatientGuidanceAccordion points={approachPoints} />
-          </div>
-
-          {/* Long-term partnership callout */}
-          <div className="space-y-2 pt-1">
-            <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
-              More than a visit. A long-term partnership.
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              <strong>Our goal is to be your cardiovascular partner—not simply a clinic you visit when something goes wrong.</strong> We are here to help you understand your heart health, make informed decisions, and protect your cardiovascular health for the years ahead.
+        {/* Section 1 Group (Early Evaluation & Philosophy) */}
+        <div className="space-y-3 sm:space-y-4">
+          {/* Section 1 Header Banner (Early Evaluation) */}
+          <div id="early-evaluation" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
+              We believe great cardiovascular care starts before a serious problem develops.
+            </h2>
+            <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
+              Our approach is built around{" "}
+              <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
+                prevention, early detection, and personalized care
+              </span>
+              —so you are not simply treated for a diagnosis, but cared for as a whole person.
             </p>
           </div>
+
+          {/* Section 1: Philosophy / Care Approach (Prevention) */}
+          <div id="prevention" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                What sets our approach apart:
+              </h3>
+              <PatientGuidanceAccordion points={approachPoints} />
+            </div>
+
+            {/* Long-term partnership callout */}
+            <div className="space-y-2 pt-1">
+              <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
+                More than a visit. A long-term partnership.
+              </h4>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <strong>Our goal is to be your cardiovascular partner—not simply a clinic you visit when something goes wrong.</strong> We are here to help you understand your heart health, make informed decisions, and protect your cardiovascular health for the years ahead.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Section 2 Header Banner (Regular Follow-up) */}
-        <div id="regular-follow-up" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
-            You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
-          </h2>
-          <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
-            <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-bold">
-              Early evaluation, prevention, and regular follow-up
-            </span>{" "}
-            can make a meaningful difference in protecting your cardiovascular health.
-          </p>
-        </div>
-
-        {/* Section 2: Patient Guidance ("A few things we want every patient to know") */}
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
-          <div className="space-y-4">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-              A few things we want every patient to know:
-            </h3>
-            <PatientGuidanceAccordion points={patientGuidancePoints} />
+        {/* Section 2 Group (Regular Follow-up & Patient Guidance) */}
+        <div className="space-y-3 sm:space-y-4">
+          {/* Section 2 Header Banner (Regular Follow-up) */}
+          <div id="regular-follow-up" className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white border border-blue-900/60 rounded-3xl p-6 sm:p-10 shadow-xl space-y-3 scroll-mt-24 sm:scroll-mt-32 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight relative z-10">
+              You don&apos;t have to wait until something feels seriously wrong to take care of your heart.
+            </h2>
+            <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed relative z-10">
+              <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-bold">
+                Early evaluation, prevention, and regular follow-up
+              </span>{" "}
+              can make a meaningful difference in protecting your cardiovascular health.
+            </p>
           </div>
 
-          {/* Takeaway Callout */}
-          <div className="space-y-2 pt-1">
-            <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
-              Most importantly, you don&apos;t need to have all the answers before you see us.
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              <strong>Our role is to listen, understand your concerns, explain what we find, and help you make informed decisions about your heart health.</strong> We are here to help you understand your risk, explore your options, and build a plan that supports your health over the long term.
-            </p>
+          {/* Section 2: Patient Guidance ("A few things we want every patient to know") */}
+          <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8">
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                A few things we want every patient to know:
+              </h3>
+              <PatientGuidanceAccordion points={patientGuidancePoints} />
+            </div>
+
+            {/* Takeaway Callout */}
+            <div className="space-y-2 pt-1">
+              <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">
+                Most importantly, you don&apos;t need to have all the answers before you see us.
+              </h4>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <strong>Our role is to listen, understand your concerns, explain what we find, and help you make informed decisions about your heart health.</strong> We are here to help you understand your risk, explore your options, and build a plan that supports your health over the long term.
+              </p>
+            </div>
           </div>
         </div>
 
