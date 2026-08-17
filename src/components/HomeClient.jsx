@@ -118,13 +118,6 @@ const doctorSpecialties = [
         image:
           "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
       },
-      {
-        name: "Hypertension & Lipidology",
-        link: "/blood-vessels/hypertension",
-        desc: "Atherosclerosis prevention, cholesterol & blood pressure control.",
-        image:
-          "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
-      },
     ],
     hubLink: "/blood-vessels",
     hubText: "View All Vascular Care Guides →",
@@ -153,20 +146,6 @@ const doctorSpecialties = [
         desc: "Individualized lifestyle and medical therapies to achieve optimal target blood pressure.",
         image:
           "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Resistant & Complex Hypertension",
-        link: "/blood-vessels/hypertension",
-        desc: "Advanced diagnostic workup and multi-drug regimen optimization for hard-to-control blood pressure.",
-        image:
-          "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=800&q=80",
-      },
-      {
-        name: "Hyperlipidemia & Lipid Control",
-        link: "/blood-vessels/hypertension",
-        desc: "Targeted cholesterol management, PCSK9 inhibitors, and cardiovascular risk reduction.",
-        image:
-          "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
       },
       {
         name: "Secondary Hypertension Screening",
@@ -724,12 +703,53 @@ export default function HomeClient() {
               </div>
 
               <p className="text-slate-700 text-sm leading-relaxed border-t border-blue-100/80 pt-3 font-normal">
-                {currentCategory.symptomText}
+                {currentCategory.id === "heart" ? (
+                  <>
+                    <strong className="font-bold text-slate-900">These symptoms</strong> can be caused by{" "}
+                    <strong className="font-bold text-slate-900">several different cardiovascular conditions</strong>. Our role is to{" "}
+                    <strong className="font-bold text-slate-900">identify the underlying cause</strong> through a{" "}
+                    <strong className="font-bold text-slate-900">careful clinical assessment and targeted diagnostic testing</strong>, then recommend the treatment that&apos;s most appropriate for your specific condition.
+                  </>
+                ) : currentCategory.id === "vascular" ? (
+                  <>
+                    <strong className="font-bold text-slate-900">These symptoms</strong> can signal{" "}
+                    <strong className="font-bold text-slate-900">underlying arterial blockages or venous reflux disease</strong>. Early vascular evaluation and ultrasound screening{" "}
+                    <strong className="font-bold text-slate-900">can prevent major complications</strong>.
+                  </>
+                ) : (
+                  <>
+                    <strong className="font-bold text-slate-900">these symptoms</strong> are common warning indicators of{" "}
+                    <strong className="font-bold text-slate-900">uncontrolled high blood pressure</strong>. Precise diagnosis and medication protocols protect long-term cardiovascular health.
+                  </>
+                )}
               </p>
             </div>
 
+            {/* Header for Heart / Vascular / Hypertension Conditions */}
+            {currentCategory.id === "heart" && (
+              <div className="mb-4 sm:mb-5">
+                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
+                  DIFFERENT HEART CONDITIONS INCLUDE:
+                </h3>
+              </div>
+            )}
+            {currentCategory.id === "vascular" && (
+              <div className="mb-4 sm:mb-5">
+                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
+                  DIFFERENT VASCULAR CONDITIONS INCLUDE:
+                </h3>
+              </div>
+            )}
+            {currentCategory.id === "hypertension" && (
+              <div className="mb-4 sm:mb-5">
+                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
+                  Classification of Hypertension:
+                </h3>
+              </div>
+            )}
+
             {/* Condition Grid inside Active Specialty */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {currentCategory.conditions.map((item, idx) => (
                 <div
                   key={idx}
@@ -746,19 +766,13 @@ export default function HomeClient() {
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                        <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-blue-600/90 backdrop-blur-md text-white text-[11px] font-bold rounded-lg">
-                          0{idx + 1}
-                        </span>
                       </div>
                     )}
 
-                    <div className="p-5 space-y-2">
+                    <div className="p-5">
                       <h4 className="font-bold text-slate-900 text-base group-hover:text-blue-600 transition-colors leading-snug">
                         {item.name}
                       </h4>
-                      <p className="text-slate-600 text-xs leading-relaxed line-clamp-3">
-                        {item.desc}
-                      </p>
                     </div>
                   </div>
 
