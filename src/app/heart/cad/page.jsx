@@ -362,94 +362,81 @@ export default function HeartCADPage() {
               </div>
             </section>
 
-            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            {/* 4. DIAGNOSIS/TEST */}
             <section
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Diagnostic Tests & Imaging
+                  Diagnostic Tests &amp; Imaging
                 </h2>
               </div>
 
-           <p className="pb-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Finding the right answers starts with understanding your
-                    heart. We use a range of tests and procedures to see how
-                    your heart is working and check for problems with your
-                    coronary arteries. We’ll explain what to expect at every
-                    step.
-                  </p>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Finding the right answers starts with understanding your
+                heart. We use a range of tests and procedures to see how
+                your heart is working and check for problems with your
+                coronary arteries. We’ll explain what to expect at every
+                step.
+              </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-xs transition-all flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Treadmill Stress Echocardiogram
+              <div className="divide-y divide-slate-200/80">
+                {[
+                  {
+                    name: "Treadmill Stress Echocardiogram",
+                    desc: "Evaluates wall motion under stress.",
+                  },
+                  {
+                    name: "Coronary CT Angiography (CCTA)",
+                    desc: "3D non-invasive plaque imaging.",
+                  },
+                  {
+                    name: "Invasive Coronary Angiography",
+                    desc: "Gold-standard fluoroscopic vessel mapping.",
+                  },
+                  {
+                    name: "12-Lead Resting ECG & Holter",
+                    desc: "Detects ST-T wave changes and silent myocardial ischemia.",
+                  },
+                ].map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
                       </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Evaluates wall motion under stress.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-xs transition-all flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Coronary CT Angiography (CCTA)
-                      </h3>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      3D non-invasive plaque imaging.
-                    </p>
                   </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-xs transition-all flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Invasive Coronary Angiography
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Gold-standard fluoroscopic vessel mapping.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-xs transition-all flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        12-Lead Resting ECG &amp; Holter
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Detects ST-T wave changes and silent myocardial ischemia.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* End of section diagnosis illustration */}
-              <div className="pt-6">
-                <div className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-white">
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-white">
                   <Image
-                    src="/CAD_-_diagnosis.png"
+                    src="/Cad-diagnos.png"
                     alt="Coronary Artery Disease Diagnostic Tests & Imaging"
-                    width={1200}
-                    height={650}
-                    className="w-full h-auto object-cover"
+                    width={1400}
+                    height={600}
+                    className="w-full h-auto object-cover block"
                   />
                 </div>
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Early diagnostic evaluation helps identify coronary plaque and ischemia before a major cardiac event occurs.
+                </p>
               </div>
             </section>
 
