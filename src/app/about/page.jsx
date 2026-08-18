@@ -3,6 +3,7 @@ import Image from "next/image";
 import ReviewsSlider from "@/components/ReviewsSlider";
 import PatientGuidanceAccordion from "@/components/PatientGuidanceAccordion";
 import BrowseThisPageDrawer from "@/components/BrowseThisPageDrawer";
+import ClinicLocationsView from "@/components/ClinicLocationsView";
 import {
   Award,
   ArrowRight,
@@ -398,128 +399,17 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* Section 4: Clinic Location (Cleaned: No subtitle, No badge) */}
-        <div id="clinic-location" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 scroll-mt-24 sm:scroll-mt-32">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Clinic Location
-              </h2>
-            </div>
-
-            <a
-              href={GOOGLE_MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md shrink-0"
-            >
-              <Navigation className="h-4 w-4" />
-              <span>Get Driving Directions</span>
-            </a>
+        {/* Section 4: Clinic Locations */}
+        <div id="clinic-location" className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-12 shadow-sm space-y-6 scroll-mt-24 sm:scroll-mt-32">
+          <div className="border-b border-slate-100 pb-4">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              Clinic Locations
+            </h2>
+            <p className="text-slate-500 text-sm mt-1">
+              Select a clinic facility below to view address, contact details, consultation times, and Google Maps.
+            </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Info Cards */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
-                <div className="flex items-start space-x-3.5">
-                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-sm">
-                      Facility Address
-                    </h3>
-                    <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      150 Pine Forest Drive # 102
-                      <br />
-                      The Woodlands, TX 77384, United States
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
-                <div className="flex items-start space-x-3.5">
-                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-sm">
-                      Contact Lines
-                    </h3>
-                    <p className="text-slate-600 text-xs mt-1 leading-relaxed">
-                      Main Clinic:{" "}
-                      <a href="tel:+12813581950" className="font-semibold text-slate-800 hover:text-blue-600">
-                        +1 (281) 358-1950
-                      </a>
-                      <br />
-                      Fax:{" "}
-                      <span className="font-semibold text-slate-800">
-                        +1 (281) 358-1923
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
-                <div className="flex items-start space-x-3.5">
-                  <div className="bg-blue-600 p-2.5 rounded-xl text-white shadow-md shrink-0 mt-0.5">
-                    <Clock className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-sm">
-                      Hours of Operation
-                    </h3>
-                    <div className="text-slate-600 text-xs mt-1 space-y-1">
-                      <div className="flex justify-between gap-4">
-                        <span>Mon – Thu:</span>
-                        <span className="font-semibold text-slate-800">
-                          8:00 AM – 6:00 PM
-                        </span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span>Friday:</span>
-                        <span className="font-semibold text-slate-800">
-                          8:00 AM – 1:00 PM
-                        </span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span>Saturday:</span>
-                        <span className="font-semibold text-slate-800">
-                          9:00 AM – 2:00 PM
-                        </span>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <span>Sunday:</span>
-                        <span className="font-semibold text-slate-800">
-                          Closed (Emergency 24/7)
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Embedded Google Map iframe */}
-            <div className="lg:col-span-7">
-              <div className="relative h-80 sm:h-[380px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
-                <iframe
-                  title="Dr. Mohamed Faher Almahmoud Clinic Location Map"
-                  src="https://maps.google.com/maps?q=Mohamed+Faher+Almahmoud,+M.D.,+F.A.C.C&ll=30.0510449,-95.2406575&z=16&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
+          <ClinicLocationsView initialClinicId="kingwood" />
         </div>
 
         {/* CTA */}

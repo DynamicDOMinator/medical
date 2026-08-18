@@ -28,7 +28,9 @@ export default function Footer() {
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
-                <span>150 Pine Forest Drive # 102, The Woodlands, TX 77384</span>
+                <span>
+                  4 TCA Locations: Northwest, Kingwood, Spring &amp; The Woodlands
+                </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-brand-400 shrink-0" />
@@ -36,7 +38,7 @@ export default function Footer() {
                   href="tel:+12813581950"
                   className="hover:text-white transition-colors"
                 >
-                  +1 (281) 358-1950
+                  +1 (281) 358-1950 / (281) 440-7373
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -59,7 +61,23 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
-                  Dashboard Home
+                  Home &amp; Clinical Portal
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About Dr. Almahmoud
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Clinic Locations &amp; Maps
                 </Link>
               </li>
               <li>
@@ -67,55 +85,41 @@ export default function Footer() {
                   href="/heart-care"
                   className="hover:text-white transition-colors"
                 >
-                  Your Heart Health: Questions Patients Often Ask
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/disease/cad"
-                  className="hover:text-white transition-colors"
-                >
-                  Coronary Artery Disease (CAD)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/symptom/palpitations"
-                  className="hover:text-white transition-colors"
-                >
-                  Palpitations Investigation
+                  Heart Health Questions
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Clinic Hours */}
+          {/* Doctor Weekly Schedule */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              Clinic Hours
+              Doctor Schedule
             </h3>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-1.5 text-xs text-slate-400">
               <li className="flex justify-between">
-                <span>Mon - Thu:</span>
-                <span className="text-white font-medium">
-                  8:00 AM - 6:00 PM
-                </span>
+                <span>Mon (Northwest):</span>
+                <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Friday:</span>
-                <span className="text-white font-medium">
-                  8:00 AM - 1:00 PM
-                </span>
+                <span>Tue (Kingwood):</span>
+                <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Saturday:</span>
-                <span className="text-white font-medium">
-                  9:00 AM - 2:00 PM
-                </span>
+                <span>Wed (Spring):</span>
+                <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
-              <li className="flex justify-between text-brand-400">
-                <span>Emergency Support:</span>
-                <span className="font-semibold">24 / 7 Available</span>
+              <li className="flex justify-between">
+                <span>Thu (Kingwood):</span>
+                <span className="text-white font-medium">1:00 PM – 5:00 PM</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Fri (Woodlands):</span>
+                <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
+              </li>
+              <li className="flex justify-between text-brand-400 pt-1 border-t border-slate-800">
+                <span>Appointments:</span>
+                <span className="font-semibold">Online via Healow</span>
               </li>
             </ul>
           </div>
