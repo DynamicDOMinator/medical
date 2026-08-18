@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Heart,
@@ -284,14 +285,16 @@ export default function Navbar() {
           {/* Clinic Brand Logo */}
           <Link
             href="/"
-            className="flex items-center space-x-2 text-blue-950 group shrink-0"
+            className="flex items-center shrink-0 py-1 transition-opacity hover:opacity-90"
           >
-            <div className="bg-gradient-to-tr from-blue-700 to-sky-500 p-2 rounded-xl text-white group-hover:from-blue-600 group-hover:to-sky-400 transition-all shadow-sm shadow-blue-500/30">
-              <Heart className="h-5 w-5" fill="currentColor" />
-            </div>
-            <span className="font-extrabold text-xl tracking-tight">
-              Pulse<span className="text-blue-600">Care</span>
-            </span>
+            <Image
+              src="/TCA40weblogo.png"
+              alt="Texas Cardiology Associates Logo"
+              width={160}
+              height={40}
+              className="h-8 sm:h-9 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

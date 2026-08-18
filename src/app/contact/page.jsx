@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Heart, Calendar, ExternalLink, MapPin } from "lucide-react";
+import { Heart, Calendar, ExternalLink, MapPin, Printer, Phone, Mail } from "lucide-react";
 import ClinicLocationsView from "@/components/ClinicLocationsView";
 import { clinics } from "@/data/clinics";
 
@@ -221,6 +221,40 @@ export default function ContactPage() {
               <Heart className="h-4 w-4" fill="currentColor" />
               <span>Request My Appointment</span>
             </button>
+          </div>
+
+          {/* Direct Contact Summary Info Bar */}
+          <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="flex items-center space-x-3.5">
+              <div className="bg-blue-50 border border-blue-100 p-2.5 rounded-xl text-blue-600 shrink-0">
+                <Printer className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  Personal Fax
+                </p>
+                <p className="text-sm font-extrabold text-blue-700">
+                  832-861-4762
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3.5">
+              <div className="bg-blue-50 border border-blue-100 p-2.5 rounded-xl text-blue-600 shrink-0">
+                <Phone className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  Main Practice Line
+                </p>
+                <a
+                  href="tel:+12813581950"
+                  className="text-sm font-extrabold text-slate-900 hover:text-blue-600 transition-colors"
+                >
+                  +1 (281) 358-1950
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Direct Book Online Banner */}

@@ -78,9 +78,6 @@ export default function ClinicLocationsView({
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               {selectedClinic.name}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500">
-              Texas Cardiology Associates · Heart &amp; Vein Care
-            </p>
           </div>
 
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto">
@@ -154,13 +151,14 @@ export default function ClinicLocationsView({
                 <div className="bg-slate-200 p-2.5 rounded-xl text-slate-700 shadow-xs shrink-0 mt-0.5">
                   <Printer className="h-4 w-4" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 space-y-0.5">
                   <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                    Clinic Fax
+                    Fax Lines
                   </p>
-                  <span className="text-slate-800 font-semibold text-sm mt-0.5 block">
-                    F: {selectedClinic.displayFax}
-                  </span>
+                  <div className="text-xs sm:text-sm text-slate-800 font-semibold space-y-0.5">
+                    <div>Clinic Fax: <span className="font-bold">{selectedClinic.displayFax}</span></div>
+                    <div className="text-blue-700">Personal Fax: <span className="font-extrabold">832-861-4762</span></div>
+                  </div>
                 </div>
               </div>
             </div>

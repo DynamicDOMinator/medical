@@ -15,9 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "PulseCare Cardiology Clinic | Expert Cardiovascular Insights",
+  title: "Texas Cardiology Associates | Dr. Mohamed Faher Almahmoud",
   description:
-    "Comprehensive patient guides on Coronary Artery Disease (CAD), Palpitations, Arrhythmias, and advanced cardiac diagnostics at PulseCare Clinic.",
+    "Comprehensive patient guides on Coronary Artery Disease (CAD), Palpitations, Arrhythmias, and advanced cardiac diagnostics by Dr. Mohamed Faher Almahmoud at Texas Cardiology Associates.",
+  icons: {
+    icon: "/TCA40weblogo.png",
+    shortcut: "/TCA40weblogo.png",
+    apple: "/TCA40weblogo.png",
+  },
 };
 
 export default function RootLayout({ children }) {

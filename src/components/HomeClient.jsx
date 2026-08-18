@@ -26,6 +26,7 @@ import {
   Pill,
   ChevronDown,
   HelpCircle,
+  ExternalLink,
 } from "lucide-react";
 
 const doctorSpecialties = [
@@ -233,9 +234,10 @@ const treatmentProgressionStages = [
 const boardCertificationsList = [
   "Internal Medicine",
   "Cardiovascular Disease",
+  "Interventional Cardiology",
   "Nuclear Cardiology",
   "Echocardiography",
-  "Cardiac Computed Tomography",
+  "Cardiac Computed Tomography (CBCCT)",
   "Registered Physician in Vascular Interpretation (RPVI)",
 ];
 
@@ -449,11 +451,11 @@ export default function HomeClient() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left: Photo on Left */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-blue-100 via-sky-50 to-slate-100 p-2 border border-blue-200/80 shadow-lg">
-                <div className="relative h-96 sm:h-[480px] w-full rounded-2xl overflow-hidden bg-slate-900">
+              <div className="relative rounded-3xl overflow-hidden bg-white p-2 border border-slate-200/90 shadow-lg">
+                <div className="relative h-96 sm:h-[480px] w-full rounded-2xl overflow-hidden bg-white">
                   <Image
-                    src="/doc-img.png"
-                    alt="Dr. Mohamed Faher Almahmoud M.D., F.A.C.C."
+                    src="/personal.png"
+                    alt="Dr. Mohamed Faher Almahmoud MD, MS, RPVI, CBCCT, FACC, FSCAI"
                     fill
                     className="object-cover object-top hover:scale-105 transition-transform duration-500"
                     priority
@@ -463,12 +465,12 @@ export default function HomeClient() {
                   <div className="sm:hidden absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-md p-3.5 rounded-xl border border-white/20 shadow-xl text-center">
                     <h3 className="font-extrabold text-slate-900 text-xs sm:text-sm leading-tight">
                       <div>Dr. Mohamed Faher Almahmoud</div>
-                      <div className="text-blue-600 text-xs font-bold mt-0.5">
-                        M.D., F.A.C.C.
+                      <div className="text-blue-600 text-[11px] font-bold mt-0.5 tracking-tight">
+                        MD, MS, RPVI, CBCCT, FACC, FSCAI
                       </div>
                     </h3>
                     <p className="text-blue-600 text-[11px] font-bold mt-1">
-                      Board-Certified Cardiologist & Interventional Specialist
+                      Board-Certified Cardiologist &amp; Interventional Specialist
                     </p>
                   </div>
                 </div>
@@ -484,20 +486,20 @@ export default function HomeClient() {
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                   <div>Dr. Mohamed Faher Almahmoud</div>
-                  <div className="text-blue-600 text-2xl sm:text-3xl font-bold mt-1">
-                    M.D., F.A.C.C.
+                  <div className="text-blue-600 text-xl lg:text-2xl font-bold mt-1 tracking-tight">
+                    MD, MS, RPVI, CBCCT, FACC, FSCAI
                   </div>
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
-                  Board-Certified Cardiologist & Interventional Specialist
+                  Board-Certified Cardiologist &amp; Interventional Specialist
                 </p>
               </div>
 
-              {/* Board Certification Badges (6 Items) */}
+              {/* Board Certification Badges (7 Items) */}
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
                 <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                   <Award className="h-4 w-4 text-blue-600" />
-                  <span>Board Certifications (6)</span>
+                  <span>Board Certifications (7)</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {boardCertificationsList.map((cert, idx) => (
@@ -512,7 +514,7 @@ export default function HomeClient() {
                 </div>
               </div>
 
-              {/* Education & Fellowships Cards */}
+              {/* Education, Fellowships & Hospital Privileges Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                 {/* Medical Education */}
                 <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl space-y-2">
@@ -520,10 +522,14 @@ export default function HomeClient() {
                     <GraduationCap className="h-4 w-4 text-blue-600" />
                     <span>Medical Education</span>
                   </div>
-                  <ul className="text-xs text-slate-700 space-y-2 font-medium">
+                  <ul className="text-xs text-slate-700 space-y-1.5 font-medium">
                     <li className="flex items-start space-x-2">
                       <span className="text-blue-600 font-bold">•</span>
-                      <span>University of Aleppo</span>
+                      <span>Wake Forest Univ. School of Medicine (MS)</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="text-blue-600 font-bold">•</span>
+                      <span>SUNY Downstate Medical Center</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <span className="text-blue-600 font-bold">•</span>
@@ -531,43 +537,62 @@ export default function HomeClient() {
                     </li>
                     <li className="flex items-start space-x-2">
                       <span className="text-blue-600 font-bold">•</span>
-                      <span>SUNY Downstate Medical Center</span>
+                      <span>University of Aleppo</span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Fellowship */}
+                {/* Hospital Privileges */}
                 <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl space-y-2">
                   <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                     <Building2 className="h-4 w-4 text-blue-600" />
-                    <span>Fellowships</span>
+                    <span>Hospital Privileges</span>
                   </div>
-                  <ul className="text-xs text-slate-700 space-y-2 font-medium">
+                  <ul className="text-xs text-slate-700 space-y-1.5 font-medium">
                     <li className="flex items-start space-x-2">
                       <span className="text-blue-600 font-bold">•</span>
-                      <span>
-                        University of Texas Medical Branch (UTMB), Galveston
-                      </span>
+                      <span>Houston Methodist The Woodlands</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <span className="text-blue-600 font-bold">•</span>
-                      <span>
-                        Medical University of South Carolina (MUSC), Charleston
-                      </span>
+                      <span>Memorial Hermann The Woodlands</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="text-blue-600 font-bold">•</span>
+                      <span>HCA Houston Healthcare Kingwood</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="text-blue-600 font-bold">•</span>
+                      <span>Memorial Hermann Northeast Hospital</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <span className="text-blue-600 font-bold">•</span>
+                      <span>HCA Houston Healthcare Northwest</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              {/* Button: Learn more about Dr. Almahmoud */}
-              <div className="pt-2">
+              {/* Action Buttons: Learn More & Google Scholar */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <Link
                   href="/about"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm md:text-base rounded-2xl shadow-lg shadow-blue-600/25 transition-all duration-300 hover:scale-[1.02] active:scale-100 text-center"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm rounded-2xl shadow-md shadow-blue-600/25 transition-all duration-300 hover:scale-[1.02] active:scale-100 text-center"
                 >
                   <span>Learn more about Dr. Almahmoud</span>
                   <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
+
+                <a
+                  href="https://scholar.google.com/citations?hl=en&user=Zz9JBy4AAAAJ&view_op=list_works&sortby=pubdate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-900 border border-blue-200 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-300 hover:scale-[1.02] active:scale-100 text-center group"
+                >
+                  <BookOpen className="h-4 w-4 text-blue-600 group-hover:scale-110 transition-transform" />
+                  <span>Google Scholar Publications</span>
+                  <ExternalLink className="h-3.5 w-3.5 text-blue-500 opacity-75" />
+                </a>
               </div>
             </div>
           </div>

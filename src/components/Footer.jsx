@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Mail, Phone, MapPin, ShieldAlert } from "lucide-react";
 
 export default function Footer() {
@@ -12,18 +13,20 @@ export default function Footer() {
           <div className="space-y-4 col-span-1 md:col-span-2">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-white font-bold text-xl tracking-tight"
+              className="inline-flex items-center bg-white/95 px-3 py-1.5 rounded-xl transition-opacity hover:opacity-90 shadow-sm"
             >
-              <Heart className="h-6 w-6 text-brand-400" />
-              <span>
-                Pulse<span className="text-brand-400">Care</span> Cardiology
-              </span>
+              <Image
+                src="/TCA40weblogo.png"
+                alt="Texas Cardiology Associates Logo"
+                width={150}
+                height={38}
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-md">
-              PulseCare Cardiology Clinic is dedicated to providing
-              high-quality, patient-centered cardiovascular services. Our
-              state-of-the-art diagnostic facilities and expert medical team
-              guarantee world-class heart care.
+              Dr. Almahmoud is committed to provide personalized care for every
+              stage of your cardiovascular health. Your long-term health
+              companion.
             </p>
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
               <div className="flex items-start space-x-2">
