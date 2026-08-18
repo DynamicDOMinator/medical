@@ -39,17 +39,7 @@ export default function BloodVesselsPage() {
     <div className="bg-slate-50 min-h-screen">
       {/* Hero */}
       <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-20 sm:pb-24 relative overflow-hidden">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000&q=80"
-            alt="Blood Vessels Background"
-            fill
-            className="object-cover object-center opacity-65"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-blue-950/60 to-slate-900/40" />
-        </div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center space-x-3 mb-4">
