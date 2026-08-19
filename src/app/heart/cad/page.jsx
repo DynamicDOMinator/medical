@@ -357,7 +357,7 @@ export default function HeartCADPage() {
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Diagnostic Tests &amp; Imaging
+                  Diagnostic Tests
                 </h2>
               </div>
 

@@ -291,7 +291,7 @@ export default function ArrhythmiasPage() {
             {/* DIAGNOSIS */}
             <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests & Imaging</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Tests</h2>
               </div>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">

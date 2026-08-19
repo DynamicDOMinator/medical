@@ -70,27 +70,23 @@ export default function ValvularHeartDiseasePage() {
   const treatments = [
     {
       name: "Transcatheter Aortic Valve Replacement (TAVR)",
-      desc: "A expandable artificial valve is deployed inside the diseased aortic valve via a small leg artery catheter puncture.",
-      image:
-        "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
+      badgeType: "Procedure",
+      desc: "An expandable artificial valve is deployed inside the diseased aortic valve via a small leg artery catheter puncture.",
     },
     {
       name: "MitraClip™ Transcatheter Edge-to-Edge Repair",
+      badgeType: "Procedure",
       desc: "A small clip is guided into the heart to hold mitral valve leaflets together and reduce severe mitral regurgitation.",
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Balloon Aortic / Mitral Valvuloplasty",
+      badgeType: "Procedure",
       desc: "Catheter balloon inflation used to stretch open stiff, narrow heart valve openings in select symptomatic patients.",
-      image:
-        "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Surgical Valve Repair or Replacement",
+      badgeType: "Procedure",
       desc: "Traditional or mini-thoracotomy surgical repair or replacement with mechanical or tissue prosthetic valves.",
-      image:
-        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -116,8 +112,8 @@ export default function ValvularHeartDiseasePage() {
               items={[
                 ["#overview", "Valve Disease Overview"],
                 ["#symptoms", "Symptoms"],
-                ["#diagnosis", "Echocardiography Diagnostics"],
-                ["#treatments", "TAVR & MitraClip Options"],
+                ["#diagnosis", "Diagnostic Testing"],
+                ["#treatments", "Treatment"],
                 ["#faqs", "Patient FAQs"],
               ]}
               cta={{
@@ -206,120 +202,52 @@ export default function ValvularHeartDiseasePage() {
               </div>
             </section>
 
-            {/* DIAGNOSIS WITH IMAGE */}
+            {/* DIAGNOSIS */}
             <section
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  3D Doppler Echocardiography
+                  Diagnostic Tests
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Echocardiography uses high-frequency sound waves to generate
-                detailed moving pictures of your heart valves in motion. Doppler
-                ultrasound measures blood flow velocity across valves to
-                calculate exact pressure gradients and valve area.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Finding the right answers starts with understanding your heart. We use gentle, non-invasive imaging tests to assess how your heart valves open and close, measure blood flow, and determine the best care plan for your health.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
-                        alt="Transthoracic Echocardiogram (TTE)"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Transthoracic Echocardiogram (TTE)
+              <div className="divide-y divide-slate-200/80">
+                {[
+                  {
+                    name: "Transthoracic Echocardiogram (TTE)",
+                    desc: "Standard 2D/3D non-invasive ultrasound to evaluate valve anatomy, leaflet mobility, and chamber dimensions.",
+                  },
+                  {
+                    name: "Transesophageal Echocardiogram (TEE)",
+                    desc: "High-resolution specialized ultrasound via an esophageal probe, providing clear, unobstructed views of complex valve structures.",
+                  },
+                  {
+                    name: "Cardiac CT & Calcium Scoring",
+                    desc: "Detailed cross-sectional imaging evaluating aortic valve calcification and annular dimensions prior to TAVR or surgical intervention.",
+                  },
+                ].map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
                       </h3>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Standard 2D/3D non-invasive valve evaluation.
-                    </p>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
-                        alt="Transesophageal Echocardiogram (TEE)"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Transesophageal Echocardiogram (TEE)
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      High-resolution esophageal ultrasound probe.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-                        alt="Color Doppler Velocity Mapping"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Color Doppler Velocity Mapping
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Measures pressure gradients and regurgitant volumes.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
-                        alt="Cardiac CT & Calcium Scoring"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Cardiac CT & Calcium Scoring
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Evaluates aortic valve calcification prior to TAVR.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Note Callout */}
-              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
-                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                <p>
-                  Not all valve disease needs immediate treatment; mild cases are often monitored. The key challenge is timing intervention correctly, since waiting too long can harm the heart, but not every abnormal valve requires a procedure.
-                </p>
+                ))}
               </div>
             </section>
 
@@ -330,33 +258,37 @@ export default function ValvularHeartDiseasePage() {
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Transcatheter TAVR & MitraClip Procedures
+                  Treatment
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 Modern treatments include both surgery and less invasive catheter-based options for selected patients.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="divide-y divide-slate-200/80">
                 {treatments.map((t) => (
                   <div
                     key={t.name}
-                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
                         {t.name}
                       </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
                       <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {t.desc}
                       </p>
