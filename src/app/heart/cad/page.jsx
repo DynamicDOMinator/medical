@@ -98,36 +98,24 @@ export default function HeartCADPage() {
 
   const treatments = [
     {
+      name: "Optimal Medical Therapy (OMT)",
+      badgeType: "Treatment",
+      desc: "Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.",
+    },
+    {
       name: "Percutaneous Coronary Intervention (PCI / Stenting)",
+      badgeType: "Procedure",
       desc: "Minimally invasive catheterization where a tiny balloon dilates blocked heart arteries and a Drug-Eluting Stent (DES) scaffolds it open permanently.",
-      duration: "45–60 Mins",
-      recovery: "1–2 Days",
-      image:
-        "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Coronary Artery Bypass Grafting (CABG)",
+      badgeType: "Procedure",
       desc: "Surgical revascularization utilizing arterial or venous grafts to bypass complex multi-vessel or left main coronary artery disease.",
-      duration: "Surgical Procedure",
-      recovery: "Hospital Rehabilitation",
-      image:
-        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Optimal Medical Therapy (OMT)",
-      desc: "Guideline-directed medical management using Dual Antiplatelet Therapy (DAPT), high-intensity statins, beta-blockers, and ACE-inhibitors.",
-      duration: "Daily Protocol",
-      recovery: "Long-term Protection",
-      image:
-        "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Coronary Angiography",
+      badgeType: "Procedure",
       desc: "An invasive diagnostic procedure using a contrast dye and X-rays to locate and measure the exact size of blockages in the heart arteries.",
-      duration: "30–45 Mins",
-      recovery: "Same Day",
-      image:
-        "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -452,37 +440,35 @@ export default function HeartCADPage() {
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
-                  Examples
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {treatments.map((t) => (
-                    <div
-                      key={t.name}
-                      className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
-                    >
-                      <div className="relative h-48 w-full">
-                        <Image
-                          src={t.image}
-                          alt={t.name}
-                          fill
-                          className="object-cover object-center"
-                        />
-                        
-                        
-                      </div>
-                      <div className="p-5">
-                        <h4 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
-                          {t.name}
-                        </h4>
-                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                          {t.desc}
-                        </p>
+              <div className="divide-y divide-slate-200/80">
+                {treatments.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
+                        {t.name}
+                      </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
                       </div>
                     </div>
-                  ))}
-                </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-blue-50/70 border border-blue-100 text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
