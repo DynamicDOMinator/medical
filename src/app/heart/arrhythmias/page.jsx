@@ -111,23 +111,18 @@ export default function ArrhythmiasPage() {
   const treatments = [
     {
       name: 'Antiarrhythmic Medication Therapy',
+      badgeType: 'Treatment',
       desc: 'Rate-control (beta-blockers, calcium channel blockers) or rhythm-control medications (flecainide, amiodarone, sotalol) to stabilize heart electrical signals.',
-      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter Ablation',
+      badgeType: 'Procedure',
       desc: 'Minimally invasive catheter procedure that delivers thermal energy to scar tiny areas of heart tissue causing abnormal signals. Gold standard for SVT and AFib.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
-      name: 'Permanent Pacemaker Implantation',
-      desc: 'Implantation of a tiny battery-powered device under the skin to send electric impulses when the heart beats too slowly or pauses.',
-      image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      name: 'Implantable Cardioverter-Defibrillator (ICD)',
-      desc: 'Device that continuously monitors rhythm, delivers anti-tachycardia pacing, or a defibrillation shock to terminate ventricular fibrillation and prevent sudden death.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+      name: 'Left Atrial Appendage Closure (LAAC)',
+      badgeType: 'Procedure',
+      desc: 'A minimally invasive catheter-based procedure that seals off the left atrial appendage to reduce stroke risk in patients with atrial fibrillation.',
     },
   ];
 
@@ -351,20 +346,36 @@ export default function ArrhythmiasPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                  Treatment includes but not limited to : left atrial appendage closure
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-4">
+                  Treatment includes but not limited to
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="divide-y divide-slate-200/80">
                   {treatments.map((t) => (
-                    <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
-                      <div className="relative h-48 w-full">
-                        <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                    <div
+                      key={t.name}
+                      className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                    >
+                      <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                        <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
+                          {t.name}
+                        </h3>
+                        <div>
+                          <span
+                            className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                              t.badgeType === "Treatment"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                : "bg-blue-50 text-blue-700 border-blue-200"
+                            }`}
+                          >
+                            {t.badgeType}
+                          </span>
+                        </div>
                       </div>
-                      <div className="p-5">
-                        <h4 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h4>
-                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                      <div className="flex-1">
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                          {t.desc}
+                        </p>
                       </div>
                     </div>
                   ))}
