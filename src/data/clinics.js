@@ -26,10 +26,8 @@ export const clinics = [
     address: "800 Peakwood Drive, Ste 6C",
     cityStateZip: "Spring / Houston, TX 77090",
     fullAddress: "800 Peakwood Drive, Ste 6C, Houston, TX 77090",
-    phone: "+1 (281) 440-7373",
-    displayPhone: "281.440.7373",
-    secondaryPhone: "+1 (281) 358-1950",
-    displaySecondaryPhone: "281.358.1950",
+    phone: "+1 (281) 358-1950",
+    displayPhone: "281.358.1950",
     fax: "+1 (281) 440-9284",
     displayFax: "281.440.9284",
     schedule: [
