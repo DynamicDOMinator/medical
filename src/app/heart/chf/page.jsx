@@ -107,23 +107,23 @@ export default function CHFPage() {
   const treatments = [
     {
       name: "ACE inhibitors or ARBs",
+      badgeType: "Treatment",
       desc: "Relax blood vessels to lower blood pressure and reduce strain on the heart.",
-      image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Aldosterone antagonists",
+      badgeType: "Treatment",
       desc: "Reduce fluid and protect the heart muscle.",
-      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Pacemakers or defibrillators",
+      badgeType: "Procedure",
       desc: "Help keep the heart beating in a normal rhythm.",
-      image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Heart pumps (VADs)",
+      badgeType: "Procedure",
       desc: "Help the main heart chamber pump blood.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -255,14 +255,14 @@ export default function CHFPage() {
               </div>
             </section>
 
-            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            {/* 4. DIAGNOSIS/TEST */}
             <section
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Diagnosis & Testing
+                  Diagnostic Tests
                 </h2>
               </div>
 
@@ -302,25 +302,29 @@ export default function CHFPage() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+              <div className="divide-y divide-slate-200/80 mb-8">
                 {treatments.map((t) => (
                   <div
                     key={t.name}
-                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
                         {t.name}
                       </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
                       <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {t.desc}
                       </p>
