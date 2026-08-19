@@ -173,7 +173,7 @@ export default function HeartCADPage() {
             {/* 1. OVERVIEW (USE IMAGE) */}
             <section
               id="overview"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -196,12 +196,13 @@ export default function HeartCADPage() {
               </div>
 
               {/* Overview Medical Banner Image */}
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Examining Coronary Angiogram"
-                  fill
-                  className="object-cover object-center"
+                  src="/heart-2.png"
+                  alt="What is Coronary Artery Disease - Heart and Plaque Infographic"
+                  width={1400}
+                  height={800}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
@@ -383,20 +384,20 @@ export default function HeartCADPage() {
               <div className="divide-y divide-slate-200/80">
                 {[
                   {
-                    name: "Treadmill Stress Echocardiogram",
-                    desc: "Evaluates wall motion under stress.",
+                    name: "Treadmill stress-testing",
+                    desc: "Evaluates heart rhythm, exercise tolerance, and blood flow response under physical stress.",
                   },
                   {
-                    name: "Coronary CT Angiography (CCTA)",
-                    desc: "3D non-invasive plaque imaging.",
+                    name: "Nuclear stress testing",
+                    desc: "Uses specialized tracers to assess myocardial perfusion and detect areas of reduced blood supply.",
                   },
                   {
-                    name: "Invasive Coronary Angiography",
-                    desc: "Gold-standard fluoroscopic vessel mapping.",
+                    name: "PET CT scan",
+                    desc: "Advanced high-precision metabolic imaging for detailed evaluation of myocardial blood flow and viability.",
                   },
                   {
-                    name: "12-Lead Resting ECG & Holter",
-                    desc: "Detects ST-T wave changes and silent myocardial ischemia.",
+                    name: "CCTA (Coronary CT Angiography)",
+                    desc: "Non-invasive high-resolution 3D imaging visualizing coronary artery anatomy and plaque narrowing.",
                   },
                 ].map((t) => (
                   <div
@@ -415,14 +416,6 @@ export default function HeartCADPage() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Note Callout */}
-              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
-                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
-                <p>
-                  Early diagnostic evaluation helps identify coronary plaque and ischemia before a major cardiac event occurs.
-                </p>
               </div>
 
               {/* End of section diagnosis illustration */}

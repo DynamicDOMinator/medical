@@ -90,20 +90,20 @@ export default function CADPage() {
 
   const diagnosisTests = [
     {
-      title: "12-Lead Electrocardiogram (ECG)",
-      desc: "Records cardiac electrical signals to detect ischemic ST-segment changes, T-wave inversions, or prior myocardial scars.",
+      title: "Treadmill stress-testing",
+      desc: "Evaluates heart rhythm, exercise tolerance, and blood flow response under physical stress.",
     },
     {
-      title: "Coronary CT Angiography (CCTA)",
-      desc: "Non-invasive high-resolution 3D CT imaging quantifying coronary artery calcium score and luminal plaque narrowing.",
+      title: "Nuclear stress testing",
+      desc: "Uses specialized tracers to assess myocardial perfusion and detect areas of reduced blood supply.",
     },
     {
-      title: "Stress Echocardiography / Nuclear SPECT",
-      desc: "Evaluates myocardial wall motion abnormalities and perfusion deficits under exercise or pharmacological stress.",
+      title: "PET CT scan",
+      desc: "Advanced high-precision metabolic imaging for detailed evaluation of myocardial blood flow and viability.",
     },
     {
-      title: "Invasive Coronary Angiography (Gold Standard)",
-      desc: "Direct fluoroscopic visualization of coronary lumen geometry and fractional flow reserve (FFR/iFR) via arterial catheterization.",
+      title: "CCTA (Coronary CT Angiography)",
+      desc: "Non-invasive high-resolution 3D imaging visualizing coronary artery anatomy and plaque narrowing.",
     },
   ];
 
@@ -175,7 +175,7 @@ export default function CADPage() {
             {/* 1. OVERVIEW (USE IMAGE) */}
             <section
               id="overview"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -198,12 +198,13 @@ export default function CADPage() {
               </div>
 
               {/* Overview Medical Banner Image */}
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Examining Coronary Angiogram"
-                  fill
-                  className="object-cover object-center"
+                  src="/heart-2.png"
+                  alt="What is Coronary Artery Disease - Heart and Plaque Infographic"
+                  width={1400}
+                  height={800}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
