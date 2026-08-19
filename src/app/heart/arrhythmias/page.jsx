@@ -99,6 +99,10 @@ export default function ArrhythmiasPage() {
       desc: 'An ultrasound test that uses sound waves to check heart structure, valves, and blood flow.',
     },
     {
+      name: 'Implantable Loop Recorder (ILR)',
+      desc: 'A small insertable device placed under the skin to continuously monitor and record heart rhythm for up to 3 years.',
+    },
+    {
       name: 'Electrophysiology Study (EPS)',
       desc: 'A hospital procedure using thin tubes threaded into the heart to map abnormal electrical signals.',
     },
@@ -111,7 +115,7 @@ export default function ArrhythmiasPage() {
       image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
-      name: 'Catheter Ablation (RF & Cryoablation)',
+      name: 'Catheter Ablation',
       desc: 'Minimally invasive catheter procedure that delivers thermal energy to scar tiny areas of heart tissue causing abnormal signals. Gold standard for SVT and AFib.',
       image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
@@ -134,8 +138,8 @@ export default function ArrhythmiasPage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Heart Rhythm & <br />
-            Arrhythmias
+            Arrhythmias &amp; <br />
+            Atrial Fibrillation
           </h1>
         </div>
       </div>
@@ -167,7 +171,7 @@ export default function ArrhythmiasPage() {
           <div className="lg:col-span-9 space-y-12">
 
             {/* OVERVIEW */}
-            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What are Cardiac Arrhythmias?</h2>
               </div>
@@ -186,12 +190,14 @@ export default function ArrhythmiasPage() {
                 </p>
               </div>
 
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              {/* Overview Medical Infographic */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Analyzing ECG Tracing"
-                  fill
-                  className="object-cover object-center"
+                  src="/content.png"
+                  alt="Cardiac Electrical System and Arrhythmias Overview Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
@@ -199,7 +205,7 @@ export default function ArrhythmiasPage() {
             {/* TYPES */}
             <section
               id="types"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -230,24 +236,23 @@ export default function ArrhythmiasPage() {
                 ))}
               </div>
 
-              {/* Arrhythmia 3 Rhythms Light Infographic */}
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
-                  <Image
-                    src="/images/arrhythmia-types-visual.jpg"
-                    alt="Fast, Slow, and Irregular Heart Rhythms Comparison"
-                    fill
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
-
               {/* Clinical Note Callout */}
               <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
                 <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                 <p>
                   Some arrhythmias, like atrial fibrillation, increase stroke risk and require more than just heart rate control.
                 </p>
+              </div>
+
+              {/* Arrhythmia 3 Rhythms Light Infographic */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/types.png"
+                  alt="Understanding Cardiac Arrhythmias - Fast, Slow, and Uneven Rhythm Types"
+                  width={1400}
+                  height={800}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 
@@ -346,8 +351,8 @@ export default function ArrhythmiasPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                  Examples
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                  Treatment includes but not limited to : left atrial appendage closure
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
