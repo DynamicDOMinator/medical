@@ -211,7 +211,7 @@ export default function CADPage() {
             {/* 2. TYPES */}
             <section
               id="types"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -239,15 +239,14 @@ export default function CADPage() {
               </div>
 
               {/* CAD Progression Medical Infographic */}
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
-                  <Image
-                    src="/images/cad-progression.jpg"
-                    alt="How Coronary Artery Disease Develops - CAD Progression Infographic"
-                    fill
-                    className="object-contain object-center"
-                  />
-                </div>
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/images/cad-progression.jpg"
+                  alt="How Coronary Artery Disease Develops - CAD Progression Infographic"
+                  width={1400}
+                  height={800}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 
@@ -367,7 +366,7 @@ export default function CADPage() {
             {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
             <section
               id="diagnosis"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -392,12 +391,13 @@ export default function CADPage() {
               </div>
 
               {/* Diagnosis Image */}
-              <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Reviewing Cardiac CT & Angiography"
-                  fill
-                  className="object-cover object-center"
+                  src="/Cad-diagnos.png"
+                  alt="Coronary Artery Disease Diagnostic Tests & Imaging"
+                  width={1400}
+                  height={600}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>

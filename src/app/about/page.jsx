@@ -196,7 +196,7 @@ export default function AboutPage() {
                       </div>
                     </h3>
                     <p className="text-blue-600 text-[11px] font-bold mt-1">
-                      Cardiologist &amp; Interventional Vascular Specialist
+                      Interventional &amp; Structural Cardiologist
                     </p>
                     <p className="text-slate-600 text-[10.5px] font-semibold mt-0.5">
                       Practicing at TCA
@@ -285,7 +285,7 @@ export default function AboutPage() {
                   </div>
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
-                  Cardiologist &amp; Interventional Vascular Specialist
+                  Interventional &amp; Structural Cardiologist
                 </p>
                 <p className="text-slate-600 font-semibold text-sm mt-0.5">
                   Practicing at TCA
@@ -440,7 +440,7 @@ export default function AboutPage() {
               Select a clinic facility below to view address, contact details, consultation times, and Google Maps.
             </p>
           </div>
-          <ClinicLocationsView initialClinicId="kingwood" />
+          <ClinicLocationsView initialClinicId="woodlands" />
         </div>
 
         {/* CTA */}

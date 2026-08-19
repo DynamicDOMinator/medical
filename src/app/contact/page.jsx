@@ -6,7 +6,7 @@ import { clinics } from "@/data/clinics";
 export const metadata = {
   title: "Contact & Clinic Locations | Dr. Mohamed Faher Almahmoud",
   description:
-    "Schedule an appointment with Dr. Mohamed Faher Almahmoud at our 4 Texas Cardiology Associates locations in Houston (Northwest), Kingwood, Spring, and The Woodlands.",
+    "Schedule an appointment with Dr. Mohamed Faher Almahmoud at our Texas Cardiology Associates locations in The Woodlands (Main Clinic), Spring (Peakwood), and Kingwood.",
 };
 
 const HEALOW_BOOKING_URL =
@@ -34,9 +34,9 @@ export default function ContactPage() {
             Clinic Locations &amp; Contact
           </h1>
           <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-            Book an appointment with Dr. Mohamed Faher Almahmoud across our 4
-            practice locations in Northwest Houston, Kingwood, Spring, and The
-            Woodlands.
+            Book an appointment with Dr. Mohamed Faher Almahmoud across our
+            practice locations in The Woodlands (Main Clinic), Spring, and
+            Kingwood.
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 Preferred Clinic Location <span className="text-red-500">*</span>
               </label>
               <select
-                defaultValue="kingwood"
+                defaultValue="woodlands"
                 className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all bg-white"
               >
                 {clinics.map((clinic) => (
@@ -224,14 +224,14 @@ export default function ContactPage() {
           </div>
 
           {/* Direct Contact Summary Info Bar */}
-          <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="flex items-center space-x-3.5">
               <div className="bg-blue-50 border border-blue-100 p-2.5 rounded-xl text-blue-600 shrink-0">
                 <Printer className="h-5 w-5" />
               </div>
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                  Personal Fax
+                  Fax 1
                 </p>
                 <p className="text-sm font-extrabold text-blue-700">
                   832-861-4762
@@ -245,13 +245,30 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                  Main Practice Line
+                  Main Line
                 </p>
                 <a
                   href="tel:+12813581950"
                   className="text-sm font-extrabold text-slate-900 hover:text-blue-600 transition-colors"
                 >
                   +1 (281) 358-1950
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3.5">
+              <div className="bg-blue-50 border border-blue-100 p-2.5 rounded-xl text-blue-600 shrink-0">
+                <Mail className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  Email
+                </p>
+                <a
+                  href="mailto:almahmoud@tcathewoodlands.com"
+                  className="text-xs sm:text-sm font-extrabold text-slate-900 hover:text-blue-600 transition-colors truncate block"
+                >
+                  almahmoud@tcathewoodlands.com
                 </a>
               </div>
             </div>
@@ -292,7 +309,7 @@ export default function ContactPage() {
               Clinic Locations &amp; Google Maps
             </h2>
           </div>
-          <ClinicLocationsView initialClinicId="kingwood" />
+          <ClinicLocationsView initialClinicId="woodlands" />
         </div>
       </div>
     </div>

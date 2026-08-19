@@ -470,7 +470,7 @@ export default function HomeClient() {
                       </div>
                     </h3>
                     <p className="text-blue-600 text-[11px] font-bold mt-1">
-                      Board-Certified Cardiologist &amp; Interventional Specialist
+                      Interventional &amp; Structural Cardiologist
                     </p>
                   </div>
                 </div>
@@ -491,7 +491,7 @@ export default function HomeClient() {
                   </div>
                 </h2>
                 <p className="text-blue-600 font-bold text-sm mt-1">
-                  Board-Certified Cardiologist &amp; Interventional Specialist
+                  Interventional &amp; Structural Cardiologist
                 </p>
               </div>
 

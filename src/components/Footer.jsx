@@ -32,7 +32,7 @@ export default function Footer() {
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
                 <span>
-                  4 TCA Locations: Northwest, Kingwood, Spring &amp; The Woodlands
+                  3 TCA Locations: The Woodlands (Main), Spring &amp; Kingwood
                 </span>
               </div>
               <div className="flex items-center space-x-2">
@@ -47,10 +47,10 @@ export default function Footer() {
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-brand-400 shrink-0" />
                 <a
-                  href="mailto:info@pulsecarecardiology.com"
+                  href="mailto:almahmoud@tcathewoodlands.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@pulsecarecardiology.com
+                  almahmoud@tcathewoodlands.com
                 </a>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li className="flex justify-between">
-                <span>Mon (Northwest):</span>
+                <span>Mon (Spring - Peakwood):</span>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
@@ -109,7 +109,7 @@ export default function Footer() {
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Wed (Spring):</span>
+                <span>Wed (Spring - Peakwood):</span>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
@@ -117,7 +117,7 @@ export default function Footer() {
                 <span className="text-white font-medium">1:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Fri (Woodlands):</span>
+                <span>Fri (The Woodlands - Main):</span>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between text-brand-400 pt-1 border-t border-slate-800">

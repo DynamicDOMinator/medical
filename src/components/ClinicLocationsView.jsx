@@ -16,7 +16,7 @@ const HEALOW_BOOKING_URL =
   "https://healow.com/apps/provider/mohamed-almahmoud-2103459";
 
 export default function ClinicLocationsView({
-  initialClinicId = "kingwood"
+  initialClinicId = "woodlands"
 }) {
   const [selectedClinicId, setSelectedClinicId] = useState(initialClinicId);
 
@@ -25,8 +25,8 @@ export default function ClinicLocationsView({
 
   return (
     <div className="space-y-6 w-full">
-      {/* Interactive Location Selector Tabs - Responsive 1/2/4 Columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+      {/* Interactive Location Selector Tabs - Responsive 3 Columns */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
         {clinics.map((clinic) => {
           const isSelected = clinic.id === selectedClinicId;
           return (
@@ -34,28 +34,34 @@ export default function ClinicLocationsView({
               key={clinic.id}
               type="button"
               onClick={() => setSelectedClinicId(clinic.id)}
-              className={`p-4 rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between gap-3 ${
+              className={`p-4 sm:p-5 rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between gap-3 relative overflow-hidden ${
                 isSelected
                   ? "bg-blue-50/95 border-blue-600 shadow-md ring-2 ring-blue-600/20"
                   : "bg-white border-slate-200 hover:border-blue-300 hover:bg-slate-50/80 shadow-xs"
               }`}
             >
-              <div className="space-y-1 w-full">
-                <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider block">
-                  {clinic.subtitle}
-                </span>
+              <div className="space-y-1.5 w-full">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider block">
+                    {clinic.subtitle}
+                  </span>
+                  {clinic.isMainClinic && (
+                    <span className="bg-amber-100 text-amber-800 border border-amber-200/80 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      Main Clinic
+                    </span>
+                  )}
+                </div>
                 <h4 className="font-extrabold text-slate-900 text-base leading-snug">
                   {clinic.name}
                 </h4>
                 <p className="text-xs text-slate-500 font-medium truncate">
-                  {clinic.cityStateZip}
+                  {clinic.address}
                 </p>
               </div>
 
               <div className="pt-2.5 border-t border-slate-100/90 flex items-center justify-between gap-2 w-full text-xs">
                 <span className="font-bold text-slate-700 truncate">
-                  {clinic.schedule[0].day}
-                  {clinic.schedule.length > 1 ? ` & ${clinic.schedule[1].day}` : ""}
+                  {clinic.scheduleSummary}
                 </span>
                 <span
                   className={`text-[11px] font-bold shrink-0 ${
@@ -75,9 +81,16 @@ export default function ClinicLocationsView({
         {/* Header with Title & Action Buttons */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div className="space-y-1">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              {selectedClinic.name}
-            </h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                {selectedClinic.name}
+              </h3>
+              {selectedClinic.isMainClinic && (
+                <span className="bg-amber-100 text-amber-800 border border-amber-200/80 text-xs font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Main Clinic
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto">
@@ -138,12 +151,25 @@ export default function ClinicLocationsView({
                   <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
                     Phone &amp; Appointments
                   </p>
-                  <a
-                    href={`tel:${selectedClinic.phone.replace(/[^0-9+]/g, "")}`}
-                    className="text-blue-700 hover:text-blue-800 font-extrabold text-sm sm:text-base mt-0.5 block transition-colors"
-                  >
-                    P: {selectedClinic.displayPhone}
-                  </a>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-0.5">
+                    <a
+                      href={`tel:${selectedClinic.phone.replace(/[^0-9+]/g, "")}`}
+                      className="text-blue-700 hover:text-blue-800 font-extrabold text-sm sm:text-base transition-colors"
+                    >
+                      {selectedClinic.displayPhone}
+                    </a>
+                    {selectedClinic.secondaryPhone && (
+                      <>
+                        <span className="text-slate-400 text-xs font-bold">/</span>
+                        <a
+                          href={`tel:${selectedClinic.secondaryPhone.replace(/[^0-9+]/g, "")}`}
+                          className="text-blue-700 hover:text-blue-800 font-extrabold text-sm sm:text-base transition-colors"
+                        >
+                          {selectedClinic.displaySecondaryPhone || selectedClinic.secondaryPhone}
+                        </a>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -156,8 +182,8 @@ export default function ClinicLocationsView({
                     Fax Lines
                   </p>
                   <div className="text-xs sm:text-sm text-slate-800 font-semibold space-y-0.5">
-                    <div>Clinic Fax: <span className="font-bold">{selectedClinic.displayFax}</span></div>
-                    <div className="text-blue-700">Personal Fax: <span className="font-extrabold">832-861-4762</span></div>
+                    <div className="text-blue-700">Fax 1: <span className="font-extrabold">832-861-4762</span></div>
+                    <div>Fax 2: <span className="font-bold">{selectedClinic.displayFax}</span></div>
                   </div>
                 </div>
               </div>

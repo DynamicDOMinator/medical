@@ -209,7 +209,7 @@ export default function HeartCADPage() {
             {/* 2. TYPES */}
             <section
               id="types"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -237,15 +237,14 @@ export default function HeartCADPage() {
               </div>
 
               {/* CAD Progression Medical Infographic */}
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
-                  <Image
-                    src="/images/cad-progression.jpg"
-                    alt="How Coronary Artery Disease Develops - CAD Progression Infographic"
-                    fill
-                    className="object-contain object-center"
-                  />
-                </div>
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/images/cad-progression.jpg"
+                  alt="How Coronary Artery Disease Develops - CAD Progression Infographic"
+                  width={1400}
+                  height={800}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 
@@ -365,7 +364,7 @@ export default function HeartCADPage() {
             {/* 4. DIAGNOSIS/TEST */}
             <section
               id="diagnosis"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -418,25 +417,23 @@ export default function HeartCADPage() {
                 ))}
               </div>
 
-              {/* End of section diagnosis illustration */}
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <div className="relative w-full rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 bg-white">
-                  <Image
-                    src="/Cad-diagnos.png"
-                    alt="Coronary Artery Disease Diagnostic Tests & Imaging"
-                    width={1400}
-                    height={600}
-                    className="w-full h-auto object-cover block"
-                  />
-                </div>
-              </div>
-
               {/* Note Callout */}
               <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
                 <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                 <p>
                   Early diagnostic evaluation helps identify coronary plaque and ischemia before a major cardiac event occurs.
                 </p>
+              </div>
+
+              {/* End of section diagnosis illustration */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/Cad-diagnos.png"
+                  alt="Coronary Artery Disease Diagnostic Tests & Imaging"
+                  width={1400}
+                  height={600}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 
