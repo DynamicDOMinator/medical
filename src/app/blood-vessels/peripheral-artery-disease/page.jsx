@@ -42,7 +42,7 @@ export default function PADPage() {
     {
       question: 'How is PAD treated by an interventional cardiologist?',
       answer:
-        'Treatment combines risk factor control (statins, antiplatelets, supervised walking exercise) with minimally invasive endovascular procedures such as balloon angioplasty, atherectomy (plaque removal), and arterial stenting.',
+        'Treatment combines risk factor control (statins, antiplatelets, supervised walking exercise) with minimally invasive endovascular procedures such as balloon angioplasty, atherectomy, intravascular lithotripsy, and arterial stenting.',
     },
   ];
 
@@ -101,23 +101,28 @@ export default function PADPage() {
   const treatments = [
     {
       name: 'Supervised Exercise Therapy (SET)',
+      badgeType: 'Treatment',
       desc: 'Structured treadmill walking program to build collateral blood vessel pathways and increase pain-free walking distance.',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Endovascular Balloon Angioplasty',
+      badgeType: 'Procedure',
       desc: 'A tiny catheter with a balloon tip is navigated to the blocked leg artery and inflated to push plaque against arterial walls.',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
     {
-      name: 'Directional / Laser Atherectomy',
-      desc: 'Advanced catheter device gently shaves or laser-vaporizes tough calcified plaque from peripheral arterial walls.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
+      name: 'Atherectomy',
+      badgeType: 'Procedure',
+      desc: 'Advanced catheter-based devices that gently shave, debulk, or vaporize hardened plaque blockages directly from the arterial wall.',
+    },
+    {
+      name: 'Lithotripsy',
+      badgeType: 'Procedure',
+      desc: 'Uses localized sonic pressure waves (intravascular lithotripsy) to crack and modify tough, deeply calcified arterial blockages before ballooning or stenting.',
     },
     {
       name: 'Peripheral Arterial Stenting',
+      badgeType: 'Procedure',
       desc: 'Placement of a metallic mesh stent to scaffold narrowed leg arteries open and ensure durable long-term blood flow.',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -258,29 +263,33 @@ export default function PADPage() {
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 Treatment for peripheral artery disease (PAD) focuses on improving blood flow, relieving symptoms, protecting your legs, and reducing the risk of heart attack and stroke. The right approach depends on the severity of the disease, your symptoms, and your overall health.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+              <div className="divide-y divide-slate-200/80">
                 {treatments.map((t) => (
                   <div
                     key={t.name}
-                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
                         {t.name}
                       </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
                       <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {t.desc}
                       </p>
@@ -290,7 +299,7 @@ export default function PADPage() {
               </div>
 
               {/* Note Callout */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
                 <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                 <p>
                   Our goal is to choose the least invasive treatment that can safely improve your circulation and help you stay active.

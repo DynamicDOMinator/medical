@@ -24,7 +24,6 @@ import GuideSidebarNav from "@/components/GuideSidebarNav";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export default function VenousDiseasePage() {
-  const [activeTab, setActiveTab] = useState("overview");
 
   const faqs = [
     {
@@ -132,30 +131,45 @@ export default function VenousDiseasePage() {
     },
   ];
 
+  const diagnosticTests = [
+    {
+      name: "Duplex Reflux Mapping",
+      desc: "Measures valve reflux duration in seconds (>0.5s indicates valve failure) to pinpoint dysfunctional vein valves.",
+    },
+    {
+      name: "Saphenous Trunk Mapping",
+      desc: "Maps the precise anatomical pathway and dimensions of the Great and Small Saphenous veins.",
+    },
+    {
+      name: "Perforator Vein Inspection",
+      desc: "Identifies incompetent connecting veins between the deep and superficial systems contributing to swelling and skin breakdown.",
+    },
+    {
+      name: "Deep Venous Assessment",
+      desc: "Evaluates deep vein patency to rule out Deep Vein Thrombosis (DVT) and obstructive venous compression.",
+    },
+  ];
+
   const treatments = [
     {
-      name: "Endovenous Ablation",
-      desc: "Uses heat from a laser (EVLT) or radiofrequency (RFA) delivered via a thin tube (catheter) to seal shut the faulty main vein.",
-      image:
-        "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
+      name: "Thermal endovenous ablation",
+      badgeType: "Procedure",
+      desc: "Uses targeted heat energy from radiofrequency (RFA) or laser (EVLT) delivered via a thin catheter to seal shut the diseased vein, redirecting blood flow into healthier vessels.",
+    },
+    {
+      name: "Nonthermal glue ablation",
+      badgeType: "Procedure",
+      desc: "Uses a specialized medical-grade adhesive delivered via catheter to close the diseased vein without requiring heat, tumescent anesthesia, or post-procedure compression stockings.",
+    },
+    {
+      name: "Microfoam ablation",
+      badgeType: "Procedure",
+      desc: "Injects an ultrasound-guided physician-compounded microfoam into tortuous or complex diseased vein segments to gently displace blood and seal the vessel.",
     },
     {
       name: "Sclerotherapy",
-      desc: "Injects a liquid or foam chemical agent into smaller varicose or spider veins to scar and close them so they fade away.",
-      image:
-        "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Ambulatory Phlebectomy",
-      desc: "Removes bulging surface varicose veins through tiny skin punctures that generally need no stitches.",
-      image:
-        "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Nonthermal Glue Ablation",
-      desc: "Uses a medical-grade adhesive delivered via catheter to close the vein without requiring heat or post-procedure compression stockings.",
-      image:
-        "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
+      badgeType: "Procedure",
+      desc: "Injects a targeted solution directly into spider veins and smaller tributary varicose veins, causing them to collapse and gradually fade from view.",
     },
   ];
 
@@ -354,152 +368,94 @@ export default function VenousDiseasePage() {
               </div>
             </section>
 
-            {/* DIAGNOSIS WITH IMAGE & DUPLEX SCAN DETAILS */}
+            {/* 5. DIAGNOSIS */}
             <section
               id="diagnosis"
               className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Vascular Duplex Ultrasound Scan
+                  Diagnostic Testing
                 </h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                We combine a clinical examination with targeted tests when needed to identify the underlying problem, assess blood flow, and determine the most appropriate treatment for you.
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Accurate diagnosis begins with a comprehensive vascular ultrasound to assess vein anatomy, measure blood flow, and identify specific points of valve reflux.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
-                        alt="Duplex Reflux Mapping"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Duplex Reflux Mapping
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Measures valve reflux duration in seconds (&gt;0.5s
-                      indicates valve failure).
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
-                        alt="Saphenous Trunk Mapping"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Saphenous Trunk Mapping
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Maps exact anatomical course of Great & Small Saphenous
-                      veins.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-                        alt="Perforator Vein Inspection"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Perforator Vein Inspection
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Identifies incompetent calf perforator veins contributing
-                      to ulcers.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
-                        alt="Deep Venous Assessment"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">
-                        Deep Venous Assessment
-                      </h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      Rules out Deep Vein Thrombosis (DVT) and deep vein
-                      compression.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* TREATMENT */}
-            <section
-              id="treatment"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
-            >
-              <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Treatment
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {treatments.map((t) => (
+              <div className="divide-y divide-slate-200/80">
+                {diagnosticTests.map((t) => (
                   <div
                     key={t.name}
-                    className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden"
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
                   >
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={t.image}
-                        alt={t.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                         {t.name}
                       </h3>
+                    </div>
+                    <div className="flex-1">
                       <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         {t.desc}
                       </p>
                     </div>
                   </div>
                 ))}
+              </div>
+            </section>
+
+            {/* 6. TREATMENT */}
+            <section
+              id="treatment"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Treatment
+                </h2>
+              </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Modern venous treatments are minimally invasive, performed in-office with minimal discomfort and rapid recovery times, restoring healthy leg circulation.
+              </p>
+
+              <div className="divide-y divide-slate-200/80">
+                {treatments.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
+                        {t.name}
+                      </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Note Callout */}
+              <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start space-x-3 text-slate-700 text-xs sm:text-sm leading-relaxed">
+                <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
+                <p>
+                  Our goal is to recommend the least invasive, most effective vein treatment tailored to your ultrasound findings, symptoms, and lifestyle.
+                </p>
               </div>
             </section>
 

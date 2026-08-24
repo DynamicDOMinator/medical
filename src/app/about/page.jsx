@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "About Dr. Mohamed Faher Almahmoud | PulseCare Cardiology",
+  title: "About Dr. Mohamed Faher Almahmoud | Texas Cardiology Associates of The Woodlands",
   description:
     "Learn about Dr. Mohamed Faher Almahmoud MD, MS, RPVI, CBCCT, FACC, FSCAI — Board-certified cardiologist specializing in general & interventional cardiology, coronary interventions, structural heart care, and peripheral vascular disease.",
 };

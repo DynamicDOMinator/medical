@@ -41,7 +41,7 @@ export default function Footer() {
                   href="tel:+12813581950"
                   className="hover:text-white transition-colors"
                 >
-                  +1 (281) 358-1950 / (281) 440-7373
+                  +1 (281) 358-1950
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -132,7 +132,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-800 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 pt-2">
             <p>
-              &copy; {currentYear} PulseCare Cardiology Clinic. All rights
+              &copy; {currentYear} Texas Cardiology Associates of The Woodlands. All rights
               reserved.
             </p>
             <div className="flex space-x-4 mt-2 sm:mt-0">

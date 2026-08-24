@@ -101,26 +101,35 @@ export default function HypertensionPage() {
     },
   ];
 
+  const diagnosticTests = [
+    {
+      name: '24-Hour Ambulatory BP Monitoring',
+      desc: 'Eliminates white-coat hypertension and records nocturnal dipping patterns to evaluate true 24-hour vascular load.',
+    },
+    {
+      name: 'Echocardiography',
+      desc: 'Assesses left ventricular wall thickness, hypertrophy (LVH), and diastolic relaxation impaired by chronic high pressure.',
+    },
+    {
+      name: 'Renal Duplex Ultrasound',
+      desc: 'High-resolution vascular Doppler evaluating renal artery blood flow to screen for renal artery stenosis.',
+    },
+    {
+      name: 'Renal & Endocrine Biomarkers',
+      desc: 'Comprehensive blood and urine testing (eGFR, Creatinine, Urine Albumin, Aldosterone-to-Renin ratio) to assess organ impact.',
+    },
+  ];
+
   const treatments = [
     {
-      name: 'ACE Inhibitors & ARBs',
-      desc: 'Lisinopril, Losartan, Valsartan. Block renin-angiotensin-aldosterone axis, relaxing systemic arteries and protecting kidney function.',
-      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
+      name: 'Medicine',
+      badgeType: 'Treatment',
+      desc: 'Guideline-directed antihypertensive medications (such as ACE inhibitors, ARBs, calcium channel blockers, and diuretics) tailored to lower arterial pressure and protect your heart, kidneys, and brain.',
     },
     {
-      name: 'Calcium Channel Blockers (CCBs)',
-      desc: 'Amlodipine, Felodipine, Nifedipine. Inhibit calcium entry into arterial smooth muscle cells, reducing systemic vascular resistance.',
-      image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      name: 'Thiazide & Loop Diuretics',
-      desc: 'Hydrochlorothiazide, Chlorthalidone, Furosemide. Promote renal excretion of excess sodium and water to reduce blood volume.',
-      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      name: 'Renal Artery Denervation (Catheter Procedure)',
-      desc: 'Minimally invasive radiofrequency catheter ablation of renal sympathetic nerves for resistant hypertension.',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+      name: 'Interventional therapy / Catheter Procedure',
+      badgeType: 'Procedure',
+      desc: 'Minimally invasive catheter-based procedures (such as renal denervation) designed to treat resistant or difficult-to-control hypertension by targeting overactive renal sympathetic nerves.',
     },
   ];
 
@@ -279,88 +288,34 @@ export default function HypertensionPage() {
               </div>
             </section>
 
-            {/* 4. DIAGNOSIS/TEST (USE IMAGE) */}
+            {/* 4. DIAGNOSIS/TEST */}
             <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-6">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnosis & BP Testing</h2>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Testing</h2>
               </div>
 
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-               Blood pressure changes over time. One reading does not always tell the whole story. Home monitoring and trends can provide a much better understanding of a patient&apos;s true blood pressure. 
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Blood pressure changes over time and one reading does not always tell the whole story. We combine comprehensive monitoring with targeted tests to identify root causes and evaluate cardiovascular impact.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80"
-                        alt="24-Hour Ambulatory BP Monitoring"
-                        fill
-                        className="object-cover"
-                      />
+              <div className="divide-y divide-slate-200/80">
+                {diagnosticTests.map((t) => (
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
                     </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">24-Hour Ambulatory BP Monitoring</h3>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Eliminates white-coat HTN and reveals nocturnal dipping patterns.</p>
                   </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80"
-                        alt="Echocardiography"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Echocardiography</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Assesses Left Ventricular Hypertrophy (LVH) and diastolic filling.</p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
-                        alt="Renal Duplex Ultrasound"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Renal Duplex Ultrasound</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Evaluates renal artery stenosis in secondary hypertension.</p>
-                  </div>
-                </div>
-
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 hover:shadow-md transition-all flex flex-col justify-between overflow-hidden">
-                  <div>
-                    <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 border border-slate-200/60 shadow-xs">
-                      <Image
-                        src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
-                        alt="Renal & Endocrine Biomarkers"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-blue-600 shrink-0" />
-                      <h3 className="font-extrabold text-slate-900 text-base">Renal & Endocrine Biomarkers</h3>
-                    </div>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">Serum Creatinine, eGFR, Urine Albumin, and Aldosterone-to-Renin ratio.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </section>
 
@@ -370,20 +325,36 @@ export default function HypertensionPage() {
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment</h2>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-                Ultimately, hypertension care is not simply about <strong>“getting the number down.”</strong> It is about understanding the patient&apos;s overall cardiovascular risk and controlling blood pressure in a way that is <strong>effective, sustainable, and protective of the heart, brain, kidneys, and vascular system over the long term.</strong>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Hypertension care is about understanding your overall cardiovascular risk and controlling blood pressure in a way that is effective, sustainable, and protective of the heart, brain, kidneys, and vascular system.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="divide-y divide-slate-200/80">
                 {treatments.map((t) => (
-                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
-                    <div className="relative h-48 w-full">
-                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
+                        {t.name}
+                      </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
                   </div>
                 ))}

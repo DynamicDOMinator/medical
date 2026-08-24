@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
   if (!symptom) return {};
 
   return {
-    title: `${symptom.name} — Causes, Targeted Tests & Guidance | PulseCare Clinic`,
+    title: `${symptom.name} — Causes, Targeted Tests & Guidance | Texas Cardiology Associates of The Woodlands`,
     description: `${symptom.heroDesc} Learn about causes, what to expect during diagnostic workup, and when to seek urgent care.`,
   };
 }

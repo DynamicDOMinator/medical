@@ -2,7 +2,7 @@ import HeartCareClient from "@/components/HeartCareClient";
 
 export const metadata = {
   title:
-    "Your Heart Health: Questions Patients Often Ask | PulseCare Cardiology",
+    "Your Heart Health: Questions Patients Often Ask | Texas Cardiology Associates of The Woodlands",
   description:
     "Understanding when to seek cardiovascular care, what symptoms to watch for, and when treatment may be necessary helps you make informed decisions about your heart health.",
 };

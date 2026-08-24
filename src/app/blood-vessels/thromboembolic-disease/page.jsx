@@ -97,23 +97,23 @@ export default function ThromboembolicDiseasePage() {
   const treatments = [
     {
       name: 'Direct Oral Anticoagulants (DOACs)',
+      badgeType: 'Treatment',
       desc: 'Apixaban, Rivaroxaban, Dabigatran. First-line therapy for most VTE. No routine INR monitoring. Proven to be as effective as warfarin with significantly lower bleeding rates.',
-      image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Low Molecular Weight Heparin (LMWH)',
+      badgeType: 'Treatment',
       desc: 'Enoxaparin subcutaneous injections. Preferred for cancer-associated VTE (LMWH or DOAC) and during pregnancy (DOACs cross the placenta).',
-      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'Catheter-Directed Thrombolysis (CDT)',
+      badgeType: 'Procedure',
       desc: 'Low-dose local tPA delivered directly into the pulmonary artery clot via catheter. For submassive PE with RV dysfunction — maximizes efficacy while minimizing bleeding risk.',
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     },
     {
       name: 'IVC Filter Placement',
+      badgeType: 'Procedure',
       desc: 'Retrievable inferior vena cava filter placed when anticoagulation is absolutely contraindicated. Prevents clot migration from legs to lungs.',
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -268,20 +268,36 @@ export default function ThromboembolicDiseasePage() {
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Treatment</h2>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
                 Treatment focuses on stopping the clot from growing, preventing new clots, and reducing the risk of complications. Depending on the location and severity of the clot, treatment may include blood-thinning medications, clot-removal procedures, or clot-dissolving treatment in selected cases.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="divide-y divide-slate-200/80">
                 {treatments.map((t) => (
-                  <div key={t.name} className="rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-200 transition-all overflow-hidden">
-                    <div className="relative h-48 w-full">
-                      <Image src={t.image} alt={t.name} fill className="object-cover object-center" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[34%] lg:w-[30%] shrink-0 space-y-1.5">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">
+                        {t.name}
+                      </h3>
+                      <div>
+                        <span
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
+                            t.badgeType === "Treatment"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-blue-50 text-blue-700 border-blue-200"
+                          }`}
+                        >
+                          {t.badgeType}
+                        </span>
+                      </div>
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">{t.name}</h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
                     </div>
                   </div>
                 ))}

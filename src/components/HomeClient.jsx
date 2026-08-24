@@ -404,7 +404,7 @@ export default function HomeClient() {
               </h1>
 
               <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
-                From prevention and diagnosis to advanced cardiac interventions,
+                From <span className="bg-red-500 text-white  rounded-full "> prevention </span> and diagnosis to advanced cardiac interventions,
                 we provide personalized care for every stage of your
                 cardiovascular health.
               </p>

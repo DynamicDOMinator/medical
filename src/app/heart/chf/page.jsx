@@ -45,20 +45,16 @@ export default function CHFPage() {
 
   const typesList = [
     {
-      name: "Heart Failure with Reduced EF (HFrEF)",
-      desc: "Left ventricular ejection fraction is ≤40%. The heart muscle is weakened and cannot contract with normal force.",
-    },
-    {
-      name: "Heart Failure with Preserved EF (HFpEF)",
-      desc: "Ejection fraction remains ≥50%, but heart muscle is stiff and unable to relax and fill properly during diastole.",
-    },
-    {
-      name: "Mildly Reduced EF (HFmrEF)",
-      desc: "Ejection fraction ranges between 41–49%, representing a transitional state that benefits from tailored medical therapy.",
+      name: "Left-Sided Heart Failure",
+      desc: "Fluid backs up into the lungs, causing shortness of breath. This is the most common form.",
     },
     {
       name: "Right-Sided Heart Failure",
-      desc: "Right ventricle fails to effectively pump blood to the lungs, causing fluid backlog, peripheral leg edema, and liver engorgement.",
+      desc: "The right side struggles to pump blood to the lungs, causing fluid to back up in the body and lead to swollen feet, legs, or belly.",
+    },
+    {
+      name: "Congestive Heart Failure (CHF)",
+      desc: "A general term used when fluid builds up in the body's tissues and organs because the heart does not pump efficiently.",
     },
   ];
 
@@ -91,10 +87,6 @@ export default function CHFPage() {
       desc: "Uses sound waves to view heart valves and measure the ejection fraction (pumping percentage).",
     },
     {
-      name: "Blood tests (BNP or NT-proBNP)",
-      desc: "Checks for natriuretic peptides, proteins released when the heart is strained.",
-    },
-    {
       name: "Chest X-ray",
       desc: "Reveals heart enlargement or fluid buildup in the lungs.",
     },
@@ -106,24 +98,24 @@ export default function CHFPage() {
 
   const treatments = [
     {
-      name: "ACE inhibitors or ARBs",
+      name: "GDMT (Guideline-Directed Medical Therapy)",
       badgeType: "Treatment",
-      desc: "Relax blood vessels to lower blood pressure and reduce strain on the heart.",
+      desc: "Foundational evidence-based medical therapy (including ARNIs, beta-blockers, MRAs, and SGLT2 inhibitors) designed to improve heart function, reduce hospitalizations, and prolong survival.",
     },
     {
-      name: "Aldosterone antagonists",
-      badgeType: "Treatment",
-      desc: "Reduce fluid and protect the heart muscle.",
-    },
-    {
-      name: "Pacemakers or defibrillators",
+      name: "Monitoring Devices (CardioMEMS)",
       badgeType: "Procedure",
-      desc: "Help keep the heart beating in a normal rhythm.",
+      desc: "A miniature wireless sensor implanted in the pulmonary artery that measures daily pulmonary artery pressures from home, allowing proactive medication adjustments before symptoms develop.",
     },
     {
-      name: "Heart pumps (VADs)",
+      name: "Cardiac Modulation Therapy",
       badgeType: "Procedure",
-      desc: "Help the main heart chamber pump blood.",
+      desc: "Innovative device therapy (Cardiac Contractility Modulation / CCM) that delivers precisely timed electrical signals during the heart muscle's refractory period to improve contraction strength.",
+    },
+    {
+      name: "BiV, Pacemaker / ICD",
+      badgeType: "Procedure",
+      desc: "Implantable cardiac devices including Biventricular pacemakers (Cardiac Resynchronization Therapy / CRT) to synchronize ventricular pumping, and Implantable Cardioverter-Defibrillators (ICD) to protect against dangerous arrhythmias.",
     },
   ];
 
@@ -197,15 +189,32 @@ export default function CHFPage() {
             </section>
 
             {/* 2. TYPES */}
-            <section id="types" className="scroll-mt-24">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6">
-                Classifications & Types of Heart Failure
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <section
+              id="types"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Types of Heart Failure
+                </h2>
+              </div>
+
+              <div className="divide-y divide-slate-200/80">
                 {typesList.map((t) => (
-                  <div key={t.name} className="bg-white border border-slate-200/80 rounded-2xl p-5 space-y-2">
-                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{t.desc}</p>
+                  <div
+                    key={t.name}
+                    className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1 last:pb-1"
+                  >
+                    <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        {t.name}
+                      </h3>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        {t.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Heart, ArrowRight, Activity, Zap, Layers, TrendingUp } from 'lucide-react';
 
 export const metadata = {
-  title: 'Heart Conditions | PulseCare Cardiology',
+  title: 'Heart Conditions | Texas Cardiology Associates of The Woodlands',
   description: 'Explore patient guides for Coronary Artery Disease (CAD), Arrhythmias, Valvular Heart Disease, and Congestive Heart Failure (CHF).',
 };
 

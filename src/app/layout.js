@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,9 +16,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Texas Cardiology Associates | Dr. Mohamed Faher Almahmoud",
+  metadataBase: new URL("https://tcathewoodlands.com"),
+  title: {
+    default: "Texas Cardiology Associates of The Woodlands | tcathewoodlands.com",
+    template: "%s | Texas Cardiology Associates of The Woodlands",
+  },
   description:
-    "Comprehensive patient guides on Coronary Artery Disease (CAD), Palpitations, Arrhythmias, and advanced cardiac diagnostics by Dr. Mohamed Faher Almahmoud at Texas Cardiology Associates.",
+    "Comprehensive patient guides on Coronary Artery Disease (CAD), Palpitations, Arrhythmias, and advanced cardiac diagnostics by Dr. Mohamed Faher Almahmoud at Texas Cardiology Associates of The Woodlands.",
+  openGraph: {
+    title: "Texas Cardiology Associates of The Woodlands | tcathewoodlands.com",
+    description:
+      "Comprehensive patient resources and clinical care guides for heart conditions, arrhythmias, vascular health, PAD, venous disease, and preventive cardiology.",
+    url: "https://tcathewoodlands.com",
+    siteName: "Texas Cardiology Associates of The Woodlands",
+    images: [
+      {
+        url: "/TCA40weblogo.png",
+        width: 800,
+        height: 600,
+        alt: "Texas Cardiology Associates Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Texas Cardiology Associates of The Woodlands | tcathewoodlands.com",
+    description:
+      "Comprehensive patient resources and clinical care guides for heart conditions, arrhythmias, vascular health, PAD, venous disease, and preventive cardiology.",
+    images: ["/TCA40weblogo.png"],
+  },
   icons: {
     icon: "/TCA40weblogo.png",
     shortcut: "/TCA40weblogo.png",
@@ -61,6 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <FloatingCallButton />
       </body>
     </html>
   );

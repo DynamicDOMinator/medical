@@ -2,7 +2,7 @@ import { symptomsData } from "../symptomsData";
 import SymptomPageClient from "@/components/SymptomPageClient";
 
 export const metadata = {
-  title: "Palpitations — Causes, Targeted Tests & Guidance | PulseCare Clinic",
+  title: "Palpitations — Causes, Targeted Tests & Guidance | Texas Cardiology Associates of The Woodlands",
   description:
     "Feelings of a fluttering, racing, pounding, or skipped heartbeat. Reassuring evaluation determines the underlying electrical rhythm.",
 };

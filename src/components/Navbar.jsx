@@ -8,12 +8,12 @@ import {
   Activity,
   Menu,
   X,
-  PhoneCall,
   ChevronDown,
   ChevronRight,
   TrendingUp,
   Stethoscope,
   ArrowRight,
+  PhoneCall,
 } from "lucide-react";
 import { useState, useRef } from "react";
 
@@ -345,15 +345,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-
-            {/* Call Clinic CTA */}
-            <a
-              href="tel:+12813581950"
-              className="ml-2 inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all shadow-sm shadow-blue-600/20 shrink-0"
-            >
-              <PhoneCall className="h-3.5 w-3.5" />
-              <span>Call Clinic</span>
-            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -548,14 +539,15 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="pt-2">
+            {/* Mobile Drawer Call Clinic CTA */}
+            <div className="pt-3 pb-1 border-t border-slate-100">
               <a
                 href="tel:+12813581950"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center space-x-2 w-full py-3 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md"
+                className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3 px-4 rounded-2xl shadow-md transition-all duration-150 active:scale-95"
               >
                 <PhoneCall className="h-4 w-4" />
-                <span>Call PulseCare Clinic (281) 358-1950</span>
+                <span>Call Clinic (+1 281-358-1950)</span>
               </a>
             </div>
           </div>

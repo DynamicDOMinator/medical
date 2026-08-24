@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Droplets, ArrowRight, Zap, GitBranch } from 'lucide-react';
 
 export const metadata = {
-  title: 'Blood Vessel Conditions | PulseCare Cardiology',
+  title: 'Blood Vessel Conditions | Texas Cardiology Associates of The Woodlands',
   description: 'Explore patient guides for Venous Disease, Peripheral Artery Disease (PAD), and Thromboembolic Disease.',
 };
 
