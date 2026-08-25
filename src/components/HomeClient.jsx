@@ -478,20 +478,20 @@ export default function HomeClient() {
             </div>
 
             {/* Action CTA Buttons */}
-            <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-10 w-full max-w-md sm:max-w-none mx-auto">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer text-center"
               >
-                <Calendar className="mr-2.5 h-5 w-5 text-slate-900" />
-                Request Appointment
+                <Calendar className="mr-2.5 h-5 w-5 text-slate-900 shrink-0" />
+                <span>Request Appointment</span>
               </Link>
 
               <a
                 href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-sm sm:text-base cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-sm sm:text-base cursor-pointer text-center"
               >
                 Book online
               </a>
