@@ -66,15 +66,13 @@ const doctorSpecialties = [
         name: "Valvular & Structural Disease",
         link: "/heart/valvular-heart-disease",
         desc: "Aortic stenosis (TAVR), MitraClip, ASD & PFO closure.",
-        image:
-          "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+        image: "/content7.png",
       },
       {
         name: "Congestive Heart Failure (CHF)",
         link: "/heart/chf",
         desc: "Advanced heart failure care & mechanical circulatory support.",
-        image:
-          "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+        image: "/content2.png",
       },
     ],
     hubLink: "/heart",
@@ -109,15 +107,13 @@ const doctorSpecialties = [
         name: "Peripheral Artery Disease (PAD)",
         link: "/blood-vessels/peripheral-artery-disease",
         desc: "Endovascular intervention for leg arterial blockages.",
-        image:
-          "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80",
+        image: "/content4.png",
       },
       {
         name: "Thromboembolic & DVT Care",
         link: "/blood-vessels/thromboembolic-disease",
         desc: "Minimally invasive catheter procedures for DVT & Pulmonary Embolism.",
-        image:
-          "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80",
+        image: "/content5.png",
       },
     ],
     hubLink: "/blood-vessels",
@@ -143,15 +139,13 @@ const doctorSpecialties = [
         name: "Essential & High Blood Pressure",
         link: "/blood-vessels/hypertension",
         desc: "Individualized lifestyle and medical therapies to achieve optimal target blood pressure.",
-        image:
-          "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+        image: "/content8.jpg",
       },
       {
         name: "Secondary Hypertension Screening",
         link: "/blood-vessels/hypertension",
         desc: "Specialized screening for renovascular, endocrine, and metabolic causes of high blood pressure.",
-        image:
-          "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+        image: "/content6.png",
       },
     ],
     hubLink: "/blood-vessels/hypertension",
@@ -340,6 +334,23 @@ const googleReviewsList = [
   },
 ];
 
+const insurancePlans = [
+  "Medicare",
+  "Medicaid",
+  "Aetna",
+  "Blue Cross Blue Shield of Texas",
+  "Cigna",
+  "UnitedHealthcare",
+  "Ambetter",
+  "First Health",
+  "MultiPlan",
+  "Curative",
+  "Wellpoint",
+  "Community Health Choice",
+  "Memorial Hermann plans",
+  "Several Medicare Advantage plans",
+];
+
 const faqData = [
   {
     question: "What symptoms present differently in men vs women?",
@@ -387,56 +398,103 @@ export default function HomeClient() {
 
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
-      {/* 1. HERO SECTION: DR. ALMAHMOUD & CLINIC PORTAL */}
+      {/* 1. HERO SECTION: 5 GEOMETRIC SERVICE CIRCLES ACROSS 2 LINES */}
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
             {/* Hero Main Headline */}
-            <div className="space-y-6 text-center">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Comprehensive <br className="hidden sm:inline" />
-                Heart & Vascular Care
+            <div className="flex flex-col items-center justify-center text-center mb-8 sm:mb-12 lg:mb-8">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                <span className="text-white">We </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-white drop-shadow-sm">
+                  specialize in
+                </span>
               </h1>
+            </div>
 
-              <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
-                From <span className="bg-red-500 text-white  rounded-full "> prevention </span> and diagnosis to advanced cardiac interventions,
-                we provide personalized care for every stage of your
-                cardiovascular health.
-              </p>
+            {/* Hero Services Pill Display (No links, pure styled visual badges) */}
+            <div className="w-full flex flex-col items-center justify-center gap-3 sm:gap-4">
+              {/* LINE 1: Atrial Fibrillation · Chest Pain · Heart Failure */}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 md:gap-4">
+                {/* 1. Atrial Fibrillation */}
+                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
+                  Atrial Fibrillation
+                </span>
 
-              {/* Action Buttons & Underline Link */}
-              <div className="flex flex-col items-center justify-center space-y-4 pt-2">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-blue-950 bg-gradient-to-r from-sky-300 via-sky-200 to-blue-200 hover:from-sky-200 hover:to-white transition-all duration-300 shadow-lg shadow-sky-400/20 hover-lift text-sm sm:text-base"
-                  >
-                    <Calendar className="mr-2 h-5 w-5 text-blue-950" />
-                    Request Appointment
-                  </Link>
+                {/* 2. Chest Pain */}
+                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
+                  Chest Pain
+                </span>
 
-                  <a
-                    href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-7 py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover-lift text-sm sm:text-base"
-                  >
-                    Book online
-                  </a>
-                </div>
+                {/* 3. Heart Failure */}
+                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
+                  Heart Failure
+                </span>
+              </div>
 
+              {/* LINE 2: Varicose Vein · Explore */}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 md:gap-4">
+                {/* 4. Varicose Vein */}
+                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
+                  Varicose Vein
+                </span>
+
+                {/* 5. Explore */}
                 <a
                   href="#doctor-specialties"
-                  className="inline-flex items-center text-sm sm:text-base text-sky-300 hover:text-white font-semibold underline underline-offset-4 transition-colors pt-1"
+                  className="px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-sky-500/25 hover:bg-sky-500/40 border border-sky-400/60 hover:border-sky-300 backdrop-blur-md shadow-lg shadow-sky-500/20 text-white text-xs sm:text-sm md:text-base font-bold underline underline-offset-4 decoration-sky-300 hover:text-sky-200 transition-all duration-300 hover:scale-105 cursor-pointer"
                 >
-                  Learn about your Symptoms
+                  Explore
                 </a>
               </div>
+            </div>
+
+            {/* Descriptive Treatment & Approach Pills */}
+            <p className="text-sky-300 font-extrabold mt-3 md:mt-6 text-2xl md:text-xl text-lg mr-1">
+              Through
+            </p >
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl mx-auto mt-3 sm:mt-6">
+
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
+                early detection
+              </span>
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
+                prevention
+              </span>
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
+                individualized risk assessment
+              </span>
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
+                second opinions
+              </span>
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
+                minimally invasive treatment
+              </span>
+            </div>
+
+            {/* Action CTA Buttons */}
+            <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer"
+              >
+                <Calendar className="mr-2.5 h-5 w-5 text-slate-900" />
+                Request Appointment
+              </Link>
+
+              <a
+                href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-sm sm:text-base cursor-pointer"
+              >
+                Book online
+              </a>
             </div>
           </div>
         </div>
@@ -499,7 +557,7 @@ export default function HomeClient() {
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
                 <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                   <Award className="h-4 w-4 text-blue-600" />
-                  <span>Board Certifications (7)</span>
+                  <span>Board Certifications </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {boardCertificationsList.map((cert, idx) => (
@@ -602,7 +660,7 @@ export default function HomeClient() {
       {/* 3. DOCTOR'S SPECIALTIES & CONDITIONS HUB */}
       <section
         id="doctor-specialties"
-        className="max-w-7xl mx-auto  py-16"
+        className="scroll-mt-20 max-w-7xl mx-auto py-16"
       >
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -637,7 +695,10 @@ export default function HomeClient() {
         {currentCategory && (
           <div className="p-6 sm:p-10 transition-all duration-300 animate-fade-in-up">
             {/* Symptoms Intro Section */}
-            <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-slate-50 border border-blue-100 rounded-2xl p-6 mb-8 space-y-4">
+            <div
+              id="symptoms-overview"
+              className="scroll-mt-28 bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-slate-50 border border-blue-100 rounded-2xl p-6 mb-8 space-y-4"
+            >
               <div className="space-y-3">
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
                   {currentCategory.id === "heart"
@@ -1126,6 +1187,97 @@ export default function HomeClient() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5.5. ACCEPTED INSURANCE & COVERAGE SECTION - FULL WIDTH AUTOPLAY SLIDER */}
+      <section
+        id="insurance"
+        className="w-full py-16 sm:py-24 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white scroll-mt-24 relative overflow-hidden border-y border-blue-900/40"
+      >
+        {/* Ambient Glows */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center mb-10 sm:mb-14 space-y-3">
+          <div className="inline-flex items-center space-x-2 text-sky-300 text-xs font-extrabold uppercase tracking-wider bg-white/10 px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-md">
+            <ShieldCheck className="h-4 w-4 text-sky-400" />
+            <span>Accepted Insurance & Coverage</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Insurance Plans We Accept
+          </h2>
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Texas Cardiology Associates accepts a wide range of commercial, state, and federal health insurance plans to ensure accessible cardiovascular care for all patients.
+          </p>
+        </div>
+
+        {/* Full-Width Autoplay Marquee Slider */}
+        <div className="w-full relative overflow-hidden pause-on-hover py-4">
+          {/* Row 1: Running Left */}
+          <div className="flex w-max space-x-4 sm:space-x-6 animate-marquee-horizontal">
+            {[...insurancePlans, ...insurancePlans, ...insurancePlans, ...insurancePlans].map((plan, idx) => (
+              <div
+                key={idx}
+                className="flex items-center space-x-3 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400/60 rounded-2xl px-6 py-3.5 sm:py-4 transition-colors duration-200 shadow-md group shrink-0 cursor-default"
+              >
+                <div className="bg-sky-400/20 p-2 rounded-xl border border-sky-400/30 text-sky-300 group-hover:scale-105 transition-transform shrink-0">
+                  <CheckCircle2 className="h-4 w-4 text-sky-300" />
+                </div>
+                <span className="text-white text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap">
+                  {plan}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: Running Right (Reverse) */}
+          <div className="flex w-max space-x-4 sm:space-x-6 animate-marquee-horizontal-reverse mt-4 sm:mt-5">
+            {[
+              ...insurancePlans.slice(7),
+              ...insurancePlans.slice(0, 7),
+              ...insurancePlans.slice(7),
+              ...insurancePlans.slice(0, 7),
+              ...insurancePlans.slice(7),
+              ...insurancePlans.slice(0, 7),
+              ...insurancePlans.slice(7),
+              ...insurancePlans.slice(0, 7),
+            ].map((plan, idx) => (
+              <div
+                key={idx}
+                className="flex items-center space-x-3 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-400/50 rounded-2xl px-6 py-3.5 sm:py-4 transition-colors duration-200 shadow-md group shrink-0 cursor-default"
+              >
+                <div className="bg-blue-400/20 p-2 rounded-xl border border-blue-400/30 text-blue-300 group-hover:scale-105 transition-transform shrink-0">
+                  <CheckCircle2 className="h-4 w-4 text-sky-300" />
+                </div>
+                <span className="text-white text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap">
+                  {plan}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Verification Bar */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-10 sm:mt-12">
+          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div className="space-y-1">
+              <h4 className="text-white font-bold text-sm sm:text-base">
+                Don&apos;t see your specific plan listed?
+              </h4>
+              <p className="text-slate-300 text-xs sm:text-sm">
+                Insurance networks frequently update. Contact our friendly team to verify your coverage before your visit.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center space-x-2 px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-extrabold text-sm rounded-2xl transition-all shadow-lg shadow-sky-400/20 hover:scale-105 shrink-0 cursor-pointer"
+            >
+              <PhoneCall className="h-4 w-4" />
+              <span>Verify Your Insurance</span>
+            </Link>
           </div>
         </div>
       </section>

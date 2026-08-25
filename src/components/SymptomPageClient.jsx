@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Plus,
 } from "lucide-react";
-import SymptomIllustration from "@/components/SymptomIllustration";
 import StickyDiagnosisBar from "@/components/StickyDiagnosisBar";
 
 export default function SymptomPageClient({ symptom }) {
@@ -53,14 +52,10 @@ export default function SymptomPageClient({ symptom }) {
             <span className="text-white font-semibold">{symptom.name}</span>
           </nav>
 
-          <div className="space-y-4 max-w-3xl">
+          <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Understanding {symptom.name}
             </h1>
-
-            <p className="text-sky-100 text-base sm:text-lg leading-relaxed font-normal">
-              {symptom.heroDesc}
-            </p>
           </div>
         </div>
       </section>
@@ -100,9 +95,10 @@ export default function SymptomPageClient({ symptom }) {
                 {symptom.understanding.feelings.map((feeling, idx) => (
                   <li
                     key={idx}
-                    className="text-xs sm:text-sm text-slate-700 py-1"
+                    className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 py-1"
                   >
-                    <span>{feeling}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
+                    <span className="leading-relaxed font-medium">{feeling}</span>
                   </li>
                 ))}
               </ul>
@@ -118,13 +114,6 @@ export default function SymptomPageClient({ symptom }) {
                 <h4 className="font-bold text-slate-900">What It Means</h4>
                 <p>{symptom.understanding.meaning}</p>
               </div>
-            </div>
-          </div>
-
-          {/* Descriptive Medical Illustration placed under the text */}
-          <div className="pt-4 border-t border-slate-100 flex flex-col items-center max-w-xl mx-auto">
-            <div className="w-full">
-              <SymptomIllustration slug={symptom.slug} name={symptom.name} />
             </div>
           </div>
         </section>
@@ -147,7 +136,7 @@ export default function SymptomPageClient({ symptom }) {
           </div>
 
           {/* Reassurance Callout Box */}
-          <div className="bg-sky-50/80 border border-sky-200/80 rounded-2xl p-5 sm:p-6 space-y-2">
+          <div className="bg-sky-50/80 rounded-2xl p-5 sm:p-6 space-y-2">
             <div className="flex items-center space-x-2.5">
               <ShieldCheck className="h-5 w-5 text-sky-600 shrink-0" />
               <h3 className="font-extrabold text-sky-950 text-sm sm:text-base">
@@ -255,9 +244,9 @@ export default function SymptomPageClient({ symptom }) {
         <section
           id="finding-the-cause"
           aria-labelledby="section-finding-the-cause"
-          className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8 scroll-mt-24"
+          className="bg-white rounded-3xl border border-blue-100 p-6 sm:p-10 scroll-mt-24"
         >
-          <div>
+          <div className="mb-6">
             <h2
               id="section-finding-the-cause"
               className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
@@ -266,21 +255,26 @@ export default function SymptomPageClient({ symptom }) {
             </h2>
           </div>
 
-          <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
             {symptom.findingTheCause.intro}
           </p>
 
-          {/* Exactly 3 Tailored Tests + 4th 'And more' Card */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <h3 className="text-blue-600 font-extrabold text-sm sm:text-base mb-3">
+            Diagnostic tests include:
+          </h3>
+
+          <div className="divide-y divide-slate-200/80">
             {symptom.findingTheCause.tests.slice(0, 3).map((test, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:bg-blue-50/20 transition-all flex flex-col justify-center"
+                className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 hover:bg-slate-50/60 -mx-3 px-3 rounded-xl transition-colors first:pt-1"
               >
-                <div className="space-y-2">
-                  <h3 className="font-extrabold text-slate-900 text-base leading-snug">
+                <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                  <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                     {test.name}
                   </h3>
+                </div>
+                <div className="flex-1">
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                     {test.desc}
                   </p>
@@ -288,13 +282,15 @@ export default function SymptomPageClient({ symptom }) {
               </div>
             ))}
 
-            {/* 4th Card: And more, when clinically appropriate */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-slate-50 to-sky-50/60 border border-blue-200/90 hover:border-blue-300 hover:bg-blue-50/30 transition-all flex flex-col justify-center">
-              <div className="space-y-2">
-                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug">
+            {/* Highlighted 'And more, when clinically appropriate' Row */}
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between py-4 sm:py-5 gap-2 sm:gap-8 bg-gradient-to-r from-blue-50/90 via-sky-50/60 to-transparent -mx-3 px-4 rounded-2xl border border-blue-100/90 mt-2">
+              <div className="w-full sm:w-[32%] lg:w-[28%] shrink-0">
+                <h3 className="font-extrabold text-blue-950 text-sm sm:text-base">
                   And more, when clinically appropriate
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              </div>
+              <div className="flex-1">
+                <p className="text-blue-900/85 text-xs sm:text-sm leading-relaxed font-medium">
                   We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
                 </p>
               </div>

@@ -125,10 +125,10 @@ export default function ValvularHeartDiseasePage() {
           </div>
 
           <div className="lg:col-span-9 space-y-12">
-            {/* OVERVIEW */}
+            {/* 1. OVERVIEW */}
             <section
               id="overview"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -150,20 +150,21 @@ export default function ValvularHeartDiseasePage() {
                   <strong>Regurgitation / Insufficiency</strong>), allowing
                   blood to leak backward into the heart.
                 </p>
+                <p>
+                  Over time, untreated valve disease can strain the heart and lead to complications like heart enlargement, rhythm problems, or heart failure.
+                </p>
               </div>
 
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              {/* Overview Medical Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Evaluating Heart Valves"
-                  fill
-                  className="object-cover object-center"
+                  src="/content7.png"
+                  alt="What is Valvular Heart Disease - Overview Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
                 />
               </div>
-
-              <p className="mt-6 text-slate-600 text-sm sm:text-base leading-relaxed">
-                Over time, untreated valve disease can strain the heart and lead to complications like heart enlargement, rhythm problems, or heart failure.
-              </p>
             </section>
 
             {/* SYMPTOMS */}
@@ -205,7 +206,7 @@ export default function ValvularHeartDiseasePage() {
             {/* DIAGNOSIS */}
             <section
               id="diagnosis"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -248,6 +249,17 @@ export default function ValvularHeartDiseasePage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Diagnostic Testing Infographic */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/content 2.png"
+                  alt="Valvular Heart Disease Diagnostic Tests Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 

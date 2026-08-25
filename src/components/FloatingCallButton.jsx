@@ -1,10 +1,23 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { PhoneCall } from "lucide-react";
 
 export default function FloatingCallButton() {
+  const pathname = usePathname();
+  const isElevatedPage =
+    pathname?.startsWith("/symptom") ||
+    pathname?.startsWith("/heart/") ||
+    pathname?.startsWith("/blood-vessels/") ||
+    pathname?.startsWith("/disease/");
+
   return (
-    <aside aria-label="Quick contact" className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 animate-bounce">
+    <aside
+      aria-label="Quick contact"
+      className={`fixed right-4 sm:right-6 z-40 animate-bounce transition-all duration-300 ${
+        isElevatedPage ? "bottom-20 sm:bottom-6" : "bottom-5 sm:bottom-6"
+      }`}
+    >
       <a
         href="tel:+12813581950"
         title="Call Clinic: +1 (281) 358-1950"
@@ -17,3 +30,4 @@ export default function FloatingCallButton() {
     </aside>
   );
 }
+

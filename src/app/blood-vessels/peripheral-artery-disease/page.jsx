@@ -142,7 +142,7 @@ export default function PADPage() {
       {/* 2. MAIN LAYOUT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
+
           {/* Sidebar */}
           <div className="lg:col-span-3">
             <GuideSidebarNav
@@ -164,7 +164,7 @@ export default function PADPage() {
 
           {/* Main Sections */}
           <div className="lg:col-span-9 space-y-12">
-            
+
             {/* OVERVIEW */}
             <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
               <div className="mb-6">
@@ -179,7 +179,7 @@ export default function PADPage() {
 
               <div className="mt-8 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
                 <Image
-                  src="/images/pad-overview-illustration.jpg"
+                  src="/images/pad-overview-illustration.png"
                   alt="Peripheral Artery Disease (PAD) Overview Illustration"
                   fill
                   className="object-cover object-center"
@@ -223,7 +223,7 @@ export default function PADPage() {
             {/* DIAGNOSIS */}
             <section
               id="diagnosis"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -249,6 +249,17 @@ export default function PADPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Diagnostic Testing Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/content4.png"
+                  alt="Peripheral Artery Disease (PAD) Diagnostic Testing Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 
@@ -279,11 +290,10 @@ export default function PADPage() {
                       </h3>
                       <div>
                         <span
-                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
-                            t.badgeType === "Treatment"
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${t.badgeType === "Treatment"
                               ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                               : "bg-blue-50 text-blue-700 border-blue-200"
-                          }`}
+                            }`}
                         >
                           {t.badgeType}
                         </span>

@@ -174,7 +174,7 @@ export default function HypertensionPage() {
           <div className="lg:col-span-9 space-y-12">
 
             {/* 1. OVERVIEW (USE IMAGE) */}
-            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What is Hypertension?</h2>
               </div>
@@ -188,13 +188,14 @@ export default function HypertensionPage() {
                 </p>
               </div>
 
-              {/* Banner Image */}
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              {/* Overview Medical Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiologist Blood Pressure Consultation"
-                  fill
-                  className="object-cover object-center"
+                  src="/content8.jpg"
+                  alt="Hypertension and High Blood Pressure Clinical Overview"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
@@ -289,7 +290,7 @@ export default function HypertensionPage() {
             </section>
 
             {/* 4. DIAGNOSIS/TEST */}
-            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="diagnosis" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Diagnostic Testing</h2>
               </div>
@@ -316,6 +317,17 @@ export default function HypertensionPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Diagnostic Testing Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/content6.png"
+                  alt="Hypertension Diagnostic Testing Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 

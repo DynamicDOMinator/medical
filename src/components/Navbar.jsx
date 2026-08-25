@@ -274,6 +274,7 @@ export default function Navbar() {
 
   const staticLinks = [
     { name: "Heart Care", href: "/heart-care" },
+    { name: "Insurance", href: "/#insurance" },
     { name: "Provider", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];

@@ -249,3 +249,42 @@ body {
 .pause-on-hover:hover .animate-marquee-vertical-reverse {
   animation-play-state: paused;
 }
+
+@keyframes marquee-horizontal {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-horizontal-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee-horizontal {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-horizontal 65s linear infinite;
+}
+
+.animate-marquee-horizontal-reverse {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-horizontal-reverse 65s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee-horizontal,
+.pause-on-hover:hover .animate-marquee-horizontal-reverse {
+  animation-play-state: paused;
+}
+
+

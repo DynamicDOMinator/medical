@@ -160,7 +160,7 @@ export default function CHFPage() {
             {/* 1. OVERVIEW (USE IMAGE) */}
             <section
               id="overview"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -177,13 +177,14 @@ export default function CHFPage() {
                 </p>
               </div>
 
-              {/* Banner Medical Image */}
-              <div className="mt-8 relative h-72 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-md border border-slate-200/80">
+              {/* Overview Medical Infographic */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80"
-                  alt="Cardiac Ultrasound Echocardiogram"
-                  fill
-                  className="object-cover object-center"
+                  src="/content2.png"
+                  alt="What is Congestive Heart Failure - Clinical Overview Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
@@ -267,7 +268,7 @@ export default function CHFPage() {
             {/* 4. DIAGNOSIS/TEST */}
             <section
               id="diagnosis"
-              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24"
+              className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden"
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -297,6 +298,17 @@ export default function CHFPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Diagnostic Testing Infographic */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/content3.png"
+                  alt="Congestive Heart Failure Diagnostic Tests Infographic"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 

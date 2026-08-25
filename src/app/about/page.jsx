@@ -209,7 +209,7 @@ export default function AboutPage() {
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
                 <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                   <Award className="h-4 w-4 text-blue-600" />
-                  <span>Board Certifications (7)</span>
+                  <span>Board Certifications </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   {[

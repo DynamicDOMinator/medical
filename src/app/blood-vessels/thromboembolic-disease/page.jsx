@@ -158,7 +158,7 @@ export default function ThromboembolicDiseasePage() {
           <div className="lg:col-span-9 space-y-12">
 
             {/* OVERVIEW */}
-            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">What is Thromboembolic Disease?</h2>
               </div>
@@ -169,12 +169,14 @@ export default function ThromboembolicDiseasePage() {
                 </p>
               </div>
 
-              <div className="mt-8 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
+              {/* Overview Medical Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/images/thromboembolic.png"
+                  src="/content5.png"
                   alt="Thromboembolic Disease & Venous Thrombus Medical Illustration"
-                  fill
-                  className="object-contain object-center"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
                 />
               </div>
             </section>
