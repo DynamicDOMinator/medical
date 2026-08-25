@@ -166,7 +166,7 @@ export default function PADPage() {
           <div className="lg:col-span-9 space-y-12">
 
             {/* OVERVIEW */}
-            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24">
+            <section id="overview" className="bg-white border border-blue-100 rounded-3xl p-6 sm:p-10 shadow-xs scroll-mt-24 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Understanding Peripheral Artery Disease</h2>
               </div>
@@ -175,24 +175,23 @@ export default function PADPage() {
                 <p>
                   Peripheral artery disease (PAD) is more than a circulation problem in the legs—it is a manifestation of systemic atherosclerosis. The same disease process that affects the arteries of the legs can also affect the heart and brain, which is why PAD is an important marker of overall cardiovascular risk.
                 </p>
-              </div>
-
-              <div className="mt-8 relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-white">
-                <Image
-                  src="/images/pad-overview-illustration.png"
-                  alt="Peripheral Artery Disease (PAD) Overview Illustration"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
-              <div className="mt-8 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
                   Progressive PAD can reduce walking ability, physical activity, strength, and mobility, sometimes leading to significant disability.
                 </p>
                 <p>
                   Advanced PAD can threaten the limb. Severe disease may cause rest pain, nonhealing wounds, ulcers, or gangrene and can ultimately result in amputation.
                 </p>
+              </div>
+
+              {/* Overview Medical Infographic Banner */}
+              <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
+                <Image
+                  src="/images/pad-overview-illustration.png"
+                  alt="Peripheral Artery Disease (PAD) Overview Illustration"
+                  width={1400}
+                  height={900}
+                  className="w-full h-auto block"
+                />
               </div>
             </section>
 

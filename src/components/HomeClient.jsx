@@ -52,15 +52,13 @@ const doctorSpecialties = [
         name: "Coronary Artery Disease (CAD)",
         link: "/heart/cad",
         desc: "Complex coronary artery interventions and plaque management.",
-        image:
-          "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=80",
+        image: "/heart-2.png",
       },
       {
         name: "Arrhythmias & Rhythm Disorders",
         link: "/heart/arrhythmias",
         desc: "Atrial fibrillation, electrical disturbances, and Holter monitoring.",
-        image:
-          "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+        image: "/images/arrhythmia-types-visual.jpg",
       },
       {
         name: "Valvular & Structural Disease",
@@ -100,14 +98,13 @@ const doctorSpecialties = [
         name: "Venous Insufficiency & Varicose",
         link: "/blood-vessels/venous-disease",
         desc: "Lower limb venous valve management and duplex ultrasound.",
-        image:
-          "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+        image: "/images/venous-types-visual-white.jpg",
       },
       {
         name: "Peripheral Artery Disease (PAD)",
         link: "/blood-vessels/peripheral-artery-disease",
         desc: "Endovascular intervention for leg arterial blockages.",
-        image: "/content4.png",
+        image: "/images/pad-overview-illustration.png",
       },
       {
         name: "Thromboembolic & DVT Care",
@@ -814,6 +811,7 @@ export default function HomeClient() {
                           src={item.image}
                           alt={item.name}
                           fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
@@ -1201,10 +1199,7 @@ export default function HomeClient() {
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center mb-10 sm:mb-14 space-y-3">
-          <div className="inline-flex items-center space-x-2 text-sky-300 text-xs font-extrabold uppercase tracking-wider bg-white/10 px-4 py-1.5 rounded-full border border-white/15 backdrop-blur-md">
-            <ShieldCheck className="h-4 w-4 text-sky-400" />
-            <span>Accepted Insurance & Coverage</span>
-          </div>
+         
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Insurance Plans We Accept
           </h2>
