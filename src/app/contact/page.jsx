@@ -126,7 +126,7 @@ export default function ContactPage() {
         </div>
 
         {/* Dedicated Full-Width Clinic Locations Section */}
-        <div className="pt-8 border-t border-slate-200/80 space-y-6">
+        <div id="locations" className="pt-8 border-t border-slate-200/80 space-y-6 scroll-mt-24">
           <div className="flex items-center space-x-2.5 text-blue-700">
             <MapPin className="h-6 w-6 text-blue-600" />
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">

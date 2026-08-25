@@ -31,9 +31,12 @@ export default function Footer() {
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
-                <span>
+                <Link
+                  href="/contact#locations"
+                  className="hover:text-white transition-colors"
+                >
                   3 TCA Locations: The Woodlands (Main), Spring &amp; Kingwood
-                </span>
+                </Link>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-brand-400 shrink-0" />
@@ -59,12 +62,12 @@ export default function Footer() {
           {/* Quick links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              Medical Resources
+              Quick Links
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
-                  Home &amp; Clinical Portal
+                  Home
                 </Link>
               </li>
               <li>
@@ -77,7 +80,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact#locations"
                   className="hover:text-white transition-colors"
                 >
                   Clinic Locations &amp; Maps
@@ -101,23 +104,33 @@ export default function Footer() {
             </h3>
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li className="flex justify-between">
-                <span>Mon (Spring - Peakwood):</span>
+                <Link href="/contact#locations" className="hover:text-white transition-colors">
+                  Mon (Spring - Peakwood):
+                </Link>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Tue (Kingwood):</span>
+                <Link href="/contact#locations" className="hover:text-white transition-colors">
+                  Tue (Kingwood):
+                </Link>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Wed (Spring - Peakwood):</span>
+                <Link href="/contact#locations" className="hover:text-white transition-colors">
+                  Wed (Spring - Peakwood):
+                </Link>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Thu (Kingwood):</span>
+                <Link href="/contact#locations" className="hover:text-white transition-colors">
+                  Thu (Kingwood):
+                </Link>
                 <span className="text-white font-medium">1:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <span>Fri (The Woodlands - Main):</span>
+                <Link href="/contact#locations" className="hover:text-white transition-colors">
+                  Fri (The Woodlands - Main):
+                </Link>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between text-brand-400 pt-1 border-t border-slate-800">

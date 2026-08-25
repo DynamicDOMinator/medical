@@ -58,7 +58,7 @@ const doctorSpecialties = [
         name: "Arrhythmias & Rhythm Disorders",
         link: "/heart/arrhythmias",
         desc: "Atrial fibrillation, electrical disturbances, and Holter monitoring.",
-        image: "/images/arrhythmia-types-visual.jpg",
+        image: "/content.png",
       },
       {
         name: "Valvular & Structural Disease",
