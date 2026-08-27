@@ -635,6 +635,71 @@ export default function SymptomIllustration({ slug, name }) {
         </div>
       );
 
+    case "knee-osteoarthritis":
+    case "gae-treatment":
+    case "knee-pain":
+      return (
+        <div className="w-full h-full min-h-[260px] flex items-center justify-center p-6 bg-gradient-to-br from-amber-50/70 via-white to-blue-50/60 rounded-2xl border border-amber-100 shadow-xs relative overflow-hidden">
+          <svg viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[320px] h-auto">
+            <circle cx="180" cy="130" r="90" fill="#f59e0b" fillOpacity="0.05" />
+            <circle cx="180" cy="130" r="60" fill="#0284c7" fillOpacity="0.06" />
+
+            {/* Femur (Thigh bone - Top) */}
+            <path
+              d="M165 40 V105 C165 118 150 125 150 132 C150 138 160 142 170 142 H190 C200 142 210 138 210 132 C210 125 195 118 195 105 V40"
+              fill="#f1f5f9"
+              stroke="#94a3b8"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+            />
+
+            {/* Tibia & Fibula (Lower leg bones - Bottom) */}
+            <path
+              d="M152 165 C152 158 162 154 172 154 H188 C198 154 208 158 208 165 C208 174 195 180 195 220 H165 C165 180 152 174 152 165 Z"
+              fill="#f1f5f9"
+              stroke="#94a3b8"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+            />
+            {/* Fibula side bone */}
+            <path d="M216 172 V220" stroke="#cbd5e1" strokeWidth="4" strokeLinecap="round" />
+
+            {/* Cartilage & Synovial Joint Space */}
+            <path d="M154 146 Q180 148 206 146" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" />
+            <path d="M154 150 Q180 152 206 150" stroke="#38bdf8" strokeWidth="3" strokeLinecap="round" />
+
+            {/* Genicular Arterial Network (Branches around the knee) */}
+            <path d="M180 40 V220" stroke="#dc2626" strokeWidth="3" opacity="0.4" />
+            {/* Superior & Inferior Genicular Arteries */}
+            <path d="M180 90 Q150 95 142 125 Q135 150 160 160" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M180 90 Q210 95 218 125 Q225 150 200 160" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" />
+
+            {/* Microscopic Embolization / Hypervascular calming zone */}
+            <circle cx="148" cy="138" r="14" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="3 3" />
+            <circle cx="212" cy="138" r="14" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="3 3" />
+            <circle cx="148" cy="138" r="4" fill="#f59e0b" />
+            <circle cx="212" cy="138" r="4" fill="#f59e0b" />
+
+            {/* Badges */}
+            <g transform="translate(25, 45)">
+              <rect width="125" height="26" rx="13" fill="#ffffff" stroke="#fef3c7" strokeWidth="1.5" />
+              <circle cx="14" cy="13" r="4" fill="#d97706" />
+              <text x="26" y="17" fill="#92400e" fontSize="9" fontWeight="700" fontFamily="sans-serif">
+                Synovial Inflammation
+              </text>
+            </g>
+
+            <g transform="translate(205, 195)">
+              <rect width="130" height="26" rx="13" fill="#ffffff" stroke="#e0f2fe" strokeWidth="1.5" />
+              <circle cx="14" cy="13" r="4" fill="#0284c7" />
+              <text x="26" y="17" fill="#0369a1" fontSize="9" fontWeight="700" fontFamily="sans-serif">
+                Genicular Embolization
+              </text>
+            </g>
+          </svg>
+        </div>
+      );
+
     default:
       return (
         <div className="w-full h-full min-h-[260px] flex items-center justify-center p-6 bg-gradient-to-br from-blue-50 via-white to-sky-50 rounded-2xl border border-blue-100 shadow-xs relative overflow-hidden">

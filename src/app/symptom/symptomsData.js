@@ -1675,6 +1675,219 @@ export const symptomsData = {
       },
     ],
   },
+
+  // ==========================================
+  // 4. JOINT & INTERVENTIONAL SYMPTOMS
+  // ==========================================
+
+  "knee-osteoarthritis": {
+    slug: "knee-osteoarthritis",
+    name: "Knee Osteoarthritis & Joint Pain",
+    category: "Joint & Vascular Interventions",
+    categoryKey: "joint",
+    heroDesc:
+      "Chronic knee aching, stiffness, and joint lining inflammation caused by osteoarthritis. Genicular Artery Embolization (GAE) offers outpatient, non-surgical relief without joint replacement surgery.",
+    understanding: {
+      overview:
+        "Knee osteoarthritis is a progressive degenerative joint condition where cartilage gradually wears down and the joint lining (synovium) becomes chronically inflamed. Over time, abnormal new blood vessels grow into the lining, fueling continuous pain, swelling, and morning stiffness.",
+      feelings: [
+        "Persistent aching or throbbing deep within the knee joint during walking or standing",
+        "Morning joint stiffness or tightness that lasts more than 30 minutes",
+        "Sharp or grinding discomfort when climbing stairs or rising from a low chair",
+        "Joint warmth, localized swelling, and tenderness along the knee margin",
+      ],
+      development:
+        "Typically develops gradually over years due to joint wear-and-tear, prior athletic injuries, or genetic factors, worsening with prolonged weight-bearing activity.",
+      meaning:
+        "Indicates chronic synovial inflammation and cartilage thinning. Targeted non-surgical procedures like GAE can calm the inflamed blood vessels driving the pain.",
+    },
+    causes: {
+      reassuranceNote:
+        "Experiencing chronic knee osteoarthritis does not mean joint replacement surgery is your only option. Advanced outpatient interventional therapies such as Genicular Artery Embolization (GAE) target abnormal joint blood flow to provide lasting pain relief while keeping your natural joint intact.",
+      commonCauses: [
+        {
+          title: "Synovial Hypervascularity & Inflammation",
+          desc: "Abnormal new micro-vessels growing into the inflamed knee lining that continuously transport pain signals and inflammatory chemicals.",
+        },
+        {
+          title: "Cartilage Wear & Mechanical Degeneration",
+          desc: "Gradual thinning of the protective shock-absorbing cartilage cushioning the femur and tibia bones.",
+        },
+        {
+          title: "Prior Sports Injury or Meniscal Tears",
+          desc: "Past ligament tears (ACL/MCL) or meniscus damage that alter joint mechanics and accelerate localized joint wear.",
+        },
+      ],
+      cardiovascularCauses: [
+        {
+          title: "Genicular Artery Embolization (GAE Treatment)",
+          desc: "A minimally invasive outpatient procedure where microscopic beads reduce hyperactive blood flow to the inflamed knee lining, relieving pain for 2+ years without surgery.",
+        },
+        {
+          title: "Vascular Health & Lower Limb Circulation",
+          desc: "Adequate arterial flow and venous drainage optimize joint healing and reduce secondary lower extremity edema.",
+        },
+      ],
+    },
+    findingTheCause: {
+      intro:
+        "Evaluation begins with a thorough musculoskeletal and vascular clinical exam. Advanced imaging confirms the degree of joint space narrowing and maps the genicular blood vessels around the knee.",
+      tests: [
+        {
+          name: "Weight-Bearing Knee Radiographs (X-Ray)",
+          desc: "Evaluates joint-space narrowing, bone spur (osteophyte) formation, and alignment of the knee bones.",
+          icon: "Activity",
+        },
+        {
+          name: "High-Resolution Knee MRI",
+          desc: "Provides detailed cross-sectional views of the synovial lining, cartilage integrity, meniscus, and surrounding soft tissues.",
+          icon: "HeartPulse",
+        },
+        {
+          name: "Angiographic Vessel Mapping",
+          desc: "Real-time contrast imaging that precisely identifies the hyperactive genicular artery branches feeding the inflamed synovium.",
+          icon: "TrendingUp",
+        },
+        {
+          name: "Synovial Joint & Fluid Analysis",
+          desc: "Evaluates joint fluid clarity and markers to assess inflammatory burden and rule out crystalline arthropathy or gout.",
+          icon: "TestTube",
+        },
+      ],
+    },
+    urgentCare: {
+      emergencyIntro:
+        "Seek prompt medical assessment if you notice any of these severe or acute joint warning signs:",
+      warningSigns: [
+        "Inability to bear any weight on the knee or sudden joint locking with severe acute pain",
+        "Severe, hot redness accompanied by high fever or systemic chills (possible septic arthritis)",
+        "Sudden significant swelling with calf warmth and redness (ruling out deep vein thrombosis / DVT)",
+        "Rapidly expanding painful hematoma or acute deformity following a fall",
+      ],
+      routineAssessment: [
+        "Gradual aching during walking or stair climbing that eases with sitting down",
+        "Mild morning stiffness that improves after warming up the joint",
+        "Persistent discomfort not fully controlled by NSAIDs, physical therapy, or cortisone shots (schedule a GAE consultation)",
+        "Difficulty sleeping due to chronic throbbing in the knee joint at night",
+      ],
+    },
+    gaeDetails: {
+      howItWorks: {
+        title: "How GAE Works: Calming Joint Inflammation",
+        overview:
+          "In an arthritic knee, the joint lining (synovium) becomes chronically inflamed. Over time, abnormal new blood vessels grow into the lining, carrying the inflammatory chemical signals that drive pain. Genicular Artery Embolization (GAE) is an outpatient pinhole procedure where an interventional specialist introduces microscopic embolic particles to block this abnormal blood flow at its source—calming inflammation without cutting, drilling, or replacing any part of your native joint.",
+        benefits: [
+          {
+            title: "No Incisions or Stitches",
+            desc: "Performed through a single tiny pinhole in the ankle or groin. Your knee is never surgically cut.",
+          },
+          {
+            title: "Local Anesthesia Only",
+            desc: "Avoids the risks, heavy narcotics, and disorientation associated with general anesthesia.",
+          },
+          {
+            title: "Home the Same Afternoon",
+            desc: "No hospital stays or overnight facility charges. Rest and sleep comfortably in your own bed.",
+          },
+          {
+            title: "Preserves Natural Anatomy",
+            desc: "Leaves all bones, ligaments, and nerves intact, keeping every future treatment option open.",
+          },
+          {
+            title: "Repeatable Relief",
+            desc: "Demonstrated 2+ years of sustained relief in clinical trials, and can be safely repeated if pain returns.",
+          },
+        ],
+        recovery: [
+          {
+            timeframe: "2 to 3 Hours",
+            desc: "Up and walking comfortably in the clinic recovery suite before same-day discharge.",
+          },
+          {
+            timeframe: "Next Day",
+            desc: "Resume light, everyday household activities and routine walking.",
+          },
+          {
+            timeframe: "4 to 6 Weeks",
+            desc: "Noticeable, progressive reduction in joint aching and stiffness as inflammation subsides.",
+          },
+          {
+            timeframe: "Months Ahead",
+            desc: "Stair climbing, exercise tolerance, and uninterrupted sleep continue to improve without mandatory physical therapy.",
+          },
+        ],
+      },
+      candidacy: {
+        title: "Who Is a Candidate for GAE?",
+        subtitle:
+          "GAE is ideal for individuals seeking effective, long-lasting knee pain relief while avoiding major joint surgery. Ideal candidates typically meet the following criteria:",
+        criteria: [
+          {
+            title: "Confirmed Knee Osteoarthritis",
+            desc: "A medical diagnosis of osteoarthritis confirmed by clinical examination and recent X-ray or MRI imaging.",
+          },
+          {
+            title: "Persistent Pain Failing Conservative Care",
+            desc: "Moderate-to-severe knee pain that continues despite physical therapy, oral anti-inflammatories, or cortisone and hyaluronic acid injections.",
+          },
+          {
+            title: "Desire to Avoid or Delay Knee Surgery",
+            desc: "A preference to avoid open knee replacement, long rehabilitation, or for patients deemed high risk for general anesthesia.",
+          },
+          {
+            title: "Joint Space & Cartilage Remaining",
+            desc: "Mild-to-moderate joint narrowing. GAE is most effective when some natural cartilage remains before total bone-on-bone friction.",
+          },
+          {
+            title: "Realistic Treatment Goals",
+            desc: "Understanding that GAE significantly reduces inflammation and pain, but does not regrow destroyed cartilage.",
+          },
+        ],
+      },
+    },
+    whatCanHelp: {
+      practicalGuidance: [
+        "Low-impact exercises such as swimming, stationary cycling, or water aerobics to keep joint fluid moving without high impact.",
+        "Maintain a healthy body weight to significantly reduce compressive forces across the knee joint.",
+        "Use warm compresses in the morning to ease stiffness and cold packs after physical activity to reduce swelling.",
+        "Consider an interventional consultation for Genicular Artery Embolization (GAE) if injections are no longer providing relief.",
+      ],
+      whatToMonitor: [
+        "How far you can walk before knee pain forces you to rest",
+        "Whether pain interferes with falling asleep or waking up at night",
+        "How frequently you need oral pain medications or anti-inflammatory drugs",
+      ],
+      whenToArrangeAssessment:
+        "Schedule a consultation if chronic knee pain interferes with your quality of life, if you wish to avoid total knee replacement surgery, or if injections have lost their effectiveness.",
+    },
+    faqs: [
+      {
+        question: "How does GAE relieve knee osteoarthritis pain?",
+        answer:
+          "GAE works by blocking the abnormal, hyperactive blood vessels that proliferate in the inflamed joint lining (synovium). By reducing blood flow to these inflammatory vessels with microscopic particles, GAE calms the inflammation and sensory nerve activation causing chronic knee pain, providing lasting relief for 2 or more years without surgery.",
+      },
+      {
+        question: "Is GAE surgery?",
+        answer:
+          "No. GAE is an outpatient, image-guided pinhole procedure performed under local anesthesia. There are no incisions, no cutting of bone or ligaments, and no stitches. Patients walk out within 2–3 hours and return home the same day.",
+      },
+      {
+        question: "Does GAE prevent me from having knee surgery in the future?",
+        answer:
+          "No. Because GAE does not cut, alter, or replace any part of your native knee joint, all future treatment options—including total knee replacement—remain completely open if ever needed years down the road.",
+      },
+      {
+        question: "Does Medicare and private insurance cover GAE?",
+        answer:
+          "Yes, Medicare and many major commercial insurers cover outpatient genicular artery embolization when conservative treatments like injections and physical therapy are no longer effective for documented knee osteoarthritis. Our clinical staff verifies coverage before your procedure.",
+      },
+      {
+        question: "How long is the recovery time after GAE?",
+        answer:
+          "Recovery is rapid: patients walk within 2 to 3 hours after the procedure and resume routine light daily activities the next day. Meaningful pain relief begins within 4 to 6 weeks as synovial inflammation subsides and continues to improve over subsequent months without mandatory physical therapy.",
+      },
+    ],
+  },
 };
 
 // Aliases for seamless routing and legacy link compatibility
@@ -1685,3 +1898,7 @@ symptomsData["cold-feet-numbness"] = symptomsData["cold-or-discolored-feet"];
 symptomsData["skin-discoloration"] = symptomsData["cold-or-discolored-feet"];
 symptomsData["chest-tightness"] = symptomsData["chest-pain"];
 symptomsData["visual-changes"] = symptomsData["high-blood-pressure"];
+symptomsData["knee-pain"] = symptomsData["knee-osteoarthritis"];
+symptomsData["gae-treatment"] = symptomsData["knee-osteoarthritis"];
+symptomsData["genicular-artery-embolization"] = symptomsData["knee-osteoarthritis"];
+

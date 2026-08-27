@@ -14,7 +14,7 @@ export default function FloatingCallButton() {
   return (
     <aside
       aria-label="Quick contact"
-      className={`fixed right-4 sm:right-6 z-40 animate-bounce transition-all duration-300 ${
+      className={`fixed left-4 sm:left-6 z-40 animate-bounce transition-all duration-300 ${
         isElevatedPage ? "bottom-20 sm:bottom-6" : "bottom-5 sm:bottom-6"
       }`}
     >

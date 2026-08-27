@@ -11,6 +11,10 @@ import {
   Info,
   ChevronRight,
   Plus,
+  Sparkles,
+  Clock,
+  UserCheck,
+  Award,
 } from "lucide-react";
 import StickyDiagnosisBar from "@/components/StickyDiagnosisBar";
 
@@ -172,13 +176,11 @@ export default function SymptomPageClient({ symptom }) {
                         <h4 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
                           {item.title}
                         </h4>
-                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${
-                          isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
-                        }`}>
+                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
+                          }`}>
                           <Plus
-                            className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                              isOpen ? "rotate-45 text-blue-600" : ""
-                            }`}
+                            className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? "rotate-45 text-blue-600" : ""
+                              }`}
                           />
                         </div>
                       </button>
@@ -215,13 +217,11 @@ export default function SymptomPageClient({ symptom }) {
                         <h4 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
                           {item.title}
                         </h4>
-                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${
-                          isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
-                        }`}>
+                        <div className={`p-1 rounded-lg shrink-0 transition-colors ${isOpen ? "bg-blue-100 text-blue-700" : "text-slate-400 group-hover:text-slate-600"
+                          }`}>
                           <Plus
-                            className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                              isOpen ? "rotate-45 text-blue-600" : ""
-                            }`}
+                            className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? "rotate-45 text-blue-600" : ""
+                              }`}
                           />
                         </div>
                       </button>
@@ -237,6 +237,168 @@ export default function SymptomPageClient({ symptom }) {
             </div>
           </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* PATIENT ORIENTED GAE SECTIONS: HOW GAE WORKS, BENEFITS & RECOVERY */}
+        {/* ========================================================================= */}
+        {symptom.gaeDetails && (
+          <>
+            {/* Section A: How GAE Works & Recovery */}
+            <section
+              id="how-gae-works"
+              aria-labelledby="section-how-gae-works"
+              className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-8"
+            >
+              <div>
+                <h2
+                  id="section-how-gae-works"
+                  className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+                >
+                  {symptom.gaeDetails.howItWorks.title}
+                </h2>
+                <p className="text-slate-700 text-base sm:text-lg leading-relaxed pt-3">
+                  {symptom.gaeDetails.howItWorks.overview}
+                </p>
+              </div>
+
+              {/* Side-by-side Cards matching exact UI */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Left Card: Patient Benefits */}
+                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-4">
+                  <div className="border-b border-slate-200/70 pb-3">
+                    <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                      Patient Benefits Over Traditional Knee Surgery
+                    </h3>
+                  </div>
+                  <div className="divide-y divide-slate-200/70">
+                    {symptom.gaeDetails.howItWorks.benefits.map((item, idx) => {
+                      const key = `gae-benefit-${idx}`;
+                      const isOpen = !!openCauses[key];
+                      return (
+                        <div key={idx} className="py-3 first:pt-0 last:pb-0">
+                          <button
+                            type="button"
+                            onClick={() => toggleCause(key)}
+                            className="w-full flex items-center justify-between text-left gap-3 group focus:outline-none cursor-pointer"
+                            aria-expanded={isOpen}
+                          >
+                            <h4 className="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
+                              {item.title}
+                            </h4>
+                            <div
+                              className={`p-1 rounded-lg shrink-0 transition-colors ${isOpen
+                                ? "bg-blue-100 text-blue-700"
+                                : "text-slate-400 group-hover:text-slate-600"
+                                }`}
+                            >
+                              <Plus
+                                className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? "rotate-45 text-blue-600" : ""
+                                  }`}
+                              />
+                            </div>
+                          </button>
+                          {isOpen && (
+                            <p className="text-slate-600 text-xs leading-relaxed pt-2">
+                              {item.desc}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Right Card: Recovery Milestones (Timeline UI) */}
+                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-5">
+                  <div className="border-b border-slate-200/70 pb-3">
+                    <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                      Recovery Milestones Timeline
+                    </h3>
+                  </div>
+
+                  {/* Vertical Connected Timeline */}
+                  <div className="relative pl-6 space-y-5 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-gradient-to-b before:from-blue-600 before:via-sky-400 before:to-emerald-500">
+                    {symptom.gaeDetails.howItWorks.recovery.map((item, idx) => (
+                      <div key={idx} className="relative group">
+                        {/* Timeline Node Icon/Dot */}
+                        <div className="absolute -left-[21px] top-1 w-5 h-5 rounded-full bg-white border-2 border-blue-600 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:border-blue-700 transition-all">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                        </div>
+
+                        {/* Timeline Content */}
+                        <div className="space-y-1">
+                          <div className="flex items-center space-x-2">
+                            <span className="inline-block px-2.5 py-0.5 rounded-md bg-blue-100 text-blue-800 text-[11px] font-extrabold tracking-wide">
+                              {item.timeframe}
+                            </span>
+                          </div>
+                          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pt-0.5">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Section B: Who Is a Candidate for GAE? (Dark Blue Gradient Theme with Points) */}
+            <section
+              id="gae-candidacy"
+              aria-labelledby="section-gae-candidacy"
+              className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl border border-blue-900/40 p-6 sm:p-10 space-y-8"
+            >
+              <div className="space-y-2">
+                
+                <h2
+                  id="section-gae-candidacy"
+                  className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight"
+                >
+                  {symptom.gaeDetails.candidacy.title}
+                </h2>
+                <p className="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+                  {symptom.gaeDetails.candidacy.subtitle}
+                </p>
+              </div>
+
+              {/* Patient Points Card in Dark Theme */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 space-y-4">
+                <h3 className="font-extrabold text-white text-sm sm:text-base flex items-center space-x-2">
+                  <Info className="h-4 w-4 text-sky-400" />
+                  <span>Key Candidate Evaluation Criteria:</span>
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                  {symptom.gaeDetails.candidacy.criteria.map((c, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-200 py-1"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0 mt-1.5" />
+                      <span className="leading-relaxed font-medium">
+                        <strong className="text-white font-bold">{c.title}:</strong>{" "}
+                        <span className="text-slate-300 font-normal">{c.desc}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Reassuring CTA footer in card */}
+              <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-xs sm:text-sm text-slate-300 text-center sm:text-left">
+                  Unsure if GAE is right for your knee condition? Our clinical team is happy to review your imaging and medical history.
+                </p>
+                <Link
+                  href="/contact"
+                  className="px-6 py-3 bg-sky-300 hover:bg-white text-blue-950 font-extrabold text-xs sm:text-sm rounded-xl transition-all shadow-md shrink-0 text-center cursor-pointer"
+                >
+                  Schedule Candidacy Assessment
+                </Link>
+              </div>
+            </section>
+          </>
+        )}
 
         {/* ========================================================================= */}
         {/* 3. FINDING THE CAUSE (Medical History + Exactly 4 Tailored Tests) */}
@@ -463,11 +625,10 @@ export default function SymptomPageClient({ symptom }) {
               return (
                 <div
                   key={idx}
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                    isOpen
-                      ? "border-blue-400 bg-blue-50/30 shadow-sm"
-                      : "border-slate-200/90 bg-white hover:border-slate-300"
-                  }`}
+                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
+                    ? "border-blue-400 bg-blue-50/30 shadow-sm"
+                    : "border-slate-200/90 bg-white hover:border-slate-300"
+                    }`}
                 >
                   <button
                     type="button"
@@ -477,9 +638,8 @@ export default function SymptomPageClient({ symptom }) {
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`h-5 w-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-blue-600" : ""
-                      }`}
+                      className={`h-5 w-5 text-slate-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-blue-600" : ""
+                        }`}
                     />
                   </button>
 

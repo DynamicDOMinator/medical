@@ -14,6 +14,7 @@ import {
   Stethoscope,
   ArrowRight,
   PhoneCall,
+  Sparkles,
 } from "lucide-react";
 import { useState, useRef } from "react";
 
@@ -58,7 +59,7 @@ const bloodVesselDiseases = [
   },
 ];
 
-// Organized into the 3 clear categories
+// Organized into the 4 clear categories
 const symptomsCategories = [
   {
     id: "heart",
@@ -95,6 +96,15 @@ const symptomsCategories = [
       { name: "High Blood Pressure", href: "/symptom/high-blood-pressure" },
       { name: "Headaches", href: "/symptom/headaches" },
       { name: "Dizziness", href: "/symptom/dizziness" },
+    ],
+  },
+  {
+    id: "joint",
+    category: "Joint Care",
+    icon: Sparkles,
+    iconColor: "text-amber-500",
+    items: [
+      { name: "Knee Osteoarthritis (GAE)", href: "/symptom/knee-osteoarthritis" },
     ],
   },
 ];
@@ -154,7 +164,7 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref, isActive }) {
             ))}
           </div>
           {/* Browse All as the last item */}
-          <div className="mt-1 pt-1 border-t border-slate-500">
+          <div className="mt-1 pt-1 border-t border-slate-100">
             <Link
               href={categoryHref}
               onClick={() => setOpen(false)}
@@ -206,9 +216,9 @@ function SymptomsMegaDropdown({ isActive }) {
       </button>
 
       {open && (
-        <div className="absolute top-full -left-44 lg:-left-28 mt-2 w-[660px] bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-2xl shadow-slate-950/15 z-50 overflow-hidden animate-fade-in-up p-5">
-          {/* 3 Clean Minimalist Columns */}
-          <div className="grid grid-cols-3 gap-6">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[820px] bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-2xl shadow-slate-950/15 z-50 overflow-hidden animate-fade-in-up p-5">
+          {/* 4 Clean Minimalist Columns */}
+          <div className="grid grid-cols-4 gap-5">
             {symptomsCategories.map((col) => {
               const ColIcon = col.icon;
               return (
