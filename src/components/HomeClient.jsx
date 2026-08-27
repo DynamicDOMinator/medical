@@ -1268,22 +1268,19 @@ export default function HomeClient() {
         {/* Verification Bar */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-10 sm:mt-12">
           <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-            <div className="space-y-1">
-              <h4 className="text-white font-bold text-sm sm:text-base">
+            <div>
+              <h4 className="text-white font-bold text-base sm:text-lg">
                 Don&apos;t see your specific plan listed?
               </h4>
-              <p className="text-slate-300 text-xs sm:text-sm">
-                Insurance networks frequently update. Contact our friendly team to verify your coverage before your visit.
-              </p>
             </div>
 
-            <Link
-              href="/contact"
+            <a
+              href="tel:+12813581950"
               className="inline-flex items-center space-x-2 px-6 py-3.5 bg-sky-300 hover:bg-white text-blue-950 font-extrabold text-sm rounded-2xl transition-all shadow-lg shadow-sky-400/20 hover:scale-105 shrink-0 cursor-pointer"
             >
               <PhoneCall className="h-4 w-4" />
               <span>Verify Your Insurance</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
