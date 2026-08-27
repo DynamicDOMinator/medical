@@ -331,21 +331,21 @@ const googleReviewsList = [
   },
 ];
 
-const insurancePlans = [
-  "Medicare",
-  "Medicaid",
-  "Aetna",
-  "Blue Cross Blue Shield of Texas",
-  "Cigna",
-  "UnitedHealthcare",
-  "Ambetter",
-  "First Health",
-  "MultiPlan",
-  "Curative",
-  "Wellpoint",
-  "Community Health Choice",
-  "Memorial Hermann plans",
-  "Several Medicare Advantage plans",
+const insurancePartners = [
+  { name: "Medicare", logo: "/images/insurance/medicare.svg" },
+  { name: "Texas Medicaid", logo: "/images/insurance/medicaid.png" },
+  { name: "Blue Cross Blue Shield of Texas", logo: "/images/insurance/bcbstx.svg" },
+  { name: "Aetna", logo: "/images/insurance/aetna.svg" },
+  { name: "UnitedHealthcare", logo: "/images/insurance/uhc.svg" },
+  { name: "Cigna Healthcare", logo: "/images/insurance/cigna.svg" },
+  { name: "Humana", logo: "/images/insurance/humana.svg" },
+  { name: "Ambetter Health", logo: "/images/insurance/ambetter.png" },
+  { name: "Memorial Hermann Health", logo: "/images/insurance/memorial_hermann.png" },
+  { name: "Wellpoint", logo: "/images/insurance/wellpoint.svg" },
+  { name: "Community Health Choice", logo: "/images/insurance/community_health_choice.svg" },
+  { name: "Curative", logo: "/images/insurance/curative.svg" },
+  { name: "MultiPlan", logo: "/images/insurance/multiplan.png" },
+  { name: "First Health Network", logo: "/images/insurance/first_health.png" },
 ];
 
 const faqData = [
@@ -1209,46 +1209,57 @@ export default function HomeClient() {
         </div>
 
         {/* Full-Width Autoplay Marquee Slider */}
-        <div className="w-full relative overflow-hidden pause-on-hover py-4">
+        <div className="w-full relative overflow-hidden pause-on-hover py-4 space-y-4 sm:space-y-6">
           {/* Row 1: Running Left */}
           <div className="flex w-max space-x-4 sm:space-x-6 animate-marquee-horizontal">
-            {[...insurancePlans, ...insurancePlans, ...insurancePlans, ...insurancePlans].map((plan, idx) => (
+            {[
+              ...insurancePartners.slice(0, 7),
+              ...insurancePartners.slice(0, 7),
+              ...insurancePartners.slice(0, 7),
+              ...insurancePartners.slice(0, 7),
+            ].map((partner, idx) => (
               <div
-                key={idx}
-                className="flex items-center space-x-3 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-sky-400/60 rounded-2xl px-6 py-3.5 sm:py-4 transition-colors duration-200 shadow-md group shrink-0 cursor-default"
+                key={`row1-${idx}`}
+                className="flex items-center justify-center bg-white/95 hover:bg-white rounded-2xl px-6 py-3 h-20 sm:h-24 w-48 sm:w-56 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-sky-500/20 hover:scale-105 border border-white/40 group shrink-0 cursor-default"
+                title={partner.name}
               >
-                <div className="bg-sky-400/20 p-2 rounded-xl border border-sky-400/30 text-sky-300 group-hover:scale-105 transition-transform shrink-0">
-                  <CheckCircle2 className="h-4 w-4 text-sky-300" />
+                <div className="relative w-full h-full flex items-center justify-center p-2">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={180}
+                    height={70}
+                    unoptimized
+                    className="max-h-12 sm:max-h-14 max-w-full w-auto object-contain filter drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <span className="text-white text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap">
-                  {plan}
-                </span>
               </div>
             ))}
           </div>
 
           {/* Row 2: Running Right (Reverse) */}
-          <div className="flex w-max space-x-4 sm:space-x-6 animate-marquee-horizontal-reverse mt-4 sm:mt-5">
+          <div className="flex w-max space-x-4 sm:space-x-6 animate-marquee-horizontal-reverse">
             {[
-              ...insurancePlans.slice(7),
-              ...insurancePlans.slice(0, 7),
-              ...insurancePlans.slice(7),
-              ...insurancePlans.slice(0, 7),
-              ...insurancePlans.slice(7),
-              ...insurancePlans.slice(0, 7),
-              ...insurancePlans.slice(7),
-              ...insurancePlans.slice(0, 7),
-            ].map((plan, idx) => (
+              ...insurancePartners.slice(7),
+              ...insurancePartners.slice(7),
+              ...insurancePartners.slice(7),
+              ...insurancePartners.slice(7),
+            ].map((partner, idx) => (
               <div
-                key={idx}
-                className="flex items-center space-x-3 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-400/50 rounded-2xl px-6 py-3.5 sm:py-4 transition-colors duration-200 shadow-md group shrink-0 cursor-default"
+                key={`row2-${idx}`}
+                className="flex items-center justify-center bg-white/95 hover:bg-white rounded-2xl px-6 py-3 h-20 sm:h-24 w-48 sm:w-56 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-sky-500/20 hover:scale-105 border border-white/40 group shrink-0 cursor-default"
+                title={partner.name}
               >
-                <div className="bg-blue-400/20 p-2 rounded-xl border border-blue-400/30 text-blue-300 group-hover:scale-105 transition-transform shrink-0">
-                  <CheckCircle2 className="h-4 w-4 text-sky-300" />
+                <div className="relative w-full h-full flex items-center justify-center p-2">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={180}
+                    height={70}
+                    unoptimized
+                    className="max-h-12 sm:max-h-14 max-w-full w-auto object-contain filter drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <span className="text-white text-sm sm:text-base font-semibold tracking-wide whitespace-nowrap">
-                  {plan}
-                </span>
               </div>
             ))}
           </div>
