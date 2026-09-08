@@ -467,7 +467,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl backdrop-blur-md transition-all text-sm"
             >
-              Book Online
+              Book through Healow
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>

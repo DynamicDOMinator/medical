@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Stethoscope,
   ChevronRight,
+  Phone,
   PhoneCall,
   Award,
   CheckCircle2,
@@ -405,93 +406,55 @@ export default function HomeClient() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
             {/* Hero Main Headline */}
-            <div className="flex flex-col items-center justify-center text-center mb-8 sm:mb-12 lg:mb-8">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                <span className="text-white">We </span>
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white max-w-4xl mx-auto">
+                We Deliver Outstanding{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-white drop-shadow-sm">
-                  specialize in
+                  Cardiovascular Care
                 </span>
               </h1>
-            </div>
 
-            {/* Hero Services Pill Display (No links, pure styled visual badges) */}
-            <div className="w-full flex flex-col items-center justify-center gap-3 sm:gap-4">
-              {/* LINE 1: Atrial Fibrillation · Chest Pain · Heart Failure */}
-              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 md:gap-4">
-                {/* 1. Atrial Fibrillation */}
-                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
-                  Atrial Fibrillation
-                </span>
-
-                {/* 2. Chest Pain */}
-                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
-                  Chest Pain
-                </span>
-
-                {/* 3. Heart Failure */}
-                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
-                  Heart Failure
-                </span>
-              </div>
-
-              {/* LINE 2: Varicose Vein · Explore */}
-              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 md:gap-4">
-                {/* 4. Varicose Vein */}
-                <span className="px-4 sm:px-6 py-2 sm:py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-md text-white text-xs sm:text-sm md:text-base font-semibold">
-                  Varicose Vein
-                </span>
-
-                {/* 5. Explore */}
-                <a
-                  href="#doctor-specialties"
-                  className="px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-sky-500/25 hover:bg-sky-500/40 border border-sky-400/60 hover:border-sky-300 backdrop-blur-md shadow-lg shadow-sky-500/20 text-white text-xs sm:text-sm md:text-base font-bold underline underline-offset-4 decoration-sky-300 hover:text-sky-200 transition-all duration-300 hover:scale-105 cursor-pointer"
-                >
-                  Explore
-                </a>
-              </div>
-            </div>
-
-            {/* Descriptive Treatment & Approach Pills */}
-            <p className="text-sky-300 font-extrabold mt-3 md:mt-6 text-2xl md:text-xl text-lg mr-1">
-              Through
-            </p >
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl mx-auto mt-3 sm:mt-6">
-
-              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
-                early detection
-              </span>
-              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
-                prevention
-              </span>
-              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
-                individualized risk assessment
-              </span>
-              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
-                second opinions
-              </span>
-              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-sm text-white text-xs sm:text-sm font-medium">
-                minimally invasive treatment
-              </span>
+              {/* Subtitle / Approach */}
+              <p className="mt-4 sm:mt-6 text-slate-200 text-base sm:text-lg lg:text-xl font-normal max-w-3xl mx-auto leading-relaxed">
+                Through{" "}
+                <span className="font-bold text-sky-300">early detection</span>,{" "}
+                <span className="font-bold text-sky-300">prevention</span>,{" "}
+                <span className="font-bold text-sky-300">minimally invasive treatment</span>, and{" "}
+                <span className="font-bold text-sky-300">specialist second opinion</span>.
+              </p>
             </div>
 
             {/* Action CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-8 sm:pt-10 w-full max-w-md sm:max-w-none mx-auto">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer text-center"
-              >
-                <Calendar className="mr-2.5 h-5 w-5 text-slate-900 shrink-0" />
-                <span>Request Appointment</span>
-              </Link>
+            <div className="w-full max-w-4xl mx-auto pt-7 sm:pt-9">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+                >
+                  <Calendar className="mr-2.5 h-5 w-5 text-slate-900 shrink-0" />
+                  <span>Request Appointment</span>
+                </Link>
 
-              <a
-                href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-sm sm:text-base cursor-pointer text-center"
-              >
-                Book online
-              </a>
+                {/* Inline on phone: Book through Healow & Call Us */}
+                <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
+                  <a
+                    href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+                  >
+                    <span>Book through Healow</span>
+                  </a>
+
+                  <a
+                    href="tel:+12813581950"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+                  >
+                    <Phone className="mr-1.5 sm:mr-2.5 h-4 sm:h-5 w-4 sm:w-5 text-sky-300 shrink-0" />
+                    <span>Call Us</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1383,7 +1346,7 @@ export default function HomeClient() {
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-2xl transition-all text-center"
               >
                 <Calendar className="h-5 w-5 text-sky-300" />
-                <span>Book online</span>
+                <span>Book through Healow</span>
               </a>
             </div>
           </div>

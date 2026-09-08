@@ -5,9 +5,9 @@ import AppointmentContactForm from "@/components/AppointmentContactForm";
 import { clinics } from "@/data/clinics";
 
 export const metadata = {
-  title: "Contact & Clinic Locations | Dr. Mohamed Faher Almahmoud",
+  title: "Contact & Appointments | Dr. Mohamed Faher Almahmoud",
   description:
-    "Schedule an appointment with Dr. Mohamed Faher Almahmoud at our Texas Cardiology Associates locations in The Woodlands (Main Clinic), Spring (Peakwood), and Kingwood.",
+    "We Provide care for patients in (The Woodlands, Huntsville, Walker County, New Waverly and nearby communities) across different practice locations.",
 };
 
 const HEALOW_BOOKING_URL =
@@ -32,12 +32,10 @@ export default function ContactPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-            Clinic Locations &amp; Contact
+            Contact &amp; Appointments
           </h1>
           <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-            Book an appointment with Dr. Mohamed Faher Almahmoud across our
-            practice locations in The Woodlands (Main Clinic), Spring, and
-            Kingwood.
+            We Provide care for patients in (The Woodlands, Huntsville, Walker County, New Waverly and nearby communities) across different practice locations
           </p>
         </div>
       </div>
@@ -119,7 +117,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all text-xs sm:text-sm shadow-md shadow-blue-600/20 active:scale-95 text-center cursor-pointer"
             >
-              <span>Book Online</span>
+              <span>Book through Healow</span>
               <ExternalLink className="h-4 w-4" />
             </a>
           </div>

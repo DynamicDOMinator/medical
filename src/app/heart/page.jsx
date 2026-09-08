@@ -13,7 +13,7 @@ const heartDiseases = [
     name: 'Coronary Artery Disease (CAD)',
     tagline: 'Plaque accumulation in coronary arteries',
     description: 'Cholesterol plaque deposits narrow the coronary arteries, restricting oxygenated blood flow to the myocardium and causing angina or heart attacks.',
-    image: '/images/cad.png',
+    image: '/heart-2.png',
     icon: Heart,
   },
   {
@@ -21,7 +21,7 @@ const heartDiseases = [
     name: 'Arrhythmias',
     tagline: 'Irregular heart rhythm & electrical disorders',
     description: 'Electrical disruptions cause the heart to beat too fast, too slow, or erratically — including Atrial Fibrillation, SVT, and Premature Ventricular Contractions.',
-    image: '/images/arrhythmias.png',
+    image: '/content.png',
     icon: Zap,
   },
   {
@@ -29,7 +29,7 @@ const heartDiseases = [
     name: 'Valvular Heart Disease',
     tagline: 'Damaged or malfunctioning heart valves',
     description: 'One or more of the four heart valves fail to open completely (stenosis) or close properly (regurgitation), disrupting normal forward blood flow.',
-    image: '/images/valvular.png',
+    image: '/content7.png',
     icon: Layers,
   },
   {
@@ -37,7 +37,7 @@ const heartDiseases = [
     name: 'Congestive Heart Failure (CHF)',
     tagline: 'Weakened or stiff heart muscle',
     description: 'A chronic condition where the myocardium is unable to pump sufficient oxygenated blood to meet the body\'s metabolic demands.',
-    image: '/images/chf.png',
+    image: '/content2.png',
     icon: Activity,
   },
 ];

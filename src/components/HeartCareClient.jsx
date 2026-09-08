@@ -77,7 +77,7 @@ export default function HeartCareClient() {
         description:
           "New, unexplained, persistent, or worsening symptoms deserve attention. If you have noticed a change in your energy, breathing, exercise capacity, or other symptoms, discuss it with your physician or cardiologist.",
         buttonText: "Discuss your symptoms",
-        buttonSubtext: "Book online",
+        buttonSubtext: "Book through Healow",
         link: "/contact",
       },
       items: [
@@ -363,7 +363,7 @@ export default function HeartCareClient() {
         description:
           "A cardiovascular assessment can help identify risk factors, clarify uncertain results, and determine whether further evaluation is needed. Early assessment may provide reassurance—or help identify an issue before it becomes more serious.",
         buttonText: "Book a cardiovascular assessment",
-        buttonSubtext: "Book online",
+        buttonSubtext: "Book through Healow",
         link: "/contact",
       },
       items: [
@@ -616,7 +616,7 @@ export default function HeartCareClient() {
         description:
           "Every patient and every cardiovascular condition is different. If treatment has been recommended, or if your current treatment isn't working as expected, discussing your options with your cardiologist can help you make an informed decision.",
         buttonText: "Discuss your treatment options",
-        buttonSubtext: "Book online",
+        buttonSubtext: "Book through Healow",
         link: "/contact",
       },
       items: [
@@ -716,7 +716,7 @@ export default function HeartCareClient() {
         description:
           "Many cardiovascular risk factors can be managed through a combination of medical care and sustainable lifestyle changes. Understanding your individual risk is an important first step.",
         buttonText: "Learn how to reduce your cardiovascular risk",
-        buttonSubtext: "Book online",
+        buttonSubtext: "Book through Healow",
         link: "/contact",
       },
       items: [
@@ -1108,7 +1108,7 @@ export default function HeartCareClient() {
                           className="flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3.5 rounded-2xl font-bold text-sm backdrop-blur-sm transition-all hover:scale-[1.02]"
                         >
                           <Calendar className="h-4 w-4 text-sky-300" />
-                          <span>Book Online</span>
+                          <span>Book through Healow</span>
                         </a>
                       </div>
                     </div>

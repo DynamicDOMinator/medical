@@ -99,7 +99,7 @@ export default function ThankYouPage() {
               Need Immediate Confirmation?
             </span>
             <h3 className="text-xl sm:text-2xl font-bold">
-              Call Our Clinic Directly or Book Online
+              Call Our Clinic Directly or Book through Healow
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm max-w-lg">
               For urgent questions, speak with our office right now at{" "}
@@ -125,7 +125,7 @@ export default function ThankYouPage() {
               className="inline-flex items-center justify-center space-x-2 px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all text-xs sm:text-sm cursor-pointer shadow-md"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book on Healow</span>
+              <span>Book through Healow</span>
             </a>
           </div>
         </div>
