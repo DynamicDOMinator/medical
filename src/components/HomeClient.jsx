@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -10,6 +10,8 @@ import {
   ShieldCheck,
   Stethoscope,
   ChevronRight,
+  ChevronLeft,
+  ChevronUp,
   Phone,
   PhoneCall,
   Award,
@@ -381,16 +383,218 @@ const faqData = [
   },
 ];
 
+const conditionsWeTreatList = [
+  {
+    title: "Coronary Artery Disease",
+    description: "Blocked or narrowed arteries that reduce blood flow to the heart.",
+    image: "/heart-2.png",
+    link: "/heart/cad",
+  },
+  {
+    title: "Heart Rhythm Disorders",
+    description: "Conditions that cause the heart to beat too fast, too slow, or irregularly.",
+    image: "/content.png",
+    link: "/heart/arrhythmias",
+  },
+  {
+    title: "Heart Failure",
+    description: "When the heart has difficulty pumping enough blood for the body's needs.",
+    image: "/content2.png",
+    link: "/heart/chf",
+  },
+  {
+    title: "Peripheral Artery Disease",
+    description: "Reduced blood flow through arteries supplying the legs and other parts of the body.",
+    image: "/images/pad-overview-illustration.png",
+    link: "/blood-vessels/peripheral-artery-disease",
+  },
+  {
+    title: "Valvular & Structural Disease",
+    description: "Conditions affecting the heart valves and structural chambers.",
+    image: "/content7.png",
+    link: "/heart/valvular-heart-disease",
+  },
+  {
+    title: "Hypertension & Blood Pressure",
+    description: "High blood pressure screening, target organ protection and therapy.",
+    image: "/content8.jpg",
+    link: "/blood-vessels/hypertension",
+  },
+];
+
+const conditionPairs = [
+  [conditionsWeTreatList[0], conditionsWeTreatList[1]],
+  [conditionsWeTreatList[2], conditionsWeTreatList[3]],
+  [conditionsWeTreatList[4], conditionsWeTreatList[5]],
+];
+
+const heartSymptomsCol1 = [
+  { name: "Chest pain or pressure", link: "/symptom/chest-pain" },
+  { name: "Shortness of breath", link: "/symptom/shortness-of-breath" },
+  { name: "Heart palpitations", link: "/symptom/palpitations" },
+  { name: "Constant headaches", link: "/symptom/headaches" },
+];
+
+const heartSymptomsCol2 = [
+  { name: "Dizziness", link: "/symptom/dizziness" },
+  { name: "Fainting", link: "/symptom/dizziness-and-fainting" },
+  { name: "Unusual fatigue", link: "/symptom/fatigue" },
+  { name: "High blood pressure", link: "/blood-vessels/hypertension" },
+];
+
+const allHeartSymptoms = [...heartSymptomsCol1, ...heartSymptomsCol2];
+
+const vascularSymptomsCol1 = [
+  { name: "Leg pain when walking", link: "/symptom/leg-pain-when-walking" },
+  { name: "Leg swelling", link: "/symptom/leg-swelling" },
+  { name: "Cold feet or hands", link: "/symptom/cold-feet-or-hands" },
+];
+
+const vascularSymptomsCol2 = [
+  { name: "Numbness or weakness", link: "/symptom/numbness-or-weakness" },
+  { name: "Changes in skin color", link: "/symptom/changes-in-skin-color" },
+  { name: "Leg heaviness", link: "/symptom/leg-heaviness-and-aching" },
+];
+
+const allVascularSymptoms = [...vascularSymptomsCol1, ...vascularSymptomsCol2];
+
+function HeartPulseIcon({ className = "w-6 h-6" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M3.2 12h5.3l1.5-3 2 6 1.5-3h5.3" />
+    </svg>
+  );
+}
+
+function VascularTreeIcon({ className = "w-6 h-6" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M12 2v7" />
+      <path d="M12 9c-2 2.5-4 5.5-4.5 13" />
+      <path d="M12 9c2 2.5 4 5.5 4.5 13" />
+      <path d="M9.5 13.5c-2 1.5-3.5 4-4 8.5" />
+      <path d="M14.5 13.5c2 1.5 3.5 4 4 8.5" />
+      <path d="M8 7.5c-2.5 1.5-4.5 3.5-5.5 7.5" />
+      <path d="M16 7.5c2.5 1.5 4.5 3.5 5.5 7.5" />
+    </svg>
+  );
+}
+
 export default function HomeClient() {
   const [activeTab, setActiveTab] = useState("heart");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [desktopSlide, setDesktopSlide] = useState(0);
+  const [mobileSlide, setMobileSlide] = useState(0);
+  const [mobileAccordionOpen, setMobileAccordionOpen] = useState("heart");
+  const desktopCarouselRef = useRef(null);
+  const mobileCarouselRef = useRef(null);
+  const heroRef = useRef(null);
+  const [showBottomBar, setShowBottomBar] = useState(false);
+
+  // Show bottom action bar only after scrolling past the Hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const heroRect = heroRef.current.getBoundingClientRect();
+      // Show bottom bar when bottom of hero section scrolls past top of viewport
+      setShowBottomBar(heroRect.bottom <= 80);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Desktop 1-Row Carousel Handlers
+  const scrollDesktopToIndex = (index) => {
+    if (!desktopCarouselRef.current) return;
+    const container = desktopCarouselRef.current;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    if (maxScroll <= 0) return;
+    const targetScroll = (index / (conditionsWeTreatList.length - 1)) * maxScroll;
+    container.scrollTo({
+      left: targetScroll,
+      behavior: "smooth",
+    });
+    setDesktopSlide(index);
+  };
+
+  const handleDesktopPrev = () => {
+    const newIndex = Math.max(0, desktopSlide - 1);
+    scrollDesktopToIndex(newIndex);
+  };
+
+  const handleDesktopNext = () => {
+    const newIndex = Math.min(conditionsWeTreatList.length - 1, desktopSlide + 1);
+    scrollDesktopToIndex(newIndex);
+  };
+
+  const handleDesktopScroll = () => {
+    if (!desktopCarouselRef.current) return;
+    const container = desktopCarouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    if (maxScroll <= 0) return;
+    const progress = Math.min(1, Math.max(0, scrollLeft / maxScroll));
+    const index = Math.round(progress * (conditionsWeTreatList.length - 1));
+    setDesktopSlide(index);
+  };
+
+  // Mobile 2-Row Slider Handlers
+  const scrollMobileToIndex = (index) => {
+    if (!mobileCarouselRef.current) return;
+    const container = mobileCarouselRef.current;
+    const firstChild = container.children[0];
+    const cardWidth = firstChild?.offsetWidth || 280;
+    const gap = 16;
+    container.scrollTo({
+      left: index * (cardWidth + gap),
+      behavior: "smooth",
+    });
+    setMobileSlide(index);
+  };
+
+  const handleMobileScroll = () => {
+    if (!mobileCarouselRef.current) return;
+    const container = mobileCarouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const firstChild = container.children[0];
+    const cardWidth = firstChild?.offsetWidth || 280;
+    const gap = 16;
+    const index = Math.round(scrollLeft / (cardWidth + gap));
+    setMobileSlide(Math.min(conditionPairs.length - 1, Math.max(0, index)));
+  };
+
+  const toggleMobileAccordion = (key) => {
+    setMobileAccordionOpen((prev) => (prev === key ? null : key));
+  };
 
   const currentCategory = doctorSpecialties.find((c) => c.id === activeTab);
 
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden pb-20 md:pb-0">
       {/* 1. HERO SECTION: CINEMATIC SPLIT (DESKTOP) & SEAMLESS SHADOW OVERLAY (MOBILE) */}
-      <section className="relative bg-slate-950 lg:bg-gradient-to-br lg:from-slate-900 lg:via-blue-950 lg:to-sky-950 text-white pt-12 sm:pt-16 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative bg-slate-950 lg:bg-gradient-to-br lg:from-slate-900 lg:via-blue-950 lg:to-sky-950 text-white pt-12 sm:pt-16 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 overflow-hidden"
+      >
         {/* Ambient Glows */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -406,10 +610,12 @@ export default function HomeClient() {
           >
             <source src="/phone.mp4" type="video/mp4" />
           </video>
-          {/* Top subtle vignette for navbar */}
-          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-950/40 to-transparent pointer-events-none" />
-          {/* Bottom gentle gradient: leaves video bright & clear in the center, smoothly darkens behind text */}
-          <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent pointer-events-none" />
+          {/* Base darkening overlay across mobile video */}
+          <div className="absolute inset-0 bg-slate-950/30 pointer-events-none" />
+          {/* Top vignette for navbar */}
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950/60 to-transparent pointer-events-none" />
+          {/* Bottom gradient: smoothly darkens behind headline and buttons */}
+          <div className="absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -426,7 +632,7 @@ export default function HomeClient() {
                 >
                   <source src="/bgvideo.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40 pointer-events-none" />
               </div>
             </div>
 
@@ -483,7 +689,229 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 2. DOCTOR PROFILE, BOARD CERTIFICATIONS, EDUCATION & BIO */}
+      {/* 2. TREATMENT: DIAGNOSIS TO PERSONALIZED TREATMENT PLAN SECTION */}
+      <section className="bg-white text-slate-900 py-20 overflow-hidden relative border-t border-slate-200/80">
+        {/* Soft subtle ambient background glow */}
+        <div className="absolute top-1/4 -left-40 w-96 h-96 bg-blue-50/60 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-sky-50/60 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+          {/* Main Title & Overview */}
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B2240] tracking-tight leading-tight">
+              Finding the{" "}
+              <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-sky-600 bg-clip-text text-transparent font-black">
+                Right Treatment
+              </span>{" "}
+              Starts with the{" "}
+              <span className="bg-gradient-to-r from-sky-600 via-blue-600 to-blue-700 bg-clip-text text-transparent font-black">
+                Right Diagnosis
+              </span>
+            </h2>
+
+            {/* Contrasting Approach: Stacked on Mobile, Inline (2 Columns) on PC */}
+            <div className="max-w-xl sm:max-w-3xl mx-auto space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4 pt-3 sm:pt-4 text-left">
+              {/* Card 1: We focus on (outside box) -> [ Personal Evaluation ✓ ] */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="text-xs sm:text-sm mb-8 font-extrabold uppercase tracking-wider text-blue-600 shrink-0">
+                  We focus on
+                </span>
+                <div className="flex-1 bg-blue-50/70 border border-blue-200/80 rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 shadow-xs flex items-center justify-between gap-3 transition-colors hover:border-blue-300">
+                  <span className="text-blue-950 font-bold text-xs sm:text-sm md:text-base tracking-tight">
+                    Personal Evaluation
+                  </span>
+                  <span className="text-base sm:text-lg text-emerald-600 shrink-0 font-black">
+                    ✓
+                  </span>
+                </div>
+              </div>
+
+              {/* Card 2: Rather than (outside box) -> [ One-Size-Fits-All ❌ ] */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="text-xs sm:text-sm mb-8 font-extrabold uppercase tracking-wider text-slate-500 shrink-0">
+                  Rather than
+                </span>
+                <div className="flex-1 bg-rose-50/70 border border-rose-200/80 rounded-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 shadow-xs flex items-center justify-between gap-3 transition-colors hover:border-rose-300">
+                  <span className="text-rose-950 font-bold text-xs sm:text-sm md:text-base tracking-tight">
+                    One-Size-Fits-All
+                  </span>
+                  <span className="text-base sm:text-lg text-rose-600 shrink-0 font-bold">
+                    ❌
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-section 1: Clinical Assessment */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3 border-b border-slate-200 pb-4">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-sky-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-600/20 shrink-0">
+                1
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0B2240]">
+                  You&apos;re heard
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 mt-1">
+                  Your Symptoms, concerns, and health history come first
+                </p>
+              </div>
+            </div>
+
+            {/* Single Border Container */}
+            <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
+              {[
+                {
+                  title: "Medical history",
+                  desc: "Detailed review of personal and family cardiac conditions.",
+                },
+                {
+                  title: "Physical examination",
+                  desc: "Targeted cardiovascular & vascular clinical exam.",
+                },
+                {
+                  title: "Review of previous investigations",
+                  desc: "In-depth review of past ECGs, labs, and imaging.",
+                },
+                {
+                  title: "Assessment of risk factors",
+                  desc: "Cardiovascular risk profiling and preventative analysis.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="space-y-2 pt-4 sm:pt-0 sm:px-4 first:pt-0 first:pl-0"
+                >
+                  <div className="flex items-center space-x-2 text-blue-900 font-bold text-sm">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-600" />
+                    <span>{item.title}</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sub-section 2: Targeted Diagnostic Testing */}
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 gap-2">
+              <div className="flex items-center space-x-3">
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-sky-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-600/20 shrink-0">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0B2240]">
+                    We evaluate
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-600 mt-1">
+                    A focused cardiovascular assessment helps identify the cause
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Diagnostic Tests: Image on top, Title only in bottom area */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {diagnosticTests.map((test, idx) => (
+                <div
+                  key={idx}
+                  className={`group bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-blue-400/60 rounded-2xl overflow-hidden transition-all duration-300 shadow-xs hover:shadow-md flex-col justify-between ${
+                    idx >= 3 ? "hidden sm:flex" : "flex"
+                  }`}
+                >
+                  <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
+                    <Image
+                      src={test.image}
+                      alt={test.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <div className="p-4 sm:p-5 text-center">
+                    <h4 className="font-bold text-[#0B2240] text-base sm:text-lg group-hover:text-blue-600 transition-colors">
+                      {test.name}
+                    </h4>
+                  </div>
+                </div>
+              ))}
+
+              {/* 6th Card: And more, when clinically appropriate (visible on phone and PC) */}
+              <div className="group bg-gradient-to-br from-blue-50 via-sky-50 to-slate-50 border border-blue-200/80 hover:border-blue-400/60 rounded-2xl p-6 sm:p-7 flex flex-col justify-center text-center sm:text-left transition-all duration-300 shadow-xs hover:shadow-md">
+                <div className="space-y-2">
+                  <h4 className="font-bold text-[#0B2240] text-base sm:text-lg leading-snug group-hover:text-blue-600 transition-colors">
+                    And more, when clinically appropriate
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-section 3: Personalized Treatment Plan */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3 border-b border-slate-200 pb-4">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-sky-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-600/20 shrink-0">
+                3
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0B2240]">
+                  Personalized plan
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 mt-1">
+                  Your treatment plan is tailored to your long-term health
+                </p>
+              </div>
+            </div>
+
+            {/* Progression Stages without boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+              {treatmentProgressionStages.map((stage, idx) => {
+                const StageIcon = stage.icon;
+                return (
+                  <div key={idx} className="flex items-start space-x-3">
+                    <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-100 shrink-0 mt-0.5">
+                      <StageIcon className={`h-5 w-5 ${stage.iconColor}`} />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-[#0B2240] font-bold text-base leading-snug">
+                        {stage.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {stage.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Quote Box: Title removed, quote only */}
+            <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-sky-50 border border-blue-100 p-6 sm:p-8 rounded-3xl mt-8 shadow-xs text-center sm:text-left">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed italic">
+                &ldquo;Not every patient needs advanced procedures. Our goal is to recommend the{" "}
+                <span className="bg-gradient-to-r from-blue-700 to-sky-600 bg-clip-text text-transparent font-bold not-italic">
+                  least invasive treatment
+                </span>{" "}
+                that can provide the{" "}
+                <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent font-bold not-italic">
+                  best possible outcome
+                </span>{" "}
+                for your specific condition.&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* 4. DOCTOR: DOCTOR PROFILE, BOARD CERTIFICATIONS, EDUCATION & BIO */}
       <section
         id="doctor-profile"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
@@ -614,417 +1042,9 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 3. DOCTOR'S SPECIALTIES & CONDITIONS HUB */}
-      <section
-        id="doctor-specialties"
-        className="scroll-mt-20 max-w-7xl mx-auto py-16"
-      >
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Cardiovascular Care & Specializations
-          </h2>
-        </div>
 
-        {/* Specialty Tabs */}
-        <div className="md:flex grid grid-cols-3 px-2 md:flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-          {doctorSpecialties.map((cat) => {
-            const Icon = cat.icon;
-            const isActive = activeTab === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center space-x-2 md:px-5 md:py-3.5 px-3  py-2 rounded-2xl font-bold text-xs sm:text-sm transition-all duration-300 ${isActive
-                  ? "bg-blue-600 text-white shadow-xl shadow-blue-600/25 scale-105"
-                  : "bg-white text-slate-700 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80"
-                  }`}
-              >
-                <Icon
-                  className={`h-4 w-4 hidden md:block ${isActive ? "text-white" : "text-blue-600"}`}
-                />
-                <span className=" w-full text-center">{cat.label}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Tab Content */}
-        {currentCategory && (
-          <div className="p-6 sm:p-10 transition-all duration-300 animate-fade-in-up">
-            {/* Symptoms Intro Section */}
-            <div
-              id="symptoms-overview"
-              className="scroll-mt-28 bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-slate-50 border border-blue-100 rounded-2xl p-6 mb-8 space-y-4"
-            >
-              <div className="space-y-3">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">
-                  {currentCategory.id === "heart"
-                    ? "Many heart conditions share similar symptoms."
-                    : currentCategory.id === "vascular"
-                      ? "Many vascular conditions share similar symptoms."
-                      : "Many blood pressure disorders share similar symptoms."}
-                </h3>
-                <p className="text-slate-600 text-xs sm:text-sm font-medium">
-                  Common warning indicators include:
-                </p>
-
-                {/* Symptom Tags (Stacked under text) */}
-                {currentCategory.symptoms && (
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {currentCategory.symptoms.map((sym, i) => {
-                      const slugMap = {
-                        "Chest Pain": "chest-pain",
-                        "Shortness of Breath": "shortness-of-breath",
-                        "Palpitations": "palpitations",
-                        "Dizziness & Fainting": "dizziness-and-fainting",
-                        "Fatigue": "fatigue",
-                        "Leg Pain": "leg-pain-when-walking",
-                        "Leg Pain When Walking": "leg-pain-when-walking",
-                        "Leg Swelling": "leg-swelling",
-                        "Leg Heaviness & Aching": "leg-heaviness-and-aching",
-                        "Varicose Veins": "varicose-veins",
-                        "Cold or Discolored Feet": "cold-or-discolored-feet",
-                        "High Blood Pressure": "high-blood-pressure",
-                        "Headaches": "headaches",
-                        "Dizziness": "dizziness",
-                      };
-                      const slug =
-                        slugMap[sym] ||
-                        sym
-                          .toLowerCase()
-                          .replace(/[^a-z0-9]+/g, "-")
-                          .replace(/(^-|-$)/g, "");
-
-                      return (
-                        <Link
-                          key={i}
-                          href={`/symptom/${slug}`}
-                          className="inline-flex items-center px-3 py-1.5 bg-white border border-blue-200 text-blue-800 text-xs font-bold rounded-full shadow-2xs hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow-md cursor-pointer transition-all duration-200 group"
-                        >
-                          <Heart className="mr-1.5 h-3.5 w-3.5 text-blue-600 group-hover:text-white shrink-0 transition-colors" />
-                          <span>{sym}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-
-              <p className="text-slate-700 text-sm leading-relaxed border-t border-blue-100/80 pt-3 font-normal">
-                {currentCategory.id === "heart" ? (
-                  <>
-                    <strong className="font-bold text-slate-900">These symptoms</strong> can be caused by{" "}
-                    <strong className="font-bold text-slate-900">several different cardiovascular conditions</strong>. Our role is to{" "}
-                    <strong className="font-bold text-slate-900">identify the underlying cause</strong> through a{" "}
-                    <strong className="font-bold text-slate-900">careful clinical assessment and targeted diagnostic testing</strong>, then recommend the treatment that&apos;s most appropriate for your specific condition.
-                  </>
-                ) : currentCategory.id === "vascular" ? (
-                  <>
-                    <strong className="font-bold text-slate-900">These symptoms</strong> can signal{" "}
-                    <strong className="font-bold text-slate-900">underlying arterial blockages or venous reflux disease</strong>. Early vascular evaluation and ultrasound screening{" "}
-                    <strong className="font-bold text-slate-900">can prevent major complications</strong>.
-                  </>
-                ) : (
-                  <>
-                    <strong className="font-bold text-slate-900">these symptoms</strong> are common warning indicators of{" "}
-                    <strong className="font-bold text-slate-900">uncontrolled high blood pressure</strong>. Precise diagnosis and medication protocols protect long-term cardiovascular health.
-                  </>
-                )}
-              </p>
-            </div>
-
-            {/* Header for Heart / Vascular / Hypertension Conditions */}
-            {currentCategory.id === "heart" && (
-              <div className="mb-4 sm:mb-5">
-                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
-                  DIFFERENT HEART CONDITIONS INCLUDE:
-                </h3>
-              </div>
-            )}
-            {currentCategory.id === "vascular" && (
-              <div className="mb-4 sm:mb-5">
-                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
-                  DIFFERENT VASCULAR CONDITIONS INCLUDE:
-                </h3>
-              </div>
-            )}
-            {currentCategory.id === "hypertension" && (
-              <div className="mb-4 sm:mb-5">
-                <h3 className="text-sm sm:text-base font-extrabold uppercase tracking-wider text-slate-900">
-                  Classification of Hypertension:
-                </h3>
-              </div>
-            )}
-
-            {/* Condition Grid inside Active Specialty */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {currentCategory.conditions.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group bg-white border border-slate-200/80 rounded-2xl overflow-hidden hover:border-blue-300 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover-lift"
-                >
-                  <div>
-                    {/* Condition Card Image */}
-                    {item.image && (
-                      <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-                      </div>
-                    )}
-
-                    <div className="p-5">
-                      <h4 className="font-bold text-slate-900 text-base group-hover:text-blue-600 transition-colors leading-snug">
-                        {item.name}
-                      </h4>
-                    </div>
-                  </div>
-
-                  <div className="p-5 pt-0">
-                    <Link
-                      href={item.link}
-                      className="inline-flex items-center justify-center w-full py-2.5 px-4 bg-slate-100 group-hover:bg-blue-600 text-slate-700 group-hover:text-white font-bold text-xs rounded-xl transition-all duration-300 shadow-2xs"
-                    >
-                      <span>Learn more</span>
-                      <ChevronRight className="h-3.5 w-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </section>
-
-      {/* 4. DIAGNOSIS TO PERSONALIZED TREATMENT PLAN SECTION */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white py-20 overflow-hidden relative border-t border-blue-900/60">
-        {/* Background glow effects */}
-        <div className="absolute top-1/4 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
-          {/* Main Title & Overview */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Finding the{" "}
-              <span className="bg-gradient-to-r from-sky-400 via-blue-300 to-cyan-300 bg-clip-text text-transparent font-black">
-                Right Treatment
-              </span>{" "}
-              Starts with the{" "}
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-300 bg-clip-text text-transparent font-black">
-                Right Diagnosis
-              </span>
-            </h2>
-
-            {/* Contrasting Approach: Stacked on Mobile, Inline (2 Columns) on PC */}
-            <div className="max-w-xl sm:max-w-3xl mx-auto space-y-2.5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4 pt-3 sm:pt-4">
-              {/* Card 1: One-Size-Fits-All ❌ (Subtle red / gray) */}
-              <div className="bg-slate-900/60 border border-rose-500/20 rounded-xl px-4 py-3 sm:p-4 backdrop-blur-sm shadow-md flex items-center sm:items-start justify-between gap-3 transition-colors hover:border-rose-500/35">
-                <div className="text-left space-y-1">
-                  <span className="text-rose-200/90 font-bold text-sm sm:text-base tracking-tight block">
-                    One-Size-Fits-All
-                  </span>
-                  <p className="hidden sm:block text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    “Generic care may not address what’s causing your symptoms.”
-                  </p>
-                </div>
-                <span className="text-base sm:text-lg text-rose-400 shrink-0 font-bold sm:mt-0.5">
-                  ❌
-                </span>
-              </div>
-
-              {/* Card 2: Personal Evaluation ✓ (Cyan / blue) */}
-              <div className="bg-gradient-to-r sm:bg-gradient-to-br from-sky-950/60 to-blue-950/60 border border-sky-400/30 rounded-xl px-4 py-3 sm:p-4 backdrop-blur-sm shadow-lg shadow-sky-500/10 ring-1 ring-sky-400/20 flex items-center sm:items-start justify-between gap-3 transition-colors hover:border-sky-400/50">
-                <div className="text-left space-y-1">
-                  <span className="text-sky-200 font-bold text-sm sm:text-base tracking-tight block">
-                    Personal Evaluation
-                  </span>
-                  <p className="hidden sm:block text-xs sm:text-sm text-sky-100/85 leading-relaxed">
-                    “Your symptoms, history, and cardiovascular risk guide a plan designed specifically for you.”
-                  </p>
-                </div>
-                <span className="text-base sm:text-lg text-emerald-400 sm:text-cyan-400 shrink-0 font-black sm:mt-0.5">
-                  ✓
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Sub-section 1: Clinical Assessment */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3 border-b border-white/10 pb-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
-                1
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  You&apos;re heard
-                </h3>
-                <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                  Your Symptoms, concerns, and health history come first
-                </p>
-              </div>
-            </div>
-
-            {/* Single Border Container */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-              {[
-                {
-                  title: "Medical history",
-                  desc: "Detailed review of personal and family cardiac conditions.",
-                },
-                {
-                  title: "Physical examination",
-                  desc: "Targeted cardiovascular & vascular clinical exam.",
-                },
-                {
-                  title: "Review of previous investigations",
-                  desc: "In-depth review of past ECGs, labs, and imaging.",
-                },
-                {
-                  title: "Assessment of risk factors",
-                  desc: "Cardiovascular risk profiling and preventative analysis.",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="space-y-2 pt-4 sm:pt-0 sm:px-4 first:pt-0 first:pl-0"
-                >
-                  <div className="flex items-center space-x-2 text-sky-300 font-bold text-sm">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-sky-400" />
-                    <span>{item.title}</span>
-                  </div>
-                  <p className="text-xs text-blue-200 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Sub-section 2: Targeted Diagnostic Testing */}
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-blue-900/80 pb-4 gap-2">
-              <div className="flex items-center space-x-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    We evaluate
-                  </h3>
-                  <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                    A focused cardiovascular assessment helps identify the cause
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Diagnostic Tests: Image on top, Title only in bottom area */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {diagnosticTests.map((test, idx) => (
-                <div
-                  key={idx}
-                  className={`group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sky-400/40 rounded-2xl overflow-hidden transition-all duration-300 shadow-lg hover-lift flex-col justify-between ${
-                    idx >= 3 ? "hidden sm:flex" : "flex"
-                  }`}
-                >
-                  <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
-                    <Image
-                      src={test.image}
-                      alt={test.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  </div>
-
-                  <div className="p-4 sm:p-5 text-center">
-                    <h4 className="font-bold text-white text-base sm:text-lg group-hover:text-sky-300 transition-colors">
-                      {test.name}
-                    </h4>
-                  </div>
-                </div>
-              ))}
-
-              {/* 6th Card: And more, when clinically appropriate (visible on phone and PC) */}
-              <div className="group bg-gradient-to-br from-blue-900/50 via-slate-900/60 to-blue-950/70 border border-white/10 hover:border-sky-400/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-center text-center sm:text-left transition-all duration-300 shadow-lg hover-lift">
-                <div className="space-y-2">
-                  <h4 className="font-bold text-white text-base sm:text-lg leading-snug group-hover:text-sky-300 transition-colors">
-                    And more, when clinically appropriate
-                  </h4>
-                  <p className="text-blue-200/90 text-xs sm:text-sm leading-relaxed">
-                    We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Sub-section 3: Personalized Treatment Plan */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3 border-b border-blue-900/80 pb-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
-                3
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  Personalized plan
-                </h3>
-                <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                  Your treatment plan is tailored to your long-term health
-                </p>
-              </div>
-            </div>
-
-            {/* Progression Stages without boxes */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
-              {treatmentProgressionStages.map((stage, idx) => {
-                const StageIcon = stage.icon;
-                return (
-                  <div key={idx} className="flex items-start space-x-3">
-                    <div className="p-2 rounded-xl bg-white/5 border border-white/10 shrink-0 mt-0.5">
-                      <StageIcon className={`h-5 w-5 ${stage.iconColor}`} />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="text-sky-300 font-bold text-base leading-snug">
-                        {stage.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-blue-200/80 leading-relaxed">
-                        {stage.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Quote Box: Title removed, quote only */}
-            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/30 p-6 sm:p-8 rounded-3xl mt-8 backdrop-blur-xl shadow-xl">
-              <p className="text-blue-100 text-sm sm:text-base leading-relaxed italic text-center sm:text-left">
-                &ldquo;Not every patient needs advanced procedures. Our goal is to recommend the{" "}
-                <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold not-italic">
-                  least invasive treatment
-                </span>{" "}
-                that can provide the{" "}
-                <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold not-italic">
-                  best possible outcome
-                </span>{" "}
-                for your specific condition.&rdquo;
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. GOOGLE MAPS PATIENT REVIEWS & TESTIMONIALS SECTION */}
-      <section className="bg-slate-100/90 py-20 border-y border-slate-200/80">
+{/* 3. REVIEWS: GOOGLE MAPS PATIENT REVIEWS & TESTIMONIALS SECTION */}
+      <section className="bg-slate-200/50 py-20 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-6 sm:p-12 shadow-xl border border-slate-200/80 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center overflow-hidden">
             {/* Left Summary Box */}
@@ -1158,7 +1178,8 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 5.5. ACCEPTED INSURANCE & COVERAGE SECTION - FULL WIDTH AUTOPLAY SLIDER */}
+
+      {/* 5. INSURANCE: ACCEPTED INSURANCE & COVERAGE SECTION - FULL WIDTH AUTOPLAY SLIDER */}
       <section
         id="insurance"
         className="w-full py-16 sm:py-24 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white scroll-mt-24 relative overflow-hidden border-y border-blue-900/40"
@@ -1252,7 +1273,398 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 6. FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
+      {/* 6. CONDITIONS: CONDITIONS WE TREAT */}
+      <section
+        id="doctor-specialties"
+        className="scroll-mt-20 max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8"
+      >
+        {/* Section Main Title */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B2240] tracking-tight">
+            Conditions We Treat
+          </h2>
+        </div>
+
+        {/* 3A. CONDITIONS WE TREAT CAROUSEL */}
+        <div className="mb-14 sm:mb-20">
+
+          {/* DESKTOP (PC): 1-Row Carousel with Side Arrows & 4 visible cards */}
+          <div className="hidden md:block relative">
+            {/* Desktop Left Arrow Button */}
+            <button
+              type="button"
+              onClick={handleDesktopPrev}
+              disabled={desktopSlide === 0}
+              aria-label="Previous condition"
+              className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Desktop Right Arrow Button */}
+            <button
+              type="button"
+              onClick={handleDesktopNext}
+              disabled={desktopSlide >= conditionsWeTreatList.length - 1}
+              aria-label="Next condition"
+              className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* 1-Row Track */}
+            <div
+              ref={desktopCarouselRef}
+              onScroll={handleDesktopScroll}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 pt-1 px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {conditionsWeTreatList.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="snap-start shrink-0 w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-white border border-slate-100 rounded-3xl p-5 sm:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Visual / Image */}
+                    {item.image && (
+                      <div className="relative h-40 sm:h-44 w-full rounded-2xl overflow-hidden bg-slate-50 mb-4 flex items-center justify-center border border-slate-100/80">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+
+                    <h4 className="font-extrabold text-[#0B2240] text-base group-hover:text-blue-600 transition-colors leading-snug">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-xs sm:text-[13px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Circular Action Arrow Button */}
+                  <div className="flex items-center justify-start mt-5 pt-1">
+                    <Link
+                      href={item.link}
+                      aria-label={`Learn more about ${item.title}`}
+                      className="w-9 h-9 rounded-full border border-sky-300 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white group-hover:border-sky-600 transition-all duration-300 shadow-2xs"
+                    >
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Pagination Dots (6 dots) */}
+            <div className="flex justify-center items-center gap-2 mt-6">
+              {conditionsWeTreatList.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollDesktopToIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    desktopSlide === idx
+                      ? "w-6 bg-teal-700"
+                      : "w-2 bg-teal-200 hover:bg-teal-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* MOBILE (Phone): 2-Row Slider (1 upper card, 1 lower card per slide) */}
+          <div className="block md:hidden relative">
+            <div
+              ref={mobileCarouselRef}
+              onScroll={handleMobileScroll}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 pt-1 px-1 -mx-2 px-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {conditionPairs.map((pair, slideIdx) => (
+                <div
+                  key={slideIdx}
+                  className="snap-start shrink-0 w-[84vw] xs:w-[78vw] flex flex-col gap-3.5"
+                >
+                  {pair.map((item, itemIdx) => (
+                    <div
+                      key={itemIdx}
+                      className="bg-white border border-slate-100 rounded-3xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        {item.image && (
+                          <div className="relative h-28 xs:h-32 w-full rounded-2xl overflow-hidden bg-slate-50 mb-3 flex items-center justify-center border border-slate-100/80">
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              sizes="85vw"
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        )}
+
+                        <h4 className="font-extrabold text-[#0B2240] text-sm group-hover:text-blue-600 transition-colors leading-snug">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-xs text-slate-500 mt-1 leading-relaxed line-clamp-2">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-end mt-3 pt-1">
+                        <Link
+                          href={item.link}
+                          aria-label={`Learn more about ${item.title}`}
+                          className="w-8 h-8 rounded-full border border-sky-300 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white group-hover:border-sky-600 transition-all duration-300 shadow-2xs"
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Pagination Dots (3 dots) */}
+            <div className="flex justify-center items-center gap-2 mt-5">
+              {conditionPairs.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollMobileToIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    mobileSlide === idx
+                      ? "w-6 bg-teal-700"
+                      : "w-2 bg-teal-200 hover:bg-teal-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. SYMPTOMS: SYMPTOMS YOU SHOULDN'T IGNORE */}
+      <section
+        id="symptoms-overview"
+        className="scroll-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+          <div className="mb-6 sm:mb-8 text-center sm:text-left">
+           
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B2240] tracking-tight">
+             EXPERIENCING SOMETHING CONCERNING?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+              Find the symptoms that match what you&apos;re experiencing and learn more about your next steps.
+            </p>
+          </div>
+
+          {/* DESKTOP VIEW (Two side-by-side cards with 2-column pill grids) */}
+          <div className="hidden md:grid grid-cols-2 gap-6 lg:gap-8">
+            {/* 1. Heart & Blood Pressure Symptoms Card */}
+            <div className="bg-[#FFF6F4]/90 border border-rose-100/90 rounded-3xl p-6 lg:p-7 shadow-xs">
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-11 h-11 rounded-2xl bg-transparent text-rose-500 flex items-center justify-center shrink-0">
+                  <HeartPulseIcon className="w-6 h-6" />
+                </div>
+                <h4 className="text-base lg:text-lg font-bold text-[#0B2240]">
+                  Heart & Blood Pressure Symptoms
+                </h4>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                {/* Column 1 */}
+                <div className="space-y-2.5">
+                  {heartSymptomsCol1.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-rose-100/40 rounded-2xl py-3 px-3.5 flex items-center justify-between transition-all duration-200 group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 pr-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                        <span className="text-xs lg:text-[13px] font-medium text-slate-700 group-hover:text-slate-900 truncate">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-rose-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Column 2 */}
+                <div className="space-y-2.5">
+                  {heartSymptomsCol2.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-rose-100/40 rounded-2xl py-3 px-3.5 flex items-center justify-between transition-all duration-200 group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 pr-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                        <span className="text-xs lg:text-[13px] font-medium text-slate-700 group-hover:text-slate-900 truncate">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-rose-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Vascular Symptoms Card */}
+            <div className="bg-[#F0F9FF]/90 border border-sky-100/90 rounded-3xl p-6 lg:p-7 shadow-xs">
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-11 h-11 rounded-2xl bg-transparent text-sky-600 flex items-center justify-center shrink-0">
+                  <VascularTreeIcon className="w-6 h-6" />
+                </div>
+                <h4 className="text-base lg:text-lg font-bold text-[#0B2240]">
+                  Vascular Symptoms
+                </h4>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                {/* Column 1 */}
+                <div className="space-y-2.5">
+                  {vascularSymptomsCol1.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-sky-100/40 rounded-2xl py-3 px-3.5 flex items-center justify-between transition-all duration-200 group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 pr-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                        <span className="text-xs lg:text-[13px] font-medium text-slate-700 group-hover:text-slate-900 truncate">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-sky-400 group-hover:text-sky-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Column 2 */}
+                <div className="space-y-2.5">
+                  {vascularSymptomsCol2.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-sky-100/40 rounded-2xl py-3 px-3.5 flex items-center justify-between transition-all duration-200 group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 pr-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                        <span className="text-xs lg:text-[13px] font-medium text-slate-700 group-hover:text-slate-900 truncate">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-sky-400 group-hover:text-sky-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* MOBILE VIEW (Accordion with collapsible sections matching phone screenshot) */}
+          <div className="block md:hidden space-y-3.5">
+            {/* Mobile Accordion 1: Heart & Blood Pressure */}
+            <div className="bg-[#FFF6F4] border border-rose-100 rounded-2xl p-4 transition-all duration-300">
+              <button
+                type="button"
+                onClick={() => toggleMobileAccordion("heart")}
+                className="w-full flex items-center justify-between text-left cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-transparent text-rose-500 flex items-center justify-center shrink-0">
+                    <HeartPulseIcon className="w-5 h-5" />
+                  </div>
+                  <span className="font-bold text-sm text-[#0B2240]">
+                    Heart & Blood Pressure Symptoms
+                  </span>
+                </div>
+                {mobileAccordionOpen === "heart" ? (
+                  <ChevronUp className="w-5 h-5 text-rose-500 shrink-0" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-rose-500 shrink-0" />
+                )}
+              </button>
+
+              {mobileAccordionOpen === "heart" && (
+                <div className="pt-3.5 space-y-2 animate-fade-in-up">
+                  {allHeartSymptoms.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-rose-100/40 rounded-xl py-3 px-3.5 flex items-center justify-between transition-all group"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                        <span className="text-xs font-medium text-slate-700">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-rose-400 group-hover:text-rose-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Accordion 2: Vascular Symptoms */}
+            <div className="bg-[#F0F9FF] border border-sky-100 rounded-2xl p-4 transition-all duration-300">
+              <button
+                type="button"
+                onClick={() => toggleMobileAccordion("vascular")}
+                className="w-full flex items-center justify-between text-left cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-transparent text-sky-600 flex items-center justify-center shrink-0">
+                    <VascularTreeIcon className="w-5 h-5" />
+                  </div>
+                  <span className="font-bold text-sm text-[#0B2240]">
+                    Vascular Symptoms
+                  </span>
+                </div>
+                {mobileAccordionOpen === "vascular" ? (
+                  <ChevronUp className="w-5 h-5 text-sky-500 shrink-0" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-sky-500 shrink-0" />
+                )}
+              </button>
+
+              {mobileAccordionOpen === "vascular" && (
+                <div className="pt-3.5 space-y-2 animate-fade-in-up">
+                  {allVascularSymptoms.map((sym, idx) => (
+                    <Link
+                      key={idx}
+                      href={sym.link}
+                      className="bg-transparent hover:bg-sky-100/40 rounded-xl py-3 px-3.5 flex items-center justify-between transition-all group"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                        <span className="text-xs font-medium text-slate-700">
+                          {sym.name}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-sky-400 group-hover:text-sky-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+      </section>
+
+      {/* 8. FAQS: FREQUENTLY ASKED QUESTIONS (FAQ) SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
@@ -1318,7 +1730,11 @@ export default function HomeClient() {
       {/* Fixed Bottom Action Bar: Call Us (Left 30%) + 2 Appointment Buttons in flex-col (Right 70%) - Mobile Only */}
       <aside
         aria-label="Quick appointment and contact actions"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] px-3 py-2 sm:py-2.5"
+        className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] px-3 py-2 sm:py-2.5 transition-all duration-300 ease-in-out ${
+          showBottomBar
+            ? "translate-y-0 opacity-100 pointer-events-auto"
+            : "translate-y-full opacity-0 pointer-events-none"
+        }`}
       >
         <div className="max-w-xl mx-auto flex items-stretch gap-2 sm:gap-3">
           {/* Left Side: Call Us (30% width, Brand Blue, 1 inline button spanning full height) */}

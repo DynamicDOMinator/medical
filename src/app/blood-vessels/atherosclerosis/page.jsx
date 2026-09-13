@@ -74,7 +74,7 @@ export default function AtherosclerosisPage() {
   const symptoms = [
     { title: 'Chest Pressure & Exertional Angina', desc: 'Squeezing chest pain caused by coronary artery plaque narrowing blood flow.', icon: Heart },
     { title: 'Leg Pain During Walking (Claudication)', desc: 'Calf muscle cramping during exercise relieved by rest, caused by peripheral arterial plaque.', icon: Activity },
-    { title: 'Sudden Numbness or Weakness', desc: 'Transient ischemic attacks caused by carotid plaque embolization to brain arteries.', icon: Zap },
+   
     { title: 'Shortness of Breath', desc: 'Dyspnea during physical activity due to impaired cardiac oxygen delivery.', icon: Clock },
     { title: 'Coldness & Pale Skin in Legs', desc: 'Decreased peripheral arterial circulation in feet and toes.', icon: AlertTriangle },
     { title: 'High Blood Pressure Spikes', desc: 'Renovascular stenosis driven by renal artery plaque accumulation.', icon: HeartPulse },
