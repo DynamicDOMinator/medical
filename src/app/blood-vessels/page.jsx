@@ -11,25 +11,22 @@ const bloodVesselDiseases = [
   {
     slug: 'venous-disease',
     name: 'Venous Disease',
-    tagline: 'Vein valve insufficiency & leg swelling',
     description: 'Malfunctioning vein valves prevent normal upward blood flow from the legs, causing chronic venous insufficiency, varicose veins, and swelling.',
-    image: '/images/venous.png',
+    image: '/images/venous-types-visual-white.jpg',
     icon: Droplets,
   },
   {
     slug: 'peripheral-artery-disease',
     name: 'Peripheral Artery Disease (PAD)',
-    tagline: 'Narrowed limb arteries reducing circulation',
     description: 'Atherosclerotic plaque narrows peripheral arteries in the legs, reducing blood flow and causing claudication pain during walking.',
-    image: '/images/pad.png',
+    image: '/images/pad-overview-illustration.png',
     icon: GitBranch,
   },
   {
     slug: 'thromboembolic-disease',
     name: 'Thromboembolic Disease',
-    tagline: 'Blood clots, DVT & pulmonary embolism',
     description: 'Thrombus formation in deep veins (DVT) with risk of embolization to the pulmonary arteries (pulmonary embolism).',
-    image: '/images/thromboembolic.png',
+    image: '/content5.png',
     icon: Zap,
   },
 ];
@@ -78,9 +75,6 @@ export default function BloodVesselsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   </div>
                   <div className="p-7 space-y-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                      {disease.tagline}
-                    </span>
                     <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {disease.name}
                     </h2>

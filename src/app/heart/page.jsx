@@ -11,7 +11,6 @@ const heartDiseases = [
   {
     slug: 'cad',
     name: 'Coronary Artery Disease (CAD)',
-    tagline: 'Plaque accumulation in coronary arteries',
     description: 'Cholesterol plaque deposits narrow the coronary arteries, restricting oxygenated blood flow to the myocardium and causing angina or heart attacks.',
     image: '/heart-2.png',
     icon: Heart,
@@ -19,7 +18,6 @@ const heartDiseases = [
   {
     slug: 'arrhythmias',
     name: 'Arrhythmias',
-    tagline: 'Irregular heart rhythm & electrical disorders',
     description: 'Electrical disruptions cause the heart to beat too fast, too slow, or erratically — including Atrial Fibrillation, SVT, and Premature Ventricular Contractions.',
     image: '/content.png',
     icon: Zap,
@@ -27,7 +25,6 @@ const heartDiseases = [
   {
     slug: 'valvular-heart-disease',
     name: 'Valvular Heart Disease',
-    tagline: 'Damaged or malfunctioning heart valves',
     description: 'One or more of the four heart valves fail to open completely (stenosis) or close properly (regurgitation), disrupting normal forward blood flow.',
     image: '/content7.png',
     icon: Layers,
@@ -35,7 +32,6 @@ const heartDiseases = [
   {
     slug: 'chf',
     name: 'Congestive Heart Failure (CHF)',
-    tagline: 'Weakened or stiff heart muscle',
     description: 'A chronic condition where the myocardium is unable to pump sufficient oxygenated blood to meet the body\'s metabolic demands.',
     image: '/content2.png',
     icon: Activity,
@@ -86,9 +82,6 @@ export default function HeartPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   </div>
                   <div className="p-7 space-y-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                      {disease.tagline}
-                    </span>
                     <h2 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                       {disease.name}
                     </h2>

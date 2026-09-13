@@ -155,32 +155,27 @@ const diagnosticTests = [
   {
     name: "ECG",
     desc: "Heart rhythm and electrical activity.",
-    image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+    image: "/ECG.png",
   },
   {
     name: "Echocardiography",
     desc: "Heart structure, function, and blood flow.",
-    image:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    image: "/Echocardiography.png",
   },
   {
     name: "Stress Testing",
     desc: "How your heart responds to physical stress.",
-    image:
-      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+    image: "/Stress Testing.png",
   },
   {
     name: "Holter Monitoring",
     desc: "Extended monitoring to detect intermittent rhythm changes.",
-    image:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
+    image: "/Holter Monitoring.png",
   },
   {
     name: "CT Coronary Angiography",
     desc: "Detailed imaging of the coronary arteries when appropriate.",
-    image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
+    image: "/CT Coronary Angiography.png",
   },
 ];
 
@@ -993,16 +988,18 @@ export default function HomeClient() {
               {treatmentProgressionStages.map((stage, idx) => {
                 const StageIcon = stage.icon;
                 return (
-                  <div key={idx} className="space-y-2">
-                    <div className="flex items-center space-x-2.5 text-sky-300 font-bold text-base">
-                      <div className="p-2 rounded-xl bg-white/5 border border-white/10 shrink-0">
-                        <StageIcon className={`h-5 w-5 ${stage.iconColor}`} />
-                      </div>
-                      <span>{stage.title}</span>
+                  <div key={idx} className="flex items-start space-x-3">
+                    <div className="p-2 rounded-xl bg-white/5 border border-white/10 shrink-0 mt-0.5">
+                      <StageIcon className={`h-5 w-5 ${stage.iconColor}`} />
                     </div>
-                    <p className="text-xs sm:text-sm text-blue-200/80 leading-relaxed pl-9">
-                      {stage.desc}
-                    </p>
+                    <div className="space-y-1">
+                      <h4 className="text-sky-300 font-bold text-base leading-snug">
+                        {stage.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-blue-200/80 leading-relaxed">
+                        {stage.desc}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
