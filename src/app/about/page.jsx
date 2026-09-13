@@ -440,7 +440,7 @@ export default function AboutPage() {
               Select a clinic facility below to view address, contact details, consultation times, and Google Maps.
             </p>
           </div>
-          <ClinicLocationsView initialClinicId="woodlands" />
+          <ClinicLocationsView />
         </div>
 
         {/* CTA */}

@@ -156,31 +156,31 @@ const diagnosticTests = [
     name: "ECG",
     desc: "Heart rhythm and electrical activity.",
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Echocardiography",
     desc: "Heart structure, function, and blood flow.",
     image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Stress Testing",
     desc: "How your heart responds to physical stress.",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Holter Monitoring",
     desc: "Extended monitoring to detect intermittent rhythm changes.",
     image:
-      "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "CT Coronary Angiography",
     desc: "Detailed imaging of the coronary arteries when appropriate.",
     image:
-      "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -219,7 +219,7 @@ const treatmentProgressionStages = [
     title: "Advanced Cardiac Interventions",
     color: "bg-rose-500/10 border-rose-200 text-rose-950",
     badgeColor: "bg-rose-600 text-white",
-    desc: "For complex conditions, we offer specialized interventions and device-based therapies when they are appropriate.",
+    desc: "For complex conditions, when specialized treatment is appropriate",
   },
 ];
 
@@ -229,8 +229,6 @@ const boardCertificationsList = [
   "Interventional Cardiology",
   "Nuclear Cardiology",
   "Echocardiography",
-  "Cardiac Computed Tomography (CBCCT)",
-  "Registered Physician in Vascular Interpretation (RPVI)",
 ];
 
 const googleReviewsList = [
@@ -395,64 +393,94 @@ export default function HomeClient() {
   const currentCategory = doctorSpecialties.find((c) => c.id === activeTab);
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden">
-      {/* 1. HERO SECTION: 5 GEOMETRIC SERVICE CIRCLES ACROSS 2 LINES */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-
+    <div className="bg-slate-50 min-h-screen text-slate-900 overflow-hidden pb-20 md:pb-0">
+      {/* 1. HERO SECTION: CINEMATIC SPLIT (DESKTOP) & SEAMLESS SHADOW OVERLAY (MOBILE) */}
+      <section className="relative bg-slate-950 lg:bg-gradient-to-br lg:from-slate-900 lg:via-blue-950 lg:to-sky-950 text-white pt-12 sm:pt-16 lg:pt-40 pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
+        {/* Ambient Glows */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-            {/* Hero Main Headline */}
-            <div className="flex flex-col items-center justify-center text-center">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white max-w-4xl mx-auto">
-                We Deliver Outstanding{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-white drop-shadow-sm">
-                  Cardiovascular Care
-                </span>
+        {/* Full-bleed video background on mobile with seamless shadow & opacity (aimshealthcare style) */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none lg:hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-top"
+          >
+            <source src="/phone.mp4" type="video/mp4" />
+          </video>
+          {/* Top subtle vignette for navbar */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-950/40 to-transparent pointer-events-none" />
+          {/* Bottom gentle gradient: leaves video bright & clear in the center, smoothly darkens behind text */}
+          <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent pointer-events-none" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Desktop Left Column: Video Card (hidden on mobile, uses full-bleed mobile video above) */}
+            <div className="hidden lg:block lg:col-span-6 w-full">
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-blue-950/70 border border-slate-700/60 bg-slate-900 group">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full aspect-4/3 object-cover object-center"
+                >
+                  <source src="/bgvideo.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/10 pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Content: Overlaid directly on mobile shadow gradient, Right Column on Desktop */}
+            <div className="relative z-10 pt-40 sm:pt-48 lg:pt-0 lg:col-span-6 flex flex-col items-center text-center w-full">
+              {/* Hero Main Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight leading-tight text-white text-center drop-shadow-md">
+                Expert Heart Care, Centered Around You
               </h1>
 
               {/* Subtitle / Approach */}
-              <p className="mt-4 sm:mt-6 text-slate-200 text-base sm:text-lg lg:text-xl font-normal max-w-3xl mx-auto leading-relaxed">
-                Through{" "}
+              <p className="mt-4 sm:mt-6 text-slate-200 text-base sm:text-lg lg:text-xl font-normal max-w-2xl leading-relaxed text-center mx-auto drop-shadow-sm">
+                we deliver comprehensive care through{" "}
                 <span className="font-bold text-sky-300">early detection</span>,{" "}
                 <span className="font-bold text-sky-300">prevention</span>,{" "}
                 <span className="font-bold text-sky-300">minimally invasive treatment</span>, and{" "}
                 <span className="font-bold text-sky-300">specialist second opinion</span>.
               </p>
-            </div>
 
-            {/* Action CTA Buttons */}
-            <div className="w-full max-w-4xl mx-auto pt-7 sm:pt-9">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
-                >
-                  <Calendar className="mr-2.5 h-5 w-5 text-slate-900 shrink-0" />
-                  <span>Request Appointment</span>
-                </Link>
-
-                {/* Inline on phone: Book through Healow & Call Us */}
-                <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
-                  <a
-                    href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+              {/* Action CTA Buttons */}
+              <div className="w-full pt-7 sm:pt-9">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                  <Link
+                    href="/contact"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 font-bold rounded-2xl text-slate-900 bg-sky-200 hover:bg-sky-100 transition-all duration-300 shadow-lg shadow-sky-500/20 hover:scale-105 text-sm sm:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
                   >
-                    <span>Book through Healow</span>
-                  </a>
+                    <Calendar className="mr-2.5 h-5 w-5 text-slate-900 shrink-0" />
+                    <span>Request Appointment</span>
+                  </Link>
 
-                  <a
-                    href="tel:+12813581950"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
-                  >
-                    <Phone className="mr-1.5 sm:mr-2.5 h-4 sm:h-5 w-4 sm:w-5 text-sky-300 shrink-0" />
-                    <span>Call Us</span>
-                  </a>
+                  {/* Inline on phone: Book through Healow & Call Us */}
+                  <div className="grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
+                    <a
+                      href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+                    >
+                      <span>Book through Healow</span>
+                    </a>
+
+                    <a
+                      href="tel:+12813581950"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-3 sm:px-6 py-3.5 sm:py-4 font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 shadow-md hover:scale-105 text-xs sm:text-sm md:text-base cursor-pointer text-center whitespace-nowrap shrink-0"
+                    >
+                      <Phone className="mr-1.5 sm:mr-2.5 h-4 sm:h-5 w-4 sm:w-5 text-sky-300 shrink-0" />
+                      <span>Call Us</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -517,13 +545,13 @@ export default function HomeClient() {
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 space-y-3">
                 <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                   <Award className="h-4 w-4 text-blue-600" />
-                  <span>Board Certifications </span>
+                  <span>Board Certifications</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:grid sm:grid-cols-2 sm:gap-2">
                   {boardCertificationsList.map((cert, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center space-x-2 bg-white px-3 py-2 rounded-xl border border-blue-100 text-xs text-slate-700 font-semibold shadow-2xs"
+                      className="inline-flex items-center space-x-1.5 text-xs text-slate-700 font-semibold py-0.5 sm:py-2"
                     >
                       <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
                       <span>{cert}</span>
@@ -532,58 +560,32 @@ export default function HomeClient() {
                 </div>
               </div>
 
-              {/* Education, Fellowships & Hospital Privileges Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                {/* Medical Education */}
-                <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl space-y-2">
-                  <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
-                    <GraduationCap className="h-4 w-4 text-blue-600" />
-                    <span>Medical Education</span>
-                  </div>
-                  <ul className="text-xs text-slate-700 space-y-1.5 font-medium">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-blue-600 font-bold">•</span>
-                      <span>Wake Forest Univ. School of Medicine (MS)</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-blue-600 font-bold">•</span>
-                      <span>SUNY Downstate Medical Center</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-blue-600 font-bold">•</span>
-                      <span>American University of Beirut</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-blue-600 font-bold">•</span>
-                      <span>University of Aleppo</span>
-                    </li>
-                  </ul>
-                </div>
-
+              {/* Hospital Privileges Card */}
+              <div className="pt-2">
                 {/* Hospital Privileges */}
                 <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl space-y-2">
                   <div className="flex items-center space-x-2 text-blue-700 font-bold text-xs uppercase tracking-wider">
                     <Building2 className="h-4 w-4 text-blue-600" />
                     <span>Hospital Privileges</span>
                   </div>
-                  <ul className="text-xs text-slate-700 space-y-1.5 font-medium">
-                    <li className="flex items-start space-x-2">
+                  <ul className="flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:block sm:space-y-1.5 text-xs text-slate-700 font-medium">
+                    <li className="inline-flex items-center space-x-1.5">
                       <span className="text-blue-600 font-bold">•</span>
                       <span>Houston Methodist The Woodlands</span>
                     </li>
-                    <li className="flex items-start space-x-2">
+                    <li className="inline-flex items-center space-x-1.5">
                       <span className="text-blue-600 font-bold">•</span>
                       <span>Memorial Hermann The Woodlands</span>
                     </li>
-                    <li className="flex items-start space-x-2">
+                    <li className="inline-flex items-center space-x-1.5">
                       <span className="text-blue-600 font-bold">•</span>
                       <span>HCA Houston Healthcare Kingwood</span>
                     </li>
-                    <li className="flex items-start space-x-2">
+                    <li className="inline-flex items-center space-x-1.5">
                       <span className="text-blue-600 font-bold">•</span>
                       <span>Memorial Hermann Northeast Hospital</span>
                     </li>
-                    <li className="flex items-start space-x-2">
+                    <li className="inline-flex items-center space-x-1.5">
                       <span className="text-blue-600 font-bold">•</span>
                       <span>HCA Houston Healthcare Northwest</span>
                     </li>
@@ -824,33 +826,59 @@ export default function HomeClient() {
                 Right Diagnosis
               </span>
             </h2>
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-normal pt-2">
-              Many cardiovascular conditions can cause similar symptoms. Rather
-              than using a one-size-fits-all approach, we perform a thorough
-              evaluation and recommend only the tests that are appropriate for
-              your symptoms and medical history. This allows us to identify the
-              underlying cause and create a treatment plan tailored to your
-              individual needs.
-            </p>
+
+            {/* Contrasting Approach: Stacked on Mobile, Inline (2 Columns) on PC */}
+            <div className="max-w-xl sm:max-w-3xl mx-auto space-y-2.5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4 pt-3 sm:pt-4">
+              {/* Card 1: One-Size-Fits-All ❌ (Subtle red / gray) */}
+              <div className="bg-slate-900/60 border border-rose-500/20 rounded-xl px-4 py-3 sm:p-4 backdrop-blur-sm shadow-md flex items-center sm:items-start justify-between gap-3 transition-colors hover:border-rose-500/35">
+                <div className="text-left space-y-1">
+                  <span className="text-rose-200/90 font-bold text-sm sm:text-base tracking-tight block">
+                    One-Size-Fits-All
+                  </span>
+                  <p className="hidden sm:block text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    “Generic care may not address what’s causing your symptoms.”
+                  </p>
+                </div>
+                <span className="text-base sm:text-lg text-rose-400 shrink-0 font-bold sm:mt-0.5">
+                  ❌
+                </span>
+              </div>
+
+              {/* Card 2: Personal Evaluation ✓ (Cyan / blue) */}
+              <div className="bg-gradient-to-r sm:bg-gradient-to-br from-sky-950/60 to-blue-950/60 border border-sky-400/30 rounded-xl px-4 py-3 sm:p-4 backdrop-blur-sm shadow-lg shadow-sky-500/10 ring-1 ring-sky-400/20 flex items-center sm:items-start justify-between gap-3 transition-colors hover:border-sky-400/50">
+                <div className="text-left space-y-1">
+                  <span className="text-sky-200 font-bold text-sm sm:text-base tracking-tight block">
+                    Personal Evaluation
+                  </span>
+                  <p className="hidden sm:block text-xs sm:text-sm text-sky-100/85 leading-relaxed">
+                    “Your symptoms, history, and cardiovascular risk guide a plan designed specifically for you.”
+                  </p>
+                </div>
+                <span className="text-base sm:text-lg text-emerald-400 sm:text-cyan-400 shrink-0 font-black sm:mt-0.5">
+                  ✓
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Sub-section 1: Clinical Assessment */}
-          <div className="  space-y-6  ">
+          <div className="space-y-6">
             <div className="flex items-center space-x-3 border-b border-white/10 pb-4">
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
                 1
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  We start by getting to know you
+                  You&apos;re heard
                 </h3>
                 <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                  We listen, assess your symptoms, and understand your individual cardiovascular risk.
+                  Your Symptoms, concerns, and health history come first
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Single Border Container */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
               {[
                 {
                   title: "Medical history",
@@ -871,7 +899,7 @@ export default function HomeClient() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2 hover:bg-white/10 transition-colors"
+                  className="space-y-2 pt-4 sm:pt-0 sm:px-4 first:pt-0 first:pl-0"
                 >
                   <div className="flex items-center space-x-2 text-sky-300 font-bold text-sm">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-sky-400" />
@@ -885,7 +913,7 @@ export default function HomeClient() {
             </div>
           </div>
 
-          {/* Sub-section 2: Targeted Diagnostic Testing (With Images Grid) */}
+          {/* Sub-section 2: Targeted Diagnostic Testing */}
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-blue-900/80 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -894,51 +922,49 @@ export default function HomeClient() {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    We look closer when needed
+                    We evaluate
                   </h3>
                   <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                    We select targeted diagnostic tests based on your symptoms, findings, and risk profile — avoiding unnecessary testing.
+                    A focused cardiovascular assessment helps identify the cause
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Diagnostic Tests: Image on top, Title only in bottom area */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {diagnosticTests.map((test, idx) => (
                 <div
                   key={idx}
-                  className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sky-400/40 rounded-2xl overflow-hidden transition-all duration-300 shadow-lg hover-lift flex flex-col justify-between"
+                  className={`group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sky-400/40 rounded-2xl overflow-hidden transition-all duration-300 shadow-lg hover-lift flex-col justify-between ${
+                    idx >= 3 ? "hidden sm:flex" : "flex"
+                  }`}
                 >
-                  <div>
-                    <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
-                      <Image
-                        src={test.image}
-                        alt={test.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                    </div>
+                  <div className="relative h-44 w-full bg-slate-950 overflow-hidden">
+                    <Image
+                      src={test.image}
+                      alt={test.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  </div>
 
-                    <div className="p-5 space-y-2">
-                      <h4 className="font-bold text-white text-base group-hover:text-sky-300 transition-colors">
-                        {test.name}
-                      </h4>
-                      <p className="text-blue-200 text-xs leading-relaxed">
-                        {test.desc}
-                      </p>
-                    </div>
+                  <div className="p-4 sm:p-5 text-center">
+                    <h4 className="font-bold text-white text-base sm:text-lg group-hover:text-sky-300 transition-colors">
+                      {test.name}
+                    </h4>
                   </div>
                 </div>
               ))}
 
-              {/* 6th Card: And more, when clinically appropriate */}
-              <div className="group bg-gradient-to-br from-blue-900/50 via-slate-900/60 to-blue-950/70 border border-white/10 hover:border-sky-400/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-center transition-all duration-300 shadow-lg hover-lift">
+              {/* 6th Card: And more, when clinically appropriate (visible on phone and PC) */}
+              <div className="group bg-gradient-to-br from-blue-900/50 via-slate-900/60 to-blue-950/70 border border-white/10 hover:border-sky-400/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-center text-center sm:text-left transition-all duration-300 shadow-lg hover-lift">
                 <div className="space-y-2">
-                  <h4 className="font-bold text-white text-base sm:text-lg leading-snug">
+                  <h4 className="font-bold text-white text-base sm:text-lg leading-snug group-hover:text-sky-300 transition-colors">
                     And more, when clinically appropriate
                   </h4>
-                  <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-blue-200/90 text-xs sm:text-sm leading-relaxed">
                     We use additional diagnostic tools based on your symptoms, clinical findings, and individual risk profile.
                   </p>
                 </div>
@@ -946,7 +972,7 @@ export default function HomeClient() {
             </div>
           </div>
 
-          {/* Sub-section 3: Personalized Treatment Plan (Horizontal Progression Flow) */}
+          {/* Sub-section 3: Personalized Treatment Plan */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3 border-b border-blue-900/80 pb-4">
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-blue-950 font-black text-lg shadow-md shadow-sky-400/20 shrink-0">
@@ -954,28 +980,27 @@ export default function HomeClient() {
               </div>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  We bring it all together
+                  Personalized plan
                 </h3>
                 <p className="text-sm sm:text-base text-blue-100/90 mt-1">
-                  We bring everything together to create a plan tailored to you and your long-term health.
+                  Your treatment plan is tailored to your long-term health
                 </p>
               </div>
             </div>
 
-            {/* Horizontal Progression Flow Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Progression Stages without boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
               {treatmentProgressionStages.map((stage, idx) => {
                 const StageIcon = stage.icon;
                 return (
-                  <div
-                    key={idx}
-                    className="bg-white/5 border border-white/10 p-5 rounded-2xl space-y-2 hover:bg-white/10 transition-colors"
-                  >
-                    <div className="flex items-center space-x-2 text-sky-300 font-bold text-sm">
-                      <StageIcon className={`h-4 w-4 shrink-0 ${stage.iconColor}`} />
+                  <div key={idx} className="space-y-2">
+                    <div className="flex items-center space-x-2.5 text-sky-300 font-bold text-base">
+                      <div className="p-2 rounded-xl bg-white/5 border border-white/10 shrink-0">
+                        <StageIcon className={`h-5 w-5 ${stage.iconColor}`} />
+                      </div>
                       <span>{stage.title}</span>
                     </div>
-                    <p className="text-xs text-blue-200 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-blue-200/80 leading-relaxed pl-9">
                       {stage.desc}
                     </p>
                   </div>
@@ -983,35 +1008,18 @@ export default function HomeClient() {
               })}
             </div>
 
-            {/* Closing Philosophical Callout */}
-            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/40 p-5 sm:p-8 rounded-3xl mt-8 space-y-4 backdrop-blur-xl shadow-2xl">
-              {/* Header Row: Icon + Title */}
-              <div className="flex items-center space-x-3.5 sm:space-x-4">
-                <div className="bg-gradient-to-br from-sky-400/20 to-blue-600/20 p-2.5 sm:p-3 rounded-2xl shrink-0 border border-sky-400/40 text-sky-300 shadow-md">
-                  <ShieldCheck className="h-6 w-6 sm:h-7 sm:w-7 text-sky-400" />
-                </div>
-                <h4 className="text-base sm:text-lg font-extrabold text-white tracking-wide">
-                  A treatment plan built around you
-                </h4>
-              </div>
-
-              {/* Description spanning from the left */}
-              <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-normal">
-                &ldquo;Not every patient needs advanced procedures. Our goal
-                is to recommend the{" "}
-                <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold">
+            {/* Quote Box: Title removed, quote only */}
+            <div className="bg-gradient-to-br from-slate-900/90 via-blue-950/90 to-sky-950/90 border border-sky-400/30 p-6 sm:p-8 rounded-3xl mt-8 backdrop-blur-xl shadow-xl">
+              <p className="text-blue-100 text-sm sm:text-base leading-relaxed italic text-center sm:text-left">
+                &ldquo;Not every patient needs advanced procedures. Our goal is to recommend the{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-200 to-cyan-300 bg-clip-text text-transparent font-bold not-italic">
                   least invasive treatment
                 </span>{" "}
-                that will provide the{" "}
-                <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold">
+                that can provide the{" "}
+                <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200 bg-clip-text text-transparent font-bold not-italic">
                   best possible outcome
                 </span>{" "}
-                for your specific condition. When more advanced interventions
-                are appropriate,{" "}
-                <span className="bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-200 bg-clip-text text-transparent font-bold">
-                  we&apos;ll discuss all available options and help you make an informed decision.
-                </span>
-                &rdquo;
+                for your specific condition.&rdquo;
               </p>
             </div>
           </div>
@@ -1025,7 +1033,8 @@ export default function HomeClient() {
             {/* Left Summary Box */}
             <div className="lg:col-span-5 space-y-6">
               <span className="text-xs font-black text-blue-600 uppercase tracking-widest">
-                WHAT OUR PATIENTS ARE SAYING?
+               what patients say about dr.almahmoud
+
               </span>
 
               {/* View on Google Maps Pill Button */}
@@ -1069,7 +1078,7 @@ export default function HomeClient() {
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-sky-600 hover:from-blue-700 hover:to-sky-500 text-white font-extrabold text-sm sm:text-base rounded-2xl transition-all shadow-lg shadow-blue-600/30 hover-lift"
                 >
-                  Get Immediate Info
+                  Contact page
                 </Link>
               </div>
             </div>
@@ -1166,9 +1175,7 @@ export default function HomeClient() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Insurance Plans We Accept
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Texas Cardiology Associates accepts a wide range of commercial, state, and federal health insurance plans to ensure accessible cardiovascular care for all patients.
-          </p>
+         
         </div>
 
         {/* Full-Width Autoplay Marquee Slider */}
@@ -1252,12 +1259,9 @@ export default function HomeClient() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Your Heart Health: Questions Patients Often Ask
+           Your heart health: Questions often asked
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Everything you need to know about clinic visits, diagnostic testing,
-            treatment options, and patient care with Dr. Almahmoud.
-          </p>
+         
         </div>
 
         <div className="max-w-4xl mx-auto space-y-4">
@@ -1314,44 +1318,45 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 7. APPOINTMENT BOOKING CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-400/20 rounded-full blur-3xl pointer-events-none" />
+      {/* Fixed Bottom Action Bar: Call Us (Left 30%) + 2 Appointment Buttons in flex-col (Right 70%) - Mobile Only */}
+      <aside
+        aria-label="Quick appointment and contact actions"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] px-3 py-2 sm:py-2.5"
+      >
+        <div className="max-w-xl mx-auto flex items-stretch gap-2 sm:gap-3">
+          {/* Left Side: Call Us (30% width, Brand Blue, 1 inline button spanning full height) */}
+          <a
+            href="tel:+12813581950"
+            className="w-[30%] flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 py-2 sm:py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all shadow-md shadow-blue-600/30 border border-blue-400/30 text-center active:scale-95 hover:scale-[1.01]"
+          >
+            <PhoneCall className="h-5 w-5 text-white shrink-0" />
+            <span className="text-xs sm:text-sm font-extrabold tracking-tight text-white">Call Us</span>
+          </a>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                Request an Appointment
-              </h2>
-              <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-                For expert evaluation of coronary artery disease, peripheral
-                vascular disease, structural valve conditions, or atrial
-                fibrillation.
-              </p>
-            </div>
+          {/* Right Side: 2 Buttons in Flex Column (70% width) */}
+          <div className="w-[70%] flex flex-col gap-1.5 justify-center">
+            {/* 1. Request Appointment (Website Royal Blue Gradient CTA) */}
+            <Link
+              href="/contact"
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 via-blue-700 to-sky-600 hover:from-blue-700 hover:to-sky-500 text-white font-black rounded-xl transition-all shadow-md shadow-blue-600/25 text-center text-xs sm:text-sm active:scale-95 hover:scale-[1.01]"
+            >
+              <Stethoscope className="h-4 w-4 text-sky-200 shrink-0" />
+              <span className="truncate font-extrabold text-white">Request Appointment</span>
+            </Link>
 
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-sky-300 hover:bg-white text-blue-950 font-extrabold rounded-2xl transition-all shadow-xl shadow-sky-400/20 text-center hover-lift"
-              >
-                <Stethoscope className="h-5 w-5" />
-                <span>Request Appointment</span>
-              </Link>
-              <a
-                href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-2xl transition-all text-center"
-              >
-                <Calendar className="h-5 w-5 text-sky-300" />
-                <span>Book through Healow</span>
-              </a>
-            </div>
+            {/* 2. Book through Healow (Complementary Glass Navy CTA) */}
+            <a
+              href="https://healow.com/apps/provider/mohamed-almahmoud-2103459"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 sm:py-2 bg-slate-900/90 hover:bg-slate-800 border border-blue-400/30 text-sky-100 hover:text-white font-bold rounded-xl transition-all text-center text-[11px] sm:text-xs active:scale-95"
+            >
+              <Calendar className="h-3.5 w-3.5 text-sky-300 shrink-0" />
+              <span className="truncate">Book through Healow</span>
+            </a>
           </div>
         </div>
-      </section>
+      </aside>
     </div>
   );
 }

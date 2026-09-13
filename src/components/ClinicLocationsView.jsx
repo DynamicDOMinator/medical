@@ -18,7 +18,7 @@ const HEALOW_BOOKING_URL =
   "https://healow.com/apps/provider/mohamed-almahmoud-2103459";
 
 export default function ClinicLocationsView({
-  initialClinicId = "woodlands"
+  initialClinicId = null
 }) {
   const [selectedClinicId, setSelectedClinicId] = useState(initialClinicId);
 
@@ -53,11 +53,6 @@ export default function ClinicLocationsView({
                   <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider block">
                     {clinic.subtitle}
                   </span>
-                  {clinic.isMainClinic && (
-                    <span className="bg-amber-100 text-amber-800 border border-amber-200/80 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      Main Clinic
-                    </span>
-                  )}
                 </div>
                 <h3 className="font-extrabold text-slate-900 text-lg sm:text-xl leading-snug">
                   {clinic.name}
@@ -72,8 +67,9 @@ export default function ClinicLocationsView({
                   isSelected ? "border-blue-200/70" : "border-slate-100"
                 }`}
               >
-                <span className="font-bold text-slate-700">
-                  {clinic.scheduleSummary}
+                <span className="font-bold text-blue-800 bg-blue-50 border border-blue-200/80 px-2.5 py-1 rounded-lg text-xs inline-flex items-center gap-1.5 shadow-2xs">
+                  <Clock className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+                  <span>{clinic.scheduleSummary}</span>
                 </span>
                 <span
                   className={`text-xs font-bold inline-flex items-center gap-1.5 ${
@@ -199,10 +195,13 @@ export default function ClinicLocationsView({
                         {clinic.schedule.map((s, idx) => (
                           <div
                             key={idx}
-                            className="flex justify-between items-center bg-white p-2.5 rounded-xl border border-blue-100 gap-2"
+                            className="flex justify-between items-center bg-white p-2.5 rounded-xl border border-blue-100 gap-2 shadow-2xs"
                           >
-                            <span className="font-bold text-slate-900">{s.day}</span>
-                            <span className="font-extrabold text-blue-700 shrink-0">
+                            <span className="font-extrabold text-blue-950 flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0" />
+                              {s.day}
+                            </span>
+                            <span className="font-extrabold text-blue-700 bg-blue-50/80 px-2.5 py-0.5 rounded-lg border border-blue-200/70 shrink-0">
                               {s.hours}
                             </span>
                           </div>

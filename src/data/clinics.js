@@ -2,8 +2,7 @@ export const clinics = [
   {
     id: "woodlands",
     name: "TCA – The Woodlands",
-    subtitle: "Main Clinic",
-    isMainClinic: true,
+    
     address: "150 Pine Forest Drive # 102",
     cityStateZip: "The Woodlands, TX 77384",
     fullAddress: "150 Pine Forest Drive # 102, The Woodlands, TX 77384",
@@ -22,7 +21,7 @@ export const clinics = [
   {
     id: "spring",
     name: "TCA – Spring",
-    subtitle: "Texas Cardiology Associates",
+   
     address: "800 Peakwood Drive, Ste 6C",
     cityStateZip: "Spring / Houston, TX 77090",
     fullAddress: "800 Peakwood Drive, Ste 6C, Houston, TX 77090",
@@ -43,7 +42,7 @@ export const clinics = [
   {
     id: "kingwood",
     name: "TCA – Kingwood",
-    subtitle: "Texas Cardiology Associates",
+    
     address: "2627 Chestnut Ridge Road, Ste 100",
     cityStateZip: "Kingwood, TX 77339",
     fullAddress: "2627 Chestnut Ridge Road, Ste 100, Kingwood, TX 77339",

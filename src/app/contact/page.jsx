@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Calendar, ExternalLink, MapPin, Printer, Phone, Mail } from "lucide-react";
+import { Calendar, ExternalLink, Printer, Phone, Mail } from "lucide-react";
 import ClinicLocationsView from "@/components/ClinicLocationsView";
 import AppointmentContactForm from "@/components/AppointmentContactForm";
 import { clinics } from "@/data/clinics";
@@ -124,14 +124,8 @@ export default function ContactPage() {
         </div>
 
         {/* Dedicated Full-Width Clinic Locations Section */}
-        <div id="locations" className="pt-8 border-t border-slate-200/80 space-y-6 scroll-mt-24">
-          <div className="flex items-center space-x-2.5 text-blue-700">
-            <MapPin className="h-6 w-6 text-blue-600" />
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Clinic Locations &amp; Google Maps
-            </h2>
-          </div>
-          <ClinicLocationsView initialClinicId="woodlands" />
+        <div id="locations" className="pt-6 border-t border-slate-200/80 scroll-mt-24">
+          <ClinicLocationsView />
         </div>
       </div>
     </div>

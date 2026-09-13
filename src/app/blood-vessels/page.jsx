@@ -43,11 +43,9 @@ export default function BloodVesselsPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="bg-white/10 p-3 rounded-2xl border border-white/20 backdrop-blur-md">
-              <Droplets className="h-7 w-7 text-sky-300" />
-            </div>
+            
             <div>
-              <span className="text-sky-300 text-xs font-bold uppercase tracking-widest">Disease Library</span>
+              
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-0.5">
                 Blood Vessel Conditions
               </h1>

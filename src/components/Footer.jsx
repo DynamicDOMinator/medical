@@ -35,7 +35,7 @@ export default function Footer() {
                   href="/contact#locations"
                   className="hover:text-white transition-colors"
                 >
-                  3 TCA Locations: The Woodlands (Main), Spring &amp; Kingwood
+                  3 TCA Locations: The Woodlands, Spring &amp; Kingwood
                 </Link>
               </div>
               <div className="flex items-center space-x-2">
@@ -83,7 +83,7 @@ export default function Footer() {
                   href="/contact#locations"
                   className="hover:text-white transition-colors"
                 >
-                  Clinic Locations &amp; Maps
+                  Clinic Locations 
                 </Link>
               </li>
               <li>
@@ -129,7 +129,7 @@ export default function Footer() {
               </li>
               <li className="flex justify-between">
                 <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Fri (The Woodlands - Main):
+                  Fri (The Woodlands):
                 </Link>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>

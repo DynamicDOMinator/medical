@@ -5,6 +5,8 @@ import { PhoneCall } from "lucide-react";
 
 export default function FloatingCallButton() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
   const isElevatedPage =
     pathname?.startsWith("/symptom") ||
     pathname?.startsWith("/heart/") ||
@@ -15,7 +17,11 @@ export default function FloatingCallButton() {
     <aside
       aria-label="Quick contact"
       className={`fixed left-4 sm:left-6 z-40 animate-bounce transition-all duration-300 ${
-        isElevatedPage ? "bottom-20 sm:bottom-6" : "bottom-5 sm:bottom-6"
+        isHomePage
+          ? "hidden md:block bottom-5 sm:bottom-6"
+          : isElevatedPage
+          ? "bottom-20 sm:bottom-6"
+          : "bottom-5 sm:bottom-6"
       }`}
     >
       <a
