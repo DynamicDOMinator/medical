@@ -409,6 +409,12 @@ const conditionsWeTreatList = [
     link: "/blood-vessels/peripheral-artery-disease",
   },
   {
+    title: "Venous Disease",
+    description: "Insufficiency, varicose veins & swelling.",
+    image: "/images/venous-types-visual-white.jpg",
+    link: "/blood-vessels/venous-disease",
+  },
+  {
     title: "Valvular & Structural Disease",
     description: "Conditions affecting the heart valves and structural chambers.",
     image: "/content7.png",
@@ -422,11 +428,10 @@ const conditionsWeTreatList = [
   },
 ];
 
-const conditionPairs = [
-  [conditionsWeTreatList[0], conditionsWeTreatList[1]],
-  [conditionsWeTreatList[2], conditionsWeTreatList[3]],
-  [conditionsWeTreatList[4], conditionsWeTreatList[5]],
-];
+const conditionPairs = [];
+for (let i = 0; i < conditionsWeTreatList.length; i += 2) {
+  conditionPairs.push(conditionsWeTreatList.slice(i, i + 2));
+}
 
 const heartSymptomsCol1 = [
   { name: "Chest pain or pressure", link: "/symptom/chest-pain" },
@@ -501,6 +506,9 @@ export default function HomeClient() {
   const [activeTab, setActiveTab] = useState("heart");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [desktopSlide, setDesktopSlide] = useState(0);
+  const [maxDesktopSlide, setMaxDesktopSlide] = useState(3);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
   const [mobileSlide, setMobileSlide] = useState(0);
   const [mobileAccordionOpen, setMobileAccordionOpen] = useState("heart");
   const desktopCarouselRef = useRef(null);
@@ -523,12 +531,46 @@ export default function HomeClient() {
   }, []);
 
   // Desktop 1-Row Carousel Handlers
+  const updateDesktopCarouselState = () => {
+    if (!desktopCarouselRef.current) return;
+    const container = desktopCarouselRef.current;
+    const card = container.children[0];
+    const cardWidth = card ? card.offsetWidth : 280;
+    const gap = 24;
+    const step = cardWidth + gap;
+    const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+    const scrollLeft = container.scrollLeft;
+
+    const maxIdx = Math.max(1, Math.round(maxScroll / step));
+    const currentIdx = Math.min(
+      maxIdx,
+      Math.max(0, Math.round(scrollLeft / step))
+    );
+
+    setDesktopSlide(currentIdx);
+    setMaxDesktopSlide(maxIdx);
+    setCanScrollPrev(scrollLeft > 5);
+    setCanScrollNext(scrollLeft < maxScroll - 5);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      updateDesktopCarouselState();
+    };
+    updateDesktopCarouselState();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const scrollDesktopToIndex = (index) => {
     if (!desktopCarouselRef.current) return;
     const container = desktopCarouselRef.current;
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    if (maxScroll <= 0) return;
-    const targetScroll = (index / (conditionsWeTreatList.length - 1)) * maxScroll;
+    const card = container.children[0];
+    const cardWidth = card ? card.offsetWidth : 280;
+    const gap = 24;
+    const step = cardWidth + gap;
+    const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+    const targetScroll = Math.min(maxScroll, Math.max(0, index * step));
     container.scrollTo({
       left: targetScroll,
       behavior: "smooth",
@@ -537,24 +579,36 @@ export default function HomeClient() {
   };
 
   const handleDesktopPrev = () => {
-    const newIndex = Math.max(0, desktopSlide - 1);
-    scrollDesktopToIndex(newIndex);
+    if (!desktopCarouselRef.current) return;
+    const container = desktopCarouselRef.current;
+    const card = container.children[0];
+    const cardWidth = card ? card.offsetWidth : 280;
+    const gap = 24;
+    const step = cardWidth + gap;
+    const target = Math.max(0, container.scrollLeft - step);
+    container.scrollTo({
+      left: target,
+      behavior: "smooth",
+    });
   };
 
   const handleDesktopNext = () => {
-    const newIndex = Math.min(conditionsWeTreatList.length - 1, desktopSlide + 1);
-    scrollDesktopToIndex(newIndex);
+    if (!desktopCarouselRef.current) return;
+    const container = desktopCarouselRef.current;
+    const card = container.children[0];
+    const cardWidth = card ? card.offsetWidth : 280;
+    const gap = 24;
+    const step = cardWidth + gap;
+    const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+    const target = Math.min(maxScroll, container.scrollLeft + step);
+    container.scrollTo({
+      left: target,
+      behavior: "smooth",
+    });
   };
 
   const handleDesktopScroll = () => {
-    if (!desktopCarouselRef.current) return;
-    const container = desktopCarouselRef.current;
-    const scrollLeft = container.scrollLeft;
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    if (maxScroll <= 0) return;
-    const progress = Math.min(1, Math.max(0, scrollLeft / maxScroll));
-    const index = Math.round(progress * (conditionsWeTreatList.length - 1));
-    setDesktopSlide(index);
+    updateDesktopCarouselState();
   };
 
   // Mobile 2-Row Slider Handlers
@@ -1294,7 +1348,7 @@ export default function HomeClient() {
             <button
               type="button"
               onClick={handleDesktopPrev}
-              disabled={desktopSlide === 0}
+              disabled={!canScrollPrev}
               aria-label="Previous condition"
               className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
             >
@@ -1305,7 +1359,7 @@ export default function HomeClient() {
             <button
               type="button"
               onClick={handleDesktopNext}
-              disabled={desktopSlide >= conditionsWeTreatList.length - 1}
+              disabled={!canScrollNext}
               aria-label="Next condition"
               className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
             >
@@ -1319,9 +1373,10 @@ export default function HomeClient() {
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 pt-1 px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               {conditionsWeTreatList.map((item, idx) => (
-                <div
+                <Link
                   key={idx}
-                  className="snap-start shrink-0 w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-white border border-slate-100 rounded-3xl p-5 sm:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                  href={item.link}
+                  className="snap-start shrink-0 w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-white border border-slate-100 rounded-3xl p-5 sm:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
                 >
                   <div>
                     {/* Visual / Image */}
@@ -1345,24 +1400,13 @@ export default function HomeClient() {
                       {item.description}
                     </p>
                   </div>
-
-                  {/* Circular Action Arrow Button */}
-                  <div className="flex items-center justify-start mt-5 pt-1">
-                    <Link
-                      href={item.link}
-                      aria-label={`Learn more about ${item.title}`}
-                      className="w-9 h-9 rounded-full border border-sky-300 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white group-hover:border-sky-600 transition-all duration-300 shadow-2xs"
-                    >
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
 
-            {/* Desktop Pagination Dots (6 dots) */}
+            {/* Desktop Pagination Dots */}
             <div className="flex justify-center items-center gap-2 mt-6">
-              {conditionsWeTreatList.map((_, idx) => (
+              {Array.from({ length: maxDesktopSlide + 1 }).map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
@@ -1391,9 +1435,10 @@ export default function HomeClient() {
                   className="snap-start shrink-0 w-[84vw] xs:w-[78vw] flex flex-col gap-3.5"
                 >
                   {pair.map((item, itemIdx) => (
-                    <div
+                    <Link
                       key={itemIdx}
-                      className="bg-white border border-slate-100 rounded-3xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
+                      href={item.link}
+                      className="bg-white border border-slate-100 rounded-3xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] active:scale-[0.99] transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
                     >
                       <div>
                         {item.image && (
@@ -1416,17 +1461,7 @@ export default function HomeClient() {
                           {item.description}
                         </p>
                       </div>
-
-                      <div className="flex items-center justify-end mt-3 pt-1">
-                        <Link
-                          href={item.link}
-                          aria-label={`Learn more about ${item.title}`}
-                          className="w-8 h-8 rounded-full border border-sky-300 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white group-hover:border-sky-600 transition-all duration-300 shadow-2xs"
-                        >
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                        </Link>
-                      </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               ))}
