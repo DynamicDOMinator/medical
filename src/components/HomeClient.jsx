@@ -415,6 +415,12 @@ const conditionsWeTreatList = [
     link: "/blood-vessels/venous-disease",
   },
   {
+    title: "Thromboembolic Disease",
+    description: "Deep vein thrombosis & clot prevention.",
+    image: "/content5.png",
+    link: "/blood-vessels/thromboembolic-disease",
+  },
+  {
     title: "Valvular & Structural Disease",
     description: "Conditions affecting the heart valves and structural chambers.",
     image: "/content7.png",
