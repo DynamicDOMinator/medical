@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, Mail, Phone, MapPin, ShieldAlert } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname() || "";
+  const isEs = pathname.startsWith("/es");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,7 +17,7 @@ export default function Footer() {
           {/* Brand block */}
           <div className="space-y-4 col-span-1 md:col-span-2">
             <Link
-              href="/"
+              href={isEs ? "/es" : "/"}
               className="inline-flex items-center bg-white/95 px-3 py-1.5 rounded-xl transition-opacity hover:opacity-90 shadow-sm"
             >
               <Image
@@ -24,18 +29,20 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-md">
-              Dr. Almahmoud is committed to provide personalized care for every
-              stage of your cardiovascular health. Your long-term health
-              companion.
+              {isEs
+                ? "El Dr. Almahmoud está comprometido a brindar atención personalizada para cada etapa de su salud cardiovascular. Su compañero de salud a largo plazo."
+                : "Dr. Almahmoud is committed to provide personalized care for every stage of your cardiovascular health. Your long-term health companion."}
             </p>
             <div className="flex flex-col space-y-2.5 text-sm pt-2">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-brand-400 shrink-0 mt-0.5" />
                 <Link
-                  href="/contact#locations"
+                  href={isEs ? "/es/contact#locations" : "/contact#locations"}
                   className="hover:text-white transition-colors"
                 >
-                  3 TCA Locations: The Woodlands, Spring &amp; Kingwood
+                  {isEs
+                    ? "3 Ubicaciones TCA: The Woodlands, Spring y Kingwood"
+                    : "3 TCA Locations: The Woodlands, Spring & Kingwood"}
                 </Link>
               </div>
               <div className="flex items-center space-x-2">
@@ -62,36 +69,44 @@ export default function Footer() {
           {/* Quick links */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              Quick Links
+              {isEs ? "Enlaces Rápidos" : "Quick Links"}
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
+                <Link href={isEs ? "/es" : "/"} className="hover:text-white transition-colors">
+                  {isEs ? "Inicio" : "Home"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href={isEs ? "/es/about" : "/about"}
                   className="hover:text-white transition-colors"
                 >
-                  About Dr. Almahmoud
+                  {isEs ? "Sobre el Dr. Almahmoud" : "About Dr. Almahmoud"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact#locations"
+                  href={isEs ? "/es/contact#locations" : "/contact#locations"}
                   className="hover:text-white transition-colors"
                 >
-                  Clinic Locations 
+                  {isEs ? "Ubicaciones de Clínicas" : "Clinic Locations"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/heart-care"
+                  href={isEs ? "/es/heart-care" : "/heart-care"}
                   className="hover:text-white transition-colors"
                 >
-                  Heart Health Questions
+                  {isEs ? "Preguntas de Salud del Corazón" : "Heart Health Questions"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={isEs ? "/es/contact" : "/contact"}
+                  className="hover:text-white transition-colors"
+                >
+                  {isEs ? "Citas y Contacto" : "Contact & Appointments"}
                 </Link>
               </li>
             </ul>
@@ -100,42 +115,42 @@ export default function Footer() {
           {/* Doctor Weekly Schedule */}
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
-              Doctor Schedule
+              {isEs ? "Horario del Doctor" : "Doctor Schedule"}
             </h3>
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li className="flex justify-between">
-                <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Mon (Spring - Peakwood):
+                <Link href={isEs ? "/es/contact#locations" : "/contact#locations"} className="hover:text-white transition-colors">
+                  {isEs ? "Lun (Spring - Peakwood):" : "Mon (Spring - Peakwood):"}
                 </Link>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Tue (Kingwood):
+                <Link href={isEs ? "/es/contact#locations" : "/contact#locations"} className="hover:text-white transition-colors">
+                  {isEs ? "Mar (Kingwood):" : "Tue (Kingwood):"}
                 </Link>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Wed (Spring - Peakwood):
+                <Link href={isEs ? "/es/contact#locations" : "/contact#locations"} className="hover:text-white transition-colors">
+                  {isEs ? "Mié (Spring - Peakwood):" : "Wed (Spring - Peakwood):"}
                 </Link>
                 <span className="text-white font-medium">12:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Thu (Kingwood):
+                <Link href={isEs ? "/es/contact#locations" : "/contact#locations"} className="hover:text-white transition-colors">
+                  {isEs ? "Jue (Kingwood):" : "Thu (Kingwood):"}
                 </Link>
                 <span className="text-white font-medium">1:00 PM – 5:00 PM</span>
               </li>
               <li className="flex justify-between">
-                <Link href="/contact#locations" className="hover:text-white transition-colors">
-                  Fri (The Woodlands):
+                <Link href={isEs ? "/es/contact#locations" : "/contact#locations"} className="hover:text-white transition-colors">
+                  {isEs ? "Vie (The Woodlands):" : "Fri (The Woodlands):"}
                 </Link>
                 <span className="text-white font-medium">8:00 AM – 1:00 PM</span>
               </li>
               <li className="flex justify-between text-brand-400 pt-1 border-t border-slate-800">
-                <span>Appointments:</span>
-                <span className="font-semibold">Online via Healow</span>
+                <span>{isEs ? "Citas:" : "Appointments:"}</span>
+                <span className="font-semibold">{isEs ? "En línea por Healow" : "Online via Healow"}</span>
               </li>
             </ul>
           </div>
@@ -145,15 +160,14 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-800 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 pt-2">
             <p>
-              &copy; {currentYear} Texas Cardiology Associates of The Woodlands. All rights
-              reserved.
+              &copy; {currentYear} Texas Cardiology Associates of The Woodlands. {isEs ? "Todos los derechos reservados." : "All rights reserved."}
             </p>
             <div className="flex space-x-4 mt-2 sm:mt-0">
-              <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
-                Privacy Policy
+              <Link href={isEs ? "/es/privacy-policy" : "/privacy-policy"} className="hover:text-slate-300 transition-colors">
+                {isEs ? "Política de Privacidad" : "Privacy Policy"}
               </Link>
               <a href="#" className="hover:text-slate-300">
-                Terms of Use
+                {isEs ? "Términos de Uso" : "Terms of Use"}
               </a>
             </div>
           </div>

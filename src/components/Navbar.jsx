@@ -180,7 +180,7 @@ function MegaDropdown({ items, label, icon: Icon, categoryHref, isActive }) {
   );
 }
 
-function SymptomsMegaDropdown({ isActive }) {
+function SymptomsMegaDropdown({ isActive, categories = symptomsCategories, label = "Symptoms" }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef(null);
 
@@ -208,7 +208,7 @@ function SymptomsMegaDropdown({ isActive }) {
           }`}
       >
         <Stethoscope className={`h-4 w-4 ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-500"}`} />
-        <span>Symptoms</span>
+        <span>{label}</span>
         <ChevronDown
           className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""
             } ${isActive ? "text-white" : open ? "text-blue-600" : "text-slate-400"}`}
@@ -219,7 +219,7 @@ function SymptomsMegaDropdown({ isActive }) {
         <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[820px] bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-2xl shadow-2xl shadow-slate-950/15 z-50 overflow-hidden animate-fade-in-up p-5">
           {/* 4 Clean Minimalist Columns */}
           <div className="grid grid-cols-4 gap-5">
-            {symptomsCategories.map((col) => {
+            {categories.map((col) => {
               const ColIcon = col.icon;
               return (
                 <div key={col.id} className="space-y-3">
@@ -282,12 +282,93 @@ export default function Navbar() {
 
   const isSymptomsActive = pathname.startsWith("/symptom");
 
-  const staticLinks = [
-    { name: "Heart Care", href: "/heart-care" },
-    { name: "Insurance", href: "/#insurance" },
-    { name: "Provider", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const isEs = pathname.startsWith("/es");
+
+  const currentHeartDiseases = isEs
+    ? [
+        { name: "Enfermedad Arterial Coronaria (CAD)", href: "/es/heart/cad", desc: "Acumulación de placa y estrechamiento arterial" },
+        { name: "Arritmias", href: "/es/heart/arrhythmias", desc: "Ritmos eléctricos irregulares" },
+        { name: "Enfermedad Cardíaca Valvular", href: "/es/heart/valvular-heart-disease", desc: "Estenosis e insuficiencia de válvulas" },
+        { name: "Insuficiencia Cardíaca Congestiva (CHF)", href: "/es/heart/chf", desc: "Reducción en la función de bombeo" },
+      ]
+    : heartDiseases;
+
+  const currentBloodVesselDiseases = isEs
+    ? [
+        { name: "Enfermedad Venosa", href: "/es/blood-vessels/venous-disease", desc: "Insuficiencia, varices e hinchazón" },
+        { name: "Enfermedad Arterial Periférica (PAD)", href: "/es/blood-vessels/peripheral-artery-disease", desc: "Bloqueos en la circulación de piernas" },
+        { name: "Enfermedad Tromboembólica", href: "/es/blood-vessels/thromboembolic-disease", desc: "Trombosis venosa profunda y coágulos" },
+      ]
+    : bloodVesselDiseases;
+
+  const currentSymptomsCategories = isEs
+    ? [
+        {
+          id: "heart",
+          category: "Síntomas del Corazón",
+          icon: Heart,
+          iconColor: "text-rose-500",
+          items: [
+            { name: "Dolor de Pecho", href: "/es/symptom/chest-pain" },
+            { name: "Falta de Aire", href: "/es/symptom/shortness-of-breath" },
+            { name: "Palpitaciones", href: "/es/symptom/palpitations" },
+            { name: "Mareos y Desmayos", href: "/es/symptom/dizziness-and-fainting" },
+            { name: "Fatiga y Cansancio", href: "/es/symptom/fatigue" },
+          ],
+        },
+        {
+          id: "vascular",
+          category: "Síntomas Vasculares",
+          icon: Activity,
+          iconColor: "text-sky-500",
+          items: [
+            { name: "Dolor de Piernas", href: "/es/symptom/leg-pain-when-walking" },
+            { name: "Hinchazón en Piernas", href: "/es/symptom/leg-swelling" },
+            { name: "Pesadez de Piernas", href: "/es/symptom/leg-heaviness-and-aching" },
+            { name: "Venas Varicosas", href: "/es/symptom/varicose-veins" },
+            { name: "Pies Fríos o Descoloridos", href: "/es/symptom/cold-or-discolored-feet" },
+          ],
+        },
+        {
+          id: "hypertension",
+          category: "Hipertensión",
+          icon: TrendingUp,
+          iconColor: "text-indigo-500",
+          items: [
+            { name: "Presión Arterial Alta", href: "/es/symptom/high-blood-pressure" },
+            { name: "Dolores de Cabeza", href: "/es/symptom/headaches" },
+            { name: "Mareos", href: "/es/symptom/dizziness" },
+          ],
+        },
+        {
+          id: "joint",
+          category: "Cuidado Articular",
+          icon: Sparkles,
+          iconColor: "text-amber-500",
+          items: [
+            { name: "Osteoartritis de Rodilla (GAE)", href: "/es/symptom/knee-osteoarthritis" },
+          ],
+        },
+      ]
+    : symptomsCategories;
+
+  const staticLinks = isEs
+    ? [
+        { name: "Cuidado del Corazón", href: "/es/heart-care" },
+        { name: "Seguros", href: "/es#insurance" },
+        { name: "Médico", href: "/es/about" },
+        { name: "Contacto", href: "/es/contact" },
+      ]
+    : [
+        { name: "Heart Care", href: "/heart-care" },
+        { name: "Insurance", href: "/#insurance" },
+        { name: "Provider", href: "/about" },
+        { name: "Contact", href: "/contact" },
+      ];
+
+  const switchHref = isEs
+    ? (pathname.replace(/^\/es(\/|$)/, "$1") || "/")
+    : (pathname === "/" ? "/es" : `/es${pathname}`);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
@@ -295,7 +376,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           {/* Clinic Brand Logo */}
           <Link
-            href="/"
+            href={isEs ? "/es" : "/"}
             className="flex items-center shrink-0 py-1 transition-opacity hover:opacity-90"
           >
             <Image
@@ -311,32 +392,32 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-1">
             <MegaDropdown
-              items={heartDiseases}
-              label="Heart"
+              items={currentHeartDiseases}
+              label={isEs ? "Corazón" : "Heart"}
               icon={Heart}
-              categoryHref="/heart"
+              categoryHref={isEs ? "/es/heart" : "/heart"}
               isActive={isHeartActive}
             />
             <MegaDropdown
-              items={bloodVesselDiseases}
-              label="Blood Vessels"
+              items={currentBloodVesselDiseases}
+              label={isEs ? "Vasos Sanguíneos" : "Blood Vessels"}
               icon={Activity}
-              categoryHref="/blood-vessels"
+              categoryHref={isEs ? "/es/blood-vessels" : "/blood-vessels"}
               isActive={isVesselsActive}
             />
             <Link
-              href="/blood-vessels/hypertension"
+              href={isEs ? "/es/blood-vessels/hypertension" : "/blood-vessels/hypertension"}
               className={`flex items-center space-x-1.5 text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-150 ${isHypertensionActive
                   ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
                   : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/70"
                 }`}
             >
               <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-slate-500"}`} />
-              <span>Hypertension</span>
+              <span>{isEs ? "Hipertensión" : "Hypertension"}</span>
             </Link>
 
             {/* Consistent Nav UI for Symptoms Dropdown */}
-            <SymptomsMegaDropdown isActive={isSymptomsActive} />
+            <SymptomsMegaDropdown isActive={isSymptomsActive} categories={currentSymptomsCategories} label={isEs ? "Síntomas" : "Symptoms"} />
 
             {/* Divider */}
             <div className="h-4 w-px bg-slate-200 mx-1.5" />
@@ -356,6 +437,19 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Language Toggle Button */}
+            <Link
+              href={switchHref}
+              className={`text-xs font-bold px-3 py-1.5 rounded-full transition-all duration-150 inline-flex items-center space-x-1 border ml-1 ${
+                isEs
+                  ? "bg-blue-50 text-blue-800 border-blue-200/90 hover:bg-blue-100"
+                  : "bg-emerald-50 text-emerald-800 border-emerald-200/90 hover:bg-emerald-100"
+              }`}
+            >
+              <span>{isEs ? "🇺🇸" : "🇲🇽"}</span>
+              <span>{isEs ? "English" : "Español"}</span>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -386,7 +480,7 @@ export default function Navbar() {
               >
                 <div className="flex items-center space-x-2">
                   <Heart className="h-4 w-4 text-blue-600" />
-                  <span>Heart Conditions</span>
+                  <span>{isEs ? "Condiciones del Corazón" : "Heart Conditions"}</span>
                 </div>
                 <ChevronDown
                   className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileHeartOpen ? "rotate-180 text-blue-600" : ""
@@ -395,7 +489,7 @@ export default function Navbar() {
               </button>
               {mobileHeartOpen && (
                 <div className="pl-6 py-1 space-y-1">
-                  {heartDiseases.map((item) => (
+                  {currentHeartDiseases.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -406,11 +500,11 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Link
-                    href="/heart"
+                    href={isEs ? "/es/heart" : "/heart"}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-500"
                   >
-                    <span>Browse All Heart Conditions →</span>
+                    <span>{isEs ? "Ver Todas las Condiciones del Corazón →" : "Browse All Heart Conditions →"}</span>
                   </Link>
                 </div>
               )}
@@ -425,7 +519,7 @@ export default function Navbar() {
               >
                 <div className="flex items-center space-x-2">
                   <Activity className="h-4 w-4 text-blue-600" />
-                  <span>Blood Vessel Conditions</span>
+                  <span>{isEs ? "Vasos Sanguíneos" : "Blood Vessel Conditions"}</span>
                 </div>
                 <ChevronDown
                   className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileVesselsOpen ? "rotate-180 text-blue-600" : ""
@@ -434,7 +528,7 @@ export default function Navbar() {
               </button>
               {mobileVesselsOpen && (
                 <div className="pl-6 py-1 space-y-1">
-                  {bloodVesselDiseases.map((item) => (
+                  {currentBloodVesselDiseases.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -445,11 +539,11 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Link
-                    href="/blood-vessels"
+                    href={isEs ? "/es/blood-vessels" : "/blood-vessels"}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-between py-2 text-xs font-bold text-blue-600 pt-2 border-t border-slate-500"
                   >
-                    <span>Browse All Vascular Conditions →</span>
+                    <span>{isEs ? "Ver Todas las Condiciones Vasculares →" : "Browse All Vascular Conditions →"}</span>
                   </Link>
                 </div>
               )}
@@ -457,7 +551,7 @@ export default function Navbar() {
 
             {/* Hypertension Mobile Link */}
             <Link
-              href="/blood-vessels/hypertension"
+              href={isEs ? "/es/blood-vessels/hypertension" : "/blood-vessels/hypertension"}
               onClick={() => setMobileOpen(false)}
               className={`flex items-center space-x-2 px-3 py-2.5 text-sm font-bold transition-colors ${isHypertensionActive
                   ? "bg-blue-600 text-white rounded-xl shadow-sm"
@@ -465,7 +559,7 @@ export default function Navbar() {
                 }`}
             >
               <TrendingUp className={`h-4 w-4 ${isHypertensionActive ? "text-white" : "text-blue-600"}`} />
-              <span>Hypertension</span>
+              <span>{isEs ? "Hipertensión" : "Hypertension"}</span>
             </Link>
 
             {/* Symptoms Accordion */}
@@ -477,7 +571,7 @@ export default function Navbar() {
               >
                 <div className="flex items-center space-x-2">
                   <Stethoscope className="h-4 w-4 text-blue-600" />
-                  <span>Symptoms</span>
+                  <span>{isEs ? "Síntomas" : "Symptoms"}</span>
                 </div>
                 <ChevronDown
                   className={`h-4 w-4 text-slate-400 transition-transform duration-200 ${mobileSymptomsOpen ? "rotate-180 text-blue-600" : ""
@@ -487,7 +581,7 @@ export default function Navbar() {
 
               {mobileSymptomsOpen && (
                 <div className="pl-6 py-1 space-y-2">
-                  {symptomsCategories.map((cat) => {
+                  {currentSymptomsCategories.map((cat) => {
                     const isExpanded = activeMobileSymptomCat === cat.id;
                     const CatIcon = cat.icon;
                     return (
@@ -548,6 +642,18 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              <Link
+                href={switchHref}
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center space-x-2 px-3 py-2 rounded-xl text-sm font-bold transition-colors ${
+                  isEs
+                    ? "bg-blue-50 text-blue-800 hover:bg-blue-100"
+                    : "bg-emerald-50 text-emerald-800 hover:bg-emerald-100"
+                }`}
+              >
+                <span>{isEs ? "🇺🇸" : "🇲🇽"}</span>
+                <span>{isEs ? "Switch to English" : "Cambiar a Español"}</span>
+              </Link>
             </div>
 
             {/* Mobile Drawer Call Clinic CTA */}
