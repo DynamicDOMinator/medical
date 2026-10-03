@@ -186,7 +186,7 @@ export default function PADPageEs() {
               {/* Overview Medical Infographic Banner */}
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/images/pad-overview-illustration.png"
+                  src="/images/es-Images/Understanding Peripheral Artery Disease-es.png"
                   alt="Ilustración Médica de Enfermedad Arterial Periférica (EAP)"
                   width={1400}
                   height={900}

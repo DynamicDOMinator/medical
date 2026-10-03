@@ -178,7 +178,7 @@ export default function SpanishCHFPage() {
 
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/content2.png"
+                  src="/images/es-Images/chf-es.png"
                   alt="Insuficiencia Cardíaca Congestiva - Infografía Médica"
                   width={1400}
                   height={900}

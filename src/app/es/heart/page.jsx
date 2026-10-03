@@ -26,14 +26,14 @@ const heartDiseasesEs = [
     slug: 'valvular-heart-disease',
     name: 'Enfermedad Cardíaca Valvular',
     description: 'Una o más válvulas del corazón no abren por completo (estenosis) o no cierran adecuadamente (insuficiencia), alterando la circulación normal.',
-    image: '/content7.png',
+    image: '/images/es-Images/valvular-heart-disease-es.png',
     icon: Layers,
   },
   {
     slug: 'chf',
     name: 'Insuficiencia Cardíaca Congestiva (CHF)',
     description: 'Una afección crónica donde el miocardio es incapaz de bombear suficiente sangre oxigenada para satisfacer las demandas del cuerpo.',
-    image: '/content2.png',
+    image: '/images/es-Images/chf-es.png',
     icon: Activity,
   },
 ];

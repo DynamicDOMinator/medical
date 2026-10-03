@@ -172,7 +172,7 @@ export default function ThromboembolicDiseasePageEs() {
               {/* Overview Medical Infographic Banner */}
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/content5.png"
+                  src="/images/es-Images/Tromboembólica-es.png"
                   alt="Ilustración Médica de Enfermedad Tromboembólica y Trombo Venoso"
                   width={1400}
                   height={900}

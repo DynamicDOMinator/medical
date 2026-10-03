@@ -221,7 +221,7 @@ export default function SpanishHeartCADPage() {
 
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/images/cad-progression.jpg"
+                  src="/images/es-Images/Types of CAD-es.png"
                   alt="Desarrollo de la Enfermedad Arterial Coronaria"
                   width={1400}
                   height={800}

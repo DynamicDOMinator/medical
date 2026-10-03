@@ -318,7 +318,7 @@ export default function SpanishHypertensionPage() {
 
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/content6.png"
+                  src="/images/es-Images/Diagnostic Testing-hypertantion-es.png"
                   alt="Pruebas Diagnósticas de Hipertensión"
                   width={1400}
                   height={900}

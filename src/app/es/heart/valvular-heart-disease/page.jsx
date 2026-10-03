@@ -149,7 +149,7 @@ export default function SpanishValvularHeartDiseasePage() {
 
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/content7.png"
+                  src="/images/es-Images/valvular-heart-disease-es.png"
                   alt="Enfermedad Cardíaca Valvular - Infografía Médica"
                   width={1400}
                   height={900}

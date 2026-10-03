@@ -235,7 +235,7 @@ export default function VenousDiseasePageEs() {
               {/* Overview Medical Infographic Banner */}
               <div className="mt-8 -mx-6 sm:-mx-10 -mb-6 sm:-mb-10 border-t border-slate-100 bg-white">
                 <Image
-                  src="/images/venous-types-visual-white.jpg"
+                  src="/images/es-Images/Enfermedad-Venosa-es.png"
                   alt="Infografía Clínica de Tipos de Enfermedad Venosa e Insuficiencia Crónica"
                   width={1400}
                   height={900}
