@@ -5,13 +5,17 @@ import { PhoneCall } from "lucide-react";
 
 export default function FloatingCallButton() {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname === "/es" || pathname === "/es/";
 
   const isElevatedPage =
     pathname?.startsWith("/symptom") ||
     pathname?.startsWith("/heart/") ||
     pathname?.startsWith("/blood-vessels/") ||
-    pathname?.startsWith("/disease/");
+    pathname?.startsWith("/disease/") ||
+    pathname?.startsWith("/es/symptom") ||
+    pathname?.startsWith("/es/heart/") ||
+    pathname?.startsWith("/es/blood-vessels/") ||
+    pathname?.startsWith("/es/disease/");
 
   return (
     <aside

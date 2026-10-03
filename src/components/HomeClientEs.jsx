@@ -385,50 +385,50 @@ const faqData = [
 
 const conditionsWeTreatList = [
   {
-    title: "Enfermedad Arterial Coronaria (CAD)",
-    description: "Arterias obstruidas o estrechas que reducen el flujo sanguíneo con oxígeno al corazón.",
+    title: "Enfermedad Arterial Coronaria",
+    description: "Arterias obstruidas o estrechas que reducen el flujo sanguíneo al corazón.",
     image: "/heart-2.png",
     link: "/es/heart/cad",
   },
   {
-    title: "Trastornos del Ritmo Cardíaco (Arritmias)",
-    description: "Afecciones que provocan latidos demasiado rápidos, lentos o irregulares.",
+    title: "Trastornos del Ritmo Cardíaco",
+    description: "Afecciones que provocan que el corazón lata demasiado rápido, lento o de forma irregular.",
     image: "/content.png",
     link: "/es/heart/arrhythmias",
   },
   {
-    title: "Insuficiencia Cardíaca (CHF)",
-    description: "Dificultad del corazón para bombear la sangre requerida por el organismo.",
+    title: "Insuficiencia Cardíaca",
+    description: "Cuando el corazón tiene dificultades para bombear suficiente sangre para las necesidades del cuerpo.",
     image: "/content2.png",
     link: "/es/heart/chf",
   },
   {
-    title: "Enfermedad Arterial Periférica (PAD)",
-    description: "Disminución de la circulación arterial en las piernas y extremidades.",
+    title: "Enfermedad Arterial Periférica",
+    description: "Flujo sanguíneo reducido a través de las arterias que irrigan las piernas y otras partes del cuerpo.",
     image: "/images/pad-overview-illustration.png",
     link: "/es/blood-vessels/peripheral-artery-disease",
   },
   {
-    title: "Enfermedad Venosa y Várices",
-    description: "Insuficiencia valvular, venas varicosas, pesadez e hinchazón.",
+    title: "Enfermedad Venosa",
+    description: "Insuficiencia, venas varicosas e hinchazón.",
     image: "/images/venous-types-visual-white.jpg",
     link: "/es/blood-vessels/venous-disease",
   },
   {
-    title: "Enfermedad Tromboembólica y TVP",
-    description: "Trombosis venosa profunda y prevención de coágulos y embolias.",
+    title: "Enfermedad Tromboembólica",
+    description: "Trombosis venosa profunda y prevención de coágulos.",
     image: "/content5.png",
     link: "/es/blood-vessels/thromboembolic-disease",
   },
   {
     title: "Enfermedad Valvular y Estructural",
-    description: "Afecciones que comprometen el funcionamiento de las válvulas cardíacas.",
+    description: "Afecciones que afectan las válvulas cardíacas y cavidades estructurales.",
     image: "/content7.png",
     link: "/es/heart/valvular-heart-disease",
   },
   {
     title: "Hipertensión y Presión Arterial",
-    description: "Detección temprana, protección de órganos diana y tratamiento de la presión alta.",
+    description: "Detección de presión arterial alta, protección de órganos diana y tratamiento.",
     image: "/content8.jpg",
     link: "/es/blood-vessels/hypertension",
   },
@@ -859,9 +859,8 @@ export default function HomeClientEs() {
               {diagnosticTests.map((test, idx) => (
                 <div
                   key={idx}
-                  className={`group bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-blue-400/60 rounded-2xl overflow-hidden transition-all duration-300 shadow-xs hover:shadow-md flex-col justify-between ${
-                    idx >= 3 ? "hidden sm:flex" : "flex"
-                  }`}
+                  className={`group bg-white hover:bg-slate-50 border border-slate-200/90 hover:border-blue-400/60 rounded-2xl overflow-hidden transition-all duration-300 shadow-xs hover:shadow-md flex-col justify-between ${idx >= 3 ? "hidden sm:flex" : "flex"
+                    }`}
                 >
                   <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
                     <Image
@@ -1190,77 +1189,162 @@ export default function HomeClientEs() {
         </div>
       </section>
 
-      {/* 6. CONDITIONS WE TREAT (CAROUSEL) */}
-      <section className="bg-slate-100/70 py-20 border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div>
-              <span className="text-xs font-black text-blue-600 uppercase tracking-widest">
-                especialidades clínicas
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
-                Condiciones que Tratamos
-              </h2>
+      {/* 6. CONDITIONS: CONDITIONS WE TREAT */}
+      <section
+        id="doctor-specialties"
+        className="scroll-mt-20 max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8"
+      >
+        {/* Section Main Title */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B2240] tracking-tight">
+            Condiciones que Tratamos
+          </h2>
+        </div>
+
+        {/* 3A. CONDITIONS WE TREAT CAROUSEL */}
+        <div className="mb-14 sm:mb-20">
+
+          {/* DESKTOP (PC): 1-Row Carousel with Side Arrows & 4 visible cards */}
+          <div className="hidden md:block relative">
+            {/* Desktop Left Arrow Button */}
+            <button
+              type="button"
+              onClick={handleDesktopPrev}
+              disabled={!canScrollPrev}
+              aria-label="Condición anterior"
+              className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Desktop Right Arrow Button */}
+            <button
+              type="button"
+              onClick={handleDesktopNext}
+              disabled={!canScrollNext}
+              aria-label="Siguiente condición"
+              className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 disabled:opacity-25 disabled:pointer-events-none transition-all cursor-pointer hover:scale-105"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* 1-Row Track */}
+            <div
+              ref={desktopCarouselRef}
+              onScroll={handleDesktopScroll}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 pt-1 px-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {conditionsWeTreatList.map((item, idx) => (
+                <Link
+                  key={idx}
+                  href={item.link}
+                  className="snap-start shrink-0 w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-white border border-slate-100 rounded-3xl p-5 sm:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
+                >
+                  <div>
+                    {/* Visual / Image */}
+                    {item.image && (
+                      <div className="relative h-40 sm:h-44 w-full rounded-2xl overflow-hidden bg-slate-50 mb-4 flex items-center justify-center border border-slate-100/80">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+
+                    <h4 className="font-extrabold text-[#0B2240] text-base group-hover:text-blue-600 transition-colors leading-snug">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-xs sm:text-[13px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
             </div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={handleDesktopPrev}
-                disabled={!canScrollPrev}
-                className="p-2.5 rounded-2xl bg-white border border-slate-200 text-slate-700 disabled:opacity-40 hover:bg-slate-50 transition-colors shadow-2xs"
-                aria-label="Anterior"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={handleDesktopNext}
-                disabled={!canScrollNext}
-                className="p-2.5 rounded-2xl bg-white border border-slate-200 text-slate-700 disabled:opacity-40 hover:bg-slate-50 transition-colors shadow-2xs"
-                aria-label="Siguiente"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
+
+            {/* Desktop Pagination Dots */}
+            <div className="flex justify-center items-center gap-2 mt-6">
+              {Array.from({ length: maxDesktopSlide + 1 }).map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollDesktopToIndex(idx)}
+                  aria-label={`Ir a la diapositiva ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    desktopSlide === idx
+                      ? "w-6 bg-teal-700"
+                      : "w-2 bg-teal-200 hover:bg-teal-300"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
-          <div
-            ref={desktopCarouselRef}
-            onScroll={handleDesktopScroll}
-            className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-4"
-          >
-            {conditionsWeTreatList.map((cond, idx) => (
-              <div
-                key={idx}
-                className="w-72 sm:w-80 shrink-0 snap-start bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs hover:shadow-lg transition-all group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
-                    <Image
-                      src={cond.image}
-                      alt={cond.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-5 space-y-2">
-                    <h3 className="font-extrabold text-slate-900 text-lg group-hover:text-blue-600 transition-colors">
-                      {cond.title}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                      {cond.description}
-                    </p>
-                  </div>
+          {/* MOBILE (Phone): 2-Row Slider (1 upper card, 1 lower card per slide) */}
+          <div className="block md:hidden relative">
+            <div
+              ref={mobileCarouselRef}
+              onScroll={handleMobileScroll}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-3 pt-1 px-1 -mx-2 px-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {conditionPairs.map((pair, slideIdx) => (
+                <div
+                  key={slideIdx}
+                  className="snap-start shrink-0 w-[84vw] xs:w-[78vw] flex flex-col gap-3.5"
+                >
+                  {pair.map((item, itemIdx) => (
+                    <Link
+                      key={itemIdx}
+                      href={item.link}
+                      className="bg-white border border-slate-100 rounded-3xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] active:scale-[0.99] transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
+                    >
+                      <div>
+                        {item.image && (
+                          <div className="relative h-28 xs:h-32 w-full rounded-2xl overflow-hidden bg-slate-50 mb-3 flex items-center justify-center border border-slate-100/80">
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              sizes="85vw"
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        )}
+
+                        <h4 className="font-extrabold text-[#0B2240] text-sm group-hover:text-blue-600 transition-colors leading-snug">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-xs text-slate-500 mt-1 leading-relaxed line-clamp-2">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-                <div className="p-5 pt-0">
-                  <Link
-                    href={cond.link}
-                    className="inline-flex items-center text-xs font-bold text-blue-600 hover:text-blue-700 group-hover:translate-x-1 transition-transform"
-                  >
-                    <span>Leer más</span>
-                    <ChevronRight className="h-3.5 w-3.5 ml-1" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Mobile Pagination Dots (3 dots) */}
+            <div className="flex justify-center items-center gap-2 mt-5">
+              {conditionPairs.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollMobileToIndex(idx)}
+                  aria-label={`Ir a la diapositiva móvil ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    mobileSlide === idx
+                      ? "w-6 bg-teal-700"
+                      : "w-2 bg-teal-200 hover:bg-teal-300"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1479,11 +1563,10 @@ export default function HomeClientEs() {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-xs ${
-                  isOpen
-                    ? "border-blue-500 shadow-md ring-2 ring-blue-500/10"
-                    : "border-slate-200/80 hover:border-blue-300"
-                }`}
+                className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden shadow-xs ${isOpen
+                  ? "border-blue-500 shadow-md ring-2 ring-blue-500/10"
+                  : "border-slate-200/80 hover:border-blue-300"
+                  }`}
               >
                 <button
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
@@ -1495,11 +1578,10 @@ export default function HomeClientEs() {
                     </h3>
                   </div>
                   <div
-                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen
-                        ? "bg-blue-600 text-white rotate-180"
-                        : "bg-slate-100 text-slate-600"
-                    }`}
+                    className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen
+                      ? "bg-blue-600 text-white rotate-180"
+                      : "bg-slate-100 text-slate-600"
+                      }`}
                   >
                     <ChevronDown className="h-5 w-5" />
                   </div>
@@ -1531,11 +1613,10 @@ export default function HomeClientEs() {
       {/* Fixed Bottom Action Bar */}
       <aside
         aria-label="Acciones rápidas de contacto y citas"
-        className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] px-3 py-2 sm:py-2.5 transition-all duration-300 ease-in-out ${
-          showBottomBar
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "translate-y-full opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/80 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] px-3 py-2 sm:py-2.5 transition-all duration-300 ease-in-out ${showBottomBar
+          ? "translate-y-0 opacity-100 pointer-events-auto"
+          : "translate-y-full opacity-0 pointer-events-none"
+          }`}
       >
         <div className="max-w-xl mx-auto flex items-stretch gap-2 sm:gap-3">
           <a

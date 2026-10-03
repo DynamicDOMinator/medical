@@ -6,7 +6,7 @@ import AppointmentContactFormEs from "@/components/AppointmentContactFormEs";
 export const metadata = {
   title: "Contacto y Citas | Dr. Mohamed Faher Almahmoud",
   description:
-    "Brindamos atención médica a pacientes en (The Woodlands, Huntsville, Condado de Walker, New Waverly y comunidades cercanas) en nuestras distintas ubicaciones.",
+    "Brindamos atención médica a pacientes en (The Woodlands, Huntsville, Walker County, New Waverly y comunidades cercanas) en nuestras distintas ubicaciones.",
 };
 
 const HEALOW_BOOKING_URL =
@@ -34,7 +34,7 @@ export default function SpanishContactPage() {
             Contacto y Citas
           </h1>
           <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-            Brindamos atención médica a pacientes en (The Woodlands, Huntsville, Condado de Walker, New Waverly y comunidades cercanas) en nuestras distintas ubicaciones
+            Brindamos atención médica a pacientes en (The Woodlands, Huntsville, Walker County, New Waverly y comunidades cercanas) en nuestras distintas ubicaciones
           </p>
         </div>
       </div>
