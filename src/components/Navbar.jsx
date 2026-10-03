@@ -371,7 +371,7 @@ export default function Navbar() {
     : (pathname === "/" ? "/es" : `/es${pathname}`);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-[100] pointer-events-none">
       <div className="md:max-w-7xl max-w-[96%] mt-3 sm:mt-4 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-lg shadow-slate-950/5 mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
         <div className="flex justify-between h-16 items-center">
           {/* Clinic Brand Logo */}
@@ -467,9 +467,17 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Backdrop Overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs pointer-events-auto md:hidden -z-10"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (
-        <div className="md:hidden border border-slate-200 bg-white max-h-[85vh] overflow-y-auto pointer-events-auto mt-2 rounded-3xl mx-3 shadow-2xl">
+        <div className="md:hidden border border-slate-200 bg-white max-h-[85vh] overflow-y-auto pointer-events-auto mt-2 rounded-3xl mx-3 shadow-2xl relative">
           <div className="px-4 py-4 space-y-1">
             {/* Heart Conditions Accordion */}
             <div>

@@ -139,9 +139,10 @@ export default function SpanishHypertensionPage() {
       <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-sky-950 text-white pt-36 sm:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Hipertensión y <br />
-            Estrés Arterial
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            <span className="block sm:inline">Hipertensión</span>{" "}
+            <br className="hidden sm:inline" />
+            <span className="inline-block">y&nbsp;Estrés Arterial</span>
           </h1>
         </div>
       </div>
