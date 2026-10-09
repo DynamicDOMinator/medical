@@ -41,7 +41,7 @@ export async function POST(request) {
     const smtpPort = parseInt(process.env.SMTP_PORT || "465", 10);
     const smtpSecure = process.env.SMTP_SECURE !== "false"; // Default true for 465
     const smtpUser = process.env.SMTP_USER || "almahmoud@tcathewoodlands.com";
-    const smtpPass = process.env.SMTP_PASS || "B7j;0oc!s$bm";
+    const smtpPass = process.env.SMTP_PASS || "2P!iuHBf9";
     const recipientEmail = process.env.NOTIFICATION_EMAIL || "almahmoud@tcathewoodlands.com";
 
     // Setup Nodemailer Transporter

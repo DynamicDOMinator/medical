@@ -14,7 +14,7 @@ module.exports = {
         SMTP_PORT: 465,
         SMTP_SECURE: 'true',
         SMTP_USER: 'almahmoud@tcathewoodlands.com',
-        SMTP_PASS: 'B7j;0oc!s$bm',
+        SMTP_PASS: '2P!iuHBf9',
         NOTIFICATION_EMAIL: 'almahmoud@tcathewoodlands.com'
       }
     }
